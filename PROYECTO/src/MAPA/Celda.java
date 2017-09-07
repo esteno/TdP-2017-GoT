@@ -15,4 +15,11 @@ public class Celda
     	this.y=y;
     }
 
+    
+    //metodos
+    public int getX()
+    {return x; }
+    
+    public int getY()
+    {return y; }
 }
