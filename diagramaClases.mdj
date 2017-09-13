@@ -20947,11 +20947,11 @@
 											"containerExtending": false,
 											"left": 421,
 											"top": 735,
-											"width": 70,
+											"width": 72,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "DañoDoble",
+											"text": "DanioDoble",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -21019,7 +21019,7 @@
 									"containerExtending": false,
 									"left": 416,
 									"top": 728,
-									"width": 80,
+									"width": 82,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -21055,7 +21055,7 @@
 									"containerExtending": false,
 									"left": 416,
 									"top": 753,
-									"width": 80,
+									"width": 82,
 									"height": 10,
 									"autoResize": false
 								},
@@ -21079,7 +21079,7 @@
 									"containerExtending": false,
 									"left": 416,
 									"top": 763,
-									"width": 80,
+									"width": 82,
 									"height": 10,
 									"autoResize": false
 								},
@@ -21143,7 +21143,7 @@
 							"containerExtending": false,
 							"left": 416,
 							"top": 728,
-							"width": 80,
+							"width": 82,
 							"height": 45,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
@@ -21733,7 +21733,7 @@
 								"$ref": "AAAAAAFeWkK4bblE2kY="
 							},
 							"lineStyle": 0,
-							"points": "495:752;528:752;528:620",
+							"points": "497:752;528:752;528:620",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -24612,7 +24612,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "DañoDoble",
+					"name": "DanioDoble",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
