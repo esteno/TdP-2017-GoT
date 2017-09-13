@@ -1,4 +1,4 @@
-package MAPA;
+package mapa;
 
 public class Celda 
 {
