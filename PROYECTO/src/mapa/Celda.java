@@ -3,14 +3,14 @@ package mapa;
 public class Celda 
 {
 	//atributos
-    protected Mapa mapa;
+    protected Matriz matriz;
     protected int x;
     protected int y;
     
     //constructor 
-    public Celda(Mapa m, int x, int y)
+    public Celda(Matriz m, int x, int y)
     {
-    	mapa=m;
+    	matriz=m;
     	this.x=x;
     	this.y=y;
     }

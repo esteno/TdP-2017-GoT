@@ -2,37 +2,20 @@ package mapa;
 
 public class Mapa 
 { 
-	// atributos
-	protected Celda [][] mapa;
-	protected int altura;
-	protected int ancho;
-
-	// constructor
-	public Mapa(int maxM, int maxN)
+	
+	protected Matriz matrizEstatica;
+	protected Matriz matrizMovil;
+	
+	
+	public Mapa(int i, int j)
 	{
-		altura=maxM;
-		ancho=maxN;
-	
-		mapa= (Celda [][]) new Object [altura][ancho];
-
-		for (int i=0; i < altura ; i++)
-		{
-			for (int j=0; j < ancho; j++)
-			this.mapa[i][j]= new Celda(this, i,j);	
-		}
-			
+		matrizEstatica = new Matriz(i,j);
+		matrizMovil = new Matriz(i,j);
 	}
+
+	public Matriz getMatrizEstatica()
+	{ return matrizEstatica; }
 	
-	//metodos
-	public int getAltura()
-	{return altura; }
-	
-	public int getAncho()
-	{return ancho; }
-	
-	public Celda getCelda(int i,int j)
-	{ return mapa[i][j]; }
-	
-	public Celda[][] getMapa()
-	{return mapa; }
+	public Matriz getMatrizMovil()
+	{ return matrizMovil; }
 }
