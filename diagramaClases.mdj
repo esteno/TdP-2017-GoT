@@ -11509,7 +11509,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "Guardias",
+											"text": "Guardia",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -11797,7 +11797,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "Inmaculados",
+											"text": "Inmaculado",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -23845,7 +23845,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Guardias",
+					"name": "Guardia",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -23888,7 +23888,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Inmaculados",
+					"name": "Inmaculado",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",

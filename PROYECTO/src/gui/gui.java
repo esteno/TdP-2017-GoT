@@ -34,6 +34,7 @@ public class gui {
 	 */
 	public gui() {
 		juego = new Juego();
+		
 		initialize();
 		
 	}
