@@ -1,6 +1,11 @@
 package logica;
 
-public class Juego 
-{
+import mapa.*;
+
+public class Juego {
+	
+	private Puntaje puntaje;
+	private Mapa mapa;
+	
 
 }
