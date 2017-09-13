@@ -1,15 +1,20 @@
 package logica;
 
 import mapa.*;
+import objetos.GameObjectGrafico;
 
 public class Juego {
 	
 	private Puntaje puntaje;
 	private Mapa mapa;
 	
-	public Juego() {
+	public Juego(int alto, int ancho) {
 		puntaje = new Puntaje();
-		mapa = new Mapa(10, 12);
+		mapa = new Mapa(alto, ancho);
+	}
+	
+	public GameObjectGrafico[][] getCeldasGraficas() {
+		return mapa.getGraficos();
 	}
 	
 

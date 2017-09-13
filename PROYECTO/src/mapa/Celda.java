@@ -1,16 +1,22 @@
 package mapa;
 
+import java.awt.image.BufferedImage;
+
+import objetos.GameObjectGrafico;
+
 public class Celda 
 {
 	//atributos
-    protected Matriz matriz;
+    protected Mapa mapa;
     protected int x;
     protected int y;
+    private CeldaGrafica grafica;
     
     //constructor 
-    public Celda(Matriz m, int x, int y)
+    public Celda(Mapa m, int x, int y)
     {
-    	matriz=m;
+    	grafica = new CeldaGrafica();
+    	mapa=m;
     	this.x=x;
     	this.y=y;
     }
@@ -22,4 +28,8 @@ public class Celda
     
     public int getY()
     {return y; }
+    
+    public GameObjectGrafico getGrafico() {
+    	return grafica;
+    }
 }

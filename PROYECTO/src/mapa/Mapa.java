@@ -1,21 +1,35 @@
 package mapa;
 
+import objetos.*;
+import premio.*;
+
 public class Mapa 
 { 
+	private Celda[][] matrizCeldas;
+	private GameObject[][] matrizEstatica;
+	private ObjetoMovil[][] matrizMovil;
 	
-	protected Matriz matrizEstatica;
-	protected Matriz matrizMovil;
-	
-	
-	public Mapa(int i, int j)
+	public Mapa(int alto, int ancho)
 	{
-		matrizEstatica = new Matriz(i,j);
-		matrizMovil = new Matriz(i,j);
+		matrizCeldas = new Celda[alto][ancho];
+		matrizEstatica = new GameObject[alto][ancho];
+		matrizMovil = new ObjetoMovil[alto][ancho];
+		
+		for(int i = 0; i < alto; i++) {
+			for (int j = 0; j < ancho; j++) {
+				matrizCeldas[i][j] = new Celda(this, i, j);
+			}
+		}
+	}
+	
+	public GameObjectGrafico[][] getGraficos() {
+		GameObjectGrafico[][] toReturn = new CeldaGrafica[matrizCeldas.length][matrizCeldas[0].length];
+		for(int i = 0; i < matrizCeldas.length; i++) {
+			for (int j = 0; j < matrizCeldas[0].length; j++) {
+				toReturn[i][j] = matrizCeldas[i][j].getGrafico();
+			}
+		}
+		return toReturn;
 	}
 
-	public Matriz getMatrizEstatica()
-	{ return matrizEstatica; }
-	
-	public Matriz getMatrizMovil()
-	{ return matrizMovil; }
 }

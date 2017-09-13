@@ -1,28 +1,21 @@
 package mapa;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import objetos.GameObjectGrafico;
 
 public class CeldaGrafica extends GameObjectGrafico 
-{
-	//atributos
-    protected Mapa mapa;
-    protected int x;
-    protected int y;
-    
-    //constructor 
-    public CeldaGrafica(Mapa m, int x, int y)
-    {
-    	mapa=m;
-    	this.x=x;
-    	this.y=y;
-    }
-
-    
-    //metodos
-    public int getX()
-    {return x; }
-    
-    public int getY()
-    {return y; }
+{	
+	public CeldaGrafica() {
+		try {
+		    imagen = ImageIO.read(new File("res/imagenes/celda/terreno.png"));
+		} catch (IOException e) {
+			System.out.println("Imagen no encontrada");
+		}
+	}
 
 }
