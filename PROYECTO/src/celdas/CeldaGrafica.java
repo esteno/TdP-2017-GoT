@@ -1,4 +1,4 @@
-package mapa;
+package celdas;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -10,9 +10,9 @@ import objetos.GameObjectGrafico;
 
 public class CeldaGrafica extends GameObjectGrafico 
 {	
-	public CeldaGrafica() {
+	public CeldaGrafica(String path) {
 		try {
-		    imagen = ImageIO.read(new File("res/imagenes/celda/terreno.png"));
+		    imagen = ImageIO.read(new File(path));
 		} catch (IOException e) {
 			System.out.println("Imagen no encontrada");
 		}

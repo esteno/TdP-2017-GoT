@@ -4,6 +4,8 @@ import logica.*;
 import objetos.GameObjectGrafico;
 
 import java.awt.EventQueue;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
@@ -50,17 +52,22 @@ public class gui {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 500, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panelMapa = new JPanel();
+		//Pide todas las celdas graficas y los agrega a un panel con un gridbaglayout.
 		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
-		panelMapa.setLayout(new GridLayout(ALTO, ANCHO));
+		panelMapa.setLayout(new GridBagLayout());
 		for(int i = 0; i < ALTO; i++) {
 			for (int j = 0; j < ANCHO; j++) {
+				GridBagConstraints cons = new GridBagConstraints();
+				cons.gridheight = cons.gridwidth = 1;
+				cons.gridx = j;
+				cons.gridy = i;
 				JLabel label = new JLabel();
 				label.setIcon(new ImageIcon(graficos[i][j].getImagen()));
-				panelMapa.add(label);
+				panelMapa.add(label, cons);
 			}
 		}
 		

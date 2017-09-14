@@ -1,21 +1,19 @@
-package mapa;
+package celdas;
 
-import java.awt.image.BufferedImage;
-
+import mapa.Mapa;
 import objetos.GameObjectGrafico;
 
-public class Celda 
+public abstract class Celda 
 {
 	//atributos
     protected Mapa mapa;
     protected int x;
     protected int y;
-    private CeldaGrafica grafica;
+    protected CeldaGrafica grafica;
     
     //constructor 
-    public Celda(Mapa m, int x, int y)
+    public Celda(Mapa m, int y, int x)
     {
-    	grafica = new CeldaGrafica();
     	mapa=m;
     	this.x=x;
     	this.y=y;
