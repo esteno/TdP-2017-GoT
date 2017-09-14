@@ -8,4 +8,10 @@ public abstract class Defensa extends GameObject
 {
      protected Nivel nivel;
      protected Visitor visitor;
+     
+     public Defensa()
+     {
+    	 super();
+    	 
+     }
 }
