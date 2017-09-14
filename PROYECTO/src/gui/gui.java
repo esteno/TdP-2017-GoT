@@ -40,11 +40,11 @@ public class gui {
 	/**
 	 * Create the application.
 	 */
-	public gui() {
+	public gui() 
+	{
 		juego = new Juego(ALTO, ANCHO);
 		
-		initialize();
-		
+		initialize();	
 	}
 
 	/**
