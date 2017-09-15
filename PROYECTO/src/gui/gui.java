@@ -7,6 +7,8 @@ import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
@@ -20,6 +22,7 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLayeredPane;
 import java.awt.CardLayout;
+import javax.swing.JButton;
 
 public class gui {
 
@@ -67,12 +70,19 @@ public class gui {
 		JPanel panelControl = new JPanel();
 		frame.getContentPane().add(panelControl, BorderLayout.EAST);
 		
-		JLabel testLabel = new JLabel("New label");
-		panelControl.add(testLabel);
+		JButton botonAgregar = new JButton("New button");
+		botonAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		panelControl.add(botonAgregar);
 
 		
 		JLayeredPane panelMapa = new JLayeredPane();
-		frame.add(panelMapa);
+		frame.getContentPane().add(panelMapa);
 		panelMapa.setLayout(new GridBagLayout());
 
 		//Pide todas las celdas graficas y los agrega a un panel con un gridbaglayout.
@@ -94,13 +104,6 @@ public class gui {
 				
 			}
 		}
-		
-		JLabel label1 = new JLabel("asd");
-		GridBagConstraints cons = new GridBagConstraints();
-		cons.gridheight = cons.gridwidth = 1;
-		cons.gridx = 0;
-		cons.gridy = 0;
-		panelMapa.add(label1, cons, 1);
 	}
 	
 	public MouseListener getMouseListener() {

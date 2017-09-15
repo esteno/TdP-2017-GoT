@@ -5,9 +5,9 @@ public abstract class DefensaCuerpo extends Defensa
     
 	
 	
-	public DefensaCuerpo()
+	public DefensaCuerpo(String path)
 	{
-		super();
+		super(path);
 		
 	}
 }
