@@ -25,7 +25,7 @@ public class Juego {
 	
 	public void agregarJugador()
 	{
-	      mapa.getGraficos()
+	      //mapa.getGraficos()
 	}
 
 }
