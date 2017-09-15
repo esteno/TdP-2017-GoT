@@ -11,11 +11,7 @@ import objetos.GameObjectGrafico;
 public class CeldaGrafica extends GameObjectGrafico 
 {	
 	public CeldaGrafica(String path) {
-		try {
-		    imagen = ImageIO.read(new File(path));
-		} catch (IOException e) {
-			System.out.println("Imagen no encontrada");
-		}
+		super(path);
 	}
 
 }

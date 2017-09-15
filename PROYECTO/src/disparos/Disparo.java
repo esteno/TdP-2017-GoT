@@ -7,6 +7,6 @@ public class Disparo extends ObjetoMovil
 	
 	public Disparo()
 	{
-		super();
+		super(null);
 	}
 }
