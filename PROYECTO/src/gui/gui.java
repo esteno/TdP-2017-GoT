@@ -7,12 +7,19 @@ import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Vector;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import javax.swing.JLayeredPane;
+import java.awt.CardLayout;
 
 public class gui {
 
@@ -20,6 +27,7 @@ public class gui {
 	private Juego juego;
 	private final int ALTO = 12;
 	private final int ANCHO = 8;
+	private Map<JLabel,Vector<Integer>> mapeoCoordenadas;
 
 	/**
 	 * Launch the application.
@@ -43,6 +51,7 @@ public class gui {
 	public gui() 
 	{
 		juego = new Juego(ALTO, ANCHO);
+		mapeoCoordenadas = new HashMap<JLabel, Vector<Integer>>();
 		
 		initialize();	
 	}
@@ -55,10 +64,19 @@ public class gui {
 		frame.setBounds(100, 100, 500, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JPanel panelMapa = new JPanel();
+		JPanel panelControl = new JPanel();
+		frame.getContentPane().add(panelControl, BorderLayout.EAST);
+		
+		JLabel testLabel = new JLabel("New label");
+		panelControl.add(testLabel);
+
+		
+		JLayeredPane panelMapa = new JLayeredPane();
+		frame.add(panelMapa);
+		panelMapa.setLayout(new GridBagLayout());
+
 		//Pide todas las celdas graficas y los agrega a un panel con un gridbaglayout.
 		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
-		panelMapa.setLayout(new GridBagLayout());
 		for(int i = 0; i < ALTO; i++) {
 			for (int j = 0; j < ANCHO; j++) {
 				GridBagConstraints cons = new GridBagConstraints();
@@ -67,14 +85,59 @@ public class gui {
 				cons.gridy = i;
 				JLabel label = new JLabel();
 				label.setIcon(new ImageIcon(graficos[i][j].getImagen()));
-				panelMapa.add(label, cons);
+				label.addMouseListener(getMouseListener());
+				panelMapa.add(label, cons, 0);
+				Vector<Integer> vector = new Vector<Integer>(2);
+				vector.addElement(i);
+				vector.addElement(j);
+				mapeoCoordenadas.put(label, vector);
+				
 			}
 		}
 		
-		frame.getContentPane().add(panelMapa, BorderLayout.CENTER);
-		
-		JPanel panelControl = new JPanel();
-		frame.getContentPane().add(panelControl, BorderLayout.EAST);
+		JLabel label1 = new JLabel("asd");
+		GridBagConstraints cons = new GridBagConstraints();
+		cons.gridheight = cons.gridwidth = 1;
+		cons.gridx = 0;
+		cons.gridy = 0;
+		panelMapa.add(label1, cons, 1);
 	}
+	
+	public MouseListener getMouseListener() {
+		return new MouseListener() {
 
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JLabel label = (JLabel) e.getComponent();
+				System.out.println(mapeoCoordenadas.get(label).elementAt(0)+" "+mapeoCoordenadas.get(label).elementAt(1));
+				
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		};
+	}
 }

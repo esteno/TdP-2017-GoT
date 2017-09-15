@@ -29,6 +29,7 @@ public class Mapa
 		//Inicializo la matriz con celdas
 		for(int i = 0; i < alto; i++) {
 			for (int j = 0; j < ancho; j++) {
+				
 				matrizCeldas[i][j] = generadorDeCeldas.generar(this, i, j);
 			}
 		}
