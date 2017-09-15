@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
@@ -19,9 +20,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import defensa.Defensa;
+
 import java.awt.BorderLayout;
 import javax.swing.JLayeredPane;
 import java.awt.CardLayout;
+import java.awt.Dimension;
+
 import javax.swing.JButton;
 
 public class gui {
@@ -31,7 +37,8 @@ public class gui {
 	private final int ALTO = 12;
 	private final int ANCHO = 8;
 	private Map<JLabel,Vector<Integer>> mapeoCoordenadas;
-
+	private Defensa defensaSelec = null;
+	private JLayeredPane panelMapa;
 	/**
 	 * Launch the application.
 	 */
@@ -73,7 +80,7 @@ public class gui {
 		JButton botonAgregar = new JButton("New button");
 		botonAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				defensaSelec = juego.construirDefensa();
 				
 			}
 			
@@ -81,7 +88,7 @@ public class gui {
 		panelControl.add(botonAgregar);
 
 		
-		JLayeredPane panelMapa = new JLayeredPane();
+		panelMapa = new JLayeredPane();
 		frame.getContentPane().add(panelMapa);
 		panelMapa.setLayout(new GridBagLayout());
 
@@ -96,7 +103,7 @@ public class gui {
 				JLabel label = new JLabel();
 				label.setIcon(new ImageIcon(graficos[i][j].getImagen()));
 				label.addMouseListener(getMouseListener());
-				panelMapa.add(label, cons, 0);
+				panelMapa.add(label, cons, 1);
 				Vector<Integer> vector = new Vector<Integer>(2);
 				vector.addElement(i);
 				vector.addElement(j);
@@ -111,10 +118,21 @@ public class gui {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JLabel label = (JLabel) e.getComponent();
-				System.out.println(mapeoCoordenadas.get(label).elementAt(0)+" "+mapeoCoordenadas.get(label).elementAt(1));
-				
-				
+				if(defensaSelec != null) {
+					System.out.println("label "+e.getComponent());
+					Vector<Integer> vector = mapeoCoordenadas.get(e.getComponent());
+					GridBagConstraints cons = new GridBagConstraints();
+					cons.gridheight = cons.gridwidth = 1;
+					System.out.println("x "+vector.get(1)+" y "+vector.get(0));
+					cons.gridx = vector.get(1);
+					cons.gridy = vector.get(0);
+					JLabel labelNuevo = new JLabel("asd");
+					//BufferedImage imagen = defensaSelec.getGrafico();
+					//System.out.println(imagen);
+					//labelNuevo.setIcon(new ImageIcon(imagen));
+					System.out.println(labelNuevo);
+					panelMapa.add(labelNuevo, cons, 1);
+				}
 			}
 
 			@Override
