@@ -6,16 +6,18 @@ import objetos.GameObjectGrafico;
 import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,8 +27,6 @@ import defensa.Defensa;
 
 import java.awt.BorderLayout;
 import javax.swing.JLayeredPane;
-import java.awt.CardLayout;
-import java.awt.Dimension;
 
 import javax.swing.JButton;
 
@@ -39,6 +39,11 @@ public class gui {
 	private Map<JLabel,Vector<Integer>> mapeoCoordenadas;
 	private Defensa defensaSelec = null;
 	private JLayeredPane panelMapa;
+	
+	private final int NIVELCELDA = 0;
+	private final int NIVELDEFENSA = 1;
+	private final int NIVELENEMIGO = 2;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -71,7 +76,7 @@ public class gui {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 500, 800);
+		frame.setBounds(100, 100, 500, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panelControl = new JPanel();
@@ -103,7 +108,7 @@ public class gui {
 				JLabel label = new JLabel();
 				label.setIcon(new ImageIcon(graficos[i][j].getImagen()));
 				label.addMouseListener(getMouseListener());
-				panelMapa.add(label, cons, 1);
+				panelMapa.add(label, cons, NIVELCELDA);
 				Vector<Integer> vector = new Vector<Integer>(2);
 				vector.addElement(i);
 				vector.addElement(j);
@@ -119,19 +124,20 @@ public class gui {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(defensaSelec != null) {
-					System.out.println("label "+e.getComponent());
+					JLabel labelCelda = (JLabel) e.getComponent();
 					Vector<Integer> vector = mapeoCoordenadas.get(e.getComponent());
 					GridBagConstraints cons = new GridBagConstraints();
 					cons.gridheight = cons.gridwidth = 1;
 					System.out.println("x "+vector.get(1)+" y "+vector.get(0));
 					cons.gridx = vector.get(1);
 					cons.gridy = vector.get(0);
-					JLabel labelNuevo = new JLabel("asd");
-					//BufferedImage imagen = defensaSelec.getGrafico();
-					//System.out.println(imagen);
-					//labelNuevo.setIcon(new ImageIcon(imagen));
-					System.out.println(labelNuevo);
-					panelMapa.add(labelNuevo, cons, 1);
+					BufferedImage imagen = defensaSelec.getGrafico();
+					JLabel labelNuevo = new JLabel(new ImageIcon(imagen));
+					labelNuevo.setBounds(labelCelda.getBounds());
+					labelNuevo.setOpaque(false);
+					System.out.println(cons.gridheight+" "+cons.gridwidth);
+					panelMapa.add(labelNuevo, cons, NIVELDEFENSA);
+					defensaSelec = null;
 				}
 			}
 

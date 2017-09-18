@@ -1,7 +1,6 @@
 package defensa;
 
 import objetos.GameObject;
-import objetos.GameObjectGrafico;
 import nivel.*;
 import colisiones.*;
 

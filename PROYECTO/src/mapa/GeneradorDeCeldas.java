@@ -1,6 +1,5 @@
 package mapa;
 
-import java.util.Random;
 
 import celdas.*;
 
