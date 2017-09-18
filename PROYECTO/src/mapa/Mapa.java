@@ -2,6 +2,7 @@ package mapa;
 
 import celdas.Celda;
 import celdas.CeldaGrafica;
+import enemigos.Enemigo;
 import objetos.*;
 import premio.*;
 
@@ -57,6 +58,12 @@ public class Mapa
 			}
 		}
 		return toReturn;
+	}
+	
+	public Celda agregarEnemigo(Enemigo enemigo, int pos) {
+		matrizMovil[matrizMovil.length - 1][pos] = enemigo;
+		return matrizCeldas[matrizCeldas.length - 1][pos];
+		
 	}
 	
 

@@ -11,32 +11,33 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import celdas.Celda;
 import defensa.Defensa;
 
 import java.awt.BorderLayout;
 import javax.swing.JLayeredPane;
 
 import javax.swing.JButton;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import javax.swing.BoxLayout;
 
-public class gui {
+public class Gui {
 
 	private JFrame frame;
 	private Juego juego;
 	private final int ALTO = 12;
 	private final int ANCHO = 8;
-	private Map<JLabel,Vector<Integer>> mapeoCoordenadas;
+	private JLabel[][] matrizLabel;
 	private Defensa defensaSelec = null;
 	private JLayeredPane panelMapa;
 	
@@ -51,7 +52,7 @@ public class gui {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					gui window = new gui();
+					Gui window = new Gui();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -63,10 +64,10 @@ public class gui {
 	/**
 	 * Create the application.
 	 */
-	public gui() 
+	public Gui() 
 	{
-		juego = new Juego(ALTO, ANCHO);
-		mapeoCoordenadas = new HashMap<JLabel, Vector<Integer>>();
+		juego = new Juego(this, ALTO, ANCHO);
+		matrizLabel = new JLabel[ALTO][ANCHO];
 		
 		initialize();	
 	}
@@ -82,7 +83,7 @@ public class gui {
 		JPanel panelControl = new JPanel();
 		frame.getContentPane().add(panelControl, BorderLayout.EAST);
 		
-		JButton botonAgregar = new JButton("New button");
+		JButton botonAgregar = new JButton("Agregar Jorgito");
 		botonAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				defensaSelec = juego.construirDefensa();
@@ -90,7 +91,18 @@ public class gui {
 			}
 			
 		});
+		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
 		panelControl.add(botonAgregar);
+		
+		JButton botonAgregarEnemigo = new JButton("AgregarEnemigo");
+		botonAgregarEnemigo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				juego.crearEnemigo();
+				
+			}
+			
+		});
+		panelControl.add(botonAgregarEnemigo);
 
 		
 		panelMapa = new JLayeredPane();
@@ -109,13 +121,22 @@ public class gui {
 				label.setIcon(new ImageIcon(graficos[i][j].getImagen()));
 				label.addMouseListener(getMouseListener());
 				panelMapa.add(label, cons, NIVELCELDA);
-				Vector<Integer> vector = new Vector<Integer>(2);
-				vector.addElement(i);
-				vector.addElement(j);
-				mapeoCoordenadas.put(label, vector);
+				matrizLabel[i][j] = label;
 				
 			}
 		}
+	}
+	
+	public void agregarEnemigo(Celda celda, BufferedImage imagen) {
+		JLabel label = matrizLabel[celda.getY()][celda.getX()];
+		GridBagConstraints cons = new GridBagConstraints();
+		cons.gridheight = cons.gridwidth = 1;
+		cons.gridx = celda.getX();
+		cons.gridy = celda.getY();
+		JLabel labelEnemigo = new JLabel();
+		labelEnemigo.setIcon(new ImageIcon(imagen));
+		labelEnemigo.setBounds(label.getBounds());
+		panelMapa.add(labelEnemigo, cons, NIVELENEMIGO);
 	}
 	
 	public MouseListener getMouseListener() {
@@ -125,7 +146,7 @@ public class gui {
 			public void mouseClicked(MouseEvent e) {
 				if(defensaSelec != null) {
 					JLabel labelCelda = (JLabel) e.getComponent();
-					Vector<Integer> vector = mapeoCoordenadas.get(e.getComponent());
+					Vector<Integer> vector = buscarCoordenadas(labelCelda);
 					GridBagConstraints cons = new GridBagConstraints();
 					cons.gridheight = cons.gridwidth = 1;
 					System.out.println("x "+vector.get(1)+" y "+vector.get(0));
@@ -166,5 +187,20 @@ public class gui {
 			}
 			
 		};
+	}
+	
+	private Vector<Integer> buscarCoordenadas(JLabel label) {
+		Vector<Integer> toReturn = new Vector<Integer>(2);
+		Boolean encontre = false;
+		for(int i = 0; i < matrizLabel.length && !encontre; i++) {
+			for(int j = 0; j < matrizLabel[0].length && !encontre; j++) {
+				if(matrizLabel[i][j] == label) {
+					toReturn.add(0, i);
+					toReturn.add(1, j);
+					encontre = true;
+				}
+			}
+		}
+		return toReturn;
 	}
 }

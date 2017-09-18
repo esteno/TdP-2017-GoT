@@ -2,7 +2,7 @@ package objetos;
 
 import java.awt.image.BufferedImage;
 
-public abstract class GameObject 
+public abstract class GameObject implements Runnable 
 {
   
 	private GameObjectGrafico grafico;
