@@ -37,7 +37,10 @@ public class Gui {
 	private Juego juego;
 	private final int ALTO = 12;
 	private final int ANCHO = 8;
-	private JLabel[][] matrizLabel;
+	
+	private JLabel[][] matrizLabelCelda;
+	private JLabel[][] matrizLabelEnemigo;
+	
 	private Defensa defensaSelec = null;
 	private JLayeredPane panelMapa;
 	
@@ -67,7 +70,8 @@ public class Gui {
 	public Gui() 
 	{
 		juego = new Juego(this, ALTO, ANCHO);
-		matrizLabel = new JLabel[ALTO][ANCHO];
+		matrizLabelCelda = new JLabel[ALTO][ANCHO];
+		matrizLabelEnemigo = new JLabel[ALTO][ANCHO];
 		
 		initialize();	
 	}
@@ -121,14 +125,14 @@ public class Gui {
 				label.setIcon(new ImageIcon(graficos[i][j].getImagen()));
 				label.addMouseListener(getMouseListener());
 				panelMapa.add(label, cons, NIVELCELDA);
-				matrizLabel[i][j] = label;
+				matrizLabelCelda[i][j] = label;
 				
 			}
 		}
 	}
 	
 	public void agregarEnemigo(Celda celda, BufferedImage imagen) {
-		JLabel label = matrizLabel[celda.getY()][celda.getX()];
+		JLabel label = matrizLabelCelda[celda.getY()][celda.getX()];
 		GridBagConstraints cons = new GridBagConstraints();
 		cons.gridheight = cons.gridwidth = 1;
 		cons.gridx = celda.getX();
@@ -136,7 +140,9 @@ public class Gui {
 		JLabel labelEnemigo = new JLabel();
 		labelEnemigo.setIcon(new ImageIcon(imagen));
 		labelEnemigo.setBounds(label.getBounds());
+		matrizLabelEnemigo[celda.getY()][celda.getX()] = labelEnemigo;
 		panelMapa.add(labelEnemigo, cons, NIVELENEMIGO);
+		panelMapa.validate();
 	}
 	
 	public MouseListener getMouseListener() {
@@ -192,9 +198,9 @@ public class Gui {
 	private Vector<Integer> buscarCoordenadas(JLabel label) {
 		Vector<Integer> toReturn = new Vector<Integer>(2);
 		Boolean encontre = false;
-		for(int i = 0; i < matrizLabel.length && !encontre; i++) {
-			for(int j = 0; j < matrizLabel[0].length && !encontre; j++) {
-				if(matrizLabel[i][j] == label) {
+		for(int i = 0; i < matrizLabelCelda.length && !encontre; i++) {
+			for(int j = 0; j < matrizLabelCelda[0].length && !encontre; j++) {
+				if(matrizLabelCelda[i][j] == label) {
 					toReturn.add(0, i);
 					toReturn.add(1, j);
 					encontre = true;
@@ -202,5 +208,19 @@ public class Gui {
 			}
 		}
 		return toReturn;
+	}
+	
+	public void moverEnemigoGrafico(int yAnterior, int xAnterior, int yNuevo, int xNuevo) {
+		
+		JLabel labelCelda = matrizLabelEnemigo[yAnterior][xAnterior];
+		matrizLabelEnemigo[yAnterior][xAnterior] = null;
+		matrizLabelEnemigo[yNuevo][xNuevo] = labelCelda;
+		labelCelda.setBounds(matrizLabelCelda[yNuevo][xNuevo].getBounds());
+		labelCelda.revalidate();
+		labelCelda.repaint();
+		System.out.println("labelCelda bounds "+labelCelda.getBounds());
+		System.out.println("labelCelda "+labelCelda);
+		
+		
 	}
 }

@@ -21,7 +21,7 @@ public class Juego {
 	public Juego(Gui gui, int alto, int ancho) {
 		this.gui = gui;
 		puntaje = new Puntaje();
-		mapa = new Mapa(alto, ancho);
+		mapa = new Mapa(this, alto, ancho);
 		fabricaDeOleadas = new FabricaDeOleadas(this, ancho);
 		fabricaDefensa = new DefensaFactory();
 	}
@@ -42,10 +42,17 @@ public class Juego {
 	public void agregarEnemigo(Enemigo enemigo, int pos) {
 		Celda celda = mapa.agregarEnemigo(enemigo, pos);
 		gui.agregarEnemigo(celda, enemigo.getGrafico());
+		enemigo.run();
 	}
 	
 	public void crearEnemigo() {
 		fabricaDeOleadas.generarEnemigo();
 	}
+	
+	public void moverEnemigoGrafico(int yAnterior, int xAnterior, int yNuevo, int xNuevo) {
+		gui.moverEnemigoGrafico(yAnterior, xAnterior, yNuevo, xNuevo);
+	}
+	
+	
 
 }

@@ -22,7 +22,6 @@ public class FabricaDeOleadas implements Runnable {
 	public void generarEnemigo() {
 		Enemigo enemigo = new EnemigoRojo();
 		int rand = (int) Math.floor(Math.random() * (ancho - 1));
-		System.out.println("rando "+rand);
 		juego.agregarEnemigo(enemigo, rand);
 	}
 	

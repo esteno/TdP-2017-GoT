@@ -2,10 +2,13 @@ package objetos;
 
 import java.awt.image.BufferedImage;
 
+import celdas.Celda;
+
 public abstract class GameObject implements Runnable 
 {
   
-	private GameObjectGrafico grafico;
+	protected GameObjectGrafico grafico;
+	protected Celda celda;
 	
 	public GameObject(String path) {
 		grafico = new GameObjectGrafico(path);
@@ -13,5 +16,9 @@ public abstract class GameObject implements Runnable
 	
 	public BufferedImage getGrafico() {
 		return grafico.getImagen();
+	}
+	
+	public void setCelda(Celda celdaNueva) {
+		celda = celdaNueva;
 	}
 }

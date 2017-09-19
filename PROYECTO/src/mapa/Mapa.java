@@ -3,6 +3,7 @@ package mapa;
 import celdas.Celda;
 import celdas.CeldaGrafica;
 import enemigos.Enemigo;
+import logica.Juego;
 import objetos.*;
 import premio.*;
 
@@ -20,8 +21,10 @@ public class Mapa
 	//Matriz que contiene a los enemigos y los disparos de la defensa.
 	private ObjetoMovil[][] matrizMovil;
 	
+	private Juego juego;
 	
-	public Mapa(int alto, int ancho)
+	
+	public Mapa(Juego juego, int alto, int ancho)
 	{
 		matrizCeldas = new Celda[alto][ancho];
 		matrizEstatica = new GameObject[alto][ancho];
@@ -34,6 +37,8 @@ public class Mapa
 				matrizCeldas[i][j] = generadorDeCeldas.generar(this, i, j);
 			}
 		}
+		
+		this.juego = juego;
 	}
 	
 	public Celda celdaArriba(Celda celdaActual) {
@@ -62,8 +67,16 @@ public class Mapa
 	
 	public Celda agregarEnemigo(Enemigo enemigo, int pos) {
 		matrizMovil[matrizMovil.length - 1][pos] = enemigo;
-		return matrizCeldas[matrizCeldas.length - 1][pos];
+		Celda toReturn = matrizCeldas[matrizCeldas.length - 1][pos];
+		enemigo.setCelda(toReturn);
+		return toReturn;
 		
+	}
+	
+	public void moverMovilArriba(Celda celda, ObjetoMovil movil) {
+		matrizMovil[celda.getY() + 1][celda.getX()] = null;
+		matrizMovil[celda.getY()][celda.getX()] = movil;
+		juego.moverEnemigoGrafico(celda.getY()+1, celda.getX(), celda.getY(), celda.getX());
 	}
 	
 

@@ -1,7 +1,9 @@
 package celdas;
 
 import mapa.Mapa;
+import objetos.GameObject;
 import objetos.GameObjectGrafico;
+import objetos.ObjetoMovil;
 
 public abstract class Celda 
 {
@@ -29,5 +31,13 @@ public abstract class Celda
     
     public GameObjectGrafico getGrafico() {
     	return grafica;
+    }
+    
+    public Celda celdaArriba() {
+    	return mapa.celdaArriba(this);
+    }
+    
+    public void moverMovilArriba(ObjetoMovil objeto) {
+    	mapa.moverMovilArriba(this, objeto);
     }
 }
