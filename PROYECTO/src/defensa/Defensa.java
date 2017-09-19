@@ -8,6 +8,8 @@ public abstract class Defensa extends GameObject
 {
      protected Nivel nivel;
      protected Visitor visitor;
+     protected int precio;
+     
      
      public Defensa(String path)
      {
