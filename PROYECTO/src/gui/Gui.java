@@ -35,8 +35,8 @@ public class Gui {
 
 	private JFrame frame;
 	private Juego juego;
-	private final int ALTO = 12;
-	private final int ANCHO = 8;
+	private final int ALTO = 8;
+	private final int ANCHO = 16;
 	
 	private JLabel[][] matrizLabelCelda;
 	private JLabel[][] matrizLabelEnemigo;
@@ -70,8 +70,8 @@ public class Gui {
 	public Gui() 
 	{
 		juego = new Juego(this, ALTO, ANCHO);
-		matrizLabelCelda = new JLabel[ALTO][ANCHO];
-		matrizLabelEnemigo = new JLabel[ALTO][ANCHO];
+		matrizLabelCelda = new JLabel[ANCHO][ALTO];
+		matrizLabelEnemigo = new JLabel[ANCHO][ALTO];
 		
 		initialize();	
 	}
@@ -81,7 +81,7 @@ public class Gui {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 500, 600);
+		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panelControl = new JPanel();
@@ -115,12 +115,12 @@ public class Gui {
 
 		//Pide todas las celdas graficas y los agrega a un panel con un gridbaglayout.
 		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
-		for(int i = 0; i < ALTO; i++) {
-			for (int j = 0; j < ANCHO; j++) {
+		for(int i = 0; i < ANCHO; i++) {
+			for (int j = 0; j < ALTO; j++) {
 				GridBagConstraints cons = new GridBagConstraints();
 				cons.gridheight = cons.gridwidth = 1;
-				cons.gridx = j;
-				cons.gridy = i;
+				cons.gridx = i;
+				cons.gridy = j;
 				JLabel label = new JLabel();
 				label.setIcon(new ImageIcon(graficos[i][j].getImagen()));
 				label.addMouseListener(getMouseListener());
@@ -132,7 +132,7 @@ public class Gui {
 	}
 	
 	public void agregarEnemigo(Celda celda, BufferedImage imagen) {
-		JLabel label = matrizLabelCelda[celda.getY()][celda.getX()];
+		JLabel label = matrizLabelCelda[celda.getX()][celda.getY()];
 		GridBagConstraints cons = new GridBagConstraints();
 		cons.gridheight = cons.gridwidth = 1;
 		cons.gridx = celda.getX();
@@ -140,9 +140,35 @@ public class Gui {
 		JLabel labelEnemigo = new JLabel();
 		labelEnemigo.setIcon(new ImageIcon(imagen));
 		labelEnemigo.setBounds(label.getBounds());
-		matrizLabelEnemigo[celda.getY()][celda.getX()] = labelEnemigo;
+		matrizLabelEnemigo[celda.getX()][celda.getY()] = labelEnemigo;
 		panelMapa.add(labelEnemigo, cons, NIVELENEMIGO);
 		panelMapa.validate();
+	}
+	
+	
+	
+	private Vector<Integer> buscarCoordenadas(JLabel label) {
+		Vector<Integer> toReturn = new Vector<Integer>(2);
+		Boolean encontre = false;
+		for(int i = 0; i < matrizLabelCelda.length && !encontre; i++) {
+			for(int j = 0; j < matrizLabelCelda[0].length && !encontre; j++) {
+				if(matrizLabelCelda[i][j] == label) {
+					toReturn.add(0, i);
+					toReturn.add(1, j);
+					encontre = true;
+				}
+			}
+		}
+		return toReturn;
+	}
+	
+	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) {
+		
+		JLabel labelCelda = matrizLabelEnemigo[xAnterior][yAnterior];
+		matrizLabelEnemigo[xAnterior][yAnterior] = null;
+		matrizLabelEnemigo[x][y] = labelCelda;
+		labelCelda.setBounds(matrizLabelCelda[x][y].getBounds());
+		labelCelda.repaint();
 	}
 	
 	public MouseListener getMouseListener() {
@@ -193,34 +219,5 @@ public class Gui {
 			}
 			
 		};
-	}
-	
-	private Vector<Integer> buscarCoordenadas(JLabel label) {
-		Vector<Integer> toReturn = new Vector<Integer>(2);
-		Boolean encontre = false;
-		for(int i = 0; i < matrizLabelCelda.length && !encontre; i++) {
-			for(int j = 0; j < matrizLabelCelda[0].length && !encontre; j++) {
-				if(matrizLabelCelda[i][j] == label) {
-					toReturn.add(0, i);
-					toReturn.add(1, j);
-					encontre = true;
-				}
-			}
-		}
-		return toReturn;
-	}
-	
-	public void moverEnemigoGrafico(int yAnterior, int xAnterior, int yNuevo, int xNuevo) {
-		
-		JLabel labelCelda = matrizLabelEnemigo[yAnterior][xAnterior];
-		matrizLabelEnemigo[yAnterior][xAnterior] = null;
-		matrizLabelEnemigo[yNuevo][xNuevo] = labelCelda;
-		labelCelda.setBounds(matrizLabelCelda[yNuevo][xNuevo].getBounds());
-		labelCelda.revalidate();
-		labelCelda.repaint();
-		System.out.println("labelCelda bounds "+labelCelda.getBounds());
-		System.out.println("labelCelda "+labelCelda);
-		
-		
 	}
 }

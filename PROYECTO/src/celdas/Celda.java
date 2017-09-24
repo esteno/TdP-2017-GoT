@@ -14,7 +14,7 @@ public abstract class Celda
     protected CeldaGrafica grafica;
     
     //constructor 
-    public Celda(Mapa m, int y, int x)
+    public Celda(Mapa m, int x, int y)
     {
     	mapa=m;
     	this.x=x;
@@ -33,11 +33,11 @@ public abstract class Celda
     	return grafica;
     }
     
-    public Celda celdaArriba() {
-    	return mapa.celdaArriba(this);
+    public Celda celdaIzquierda() {
+    	return mapa.celdaIzquierda(this);
     }
     
-    public void moverMovilArriba(ObjetoMovil objeto) {
-    	mapa.moverMovilArriba(this, objeto);
+    public void moverEnemigoGrafica(int x, int y ,int xAnterior, int yAnterior) {
+    	mapa.moverEnemigoGrafica(x, y, xAnterior, yAnterior);
     }
 }

@@ -9,22 +9,25 @@ import enemigos.Enemigo;
 import gui.*;
 
 
-public class Juego {
+public class Juego implements Runnable {
 	
 	private Puntaje puntaje;
 	private Mapa mapa;
+	
 	private Gui gui;
 	
 	private DefensaFactory fabricaDefensa;
 	private FabricaDeOleadas fabricaDeOleadas;
 	
-	public Juego(Gui gui, int alto, int ancho) {
+	public Juego(Gui gui, int alto, int ancho)  {
 		this.gui = gui;
 		puntaje = new Puntaje();
 		mapa = new Mapa(this, alto, ancho);
-		fabricaDeOleadas = new FabricaDeOleadas(this, ancho);
+		fabricaDeOleadas = new FabricaDeOleadas(this, alto);
 		fabricaDefensa = new DefensaFactory();
 	}
+	
+	public void run() {}
 	
 	public Defensa construirDefensa() {
 		return fabricaDefensa.construirDefensa();
@@ -42,15 +45,15 @@ public class Juego {
 	public void agregarEnemigo(Enemigo enemigo, int pos) {
 		Celda celda = mapa.agregarEnemigo(enemigo, pos);
 		gui.agregarEnemigo(celda, enemigo.getGrafico());
-		enemigo.run();
+		new Thread(enemigo).start();
 	}
 	
 	public void crearEnemigo() {
 		fabricaDeOleadas.generarEnemigo();
 	}
 	
-	public void moverEnemigoGrafico(int yAnterior, int xAnterior, int yNuevo, int xNuevo) {
-		gui.moverEnemigoGrafico(yAnterior, xAnterior, yNuevo, xNuevo);
+	public void moverEnemigoGrafico(int xAnterior, int yAnterior, int xNuevo, int yNuevo) {
+		gui.moverEnemigoGrafico(xAnterior, yAnterior, xNuevo, yNuevo);
 	}
 	
 	

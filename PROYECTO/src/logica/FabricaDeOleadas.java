@@ -2,27 +2,22 @@ package logica;
 
 import enemigos.*;
 
-public class FabricaDeOleadas implements Runnable {
+public class FabricaDeOleadas{
 	
 	private Juego juego;
-	private int ancho;
-	private Boolean isRunning;
+	private int alto;
 	
-	public FabricaDeOleadas(Juego juego, int ancho) {
+	public FabricaDeOleadas(Juego juego, int alto) {
 		this.juego = juego;
-		this.ancho = ancho;
+		this.alto = alto;
 	}
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	public void generarEnemigo() {
 		Enemigo enemigo = new EnemigoRojo();
-		int rand = (int) Math.floor(Math.random() * (ancho - 1));
+		int rand = (int) Math.floor(Math.random() * (alto - 1));
 		juego.agregarEnemigo(enemigo, rand);
+		System.out.println("generador "+rand);
 	}
 	
 

@@ -26,13 +26,13 @@ public class Mapa
 	
 	public Mapa(Juego juego, int alto, int ancho)
 	{
-		matrizCeldas = new Celda[alto][ancho];
-		matrizEstatica = new GameObject[alto][ancho];
-		matrizMovil = new ObjetoMovil[alto][ancho];
+		matrizCeldas = new Celda[ancho][alto];
+		matrizEstatica = new GameObject[ancho][alto];
+		matrizMovil = new ObjetoMovil[ancho][alto];
 		
 		//Inicializo la matriz con celdas
-		for(int i = 0; i < alto; i++) {
-			for (int j = 0; j < ancho; j++) {
+		for(int i = 0; i < ancho; i++) {
+			for (int j = 0; j < alto; j++) {
 				
 				matrizCeldas[i][j] = generadorDeCeldas.generar(this, i, j);
 			}
@@ -41,17 +41,17 @@ public class Mapa
 		this.juego = juego;
 	}
 	
-	public Celda celdaArriba(Celda celdaActual) {
+	public Celda celdaIzquierda(Celda celdaActual) {
 		Celda celdaArriba = null;
-		if(celdaActual.getY() != 0)
-			celdaArriba = matrizCeldas[celdaActual.getY()-1][celdaActual.getX()];
+		if(celdaActual.getX() != 0)
+			celdaArriba = matrizCeldas[celdaActual.getX()- 1][celdaActual.getY()];
 		return celdaArriba;
 	}
 	
-	public Celda CeldaAbajo(Celda celdaActual) {
+	public Celda CeldaDerecha(Celda celdaActual) {
 		Celda celdaAbajo = null;
-		if(celdaActual.getY() != matrizCeldas.length-1)
-			celdaAbajo = matrizCeldas[celdaActual.getY()+1][celdaActual.getX()];
+		if(celdaActual.getX() != matrizCeldas.length-1)
+			celdaAbajo = matrizCeldas[celdaActual.getX()+1][celdaActual.getY()];
 		return celdaAbajo;
 	}
 	
@@ -73,10 +73,13 @@ public class Mapa
 		
 	}
 	
-	public void moverMovilArriba(Celda celda, ObjetoMovil movil) {
-		matrizMovil[celda.getY() + 1][celda.getX()] = null;
-		matrizMovil[celda.getY()][celda.getX()] = movil;
-		juego.moverEnemigoGrafico(celda.getY()+1, celda.getX(), celda.getY(), celda.getX());
+	public void moverMovilIzquierda(Celda celda, ObjetoMovil movil) {
+		matrizMovil[celda.getX() + 1][celda.getY()] = null;
+		matrizMovil[celda.getX()][celda.getY()] = movil;
+	}
+	
+	public void moverEnemigoGrafica(int x, int y, int xAnterior, int yAnterior) {
+		juego.moverEnemigoGrafico(x, y, xAnterior, yAnterior);
 	}
 	
 

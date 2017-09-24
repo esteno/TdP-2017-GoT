@@ -6,9 +6,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import logica.Juego;
+
 public class GameObjectGrafico 
 {
-	
 	protected BufferedImage imagen;
 	
 	public GameObjectGrafico(String path) {
@@ -23,5 +24,7 @@ public class GameObjectGrafico
 	{
 		return imagen;
 	}
+	
+	
 
 }

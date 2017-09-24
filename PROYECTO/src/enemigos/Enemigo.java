@@ -12,10 +12,13 @@ public abstract class Enemigo extends ObjetoMovil implements Runnable {
 	public void run() {
 		while(isRunning) {
 			try {
-				Thread.sleep(2000);
-				if(celda.getY() != 0) {
-					celda = celda.celdaArriba();
-					celda.moverMovilArriba(this);
+				Thread.sleep(1000);
+				if(celda.getX() != 0) {
+					int xAnterior = celda.getX();
+					int yAnterior = celda.getY();
+					celda = celda.celdaIzquierda();
+					System.out.println("pos x "+celda.getX()+" y "+celda.getY()+" xA "+xAnterior+" yA "+yAnterior);
+					celda.moverEnemigoGrafica(celda.getX(),celda.getY(),xAnterior,yAnterior);
 					
 				}
 				else {
