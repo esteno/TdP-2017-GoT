@@ -89,14 +89,37 @@ public class Gui {
 		
 		JButton botonAgregar = new JButton("Agregar Jorgito");
 		botonAgregar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent arg0) 
+			{
 				defensaSelec = juego.construirDefensa();
 				
 			}
-			
 		});
+		
 		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
 		panelControl.add(botonAgregar);
+		
+		
+		/* eliminar personaje
+		JButton botonEliminar= new JButton("Eliminar Jorgito");
+		botonEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+			     if(defensaSelec!=null)
+			     {
+			    	 //defensaSelec=null;
+			    	// juego.eliminarDefensa(,);
+			    	 
+		         }
+	        }
+		});
+		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
+		panelControl.add(botonEliminar);
+		
+		*/
+		
+		
+		
 		
 		JButton botonAgregarEnemigo = new JButton("AgregarEnemigo");
 		botonAgregarEnemigo.addActionListener(new ActionListener() {
@@ -142,12 +165,16 @@ public class Gui {
 		labelEnemigo.setBounds(label.getBounds());
 		matrizLabelEnemigo[celda.getX()][celda.getY()] = labelEnemigo;
 		panelMapa.add(labelEnemigo, cons, NIVELENEMIGO);
-		panelMapa.validate();
 	}
 	
+	// eliminar Jorgito
+	//public void eliminarJorgito()
+	//{
+		//c
+	//}
 	
-	
-	private Vector<Integer> buscarCoordenadas(JLabel label) {
+	private Vector<Integer> buscarCoordenadas(JLabel label) 
+	{
 		Vector<Integer> toReturn = new Vector<Integer>(2);
 		Boolean encontre = false;
 		for(int i = 0; i < matrizLabelCelda.length && !encontre; i++) {
@@ -171,12 +198,21 @@ public class Gui {
 		labelCelda.repaint();
 	}
 	
-	public MouseListener getMouseListener() {
+	
+	
+	
+	
+	
+	
+	
+	public MouseListener getMouseListener() 
+	{
 		return new MouseListener() {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(defensaSelec != null) {
+				if(defensaSelec != null) 
+				{
 					JLabel labelCelda = (JLabel) e.getComponent();
 					Vector<Integer> vector = buscarCoordenadas(labelCelda);
 					GridBagConstraints cons = new GridBagConstraints();

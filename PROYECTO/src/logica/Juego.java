@@ -19,6 +19,8 @@ public class Juego implements Runnable {
 	private DefensaFactory fabricaDefensa;
 	private FabricaDeOleadas fabricaDeOleadas;
 	
+	private Defensa rt;
+	
 	public Juego(Gui gui, int alto, int ancho)  {
 		this.gui = gui;
 		puntaje = new Puntaje();
@@ -29,9 +31,19 @@ public class Juego implements Runnable {
 	
 	public void run() {}
 	
-	public Defensa construirDefensa() {
-		return fabricaDefensa.construirDefensa();
+	public Defensa construirDefensa() 
+	{
+		rt=fabricaDefensa.construirDefensa();
+		return  rt;
 	}
+	
+	public void eliminarDefensa(int x,int y )
+	{
+	   
+	}
+	
+	
+	
 	
 	public GameObjectGrafico[][] getCeldasGraficas() {
 		return mapa.getGraficos();
