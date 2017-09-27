@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
@@ -25,7 +27,9 @@ import java.awt.BorderLayout;
 import javax.swing.JLayeredPane;
 
 import javax.swing.JButton;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import javax.swing.BoxLayout;
 
 public class Gui {
 
@@ -34,11 +38,10 @@ public class Gui {
 	private final int ALTO = 8;
 	private final int ANCHO = 16;
 	
-	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
-	
 	private JLabel[][] matrizLabelCelda;
 	private JLabel[][] matrizLabelEnemigo;
 	
+	private Defensa defensaSelec = null;
 	private JLayeredPane panelMapa;
 	
 	private final int NIVELCELDA = 0;
@@ -84,43 +87,35 @@ public class Gui {
 		JPanel panelControl = new JPanel();
 		frame.getContentPane().add(panelControl, BorderLayout.EAST);
 		
-<<<<<<< HEAD
-		JButton botonAgregarJorgito = new JButton("Agregar Jorgito");
-		botonAgregarJorgito.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				fabricaDeDefensa.construirJorgito();
-=======
 		JButton botonAgregar = new JButton("Agregar Jorgito");
 		botonAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				defensaSelec = juego.construirDefensa();
 				
->>>>>>> 6e6508330725824287fabb848012d75ca55623fd
 			}
 		});
 		
 		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
-		panelControl.add(botonAgregarJorgito);
+		panelControl.add(botonAgregar);
 		
 		
-		/* eliminar personaje
-		JButton botonEliminar= new JButton("Eliminar Jorgito");
+		//eliminar personaje
+		/*JButton botonEliminar= new JButton("Eliminar Jorgito");
 		botonEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
 			     if(defensaSelec!=null)
 			     {
-			    	 //defensaSelec=null;
-			    	// juego.eliminarDefensa(,);
+			    	 defensaSelec=null;
+			    	 juego.eliminarDefensa(,);
 			    	 
 		         }
 	        }
 		});
 		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
 		panelControl.add(botonEliminar);
-		
-		*/
+	*/
 		
 		
 		
@@ -215,24 +210,22 @@ public class Gui {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-<<<<<<< HEAD
-				Defensa defensa = fabricaDeDefensa.getDefensa();
-				if(defensa != null) {
-=======
 				if(defensaSelec != null) 
 				{
->>>>>>> 6e6508330725824287fabb848012d75ca55623fd
 					JLabel labelCelda = (JLabel) e.getComponent();
 					Vector<Integer> vector = buscarCoordenadas(labelCelda);
 					GridBagConstraints cons = new GridBagConstraints();
 					cons.gridheight = cons.gridwidth = 1;
+					System.out.println("x "+vector.get(1)+" y "+vector.get(0));
 					cons.gridx = vector.get(1);
 					cons.gridy = vector.get(0);
-					BufferedImage imagen = defensa.getGrafico();
+					BufferedImage imagen = defensaSelec.getGrafico();
 					JLabel labelNuevo = new JLabel(new ImageIcon(imagen));
 					labelNuevo.setBounds(labelCelda.getBounds());
 					labelNuevo.setOpaque(false);
+					System.out.println(cons.gridheight+" "+cons.gridwidth);
 					panelMapa.add(labelNuevo, cons, NIVELDEFENSA);
+					defensaSelec = null;
 				}
 			}
 

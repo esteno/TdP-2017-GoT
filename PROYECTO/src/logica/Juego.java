@@ -33,8 +33,8 @@ public class Juego implements Runnable {
 	
 	public Defensa construirDefensa() 
 	{
-		rt=fabricaDefensa.construirDefensa();
-		return  rt;
+		return fabricaDefensa.construirDefensa();
+		
 	}
 	
 	public void eliminarDefensa(int x,int y )
