@@ -13,4 +13,5 @@ public abstract class ObjetoMovil extends GameObject
 	protected int puntos_vida;
 	
 
+	
 }

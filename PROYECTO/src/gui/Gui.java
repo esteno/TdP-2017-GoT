@@ -84,15 +84,46 @@ public class Gui {
 		JPanel panelControl = new JPanel();
 		frame.getContentPane().add(panelControl, BorderLayout.EAST);
 		
+<<<<<<< HEAD
 		JButton botonAgregarJorgito = new JButton("Agregar Jorgito");
 		botonAgregarJorgito.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				fabricaDeDefensa.construirJorgito();
+=======
+		JButton botonAgregar = new JButton("Agregar Jorgito");
+		botonAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				defensaSelec = juego.construirDefensa();
+				
+>>>>>>> 6e6508330725824287fabb848012d75ca55623fd
 			}
-			
 		});
+		
 		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
 		panelControl.add(botonAgregarJorgito);
+		
+		
+		/* eliminar personaje
+		JButton botonEliminar= new JButton("Eliminar Jorgito");
+		botonEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+			     if(defensaSelec!=null)
+			     {
+			    	 //defensaSelec=null;
+			    	// juego.eliminarDefensa(,);
+			    	 
+		         }
+	        }
+		});
+		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
+		panelControl.add(botonEliminar);
+		
+		*/
+		
+		
+		
 		
 		JButton botonAgregarEnemigo = new JButton("AgregarEnemigo");
 		botonAgregarEnemigo.addActionListener(new ActionListener() {
@@ -138,12 +169,16 @@ public class Gui {
 		labelEnemigo.setBounds(label.getBounds());
 		matrizLabelEnemigo[celda.getX()][celda.getY()] = labelEnemigo;
 		panelMapa.add(labelEnemigo, cons, NIVELENEMIGO);
-		panelMapa.validate();
 	}
 	
+	// eliminar Jorgito
+	//public void eliminarJorgito()
+	//{
+		//c
+	//}
 	
-	
-	private Vector<Integer> buscarCoordenadas(JLabel label) {
+	private Vector<Integer> buscarCoordenadas(JLabel label) 
+	{
 		Vector<Integer> toReturn = new Vector<Integer>(2);
 		Boolean encontre = false;
 		for(int i = 0; i < matrizLabelCelda.length && !encontre; i++) {
@@ -167,13 +202,26 @@ public class Gui {
 		labelCelda.repaint();
 	}
 	
-	public MouseListener getMouseListener() {
+	
+	
+	
+	
+	
+	
+	
+	public MouseListener getMouseListener() 
+	{
 		return new MouseListener() {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
+<<<<<<< HEAD
 				Defensa defensa = fabricaDeDefensa.getDefensa();
 				if(defensa != null) {
+=======
+				if(defensaSelec != null) 
+				{
+>>>>>>> 6e6508330725824287fabb848012d75ca55623fd
 					JLabel labelCelda = (JLabel) e.getComponent();
 					Vector<Integer> vector = buscarCoordenadas(labelCelda);
 					GridBagConstraints cons = new GridBagConstraints();
