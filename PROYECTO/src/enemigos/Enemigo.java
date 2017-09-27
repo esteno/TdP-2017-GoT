@@ -12,7 +12,7 @@ public abstract class Enemigo extends ObjetoMovil implements Runnable {
 	public void run() {
 		while(isRunning) {
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(velocidad);
 				if(celda.getX() != 0) {
 					int xAnterior = celda.getX();
 					int yAnterior = celda.getY();
