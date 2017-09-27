@@ -41,7 +41,7 @@ public class Gui {
 	private JLabel[][] matrizLabelCelda;
 	private JLabel[][] matrizLabelEnemigo;
 	
-	private Defensa defensaSelec = null;
+	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	private JLayeredPane panelMapa;
 	
 	private final int NIVELCELDA = 0;
@@ -87,26 +87,17 @@ public class Gui {
 		JPanel panelControl = new JPanel();
 		frame.getContentPane().add(panelControl, BorderLayout.EAST);
 		
-<<<<<<< HEAD
 		JButton botonAgregar = new JButton("Agregar Jorgito");
 		botonAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				defensaSelec = juego.construirDefensa();
-				
-=======
-		JButton botonAgregarJorgito = new JButton("Agregar Jorgito");
-		botonAgregarJorgito.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
 				fabricaDeDefensa.construirJorgito();
->>>>>>> 66fb56a8b86c7242507b4838c6fdbf2cbb978e98
 			}
-			
 		});
+		
 		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
 		panelControl.add(botonAgregar);
 		
-<<<<<<< HEAD
 		
 		//eliminar personaje
 		/*JButton botonEliminar= new JButton("Eliminar Jorgito");
@@ -126,10 +117,6 @@ public class Gui {
 	*/
 		
 		
-		
-		
-=======
->>>>>>> 66fb56a8b86c7242507b4838c6fdbf2cbb978e98
 		JButton botonAgregarEnemigo = new JButton("AgregarEnemigo");
 		botonAgregarEnemigo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -209,13 +196,8 @@ public class Gui {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-<<<<<<< HEAD
-				if(defensaSelec != null) 
-				{
-=======
 				Defensa defensa = fabricaDeDefensa.getDefensa();
 				if(defensa != null) {
->>>>>>> 66fb56a8b86c7242507b4838c6fdbf2cbb978e98
 					JLabel labelCelda = (JLabel) e.getComponent();
 					Vector<Integer> vector = buscarCoordenadas(labelCelda);
 					GridBagConstraints cons = new GridBagConstraints();
@@ -223,13 +205,12 @@ public class Gui {
 					System.out.println("x "+vector.get(1)+" y "+vector.get(0));
 					cons.gridx = vector.get(1);
 					cons.gridy = vector.get(0);
-					BufferedImage imagen = defensaSelec.getGrafico();
+					BufferedImage imagen = defensa.getGrafico();
 					JLabel labelNuevo = new JLabel(new ImageIcon(imagen));
 					labelNuevo.setBounds(labelCelda.getBounds());
 					labelNuevo.setOpaque(false);
 					System.out.println(cons.gridheight+" "+cons.gridwidth);
 					panelMapa.add(labelNuevo, cons, NIVELDEFENSA);
-					defensaSelec = null;
 				}
 			}
 
