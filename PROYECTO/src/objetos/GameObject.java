@@ -1,11 +1,34 @@
 package objetos;
 
-public abstract class GameObject 
+import java.awt.image.BufferedImage;
+
+import celdas.Celda;
+import logica.Juego;
+
+public abstract class GameObject implements Runnable 
 {
   
-	private GameObjectGrafico grafico;
+	protected GameObjectGrafico grafico;
+	protected Celda celda;
+	protected Juego juego;
+	protected Boolean isRunning = true;
 	
 	public GameObject(String path) {
 		grafico = new GameObjectGrafico(path);
 	}
+	
+	public BufferedImage getGrafico() {
+		return grafico.getImagen();
+	}
+	
+	public void setCelda(Celda celdaNueva) {
+		celda = celdaNueva;
+	}
+	
+	public void destruir()
+	{
+		grafico=null;
+		isRunning=false;
+	}
 }
+

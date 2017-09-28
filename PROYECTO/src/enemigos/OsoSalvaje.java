@@ -1,6 +1,6 @@
 package enemigos;
 
-public class OsoSalvaje extends Enemigo {
+public class OsoSalvaje extends Enemigo implements Runnable {
 
 	public OsoSalvaje(String path) {
 		super(path);

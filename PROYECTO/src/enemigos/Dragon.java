@@ -1,6 +1,6 @@
 package enemigos;
 
-public class Dragon extends Enemigo {
+public class Dragon extends Enemigo implements Runnable {
 
 	public Dragon(String path) {
 		super(path);

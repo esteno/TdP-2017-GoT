@@ -1,7 +1,9 @@
 package celdas;
 
 import mapa.Mapa;
+import objetos.GameObject;
 import objetos.GameObjectGrafico;
+import objetos.ObjetoMovil;
 
 public abstract class Celda 
 {
@@ -12,7 +14,7 @@ public abstract class Celda
     protected CeldaGrafica grafica;
     
     //constructor 
-    public Celda(Mapa m, int y, int x)
+    public Celda(Mapa m, int x, int y)
     {
     	mapa=m;
     	this.x=x;
@@ -29,5 +31,13 @@ public abstract class Celda
     
     public GameObjectGrafico getGrafico() {
     	return grafica;
+    }
+    
+    public Celda celdaIzquierda() {
+    	return mapa.celdaIzquierda(this);
+    }
+    
+    public void moverEnemigoGrafica(int x, int y ,int xAnterior, int yAnterior) {
+    	mapa.moverEnemigoGrafica(x, y, xAnterior, yAnterior);
     }
 }

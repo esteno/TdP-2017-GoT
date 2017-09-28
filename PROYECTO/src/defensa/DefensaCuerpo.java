@@ -1,6 +1,7 @@
 package defensa;
 
-public abstract class DefensaCuerpo extends Defensa 
+
+public abstract class DefensaCuerpo extends Defensa implements Runnable
 {
     
 	
@@ -10,4 +11,6 @@ public abstract class DefensaCuerpo extends Defensa
 		super(path);
 		
 	}
+	
+	public void run() {}
 }

@@ -2,6 +2,9 @@ package mapa;
 
 import celdas.Celda;
 import celdas.CeldaGrafica;
+import enemigos.Enemigo;
+import logica.FabricaDeDefensa;
+import logica.Juego;
 import objetos.*;
 import premio.*;
 
@@ -19,33 +22,38 @@ public class Mapa
 	//Matriz que contiene a los enemigos y los disparos de la defensa.
 	private ObjetoMovil[][] matrizMovil;
 	
+	private Juego juego;
+	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	
-	public Mapa(int alto, int ancho)
+	
+	public Mapa(Juego juego, int alto, int ancho)
 	{
-		matrizCeldas = new Celda[alto][ancho];
-		matrizEstatica = new GameObject[alto][ancho];
-		matrizMovil = new ObjetoMovil[alto][ancho];
+		matrizCeldas = new Celda[ancho][alto];
+		matrizEstatica = new GameObject[ancho][alto];
+		matrizMovil = new ObjetoMovil[ancho][alto];
 		
 		//Inicializo la matriz con celdas
-		for(int i = 0; i < alto; i++) {
-			for (int j = 0; j < ancho; j++) {
+		for(int i = 0; i < ancho; i++) {
+			for (int j = 0; j < alto; j++) {
 				
 				matrizCeldas[i][j] = generadorDeCeldas.generar(this, i, j);
 			}
 		}
+		
+		this.juego = juego;
 	}
 	
-	public Celda celdaArriba(Celda celdaActual) {
+	public Celda celdaIzquierda(Celda celdaActual) {
 		Celda celdaArriba = null;
-		if(celdaActual.getY() != 0)
-			celdaArriba = matrizCeldas[celdaActual.getY()-1][celdaActual.getX()];
+		if(celdaActual.getX() != 0)
+			celdaArriba = matrizCeldas[celdaActual.getX()- 1][celdaActual.getY()];
 		return celdaArriba;
 	}
 	
-	public Celda CeldaAbajo(Celda celdaActual) {
+	public Celda CeldaDerecha(Celda celdaActual) {
 		Celda celdaAbajo = null;
-		if(celdaActual.getY() != matrizCeldas.length-1)
-			celdaAbajo = matrizCeldas[celdaActual.getY()+1][celdaActual.getX()];
+		if(celdaActual.getX() != matrizCeldas.length-1)
+			celdaAbajo = matrizCeldas[celdaActual.getX()+1][celdaActual.getY()];
 		return celdaAbajo;
 	}
 	
@@ -59,5 +67,34 @@ public class Mapa
 		return toReturn;
 	}
 	
-
+	public Celda agregarEnemigo(Enemigo enemigo, int pos) {
+		matrizMovil[matrizMovil.length - 1][pos] = enemigo;
+		Celda toReturn = matrizCeldas[matrizCeldas.length - 1][pos];
+		enemigo.setCelda(toReturn);
+		return toReturn;
+		
+	}
+	
+	public void moverMovilIzquierda(Celda celda, ObjetoMovil movil) {
+		matrizMovil[celda.getX() + 1][celda.getY()] = null;
+		matrizMovil[celda.getX()][celda.getY()] = movil;
+	}
+	
+	public void moverEnemigoGrafica(int x, int y, int xAnterior, int yAnterior) {
+		juego.moverEnemigoGrafico(x, y, xAnterior, yAnterior);
+	}
+ 
+ 
+	public void eliminarDefensa(int x, int y)
+	{
+		GameObject g=matrizEstatica[x][y];
+		matrizEstatica[x][y]=null;
+		g.destruir();
+	}
+	
+	public void agregarDefensa(int x, int y)
+	{
+		matrizEstatica[x][y]= fabricaDeDefensa.getDefensa();
+		fabricaDeDefensa.reset();
+	}
 }
