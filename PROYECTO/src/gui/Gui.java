@@ -111,7 +111,7 @@ public class Gui {
 			{
 				aEliminar=!aEliminar;
 	        }
-		});s
+		});
 		panelControl.add(botonEliminar);
 
 		

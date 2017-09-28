@@ -26,6 +26,7 @@ public class Juego implements Runnable {
 		puntaje = new Puntaje();
 		mapa = new Mapa(this, alto, ancho);
 		fabricaDeOleadas = new FabricaDeOleadas(this, alto);
+		new Thread(fabricaDeOleadas).start();
 
 	}
 	
@@ -56,7 +57,6 @@ public class Juego implements Runnable {
 	public void agregarEnemigo(Enemigo enemigo, int pos) {
 		Celda celda = mapa.agregarEnemigo(enemigo, pos);
 		gui.agregarEnemigo(celda, enemigo.getGrafico());
-		new Thread(enemigo).start();
 	}
 	
 	public void crearEnemigo() {

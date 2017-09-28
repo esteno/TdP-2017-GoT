@@ -1,6 +1,6 @@
 package enemigos;
 
-public class EnemigoRojo extends Enemigo implements Runnable {
+public class EnemigoRojo extends Enemigo {
 	
 
 	public EnemigoRojo() {

@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import celdas.Celda;
 import logica.Juego;
 
-public abstract class GameObject implements Runnable 
+public abstract class GameObject
 {
   
 	protected GameObjectGrafico grafico;
@@ -28,7 +28,6 @@ public abstract class GameObject implements Runnable
 	public void destruir()
 	{
 		grafico=null;
-		isRunning=false;
 	}
 }
 
