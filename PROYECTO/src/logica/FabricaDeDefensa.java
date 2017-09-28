@@ -24,4 +24,8 @@ public class FabricaDeDefensa {
 	public Defensa getDefensa() {
 		return defensaCreada;
 	}
+	
+	public void reset() {
+		defensaCreada = null;
+	}
 }

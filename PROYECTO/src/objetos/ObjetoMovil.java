@@ -2,7 +2,7 @@ package objetos;
 
 public abstract class ObjetoMovil extends GameObject
 {
-	protected Boolean isRunning = true;
+	
 	
 	public ObjetoMovil(String path) {
 		super(path);

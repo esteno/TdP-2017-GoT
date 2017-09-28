@@ -16,7 +16,7 @@ public class Juego implements Runnable {
 	
 	private Gui gui;
 	
-	private DefensaFactory fabricaDefensa;
+
 	private FabricaDeOleadas fabricaDeOleadas;
 	
 	private Defensa rt;
@@ -26,20 +26,19 @@ public class Juego implements Runnable {
 		puntaje = new Puntaje();
 		mapa = new Mapa(this, alto, ancho);
 		fabricaDeOleadas = new FabricaDeOleadas(this, alto);
-		fabricaDefensa = new DefensaFactory();
+
 	}
 	
 	public void run() {}
 	
-	public Defensa construirDefensa() 
+	public void agregarDefensa(int x, int y)
 	{
-		return fabricaDefensa.construirDefensa();
-		
+		mapa.agregarDefensa(x,y);
 	}
 	
 	public void eliminarDefensa(int x,int y )
 	{
-	   
+	    mapa.eliminarDefensa(x,y);  
 	}
 	
 	

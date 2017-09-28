@@ -3,6 +3,7 @@ package mapa;
 import celdas.Celda;
 import celdas.CeldaGrafica;
 import enemigos.Enemigo;
+import logica.FabricaDeDefensa;
 import logica.Juego;
 import objetos.*;
 import premio.*;
@@ -22,6 +23,7 @@ public class Mapa
 	private ObjetoMovil[][] matrizMovil;
 	
 	private Juego juego;
+	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	
 	
 	public Mapa(Juego juego, int alto, int ancho)
@@ -81,6 +83,18 @@ public class Mapa
 	public void moverEnemigoGrafica(int x, int y, int xAnterior, int yAnterior) {
 		juego.moverEnemigoGrafico(x, y, xAnterior, yAnterior);
 	}
+ 
+ 
+	public void eliminarDefensa(int x, int y)
+	{
+		GameObject g=matrizEstatica[x][y];
+		matrizEstatica[x][y]=null;
+		g.destruir();
+	}
 	
-
+	public void agregarDefensa(int x, int y)
+	{
+		matrizEstatica[x][y]= fabricaDeDefensa.getDefensa();
+		fabricaDeDefensa.reset();
+	}
 }

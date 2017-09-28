@@ -11,6 +11,7 @@ public abstract class GameObject implements Runnable
 	protected GameObjectGrafico grafico;
 	protected Celda celda;
 	protected Juego juego;
+	protected Boolean isRunning = true;
 	
 	public GameObject(String path) {
 		grafico = new GameObjectGrafico(path);
@@ -23,4 +24,11 @@ public abstract class GameObject implements Runnable
 	public void setCelda(Celda celdaNueva) {
 		celda = celdaNueva;
 	}
+	
+	public void destruir()
+	{
+		grafico=null;
+		isRunning=false;
+	}
 }
+
