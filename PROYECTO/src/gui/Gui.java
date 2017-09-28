@@ -39,6 +39,7 @@ public class Gui {
 	private final int ANCHO = 16;
 	
 	private JLabel[][] matrizLabelCelda;
+	private JLabel[][] matrizLabelEstatica;
 	private JLabel[][] matrizLabelEnemigo;
 	
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
@@ -47,6 +48,9 @@ public class Gui {
 	private final int NIVELCELDA = 0;
 	private final int NIVELDEFENSA = 1;
 	private final int NIVELENEMIGO = 2;
+	
+	
+	private boolean aEliminar=false;
 	
 	/**
 	 * Launch the application.
@@ -71,6 +75,7 @@ public class Gui {
 	{
 		juego = new Juego(this, ALTO, ANCHO);
 		matrizLabelCelda = new JLabel[ANCHO][ALTO];
+		matrizLabelEstatica = new JLabel[ANCHO][ALTO];
 		matrizLabelEnemigo = new JLabel[ANCHO][ALTO];
 		
 		initialize();	
@@ -99,22 +104,17 @@ public class Gui {
 		panelControl.add(botonAgregar);
 		
 		
-		//eliminar personaje
-		/*JButton botonEliminar= new JButton("Eliminar Jorgito");
+		//eliminar defensa
+		JButton botonEliminar= new JButton("Eliminar Jorgito");
 		botonEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
-			     if(defensaSelec!=null)
-			     {
-			    	 defensaSelec=null;
-			    	 juego.eliminarDefensa(,);
-			    	 
-		         }
+				aEliminar=!aEliminar;
 	        }
 		});
 		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
 		panelControl.add(botonEliminar);
-	*/
+
 		
 		
 		JButton botonAgregarEnemigo = new JButton("AgregarEnemigo");
@@ -161,7 +161,8 @@ public class Gui {
 		labelEnemigo.setBounds(label.getBounds());
 		matrizLabelEnemigo[celda.getX()][celda.getY()] = labelEnemigo;
 		panelMapa.add(labelEnemigo, cons, NIVELENEMIGO);
-		panelMapa.validate();
+	//	panelMapa.validate();
+	
 	}
 	
 	
@@ -188,6 +189,7 @@ public class Gui {
 		matrizLabelEnemigo[x][y] = labelCelda;
 		labelCelda.setBounds(matrizLabelCelda[x][y].getBounds());
 		labelCelda.repaint();
+		
 	}
 	
 	
@@ -196,22 +198,37 @@ public class Gui {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Defensa defensa = fabricaDeDefensa.getDefensa();
-				if(defensa != null) {
-					JLabel labelCelda = (JLabel) e.getComponent();
-					Vector<Integer> vector = buscarCoordenadas(labelCelda);
+				JLabel labelCelda = (JLabel) e.getComponent();
+				Vector<Integer> vector = buscarCoordenadas(labelCelda);
+				int x=vector.get(0);
+				int y=vector.get(1);
+				if(aEliminar)
+				{
+					juego.eliminarDefensa(x, y);
+					JLabel remover = matrizLabelEstatica[x][y];
+					matrizLabelEstatica[x][y] = null;
+					panelMapa.remove(remover);
+					panelMapa.repaint();
+				}
+				else
+				{ Defensa defensa = fabricaDeDefensa.getDefensa();
+				  if(defensa != null) 
+				  {
+
+					juego.agregarDefensa(x,y);
 					GridBagConstraints cons = new GridBagConstraints();
 					cons.gridheight = cons.gridwidth = 1;
 					System.out.println("x "+vector.get(1)+" y "+vector.get(0));
-					cons.gridx = vector.get(1);
-					cons.gridy = vector.get(0);
+					cons.gridx = x;
+					cons.gridy = y;
 					BufferedImage imagen = defensa.getGrafico();
 					JLabel labelNuevo = new JLabel(new ImageIcon(imagen));
 					labelNuevo.setBounds(labelCelda.getBounds());
-					labelNuevo.setOpaque(false);
+					matrizLabelEstatica[x][y] = labelNuevo;
 					System.out.println(cons.gridheight+" "+cons.gridwidth);
 					panelMapa.add(labelNuevo, cons, NIVELDEFENSA);
-				}
+				 }
+			   }
 			}
 
 			@Override
