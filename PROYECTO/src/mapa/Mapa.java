@@ -80,7 +80,16 @@ public class Mapa
 		matrizMovil[celda.getX()][celda.getY()] = movil;
 	}
 	
-	public void moverEnemigoGrafica(int x, int y, int xAnterior, int yAnterior) {
+	public boolean hayEnemigo(Celda celda) {
+		if(matrizMovil[celda.getX()][celda.getY()]!=null)
+			return true;
+		return false;
+	}
+	
+	
+	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) {
+		matrizMovil[x][y] = matrizMovil[xAnterior][yAnterior];
+		matrizMovil[xAnterior][yAnterior] = null;
 		juego.moverEnemigoGrafico(x, y, xAnterior, yAnterior);
 	}
  

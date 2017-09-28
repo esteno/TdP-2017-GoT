@@ -37,7 +37,11 @@ public abstract class Celda
     	return mapa.celdaIzquierda(this);
     }
     
-    public void moverEnemigoGrafica(int x, int y ,int xAnterior, int yAnterior) {
-    	mapa.moverEnemigoGrafica(x, y, xAnterior, yAnterior);
+    public boolean hayEnemigo() {
+    	return mapa.hayEnemigo(this);
+    }
+    
+    public void moverEnemigo(int x, int y ,int xAnterior, int yAnterior) {
+    	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
     }
 }

@@ -1,5 +1,6 @@
 package enemigos;
 
+import celdas.Celda;
 import objetos.ObjetoMovil;
 
 public abstract class Enemigo extends ObjetoMovil {
@@ -13,9 +14,13 @@ public abstract class Enemigo extends ObjetoMovil {
 		if(celda.getX() != 0) {
 			int xAnterior = celda.getX();
 			int yAnterior = celda.getY();
-			celda = celda.celdaIzquierda();
-			System.out.println("pos x "+celda.getX()+" y "+celda.getY()+" xA "+xAnterior+" yA "+yAnterior);
-			celda.moverEnemigoGrafica(celda.getX(),celda.getY(),xAnterior,yAnterior);
+			Celda celdaNueva = celda.celdaIzquierda();
+			System.out.println(celdaNueva.hayEnemigo());
+			if(!celdaNueva.hayEnemigo()) {
+				
+				celda = celdaNueva;
+				celda.moverEnemigo(celda.getX(), celda.getY(), xAnterior, yAnterior);
+			} 
 			
 		}
 		else {

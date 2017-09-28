@@ -30,7 +30,9 @@ public class Juego implements Runnable {
 
 	}
 	
-	public void run() {}
+	public void run() {
+		
+	}
 	
 	public void agregarDefensa(int x, int y)
 	{
