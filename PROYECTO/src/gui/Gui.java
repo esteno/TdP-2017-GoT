@@ -111,8 +111,7 @@ public class Gui {
 			    	 
 		         }
 	        }
-		});
-		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
+		});s
 		panelControl.add(botonEliminar);
 	*/
 		
