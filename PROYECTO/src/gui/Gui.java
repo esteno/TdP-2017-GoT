@@ -41,6 +41,7 @@ public class Gui {
 	private JLabel[][] matrizLabelCelda;
 	private JLabel[][] matrizLabelEstatica;
 	private JLabel[][] matrizLabelEnemigo;
+	private JLabel labelPuntaje;
 	
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	private JLayeredPane panelMapa;
@@ -101,6 +102,9 @@ public class Gui {
 		});
 		
 		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		labelPuntaje = new JLabel("Puntaje: 0");
+		panelControl.add(labelPuntaje);
 		panelControl.add(botonAgregar);
 		
 		
@@ -195,6 +199,10 @@ public class Gui {
 		panelMapa.remove(aEliminar);
 		panelMapa.repaint();
 		matrizLabelEnemigo[x][y] = null;
+	}
+	
+	public void puntaje(int i) {
+		labelPuntaje.setText("Puntaje: "+i);
 	}
 	
 	

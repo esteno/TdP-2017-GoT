@@ -109,7 +109,9 @@ public class Mapa
 	
 	public void agregarDefensa(int x, int y)
 	{
-		matrizEstatica[x][y]= fabricaDeDefensa.getDefensa();
+		if(matrizEstatica[x][y] == null) {
+			matrizEstatica[x][y]= fabricaDeDefensa.getDefensa();
+		}
 		fabricaDeDefensa.reset();
 	}
 }

@@ -39,5 +39,9 @@ public abstract class Enemigo extends ObjetoMovil {
 		celda.destruirEnemigo();
 		
 	}
+	
+	public int getPuntaje() {
+		return puntaje;
+	}
 
 }

@@ -11,7 +11,7 @@ public class Puntaje {
 	}
 	
 	public void sumarPuntaje(int p) {
-		puntos = p;
+		puntos += p;
 	}
 	
 	public void sumarOro(int o) {

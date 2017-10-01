@@ -5,7 +5,8 @@ public class EnemigoRojo extends Enemigo {
 
 	public EnemigoRojo() {
 		super("res/imagenes/enemigo/enemigo.png");
-	    velocidad=1000;	
+	    velocidad=1000;
+	    puntaje=100;
 	}
 
 }

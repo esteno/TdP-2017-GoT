@@ -41,7 +41,9 @@ public class FabricaDeOleadas implements Runnable{
 				}
 				for(Enemigo aBorrar: listaDescarte) {
 					listaEnemigos.remove(aBorrar);
+					juego.sumarPuntaje(aBorrar.getPuntaje());
 				}
+				listaDescarte.clear();
 				//listaEnemigos.clear();
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();

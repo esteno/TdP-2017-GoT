@@ -10,7 +10,7 @@ public abstract class GameObject
   
 	protected GameObjectGrafico grafico;
 	protected Celda celda;
-	protected Juego juego;
+	protected int puntaje;
 	protected Boolean isRunning = true;
 	
 	public GameObject(String path) {
