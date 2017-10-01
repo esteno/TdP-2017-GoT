@@ -187,7 +187,9 @@ public class Gui {
 	
 	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) {
 		JLabel labelEnemigo = matrizLabelEnemigo[xAnterior][yAnterior];
-		matrizLabelEnemigo[xAnterior][yAnterior] = null;
+		if(matrizLabelEnemigo[xAnterior][yAnterior] == labelEnemigo) {
+			matrizLabelEnemigo[xAnterior][yAnterior] = null;
+		}
 		matrizLabelEnemigo[x][y] = labelEnemigo;
 		labelEnemigo.setBounds(matrizLabelCelda[x][y].getBounds());
 		labelEnemigo.repaint();

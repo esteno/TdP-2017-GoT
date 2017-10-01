@@ -19,8 +19,6 @@ public class Juego implements Runnable {
 
 	private FabricaDeOleadas fabricaDeOleadas;
 	
-	private Defensa rt;
-	
 	public Juego(Gui gui, int alto, int ancho)  {
 		this.gui = gui;
 		puntaje = new Puntaje();
