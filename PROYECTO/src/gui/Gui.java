@@ -182,13 +182,19 @@ public class Gui {
 	}
 	
 	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) {
-		
-		JLabel labelCelda = matrizLabelEnemigo[xAnterior][yAnterior];
+		JLabel labelEnemigo = matrizLabelEnemigo[xAnterior][yAnterior];
 		matrizLabelEnemigo[xAnterior][yAnterior] = null;
-		matrizLabelEnemigo[x][y] = labelCelda;
-		labelCelda.setBounds(matrizLabelCelda[x][y].getBounds());
-		labelCelda.repaint();
+		matrizLabelEnemigo[x][y] = labelEnemigo;
+		labelEnemigo.setBounds(matrizLabelCelda[x][y].getBounds());
+		labelEnemigo.repaint();
 		
+	}
+	
+	public void eliminarEnemigo(int x, int y) {
+		JLabel aEliminar = matrizLabelEnemigo[x][y];
+		panelMapa.remove(aEliminar);
+		panelMapa.repaint();
+		matrizLabelEnemigo[x][y] = null;
 	}
 	
 	
@@ -217,14 +223,12 @@ public class Gui {
 					juego.agregarDefensa(x,y);
 					GridBagConstraints cons = new GridBagConstraints();
 					cons.gridheight = cons.gridwidth = 1;
-					System.out.println("x "+vector.get(1)+" y "+vector.get(0));
 					cons.gridx = x;
 					cons.gridy = y;
 					BufferedImage imagen = defensa.getGrafico();
 					JLabel labelNuevo = new JLabel(new ImageIcon(imagen));
 					labelNuevo.setBounds(labelCelda.getBounds());
 					matrizLabelEstatica[x][y] = labelNuevo;
-					System.out.println(cons.gridheight+" "+cons.gridwidth);
 					panelMapa.add(labelNuevo, cons, NIVELDEFENSA);
 				 }
 			   }

@@ -11,21 +11,24 @@ public class FabricaDeOleadas implements Runnable{
 	private Juego juego;
 	private int alto;
 	private List<Enemigo> listaEnemigos;
+	private List<Enemigo> listaDescarte;
 	private boolean isRunning = true;
+	private boolean segundaOperacion = false;
 	
 	public FabricaDeOleadas(Juego juego, int alto) {
 		this.juego = juego;
 		this.alto = alto;
 		listaEnemigos = new ArrayList<Enemigo>();
+		listaDescarte = new ArrayList<Enemigo>();
 	}
 
 	
 	public void generarEnemigo() {
 		Enemigo enemigo = new EnemigoRojo();
+		enemigo.setFabrica(this);
 		int rand = (int) Math.floor(Math.random() * (alto - 1));
 		listaEnemigos.add(enemigo);
 		juego.agregarEnemigo(enemigo, rand);
-		System.out.println("generador "+rand);
 		
 	}
 	
@@ -33,13 +36,21 @@ public class FabricaDeOleadas implements Runnable{
 		while(isRunning) {
 			try {
 				Thread.sleep(1000);
-			for(Enemigo e: listaEnemigos) {
-				e.avanzar();
-			}
+				for(Enemigo e: listaEnemigos) {
+					e.avanzar();
+				}
+				for(Enemigo aBorrar: listaDescarte) {
+					listaEnemigos.remove(aBorrar);
+				}
+				//listaEnemigos.clear();
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
 		}
+	}
+	
+	public void destruirEnemigo(Enemigo e) {
+		listaDescarte.add(e);
 	}
 	
 

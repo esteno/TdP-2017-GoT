@@ -44,4 +44,8 @@ public abstract class Celda
     public void moverEnemigo(int x, int y ,int xAnterior, int yAnterior) {
     	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
     }
+    
+    public void destruirEnemigo() {
+    	mapa.eliminarEnemigo(x, y);
+    }
 }

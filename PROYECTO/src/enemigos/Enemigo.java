@@ -1,13 +1,20 @@
 package enemigos;
 
 import celdas.Celda;
+import logica.FabricaDeOleadas;
 import objetos.ObjetoMovil;
 
 public abstract class Enemigo extends ObjetoMovil {
+	
+	private FabricaDeOleadas fabrica;
 
 	public Enemigo(String path) {
 		super(path);
 		// TODO Auto-generated constructor stub
+	}
+	
+	public void setFabrica(FabricaDeOleadas f) {
+		fabrica = f;
 	}
 	
 	public void avanzar() {
@@ -15,7 +22,6 @@ public abstract class Enemigo extends ObjetoMovil {
 			int xAnterior = celda.getX();
 			int yAnterior = celda.getY();
 			Celda celdaNueva = celda.celdaIzquierda();
-			System.out.println(celdaNueva.hayEnemigo());
 			if(!celdaNueva.hayEnemigo()) {
 				
 				celda = celdaNueva;
@@ -29,7 +35,9 @@ public abstract class Enemigo extends ObjetoMovil {
 	}
 	
 	public void destruir() {
-		System.out.println("destruir");
+		fabrica.destruirEnemigo(this);
+		celda.destruirEnemigo();
+		
 	}
 
 }

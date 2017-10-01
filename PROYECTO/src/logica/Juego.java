@@ -69,6 +69,10 @@ public class Juego implements Runnable {
 		gui.moverEnemigoGrafico(xAnterior, yAnterior, xNuevo, yNuevo);
 	}
 	
+	public void eliminarEnemigo(int x, int y) {
+		gui.eliminarEnemigo(x, y);
+	}
+	
 	
 
 }

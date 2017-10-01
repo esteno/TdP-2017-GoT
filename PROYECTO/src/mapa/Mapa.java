@@ -101,6 +101,12 @@ public class Mapa
 		g.destruir();
 	}
 	
+	public void eliminarEnemigo(int x, int y)
+	{
+		matrizEstatica[x][y]=null;
+		juego.eliminarEnemigo(x, y);
+	}
+	
 	public void agregarDefensa(int x, int y)
 	{
 		matrizEstatica[x][y]= fabricaDeDefensa.getDefensa();
