@@ -96,11 +96,10 @@ public class Mapa
  
 	public void eliminarDefensa(int x, int y)
 	{
-		if(matrizEstatica[x][y]!=null) {
 			GameObject g=matrizEstatica[x][y];
+			System.out.println("matriz a eliminar "+matrizEstatica[x][y]==null+" x="+x+" y="+y);
 			matrizEstatica[x][y]=null;
 			g.destruir();
-		}
 	}
 	
 	public void eliminarEnemigo(int x, int y)

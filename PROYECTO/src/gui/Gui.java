@@ -97,6 +97,7 @@ public class Gui {
 		botonAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
+				System.out.println("quiere agregar a jorgito");
 				fabricaDeDefensa.construirJorgito();
 			}
 		});
@@ -113,7 +114,7 @@ public class Gui {
 		botonEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				aEliminar=!aEliminar;
+				aEliminar=true;
 	        }
 		});
 		panelControl.add(botonEliminar);
@@ -219,11 +220,15 @@ public class Gui {
 				int y=vector.get(1);
 				if(aEliminar)
 				{
-					juego.eliminarDefensa(x, y);
 					JLabel remover = matrizLabelEstatica[x][y];
-					matrizLabelEstatica[x][y] = null;
-					panelMapa.remove(remover);
-					panelMapa.repaint();
+					if(remover!=null){
+						System.out.println("remover no es nulo");
+						juego.eliminarDefensa(x, y);
+						matrizLabelEstatica[x][y] = null;
+						panelMapa.remove(remover);
+						panelMapa.repaint();
+					}
+					aEliminar=false;
 				}
 				else
 				{ Defensa defensa = fabricaDeDefensa.getDefensa();
