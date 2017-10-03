@@ -50,7 +50,7 @@ public class Mapa
 		return celdaArriba;
 	}
 	
-	public Celda CeldaDerecha(Celda celdaActual) {
+	public Celda celdaDerecha(Celda celdaActual) {
 		Celda celdaAbajo = null;
 		if(celdaActual.getX() != matrizCeldas.length-1)
 			celdaAbajo = matrizCeldas[celdaActual.getX()+1][celdaActual.getY()];
