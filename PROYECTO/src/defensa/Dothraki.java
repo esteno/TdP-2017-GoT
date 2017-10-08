@@ -2,8 +2,7 @@ package defensa;
 
 public class Dothraki extends DefensaCuerpo {
 
-	public Dothraki(String path) {
-		super(path);
+	public Dothraki() {
 		// TODO Auto-generated constructor stub
 	}
 

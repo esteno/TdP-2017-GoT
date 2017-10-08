@@ -2,8 +2,7 @@ package defensa;
 
 public abstract class DefensaRango extends Defensa implements Runnable {
 
-	public DefensaRango(String path) {
-		super(path);
+	public DefensaRango() {
 		// TODO Auto-generated constructor stub
 	}
 	

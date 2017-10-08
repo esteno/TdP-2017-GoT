@@ -1,7 +1,6 @@
 package mapa;
 
 import celdas.Celda;
-import celdas.CeldaGrafica;
 import enemigos.Enemigo;
 import logica.FabricaDeDefensa;
 import logica.Juego;
@@ -58,7 +57,7 @@ public class Mapa
 	}
 	
 	public GameObjectGrafico[][] getGraficos() {
-		GameObjectGrafico[][] toReturn = new CeldaGrafica[matrizCeldas.length][matrizCeldas[0].length];
+		GameObjectGrafico[][] toReturn = new GameObjectGrafico[matrizCeldas.length][matrizCeldas[0].length];
 		for(int i = 0; i < matrizCeldas.length; i++) {
 			for (int j = 0; j < matrizCeldas[0].length; j++) {
 				toReturn[i][j] = matrizCeldas[i][j].getGrafico();

@@ -2,8 +2,7 @@ package premio;
 
 public abstract class MagiaTemporal extends Premio {
 
-	public MagiaTemporal(String path) {
-		super(path);
+	public MagiaTemporal() {
 		// TODO Auto-generated constructor stub
 	}
 

@@ -6,9 +6,8 @@ public abstract class DefensaCuerpo extends Defensa implements Runnable
     
 	
 	
-	public DefensaCuerpo(String path)
+	public DefensaCuerpo()
 	{
-		super(path);
 		
 	}
 	

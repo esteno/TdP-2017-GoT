@@ -2,8 +2,7 @@ package defensa;
 
 public class Beric extends DefensaCuerpo {
 
-	public Beric(String path) {
-		super(path);
+	public Beric() {
 		// TODO Auto-generated constructor stub
 	}
 

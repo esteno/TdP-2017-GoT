@@ -4,8 +4,7 @@ import objetos.GameObject;
 
 public abstract class Premio extends GameObject implements Runnable {
 
-	public Premio(String path) {
-		super(path);
+	public Premio() {
 		// TODO Auto-generated constructor stub
 	}
 

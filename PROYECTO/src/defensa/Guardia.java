@@ -2,8 +2,7 @@ package defensa;
 
 public class Guardia extends DefensaCuerpo {
 
-	public Guardia(String path) {
-		super(path);
+	public Guardia() {
 		// TODO Auto-generated constructor stub
 	}
 

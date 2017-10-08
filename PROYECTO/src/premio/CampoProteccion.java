@@ -2,8 +2,7 @@ package premio;
 
 public class CampoProteccion extends MagiaTemporal {
 
-	public CampoProteccion(String path) {
-		super(path);
+	public CampoProteccion() {
 		// TODO Auto-generated constructor stub
 	}
 

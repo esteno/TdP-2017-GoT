@@ -2,8 +2,7 @@ package premio;
 
 public class DanioDoble extends Premio {
 
-	public DanioDoble(String path) {
-		super(path);
+	public DanioDoble() {
 		// TODO Auto-generated constructor stub
 	}
 

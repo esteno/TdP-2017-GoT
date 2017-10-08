@@ -28,6 +28,7 @@ public class FabricaDeOleadas implements Runnable{
 		enemigo.setFabrica(this);
 		int rand = (int) Math.floor(Math.random() * (alto - 1));
 		listaEnemigos.add(enemigo);
+		System.out.println("FABRICA juego.agregarEnemigo "+enemigo+" "+rand);
 		juego.agregarEnemigo(enemigo, rand);
 		
 	}
@@ -36,15 +37,18 @@ public class FabricaDeOleadas implements Runnable{
 		while(isRunning) {
 			try {
 				Thread.sleep(1000);
+				for(Enemigo aBorrar: listaDescarte) {
+					juego.sumarPuntaje(aBorrar.getPuntaje());
+					aBorrar.destruir();
+					listaEnemigos.remove(aBorrar);
+					
+				}
+				listaDescarte.clear();
 				for(Enemigo e: listaEnemigos) {
 					e.avanzar();
 				}
-				for(Enemigo aBorrar: listaDescarte) {
-					listaEnemigos.remove(aBorrar);
-					juego.sumarPuntaje(aBorrar.getPuntaje());
-				}
-				System.out.println("LE "+listaEnemigos.size()+" LD "+listaDescarte.size());
-				listaDescarte.clear();
+				
+				//System.out.println("LE "+listaEnemigos.size()+" LD "+listaDescarte.size());
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}

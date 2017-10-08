@@ -93,14 +93,7 @@ public class Gui {
 		JPanel panelControl = new JPanel();
 		frame.getContentPane().add(panelControl, BorderLayout.EAST);
 		
-		JButton botonAgregar = new JButton("Agregar Jorgito");
-		botonAgregar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				System.out.println("quiere agregar a jorgito");
-				fabricaDeDefensa.construirJorgito();
-			}
-		});
+		
 		
 		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
 		
@@ -147,6 +140,7 @@ public class Gui {
 				JLabel label = new JLabel();
 				label.setIcon(new ImageIcon(graficos[i][j].getImagen()));
 				label.addMouseListener(getMouseListener());
+				
 				panelMapa.add(label, cons, NIVELCELDA);
 				matrizLabelCelda[i][j] = label;
 				

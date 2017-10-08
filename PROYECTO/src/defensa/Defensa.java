@@ -11,9 +11,8 @@ public abstract class Defensa extends GameObject
      protected int precio;
      
      
-     public Defensa(String path)
+     public Defensa()
      {
-    	 super(path);
     	 
      }
 }

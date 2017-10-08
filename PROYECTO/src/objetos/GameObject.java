@@ -3,6 +3,7 @@ package objetos;
 import java.awt.image.BufferedImage;
 
 import celdas.Celda;
+import logica.FabricaObjetoGrafico;
 import logica.Juego;
 
 public abstract class GameObject
@@ -12,10 +13,8 @@ public abstract class GameObject
 	protected Celda celda;
 	protected int puntaje;
 	protected Boolean isRunning = true;
+	protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
 	
-	public GameObject(String path) {
-		grafico = new GameObjectGrafico(path);
-	}
 	
 	public BufferedImage getGrafico() {
 		return grafico.getImagen();

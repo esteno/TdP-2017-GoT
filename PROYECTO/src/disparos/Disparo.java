@@ -5,9 +5,7 @@ public class Disparo extends ObjetoMovil implements Runnable
 {
 	
 	
-	public Disparo()
-	{
-		super(null);
+	public Disparo() {
 	}
 
 	@Override

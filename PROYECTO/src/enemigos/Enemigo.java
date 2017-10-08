@@ -8,10 +8,6 @@ public abstract class Enemigo extends ObjetoMovil {
 	
 	private FabricaDeOleadas fabrica;
 
-	public Enemigo(String path) {
-		super(path);
-		// TODO Auto-generated constructor stub
-	}
 	
 	public void setFabrica(FabricaDeOleadas f) {
 		fabrica = f;
@@ -25,12 +21,9 @@ public abstract class Enemigo extends ObjetoMovil {
 			if(!celdaNueva.hayEnemigo()) {
 				
 				celda = celdaNueva;
-				celda.moverEnemigo(celda.getX(), celda.getY(), xAnterior, yAnterior);
+				celda.moverEnemigo(xAnterior, yAnterior);
 			} 
 			
-		}
-		else {
-			destruir();
 		}
 	}
 	

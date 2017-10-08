@@ -4,8 +4,7 @@ import objetos.GameObject;
 
 public abstract class Obstaculo extends GameObject implements Runnable {
 
-	public Obstaculo(String path) {
-		super(path);
+	public Obstaculo() {
 		// TODO Auto-generated constructor stub
 	}
 	

@@ -2,8 +2,7 @@ package premio;
 
 public class Curacion extends MagiaTemporal {
 
-	public Curacion(String path) {
-		super(path);
+	public Curacion() {
 		// TODO Auto-generated constructor stub
 	}
 

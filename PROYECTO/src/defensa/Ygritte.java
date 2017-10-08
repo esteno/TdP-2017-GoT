@@ -2,8 +2,7 @@ package defensa;
 
 public class Ygritte extends DefensaRango {
 
-	public Ygritte(String path) {
-		super(path);
+	public Ygritte() {
 		// TODO Auto-generated constructor stub
 	}
 

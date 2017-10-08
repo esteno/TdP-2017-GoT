@@ -1,5 +1,6 @@
 package celdas;
 
+import logica.FabricaObjetoGrafico;
 import mapa.Mapa;
 import objetos.GameObject;
 import objetos.GameObjectGrafico;
@@ -11,7 +12,8 @@ public abstract class Celda
     protected Mapa mapa;
     protected int x;
     protected int y;
-    protected CeldaGrafica grafica;
+    protected GameObjectGrafico grafica;
+    protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
     
     //constructor 
     public Celda(Mapa m, int x, int y)
@@ -41,7 +43,7 @@ public abstract class Celda
     	return mapa.hayEnemigo(this);
     }
     
-    public void moverEnemigo(int x, int y ,int xAnterior, int yAnterior) {
+    public void moverEnemigo(int xAnterior, int yAnterior) {
     	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
     }
     

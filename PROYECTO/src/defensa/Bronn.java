@@ -2,8 +2,7 @@ package defensa;
 
 public class Bronn extends DefensaRango {
 
-	public Bronn(String path) {
-		super(path);
+	public Bronn() {
 		// TODO Auto-generated constructor stub
 	}
 
