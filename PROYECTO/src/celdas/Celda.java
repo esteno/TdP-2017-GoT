@@ -50,4 +50,6 @@ public abstract class Celda
     public void destruirEnemigo() {
     	mapa.eliminarEnemigo(x, y);
     }
+    public Mapa getMapa()
+    { return mapa; }
 }

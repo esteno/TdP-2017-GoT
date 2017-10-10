@@ -1,7 +1,7 @@
 package objetos;
 
 import java.awt.image.BufferedImage;
-
+import colisiones.*;
 import celdas.Celda;
 import logica.FabricaObjetoGrafico;
 import logica.Juego;
@@ -14,6 +14,7 @@ public abstract class GameObject
 	protected int puntaje;
 	protected Boolean isRunning = true;
 	protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
+	protected int resistencia;
 	
 	
 	public BufferedImage getGrafico() {
@@ -28,5 +29,16 @@ public abstract class GameObject
 	{
 		grafico=null;
 	}
+	
+	//public abstract boolean aceptar(Visitor v);
+	
+	public int getResistencia()
+	{ return resistencia; }
+	
+	public void decrementarResistencia()
+	{  resistencia=resistencia--; }
+	
+	public Celda getCelda()
+	{ return celda;}
 }
 

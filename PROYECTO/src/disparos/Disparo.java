@@ -1,5 +1,6 @@
 package disparos;
 import objetos.*;
+import enemigos.*;
 
 public class Disparo extends ObjetoMovil implements Runnable
 {
@@ -13,4 +14,9 @@ public class Disparo extends ObjetoMovil implements Runnable
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	public void daniar(Enemigo e)
+	{}
+	
 }
