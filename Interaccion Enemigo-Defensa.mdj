@@ -326,7 +326,7 @@
 													"left": 221,
 													"top": 80,
 													"width": 1,
-													"height": 489,
+													"height": 393,
 													"autoResize": false
 												}
 											],
@@ -342,7 +342,7 @@
 											"left": 184,
 											"top": 40,
 											"width": 74.89453125,
-											"height": 529,
+											"height": 433,
 											"autoResize": false,
 											"stereotypeDisplay": "label",
 											"showVisibility": true,
@@ -698,7 +698,7 @@
 													"left": 412,
 													"top": 80,
 													"width": 1,
-													"height": 489,
+													"height": 393,
 													"autoResize": false
 												}
 											],
@@ -714,7 +714,7 @@
 											"left": 376,
 											"top": 40,
 											"width": 72.736328125,
-											"height": 529,
+											"height": 433,
 											"autoResize": false,
 											"stereotypeDisplay": "label",
 											"showVisibility": true,
@@ -1070,7 +1070,7 @@
 													"left": 644,
 													"top": 80,
 													"width": 1,
-													"height": 489,
+													"height": 393,
 													"autoResize": false
 												}
 											],
@@ -1086,7 +1086,7 @@
 											"left": 608,
 											"top": 40,
 											"width": 72.736328125,
-											"height": 529,
+											"height": 433,
 											"autoResize": false,
 											"stereotypeDisplay": "label",
 											"showVisibility": true,
@@ -1597,7 +1597,7 @@
 											"left": 136,
 											"top": 264,
 											"width": 1137,
-											"height": 305,
+											"height": 209,
 											"autoResize": false,
 											"nameLabel": {
 												"$ref": "AAAAAAFfBbsMShh92Go="
@@ -1780,7 +1780,7 @@
 													"left": 821,
 													"top": 80,
 													"width": 1,
-													"height": 489,
+													"height": 393,
 													"autoResize": false
 												}
 											],
@@ -1796,7 +1796,7 @@
 											"left": 784,
 											"top": 40,
 											"width": 74.89453125,
-											"height": 529,
+											"height": 433,
 											"autoResize": false,
 											"stereotypeDisplay": "label",
 											"showVisibility": true,
@@ -2322,7 +2322,7 @@
 													"left": 987,
 													"top": 80,
 													"width": 1,
-													"height": 489,
+													"height": 393,
 													"autoResize": false
 												}
 											],
@@ -2338,7 +2338,7 @@
 											"left": 920,
 											"top": 40,
 											"width": 133.43896484375,
-											"height": 529,
+											"height": 433,
 											"autoResize": false,
 											"stereotypeDisplay": "label",
 											"showVisibility": true,
@@ -3034,7 +3034,7 @@
 													"left": 1116,
 													"top": 80,
 													"width": 1,
-													"height": 481,
+													"height": 393,
 													"autoResize": false
 												}
 											],
@@ -3050,7 +3050,7 @@
 											"left": 1080,
 											"top": 40,
 											"width": 72.736328125,
-											"height": 521,
+											"height": 433,
 											"autoResize": false,
 											"stereotypeDisplay": "label",
 											"showVisibility": true,
@@ -3406,7 +3406,7 @@
 													"left": 1212,
 													"top": 80,
 													"width": 1,
-													"height": 489,
+													"height": 393,
 													"autoResize": false
 												}
 											],
@@ -3422,7 +3422,7 @@
 											"left": 1176,
 											"top": 40,
 											"width": 72.736328125,
-											"height": 529,
+											"height": 433,
 											"autoResize": false,
 											"stereotypeDisplay": "label",
 											"showVisibility": true,
@@ -4024,6 +4024,7 @@
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
+							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -4041,6 +4042,7 @@
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
+							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -4058,6 +4060,7 @@
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
+							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
