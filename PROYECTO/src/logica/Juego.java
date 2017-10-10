@@ -75,9 +75,11 @@ public class Juego implements Runnable {
 		gui.puntaje(puntaje.puntaje());
 	}
 	
-   private void morirLogico(int puntos)
-   {
-		puntaje.sumarPuntaje(puntos);
-
+   
+	
+	private void morirLogico(int puntos)
+   {	
+	   puntaje.sumarPuntaje(puntos);
    }
+	
 }
