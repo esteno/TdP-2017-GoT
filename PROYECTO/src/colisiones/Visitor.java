@@ -15,8 +15,10 @@ public abstract class Visitor
 	{
 		objeto=g;
 	}
+	
 	//metodos
 	public abstract boolean visitarDefensa(Defensa d);
+	{}
 	
 	public abstract boolean visitarEnemigo(Enemigo e);
 	

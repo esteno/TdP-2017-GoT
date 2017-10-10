@@ -30,7 +30,7 @@ public abstract class GameObject
 		grafico=null;
 	}
 	
-	//public abstract boolean aceptar(Visitor v);
+	public abstract boolean aceptar(Visitor v);
 	
 	public int getResistencia()
 	{ return resistencia; }

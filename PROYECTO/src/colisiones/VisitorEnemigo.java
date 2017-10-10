@@ -36,7 +36,7 @@ public class VisitorEnemigo extends Visitor
     public boolean visitarDisparo(Disparo d)
     { 
     	// TODO Auto-generated method stub
-    	//recibirDisparo(d);
+    	this.objecto.aceptar(d);
     	return true; 
     }
 	

@@ -1,6 +1,7 @@
 package enemigos;
 
 import celdas.Celda;
+import colisiones.Visitor;
 import logica.FabricaDeOleadas;
 import objetos.ObjetoMovil;
 
@@ -37,4 +38,9 @@ public abstract class Enemigo extends ObjetoMovil {
 		return puntaje;
 	}
 
+	
+	public boolean aceptar(Visitor v)
+	{
+		return v.visitarEnemigo(this);
+	}
 }

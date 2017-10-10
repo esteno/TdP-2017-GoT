@@ -17,6 +17,8 @@ public class Disparo extends ObjetoMovil implements Runnable
 	
 	
 	public void daniar(Enemigo e)
-	{}
+	{
+		e.decrementarResistencia();
+	}
 	
 }
