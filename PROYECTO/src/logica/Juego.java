@@ -69,6 +69,7 @@ public class Juego implements Runnable {
 	public void eliminarEnemigo(int x, int y) {
 		//gui.eliminarEnemigo(x, y);
 	}
+	
 	public void sumarPuntaje(int p) 
 	{
 		morirLogico(p);
@@ -80,6 +81,7 @@ public class Juego implements Runnable {
 	private void morirLogico(int puntos)
    {	
 	   puntaje.sumarPuntaje(puntos);
+	   //puntaje.sumarOro(o);
    }
 	
 }
