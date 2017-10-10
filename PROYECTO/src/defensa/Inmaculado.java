@@ -3,7 +3,8 @@ package defensa;
 public class Inmaculado extends DefensaRango {
 
 	public Inmaculado() {
-		// TODO Auto-generated constructor stub
+		grafico = fabricaGrafica.construirGraficoInmaculado();
+	    precio=200;
 	}
 
 }

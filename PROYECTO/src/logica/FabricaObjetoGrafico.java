@@ -38,10 +38,16 @@ public class FabricaObjetoGrafico {
 		return new GameObjectGrafico("res/imagenes/enemigo/enemigo.png");
 	}
 	
+	public GameObjectGrafico construirGraficoInmaculado() {
+		return new GameObjectGrafico("res/imagenes/enemigo/inmaculado.png");
+	}
+	
 	//DEFENSA
 	
 	public GameObjectGrafico construirGraficoJorgito() {
 		return new GameObjectGrafico("res/imagenes/defensa/test.png");
 	}
+	
+
 
 }
