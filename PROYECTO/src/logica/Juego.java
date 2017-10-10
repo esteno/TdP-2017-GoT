@@ -69,10 +69,15 @@ public class Juego implements Runnable {
 	public void eliminarEnemigo(int x, int y) {
 		//gui.eliminarEnemigo(x, y);
 	}
-	public void sumarPuntaje(int p) {
-		puntaje.sumarPuntaje(p);
+	public void sumarPuntaje(int p) 
+	{
+		morirLogico(p);
 		gui.puntaje(puntaje.puntaje());
 	}
 	
+   private void morirLogico(int puntos)
+   {
+		puntaje.sumarPuntaje(puntos);
 
+   }
 }
