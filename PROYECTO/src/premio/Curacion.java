@@ -1,9 +1,18 @@
 package premio;
 
-public class Curacion extends MagiaTemporal {
+import colisiones.Visitor;
 
-	public Curacion() {
+public class Curacion extends MagiaTemporal
+{
+
+	public Curacion() 
+	{
 		// TODO Auto-generated constructor stub
+	}
+	
+	public void aceptar(Visitor v)
+	{
+		
 	}
 
 }

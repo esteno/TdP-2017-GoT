@@ -1,9 +1,18 @@
 package premio;
 
-public class ObjetoPrecioso extends Premio {
+import colisiones.Visitor;
 
-	public ObjetoPrecioso() {
+public class ObjetoPrecioso extends Premio
+{
+
+	public ObjetoPrecioso() 
+	{
 		// TODO Auto-generated constructor stub
+	}
+	
+	public void aceptar(Visitor v)
+	{
+		
 	}
 
 }

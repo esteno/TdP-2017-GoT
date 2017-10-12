@@ -16,7 +16,6 @@ public abstract class GameObject
 	protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
 	protected int resistencia;
 	
-	
 	public BufferedImage getGrafico() {
 		return grafico.getImagen();
 	}
@@ -30,7 +29,7 @@ public abstract class GameObject
 		grafico=null;
 	}
 	
-	public abstract boolean aceptar(Visitor v);
+	public abstract void aceptar(Visitor v);
 	
 	public int getResistencia()
 	{ return resistencia; }
@@ -40,5 +39,6 @@ public abstract class GameObject
 	
 	public Celda getCelda()
 	{ return celda;}
+	
 }
 

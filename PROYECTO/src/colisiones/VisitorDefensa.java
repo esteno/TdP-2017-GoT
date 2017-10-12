@@ -9,42 +9,40 @@ import obstaculo.*;
 public class VisitorDefensa extends Visitor
 {
 	
-	//contructor
+	 //atributo
+	 protected Defensa miDefensa;
+	
+	 //contructor
      public VisitorDefensa(GameObject g)
      {
     	 super(g);
      }
      
+     //metodos
      @Override
-     public boolean visitarDefensa(Defensa d)
+     public void visitarDefensa(Defensa d)
      { 
     	// TODO Auto-generated method stub
-    	 return false;
      }
  	 
      
-     public boolean visitarEnemigo(Enemigo e)
+     public void visitarEnemigo(Enemigo e)
      {
     	// TODO Auto-generated method stub
-    	 //atacar(e);
-    	 return true; 
      }
  	
-     public boolean visitarDisparo(Disparo d)
+     public void visitarDisparo(Disparo d)
      { 
     	// TODO Auto-generated method stub
-        return false; 
      }
  	
-     public boolean visitarAgua(Agua a)
+     public void visitarAgua(Agua a)
  	 {
     	// TODO Auto-generated method stub
-        return false;
      }
  	
-     public boolean visitarRoca(Roca r)
+     public void visitarRoca(Roca r)
  	 { 
     	// TODO Auto-generated method stub
-    	return false;
      } 
 }

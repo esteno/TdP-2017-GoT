@@ -1,9 +1,18 @@
 package premio;
 
-public class DanioDoble extends Premio {
+import colisiones.Visitor;
 
-	public DanioDoble() {
+public class DanioDoble extends Premio 
+{
+
+	public DanioDoble() 
+	{
 		// TODO Auto-generated constructor stub
+	}
+	
+	public void aceptar(Visitor v)
+	{
+		
 	}
 
 }

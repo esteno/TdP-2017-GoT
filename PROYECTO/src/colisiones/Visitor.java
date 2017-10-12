@@ -17,15 +17,14 @@ public abstract class Visitor
 	}
 	
 	//metodos
-	public abstract boolean visitarDefensa(Defensa d);
-	{}
+	public abstract void visitarDefensa(Defensa d);
 	
-	public abstract boolean visitarEnemigo(Enemigo e);
+	public abstract void visitarEnemigo(Enemigo e);
 	
-	public abstract boolean visitarDisparo(Disparo d);
+	public abstract void visitarDisparo(Disparo d);
 	
-	public abstract boolean visitarAgua(Agua a);
+	public abstract void visitarAgua(Agua a);
 	
-	public abstract boolean visitarRoca(Roca r);
+	public abstract void visitarRoca(Roca r);
 
 }

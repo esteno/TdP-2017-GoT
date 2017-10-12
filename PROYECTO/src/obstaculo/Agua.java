@@ -1,9 +1,16 @@
 package obstaculo;
 
-public class Agua extends Obstaculo {
+import colisiones.Visitor;
 
-	public Agua() {
+public class Agua extends Obstaculo 
+{
+
+	public Agua() 
+	{
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	public void aceptar(Visitor v)
+	{}
 }

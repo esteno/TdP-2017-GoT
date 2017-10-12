@@ -1,24 +1,21 @@
 package disparos;
 import objetos.*;
+import colisiones.Visitor;
 import enemigos.*;
 
 public class Disparo extends ObjetoMovil implements Runnable
 {
 	
 	
-	public Disparo() {
-	}
+	public Disparo() 
+	{ }
 
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
-	public void daniar(Enemigo e)
+	public void run() 
 	{
-		e.decrementarResistencia();
+		// TODO Auto-generated method stub	
 	}
-	
+	 
+	public void aceptar(Visitor v)
+	{}
 }

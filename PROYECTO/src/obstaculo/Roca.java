@@ -1,9 +1,19 @@
 package obstaculo;
 
-public class Roca extends Obstaculo {
+import colisiones.Visitor;
 
-	public Roca() {
+public class Roca extends Obstaculo 
+{
+
+	public Roca() 
+	{
 		// TODO Auto-generated constructor stub
 	}
+	
+	public void aceptar(Visitor v)
+	{
+		
+	}
+
 
 }

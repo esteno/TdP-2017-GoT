@@ -18,41 +18,35 @@ public class VisitorEnemigo extends Visitor
 	//metodos
 	
 	@Override
-	public boolean visitarDefensa(Defensa d)
+	public void visitarDefensa(Defensa d)
     { 
 		// TODO Auto-generated method stub
-		//atacar(d);
-		return true;
 	}
 	
 	@Override
-    public boolean visitarEnemigo(Enemigo e)
+    public void visitarEnemigo(Enemigo e)
     {
     	// TODO Auto-generated method stub
-    	return false; 
     }
 	
 	@Override
-    public boolean visitarDisparo(Disparo d)
+    public void visitarDisparo(Disparo d)
     { 
     	// TODO Auto-generated method stub
-    	this.objecto.aceptar(d);
-    	return true; 
+    	d.aceptar(this);
     }
 	
 	@Override
-    public boolean visitarAgua(Agua a)
+    public void visitarAgua(Agua a)
 	{
     	// TODO Auto-generated method stub
     	//morir ahogado?
-    	return true; 
     }
 	
 	@Override
-    public boolean visitarRoca(Roca r)
+    public void visitarRoca(Roca r)
 	{
     	// TODO Auto-generated method stub
-    	return true;
     } 
 	
 }

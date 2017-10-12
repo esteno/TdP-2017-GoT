@@ -39,8 +39,6 @@ public abstract class Enemigo extends ObjetoMovil {
 	}
 
 	
-	public boolean aceptar(Visitor v)
-	{
-		return v.visitarEnemigo(this);
-	}
+	public void aceptar(Visitor v)
+	{ }
 }
