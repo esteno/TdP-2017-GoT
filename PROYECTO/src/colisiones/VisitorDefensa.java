@@ -10,12 +10,12 @@ public class VisitorDefensa extends Visitor
 {
 	
 	 //atributo
-	 protected Defensa miDefensa;
+	 protected Defensa miDefensor;
 	
 	 //contructor
-     public VisitorDefensa(GameObject g)
+     public VisitorDefensa(Defensa g)
      {
-    	 super(g);
+    	 miDefensor=g;
      }
      
      //metodos

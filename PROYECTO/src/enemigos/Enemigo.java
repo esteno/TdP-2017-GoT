@@ -2,16 +2,20 @@ package enemigos;
 
 import celdas.Celda;
 import colisiones.Visitor;
+import colisiones.VisitorEnemigo;
 import logica.FabricaDeOleadas;
 import objetos.ObjetoMovil;
 
 public abstract class Enemigo extends ObjetoMovil {
 	
 	private FabricaDeOleadas fabrica;
+	protected VisitorEnemigo visitor;
 
 	
-	public void setFabrica(FabricaDeOleadas f) {
+	public void setFabrica(FabricaDeOleadas f) 
+	{
 		fabrica = f;
+		
 	}
 	
 	public void avanzar() {
@@ -40,5 +44,7 @@ public abstract class Enemigo extends ObjetoMovil {
 
 	
 	public void aceptar(Visitor v)
-	{ }
+	{
+		v.visitarEnemigo(this);
+	}
 }

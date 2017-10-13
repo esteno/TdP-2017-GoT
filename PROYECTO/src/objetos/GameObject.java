@@ -29,7 +29,11 @@ public abstract class GameObject
 		grafico=null;
 	}
 	
+	
+	
 	public abstract void aceptar(Visitor v);
+	
+	
 	
 	public int getResistencia()
 	{ return resistencia; }

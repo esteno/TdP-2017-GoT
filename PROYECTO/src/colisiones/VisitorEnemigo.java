@@ -8,12 +8,14 @@ import obstaculo.*;
 
 public class VisitorEnemigo extends Visitor
 {
-	
+	protected Enemigo miEnemigo;
 	//constructor
-	public VisitorEnemigo(GameObject g)
+	public VisitorEnemigo(Enemigo g)
 	{
-		super(g);
+		miEnemigo=g;
 	}
+	
+	
 	
 	//metodos
 	
@@ -21,12 +23,14 @@ public class VisitorEnemigo extends Visitor
 	public void visitarDefensa(Defensa d)
     { 
 		// TODO Auto-generated method stub
+		d.aceptar(this);
 	}
 	
 	@Override
     public void visitarEnemigo(Enemigo e)
     {
     	// TODO Auto-generated method stub
+		System.out.println("Un enemigo ha visitado un enemigo");
     }
 	
 	@Override
@@ -34,6 +38,7 @@ public class VisitorEnemigo extends Visitor
     { 
     	// TODO Auto-generated method stub
     	d.aceptar(this);
+    	
     }
 	
 	@Override
@@ -47,6 +52,7 @@ public class VisitorEnemigo extends Visitor
     public void visitarRoca(Roca r)
 	{
     	// TODO Auto-generated method stub
+		//
     } 
 	
 }

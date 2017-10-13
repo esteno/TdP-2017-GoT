@@ -7,7 +7,7 @@ import colisiones.*;
 public abstract class Defensa extends GameObject 
 {
      protected Nivel nivel;
-     protected VisitorDefensa miVisitorDefensa;
+     protected VisitorDefensa visitor;
      protected int precio;
      
      
@@ -17,5 +17,7 @@ public abstract class Defensa extends GameObject
      }
      
      public void aceptar(Visitor v)
-     {   }
+     {
+    	 v.visitarDefensa(this);
+     }
 }

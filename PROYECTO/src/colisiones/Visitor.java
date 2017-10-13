@@ -6,16 +6,7 @@ import disparos.*;
 import obstaculo.*;
 
 public abstract class Visitor 
-{
-	//atributos
-	protected GameObject objeto;
-	
-	//constructor
-	public Visitor(GameObject g)
-	{
-		objeto=g;
-	}
-	
+{	 
 	//metodos
 	public abstract void visitarDefensa(Defensa d);
 	

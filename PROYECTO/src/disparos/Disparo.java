@@ -1,11 +1,12 @@
 package disparos;
 import objetos.*;
 import colisiones.Visitor;
+import colisiones.VisitorDisparo;
 import enemigos.*;
 
 public class Disparo extends ObjetoMovil implements Runnable
 {
-	
+	protected VisitorDisparo visitor;
 	
 	public Disparo() 
 	{ }
@@ -17,5 +18,7 @@ public class Disparo extends ObjetoMovil implements Runnable
 	}
 	 
 	public void aceptar(Visitor v)
-	{}
+	{
+		v.visitarDisparo(this);
+	}
 }
