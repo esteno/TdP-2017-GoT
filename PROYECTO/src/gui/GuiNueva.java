@@ -127,6 +127,9 @@ public class GuiNueva {
 		panelMapa = new JLayeredPane();
 		panelMapa.setBounds(0,0,ANCHO*32,ALTO*32);
 		
+		panelMapa.setBackground(Color.GRAY);
+		
+		
 		panelCeldas = new JPanel();
 		panelCeldas.setLayout(null);
 		panelCeldas.setBounds(panelMapa.getBounds());
