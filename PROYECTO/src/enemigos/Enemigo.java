@@ -4,6 +4,7 @@ import celdas.Celda;
 import colisiones.Visitor;
 import colisiones.VisitorEnemigo;
 import logica.FabricaDeOleadas;
+import objetos.GameObject;
 import objetos.ObjetoMovil;
 
 public abstract class Enemigo extends ObjetoMovil {
@@ -43,8 +44,16 @@ public abstract class Enemigo extends ObjetoMovil {
 	}
 
 	
+	
 	public void aceptar(Visitor v)
 	{
 		v.visitarEnemigo(this);
 	}
+	
+ 
+	public void accionar(GameObject o)
+	{
+		o.aceptar(visitor);
+	}
+	
 }

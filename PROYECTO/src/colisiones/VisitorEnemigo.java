@@ -24,6 +24,7 @@ public class VisitorEnemigo extends Visitor
     { 
 		// TODO Auto-generated method stub
 		d.aceptar(this);
+		
 	}
 	
 	@Override

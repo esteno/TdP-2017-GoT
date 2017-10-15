@@ -14,6 +14,7 @@ public abstract class Celda
     protected int y;
     protected GameObjectGrafico grafica;
     protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
+    protected GameObject objeto;
     
     //constructor 
     public Celda(Mapa m, int x, int y)
