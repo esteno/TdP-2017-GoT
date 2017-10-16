@@ -36,6 +36,7 @@ public class ControlDeOleadas implements Runnable {
 				
 				for(Enemigo descarte : listaDescarte) {
 					listaEnemigos.remove(descarte);
+					juego.sumarPuntaje(descarte.getPuntaje());
 					descarte.destruir();
 				}
 				listaDescarte.clear();
