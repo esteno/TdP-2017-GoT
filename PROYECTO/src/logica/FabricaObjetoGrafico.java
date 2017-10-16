@@ -24,7 +24,7 @@ public class FabricaObjetoGrafico {
 	}
 	
 	public GameObjectGrafico construirGraficoCeldaArena() {
-		return new GameObjectGrafico("res/imagenes/celda/Terrenno2.png");
+		return new GameObjectGrafico("res/imagenes/celda/Terreno2.png");
 	}
 	
 	public GameObjectGrafico construirGraficoCeldaLago() {

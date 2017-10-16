@@ -22,5 +22,7 @@ public abstract class Defensa extends GameObject
      }
      
      public void accionar(GameObject o)
-     {}
+     {
+    	 
+     }
 }

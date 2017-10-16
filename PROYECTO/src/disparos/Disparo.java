@@ -24,6 +24,8 @@ public class Disparo extends ObjetoMovil implements Runnable
 
 	
 	public void accionar(GameObject o)
-    {}
+    {
+		//o.accionar(visitor);
+    }
 
 }

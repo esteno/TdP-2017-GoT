@@ -27,11 +27,8 @@ public class VisitorDisparo extends Visitor
     public void visitarEnemigo(Enemigo e)
     {
     	// TODO Auto-generated method stub
-	    this.miDisparo.destruir();    //al visitar un enemigo el disparo de destruye poniendo el grafico en null
-	    Disparo disparo = (Disparo) miDisparo;
-	    e.aceptar(this);
-	    e.getCelda().getMapa().eliminarEnemigo(e.getCelda().getX(), e.getCelda().getY());
-	    //disparo.getDefensa().getJuego().getPuntaje().sumarPuntos(e.getPuntaje());
+	    miDisparo.destruir();    //al visitar un enemigo el disparo de destruye poniendo el grafico en null
+	    e.destruir();
     }
 	
 	@Override

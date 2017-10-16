@@ -23,7 +23,7 @@ public class VisitorEnemigo extends Visitor
 	public void visitarDefensa(Defensa d)
     { 
 		// TODO Auto-generated method stub
-		//d.atacar();
+		//d.recibirAtaque() de miEnemigo;
 	}
 	
 	@Override

@@ -23,8 +23,8 @@ public abstract class Enemigo extends ObjetoMovil {
 			int xAnterior = celda.getX();
 			int yAnterior = celda.getY();
 			Celda celdaNueva = celda.celdaIzquierda();
-			if(!celdaNueva.hayEnemigo()) {
-				
+			if(!celdaNueva.hayEnemigo())
+			{	
 				celda = celdaNueva;
 				celda.moverEnemigo(xAnterior, yAnterior);
 			} 
@@ -54,5 +54,4 @@ public abstract class Enemigo extends ObjetoMovil {
 	{
 		o.aceptar(visitor);
 	}
-	
 }
