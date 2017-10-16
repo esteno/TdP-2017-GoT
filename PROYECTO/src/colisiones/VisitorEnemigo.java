@@ -38,7 +38,7 @@ public class VisitorEnemigo extends Visitor
     { 
     	// TODO Auto-generated method stub
     	d.destruir();
-    	miEnemigo.decrementarResistencia();
+    	miEnemigo.destruir();
     }
 	
 	@Override

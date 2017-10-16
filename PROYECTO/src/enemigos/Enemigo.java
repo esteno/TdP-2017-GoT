@@ -35,10 +35,9 @@ public abstract class Enemigo extends ObjetoMovil
 		}
 	}
 	
-	public void destruir() {
-		fabrica.destruirEnemigo(this);
-		celda.destruirEnemigo();
-		
+	public void destruir() 
+	{
+		celda.destruirEnemigo();	
 	}
 	
 	public int getPuntos() {

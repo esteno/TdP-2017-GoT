@@ -45,6 +45,11 @@ public abstract class GameObject
 	{
 		return fuerza_impacto;
 	}
-	
+
+	public int getPuntosVida()
+	{
+		return puntos_vida;
+	}
 }
+
 
