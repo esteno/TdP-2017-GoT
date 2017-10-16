@@ -30,6 +30,10 @@ public class VisitorDefensa extends Visitor
      public void visitarEnemigo(Enemigo e)
      {
     	// TODO Auto-generated method stub
+    	 e.destruir();
+  
+    	//miDefensor.getCelda().getMapa().getJuego().sumarPuntaje(e.getPuntaje());
+        //ver que hace fabrica de oleadas con respecto a los puntos
      }
  	
      public void visitarDisparo(Disparo d)

@@ -26,7 +26,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 
-public class GuiNueva {
+public class GuiNueva
+{
 
 	private JFrame frame;
 	
@@ -149,8 +150,11 @@ public class GuiNueva {
 		panelMapa.add(panelEnemigos, NIVELENEMIGO);
 
 		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
-		for(int i = 0; i < ANCHO; i++) {
-			for (int j = 0; j < ALTO; j++) {
+		
+		for(int i = 0; i < ANCHO; i++) 
+		{
+			for (int j = 0; j < ALTO; j++) 
+			{
 				BufferedImage imagen = graficos[i][j].getImagen();
 				int ancho = imagen.getWidth();
 				int alto = imagen.getHeight();

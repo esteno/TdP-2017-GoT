@@ -114,4 +114,10 @@ public class Mapa
 		}
 		fabricaDeDefensa.reset();
 	}
+
+	public Juego getJuego()
+	{
+		return juego;
+	}
+
 }
