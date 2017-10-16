@@ -8,7 +8,9 @@ import obstaculo.*;
 
 public class VisitorDisparo extends Visitor
 {
+	//atributos
 	protected Disparo miDisparo;
+	
 	//constructor
 	public VisitorDisparo(Disparo g)
 	{
@@ -16,19 +18,19 @@ public class VisitorDisparo extends Visitor
 	}
 	
 	//metodos
-	
 	@Override
 	public void visitarDefensa(Defensa d)
     { 
 		// TODO Auto-generated method stub
+		System.out.println("Un disparo ha visitado una defensa. No hay acción.");
     }
 	 
 	@Override
     public void visitarEnemigo(Enemigo e)
     {
     	// TODO Auto-generated method stub
-	    miDisparo.destruir();    //al visitar un enemigo el disparo de destruye poniendo el grafico en null
-	    e.destruir();
+	    miDisparo.destruir();  //al visitar un enemigo el disparo de destruye poniendo el grafico en null
+	    e.destruir(); //por ahora destruye el enemigo
     }
 	
 	@Override

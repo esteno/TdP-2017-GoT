@@ -7,9 +7,19 @@ import logica.FabricaDeOleadas;
 import objetos.GameObject;
 import objetos.ObjetoMovil;
 
-public abstract class Enemigo extends ObjetoMovil {
+public abstract class Enemigo extends ObjetoMovil
+{
 	
+	//atributos
+	private FabricaDeOleadas fabrica;
 	protected VisitorEnemigo visitor;
+	protected int puntos;//puntos devuelve al ser destruido
+
+	//metodos
+	public void setFabrica(FabricaDeOleadas f) 
+	{
+		fabrica = f;	
+	}
 	
 	public void avanzar() {
 		if(celda.getX() != 0) {
@@ -26,12 +36,13 @@ public abstract class Enemigo extends ObjetoMovil {
 	}
 	
 	public void destruir() {
+		fabrica.destruirEnemigo(this);
 		celda.destruirEnemigo();
 		
 	}
 	
-	public int getPuntaje() {
-		return puntaje;
+	public int getPuntos() {
+		return puntos;
 	}
 
 	
@@ -45,5 +56,11 @@ public abstract class Enemigo extends ObjetoMovil {
 	public void accionar(GameObject o)
 	{
 		o.aceptar(visitor);
+	}
+
+	public void recibirDanio(int i) 
+	{
+		// TODO Auto-generated method stub
+		puntos_vida=puntos_vida-i;
 	}
 }
