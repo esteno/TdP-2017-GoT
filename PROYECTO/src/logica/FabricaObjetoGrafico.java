@@ -20,15 +20,15 @@ public class FabricaObjetoGrafico {
 	//CELDAS GRAFICAS 
 	
 	public GameObjectGrafico construirGraficoCeldaComun() {
-		return new GameObjectGrafico("res/imagenes/celda/arbol_verde.png");
+		return new GameObjectGrafico("res/imagenes/celda/Terreno1.png");
 	}
 	
 	public GameObjectGrafico construirGraficoCeldaArena() {
-		return new GameObjectGrafico("res/imagenes/celda/terrenoArena.png");
+		return new GameObjectGrafico("res/imagenes/celda/Terrenno2.png");
 	}
 	
 	public GameObjectGrafico construirGraficoCeldaLago() {
-		return new GameObjectGrafico("res/imagenes/celda/terrenoLago.png");
+		return new GameObjectGrafico("res/imagenes/celda/Terreno3.png");
 	}
 	
 	//ENEMIGOS

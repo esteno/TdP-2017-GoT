@@ -15,8 +15,7 @@ public abstract class Enemigo extends ObjetoMovil {
 	
 	public void setFabrica(FabricaDeOleadas f) 
 	{
-		fabrica = f;
-		
+		fabrica = f;	
 	}
 	
 	public void avanzar() {

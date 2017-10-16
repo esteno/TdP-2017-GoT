@@ -8,7 +8,8 @@ public class FabricaDeDefensa
 	private static FabricaDeDefensa instancia = null;
 	private Defensa defensaCreada = null;
 	
-	private FabricaDeDefensa() {
+	private FabricaDeDefensa() 
+	{
 		
 	}
 	

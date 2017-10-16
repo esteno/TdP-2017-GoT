@@ -20,4 +20,7 @@ public abstract class Defensa extends GameObject
      {
     	 v.visitarDefensa(this);
      }
+     
+     public void accionar(GameObject o)
+     {}
 }

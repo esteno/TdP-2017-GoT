@@ -9,7 +9,8 @@ import enemigos.Enemigo;
 import gui.*;
 
 
-public class Juego implements Runnable {
+public class Juego implements Runnable 
+{
 	
 	private Puntaje puntaje;
 	private Mapa mapa;
@@ -19,22 +20,27 @@ public class Juego implements Runnable {
 
 	private FabricaDeOleadas fabricaDeOleadas;
 	
-	public Juego(GuiNueva gui, int alto, int ancho)  {
+	public Juego(GuiNueva gui, int alto, int ancho) 
+	{
 		this.gui = gui;
 		puntaje = new Puntaje();
 		mapa = new Mapa(this, alto, ancho);
 		fabricaDeOleadas = new FabricaDeOleadas(this, alto);
 		new Thread(fabricaDeOleadas).start();
-
 	}
+	
 	
 	public void run() 
 	{         }
+	
+	
 	
 	public void agregarDefensa(int x, int y)
 	{
 		mapa.agregarDefensa(x,y);
 	}
+	
+	
 	
 	public void eliminarDefensa(int x,int y )
 	{
@@ -44,29 +50,38 @@ public class Juego implements Runnable {
 	
 	
 	
-	public GameObjectGrafico[][] getCeldasGraficas() {
+	public GameObjectGrafico[][] getCeldasGraficas()
+	{
 		return mapa.getGraficos();
 	}
+	
+	
 	public void agregarJugador()
 	{
 	      //mapa.getGraficos()
 	}
 	
-	public void agregarEnemigo(Enemigo enemigo, int pos) {
+	public void agregarEnemigo(Enemigo enemigo, int pos) 
+	{
 		Celda celda = mapa.agregarEnemigo(enemigo, pos);
 		gui.agregarEnemigo(celda.getX(), celda.getY(), enemigo.getGrafico());
 	}
 	
-	public void crearEnemigo() {
+	
+	public void crearEnemigo() 
+	{
 		System.out.println("JUEGO fabricaDeOleadas.generarEnemigo()");
 		fabricaDeOleadas.generarEnemigo();
 	}
 	
-	public void moverEnemigoGrafico(int xAnterior, int yAnterior, int xNuevo, int yNuevo) {
+	public void moverEnemigoGrafico(int xAnterior, int yAnterior, int xNuevo, int yNuevo)
+	{
 		//gui.moverEnemigoGrafico(xAnterior, yAnterior, xNuevo, yNuevo);
 	}
 	
-	public void eliminarEnemigo(int x, int y) {
+	
+	public void eliminarEnemigo(int x, int y)
+	{
 		//gui.eliminarEnemigo(x, y);
 	}
 	
@@ -79,9 +94,9 @@ public class Juego implements Runnable {
    
 	
 	private void morirLogico(int puntos)
-   {	
+    {	
 	   puntaje.sumarPuntaje(puntos);
 	   //puntaje.sumarOro(o);
-   }
+    }
 	
 }

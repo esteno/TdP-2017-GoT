@@ -23,8 +23,7 @@ public class VisitorEnemigo extends Visitor
 	public void visitarDefensa(Defensa d)
     { 
 		// TODO Auto-generated method stub
-		d.aceptar(this);
-		
+		//d.atacar();
 	}
 	
 	@Override
@@ -38,22 +37,22 @@ public class VisitorEnemigo extends Visitor
     public void visitarDisparo(Disparo d)
     { 
     	// TODO Auto-generated method stub
-    	d.aceptar(this);
-    	
+    	d.destruir();
+    	miEnemigo.decrementarResistencia();
     }
 	
 	@Override
     public void visitarAgua(Agua a)
 	{
     	// TODO Auto-generated method stub
-    	//morir ahogado?
+    	//morir ahogado o avanzar lento
     }
 	
 	@Override
     public void visitarRoca(Roca r)
 	{
     	// TODO Auto-generated method stub
-		//
+		// golpear ropa hasta destruir
     } 
 	
 }

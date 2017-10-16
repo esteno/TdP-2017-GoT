@@ -23,6 +23,7 @@ public class VisitorDefensa extends Visitor
      public void visitarDefensa(Defensa d)
      { 
     	// TODO Auto-generated method stub
+    	System.out.println("Un defensor ha visitado un defensor"); 
      }
  	 
      

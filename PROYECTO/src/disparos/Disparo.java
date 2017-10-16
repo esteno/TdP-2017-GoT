@@ -21,4 +21,9 @@ public class Disparo extends ObjetoMovil implements Runnable
 	{
 		v.visitarDisparo(this);
 	}
+
+	
+	public void accionar(GameObject o)
+    {}
+
 }
