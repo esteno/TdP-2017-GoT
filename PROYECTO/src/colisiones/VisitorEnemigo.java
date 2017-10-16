@@ -16,14 +16,12 @@ public class VisitorEnemigo extends Visitor
 	}
 	
 	
-	
 	//metodos
-	
 	@Override
 	public void visitarDefensa(Defensa d)
     { 
 		// TODO Auto-generated method stub
-		//d.recibirAtaque() de miEnemigo;
+		d.recibirAtaque(miEnemigo.getFuerzaImpacto()); //de miEnemigo;
 	}
 	
 	@Override
@@ -52,7 +50,7 @@ public class VisitorEnemigo extends Visitor
     public void visitarRoca(Roca r)
 	{
     	// TODO Auto-generated method stub
-		// golpear ropa hasta destruir
+		r.recibirAtaque(miEnemigo.getFuerzaImpacto());
     } 
 	
 }

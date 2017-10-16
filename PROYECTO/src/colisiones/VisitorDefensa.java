@@ -30,7 +30,7 @@ public class VisitorDefensa extends Visitor
      public void visitarEnemigo(Enemigo e)
      {
     	 // TODO Auto-generated method stub
-    	 e.recibirDanio(miDefensor.getFuerzaImpacto());
+    	 e.recibirAtaque(miDefensor.getFuerzaImpacto());
     	 //ver que hace fabrica de oleadas con respecto a los puntos
      }
  	

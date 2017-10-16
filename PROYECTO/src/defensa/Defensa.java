@@ -25,4 +25,9 @@ public abstract class Defensa extends GameObject
      {
     	 o.aceptar(visitor);
      }
+     
+     public void recibirAtaque(int i)
+     {
+    	 fuerza_impacto=-i;
+     }
 }

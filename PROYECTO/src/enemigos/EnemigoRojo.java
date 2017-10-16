@@ -3,10 +3,11 @@ package enemigos;
 public class EnemigoRojo extends Enemigo {
 	
 
-	public EnemigoRojo() {
+	public EnemigoRojo() 
+	{
 		grafico = fabricaGrafica.construirGraficoEnemigoRojo();
 	    velocidad=1000;
-	    puntaje=100;
+	    puntos=100;
 	}
 
 }

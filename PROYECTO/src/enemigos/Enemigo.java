@@ -13,7 +13,7 @@ public abstract class Enemigo extends ObjetoMovil
 	//atributos
 	private FabricaDeOleadas fabrica;
 	protected VisitorEnemigo visitor;
-	protected int puntos;//puntos devuelve al ser destruido
+	protected int puntos;//puntos que devuelve al ser destruido
 
 	//metodos
 	public void setFabrica(FabricaDeOleadas f) 
@@ -43,7 +43,6 @@ public abstract class Enemigo extends ObjetoMovil
 	public int getPuntos() {
 		return puntos;
 	}
-
 	
 	
 	public void aceptar(Visitor v)
@@ -57,9 +56,4 @@ public abstract class Enemigo extends ObjetoMovil
 		o.aceptar(visitor);
 	}
 
-	public void recibirDanio(int i) 
-	{
-		// TODO Auto-generated method stub
-		puntos_vida=puntos_vida-i;
-	}
 }
