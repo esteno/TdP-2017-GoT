@@ -44,6 +44,5 @@ public abstract class GameObject
 	
 	public Celda getCelda()
 	{ return celda;}
-	
 }
 

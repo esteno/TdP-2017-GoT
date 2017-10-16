@@ -9,14 +9,7 @@ import objetos.ObjetoMovil;
 
 public abstract class Enemigo extends ObjetoMovil {
 	
-	private FabricaDeOleadas fabrica;
 	protected VisitorEnemigo visitor;
-
-	
-	public void setFabrica(FabricaDeOleadas f) 
-	{
-		fabrica = f;	
-	}
 	
 	public void avanzar() {
 		if(celda.getX() != 0) {
@@ -33,7 +26,6 @@ public abstract class Enemigo extends ObjetoMovil {
 	}
 	
 	public void destruir() {
-		fabrica.destruirEnemigo(this);
 		celda.destruirEnemigo();
 		
 	}

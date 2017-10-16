@@ -18,15 +18,16 @@ public class Juego implements Runnable
 	private GuiNueva gui;
 	
 
-	private FabricaDeOleadas fabricaDeOleadas;
+	private ControlDeOleadas controlDeOleadas;
 	
 	public Juego(GuiNueva gui, int alto, int ancho) 
 	{
 		this.gui = gui;
 		puntaje = new Puntaje();
 		mapa = new Mapa(this, alto, ancho);
-		fabricaDeOleadas = new FabricaDeOleadas(this, alto);
-		new Thread(fabricaDeOleadas).start();
+		controlDeOleadas = new ControlDeOleadas(this, new FabricaDeOleadas(), alto);
+		
+		new Thread(controlDeOleadas).start();
 	}
 	
 	
@@ -71,7 +72,7 @@ public class Juego implements Runnable
 	public void crearEnemigo() 
 	{
 		System.out.println("JUEGO fabricaDeOleadas.generarEnemigo()");
-		fabricaDeOleadas.generarEnemigo();
+		controlDeOleadas.generarEnemigo();
 	}
 	
 	public void moverEnemigoGrafico(int xAnterior, int yAnterior, int xNuevo, int yNuevo)
