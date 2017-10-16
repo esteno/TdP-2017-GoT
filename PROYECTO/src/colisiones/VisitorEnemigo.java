@@ -30,7 +30,7 @@ public class VisitorEnemigo extends Visitor
     public void visitarEnemigo(Enemigo e)
     {
     	// TODO Auto-generated method stub
-		System.out.println("Un enemigo ha visitado un enemigo");
+		System.out.println("Un enemigo ha visitado un enemigo. No hay acción.");
     }
 	
 	@Override

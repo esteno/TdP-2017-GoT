@@ -23,22 +23,22 @@ public class VisitorDefensa extends Visitor
      public void visitarDefensa(Defensa d)
      { 
     	// TODO Auto-generated method stub
-    	System.out.println("Un defensor ha visitado un defensor"); 
+    	System.out.println("Un defensor ha visitado un defensor. No hay acción."); 
      }
  	 
      
      public void visitarEnemigo(Enemigo e)
      {
-    	// TODO Auto-generated method stub
-    	 e.destruir();
-  
-    	//miDefensor.getCelda().getMapa().getJuego().sumarPuntaje(e.getPuntaje());
-        //ver que hace fabrica de oleadas con respecto a los puntos
+    	 // TODO Auto-generated method stub
+    	 e.recibirDanio(miDefensor.getFuerzaImpacto());
+    	 //ver que hace fabrica de oleadas con respecto a los puntos
      }
  	
      public void visitarDisparo(Disparo d)
      { 
-    	// TODO Auto-generated method stub
+    	 // TODO Auto-generated method stub
+    	 // Este caso no se va a dar pues el disparo siempre avanza hacia adelante y el defensor es estatico.
+    	 System.out.println("Un defensor ha visitado un disparo. No hay acción.");
      }
  	
      public void visitarAgua(Agua a)

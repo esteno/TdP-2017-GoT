@@ -8,14 +8,17 @@ import logica.Juego;
 
 public abstract class GameObject
 {
-  
+
+	//atributos
 	protected GameObjectGrafico grafico;
 	protected Celda celda;
-	protected int puntaje;
+	protected int puntos_vida; // de vida de casa objeto
 	protected Boolean isRunning = true;
 	protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
-	protected int resistencia;
+	protected int fuerza_impacto;
+	protected int alcance;
 	
+	//metodos
 	public BufferedImage getGrafico() {
 		return grafico.getImagen();
 	}
@@ -30,19 +33,18 @@ public abstract class GameObject
 	}
 	
 	
-	
 	public abstract void aceptar(Visitor v);
 	
 	public abstract void accionar(GameObject o);
 	
 	
-	public int getResistencia()
-	{ return resistencia; }
-	
-	public void decrementarResistencia()
-	{  resistencia=resistencia--; }
-	
 	public Celda getCelda()
 	{ return celda;}
+	
+	public int getFuerzaImpacto()
+	{
+		return fuerza_impacto;
+	}
+	
 }
 
