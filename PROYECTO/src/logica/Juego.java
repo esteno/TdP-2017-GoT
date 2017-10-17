@@ -77,7 +77,7 @@ public class Juego implements Runnable
 	
 	public void moverEnemigoGrafico(int xAnterior, int yAnterior, int xNuevo, int yNuevo)
 	{
-		//gui.moverEnemigoGrafico(xAnterior, yAnterior, xNuevo, yNuevo);
+		gui.moverEnemigoGrafico(xAnterior, yAnterior, xNuevo, yNuevo);
 	}
 	
 	

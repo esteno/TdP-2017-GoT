@@ -44,6 +44,7 @@ public class GuiNueva
 	private boolean aEliminar=false;
 	
 	private JLayeredPane panelMapa;
+	private JPanel panelControl;
 	private JPanel panelCeldas;
 	private JPanel panelDefensa;
 	private JPanel panelEnemigos;
@@ -67,60 +68,24 @@ public class GuiNueva
 	/**
 	 * Create the application.
 	 */
-	public GuiNueva() {
-		juego = new Juego(this, ALTO, ANCHO);
+	public GuiNueva() 
+	{
+		
 		initialize();
+		
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize() 
+	{
+		juego = new Juego(this, ALTO, ANCHO);
 		frame = new JFrame();
 		frame.setBounds(100, 100, 739, 489);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
-		JPanel panelControl = new JPanel();
-		frame.getContentPane().add(panelControl, BorderLayout.EAST);
-		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		labelPuntaje = new JLabel("Puntaje: 0");
-		panelControl.add(labelPuntaje);
-		
-		JButton botonAgregar = new JButton("Agregar Jorgito");
-		botonAgregar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				System.out.println("quiere agregar a jorgito");
-				fabricaDeDefensa.construirJorgito();
-			}
-		});
-		panelControl.add(botonAgregar);
-		
-		
-		//eliminar defensa
-		JButton botonEliminar= new JButton("Eliminar Jorgito");
-		botonEliminar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				aEliminar=true;
-	        }
-		});
-		panelControl.add(botonEliminar);
-
-		
-		
-		JButton botonAgregarEnemigo = new JButton("AgregarEnemigo");
-		botonAgregarEnemigo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("GUI juego.crearEnemigo()");
-				juego.crearEnemigo();
-				
-			}
-			
-		});
-		panelControl.add(botonAgregarEnemigo);
 		
 		
 		
@@ -161,7 +126,7 @@ public class GuiNueva
 				int x = i*ancho;
 				int y = j*alto;
 				JLabel label = new JLabel();
-				label.setBounds(x,y,alto,ancho);
+				label.setBounds(x ,y,alto,ancho);
 				label.setIcon(new ImageIcon(imagen));
 				label.addMouseListener(getMouseListener());
 				panelCeldas.add(label);
@@ -169,45 +134,73 @@ public class GuiNueva
 			}
 		}
 		
-		frame.getContentPane().add(panelMapa);
+		frame.getContentPane().add(panelMapa, BorderLayout.CENTER);
 		panelMapa.setLayout(null);
 		
+		panelControl = new JPanel();
+		frame.getContentPane().add(panelControl, BorderLayout.EAST);
+		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
+		int x = panelMapa.getX() + panelMapa.getWidth();
+		int y = panelMapa.getY() + panelMapa.getHeight();
+		panelControl.setBounds(x, y, 300, 500);
+		
+		labelPuntaje = new JLabel("Puntaje: 0");
+		panelControl.add(labelPuntaje);
+		
+		JButton botonAgregar = new JButton("Agregar Jorgito");
+		botonAgregar.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				fabricaDeDefensa.construirJorgito();
+			}
+		});
+		panelControl.add(botonAgregar);
 		
 		
 		
 	}
 	
-	public void puntaje(int puntaje) {
+	public void puntaje(int puntaje) 
+	{
 		labelPuntaje.setText("Puntaje: "+puntaje);
 	}
 	
-	public void agregarEnemigo(int x, int y, BufferedImage e) {
-		System.out.println("GUI imagen "+e);
+	
+	public void agregarEnemigo(int x, int y, BufferedImage e) 
+	{
+		System.out.println("GUI agregarEnemigo x "+x*32+" y "+y*32);
 		JLabel labelEnemigo = new JLabel(new ImageIcon(e));
 		
 		labelEnemigo.setBounds(x*32, y*32,e.getWidth(),e.getHeight());
-		System.out.println("GUI label bounds "+ labelEnemigo.getBounds());
 		panelEnemigos.add(labelEnemigo);
 		panelEnemigos.repaint();
+		
 	}
 	
-	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) {
-		JLabel label = buscarLabel(x, y, panelEnemigos);
-		label.setBounds(x, y, label.getIcon().getIconWidth(), label.getIcon().getIconHeight());
-		panelEnemigos.repaint();
+	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) 
+	{
+		JLabel label = buscarLabel(xAnterior, yAnterior, panelEnemigos);
+		System.out.println("GUI label "+label+" bounds "+label.getBounds());
+		label.setBounds(x*32, y*32, label.getIcon().getIconWidth(), label.getIcon().getIconHeight());
+		System.out.println("GUI label pos nueva "+label+" bounds "+label.getBounds());
+		label.repaint();
 	}
 	
 	private JLabel buscarLabel(int x, int y, JPanel panel) {
 		Component[] arrComponents = panel.getComponents();
+		System.out.println("GUI buscar label x"+ x*32 + " y "+y*32);
 		JLabel label = null;
 		boolean encontre = false;
 		for(int i = 0; !encontre && i < arrComponents.length; i++ ) {
 			Component comp = arrComponents[i];
+			System.out.println("GUI buscarLabel x"+x*32+" y "+y*32+" bounds "+arrComponents[i].getBounds());
 			if(comp.getBounds().x == x*32 && comp.getBounds().y == y*32) {
 				encontre = true;
 				label = (JLabel) arrComponents[i];
 			}
 		}
+		System.out.println(encontre);
 		return label;
 	}
 	
@@ -227,8 +220,8 @@ public class GuiNueva
 					if(remover!=null){
 						System.out.println("remover no es nulo");
 						juego.eliminarDefensa(x, y);
-						panelMapa.remove(remover);
-						panelMapa.repaint();
+						panelDefensa.remove(remover);
+						panelDefensa.repaint();
 					}
 					aEliminar=false;
 				}
@@ -244,7 +237,6 @@ public class GuiNueva
 					labelNuevo.setBounds(labelCelda.getBounds());
 					System.out.println("labelNuevo "+labelNuevo.isOpaque());
 					panelDefensa.add(labelNuevo);
-					panelCeldas.repaint();
 					panelDefensa.repaint();
 					System.out.println("panelMapa ND length "+panelDefensa.getComponentCount());
 				 }

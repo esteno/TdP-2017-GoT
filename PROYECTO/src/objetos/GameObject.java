@@ -38,7 +38,6 @@ public abstract class GameObject
 	
 	public abstract void aceptar(Visitor v);
 	
-	public abstract void accionar(GameObject o);
 	
 	
 	public Celda getCelda()

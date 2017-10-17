@@ -13,7 +13,7 @@ public abstract class Enemigo extends ObjetoMovil
 	//atributos
 	private FabricaDeOleadas fabrica;
 	protected VisitorEnemigo visitor;
-	protected int puntos;//puntos que devuelve al ser destruido
+	protected int puntos; //puntos que devuelve al ser destruido
 
 	//metodos
 	public void setFabrica(FabricaDeOleadas f) 
@@ -48,12 +48,6 @@ public abstract class Enemigo extends ObjetoMovil
 	public void aceptar(Visitor v)
 	{
 		v.visitarEnemigo(this);
-	}
-	
- 
-	public void accionar(GameObject o)
-	{
-		o.aceptar(visitor);
 	}
 
 }

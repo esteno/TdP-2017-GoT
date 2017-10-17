@@ -40,9 +40,12 @@ public abstract class Celda
     	return mapa.celdaIzquierda(this);
     }
     
+    
+    //preguntar esto
     public boolean hayEnemigo() {
     	return mapa.hayEnemigo(this);
     }
+    
     
     public void moverEnemigo(int xAnterior, int yAnterior) {
     	mapa.moverEnemigo(x, y, xAnterior, yAnterior);

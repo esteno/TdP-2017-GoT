@@ -10,29 +10,42 @@ public class ControlDeOleadas implements Runnable {
 	private Juego juego;
 	private FabricaDeOleadas fabrica;
 	private int alto;
+	private List<Enemigo> listaInsercion;
 	private List<Enemigo> listaEnemigos;
 	private List<Enemigo> listaDescarte;
 	private boolean isRunning = true;
 	
+	private int contador = 0;
+	private int primeraOleada = 1000;
+	
 	public ControlDeOleadas(Juego juego, FabricaDeOleadas fabrica, int a) {
-		juego = juego;
-		fabrica = fabrica;
+		this.juego = juego;
+		this.fabrica = fabrica;
 		alto = a;
+		listaInsercion = new ArrayList<Enemigo>();
 		listaEnemigos = new ArrayList<Enemigo>();
 		listaDescarte = new ArrayList<Enemigo>();
 		
 	}
 	
 	public void generarEnemigo() {
-		Enemigo enemigo = fabrica.generarEnemigo();
-		int rand = (int) Math.floor(Math.random() * (alto - 1));
-		juego.agregarEnemigo(enemigo, rand);
-	}
+			}
 	
 	public void run() {
 		while(isRunning) {
 			try {
-				Thread.sleep(1000);
+				contador += 100;
+				Thread.sleep(contador);
+				if(contador == primeraOleada ) {
+					listaInsercion = fabrica.generarPrimeraOleada();
+				}
+				if(!listaInsercion.isEmpty()) {
+					Enemigo enemigo = listaInsercion.get(0);
+					int rand = (int) Math.floor(Math.random() * (alto - 1));
+					juego.agregarEnemigo(enemigo, rand);
+					listaEnemigos.add(enemigo);
+					listaInsercion.remove(0);
+				}
 				
 				for(Enemigo descarte : listaDescarte) {
 					listaEnemigos.remove(descarte);

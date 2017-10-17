@@ -89,6 +89,7 @@ public class Mapa
 	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) {
 		matrizMovil[x][y] = matrizMovil[xAnterior][yAnterior];
 		matrizMovil[xAnterior][yAnterior] = null;
+		System.out.println("MAPA moverEnemigo x "+x+" y "+y+" xA "+xAnterior+" yA "+yAnterior);
 		juego.moverEnemigoGrafico(x, y, xAnterior, yAnterior);
 	}
  
