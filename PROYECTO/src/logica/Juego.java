@@ -5,7 +5,6 @@ import objetos.*;
 import objetos.GameObjectGrafico;
 import celdas.Celda;
 import defensa.*;
-import enemigos.Enemigo;
 import gui.*;
 
 
@@ -62,7 +61,7 @@ public class Juego implements Runnable
 	      //mapa.getGraficos()
 	}
 	
-	public void agregarEnemigo(Enemigo enemigo, int pos) 
+	public void agregarEnemigo(ObjetoMovil enemigo, int pos) 
 	{
 		Celda celda = mapa.agregarEnemigo(enemigo, pos);
 		gui.agregarEnemigo(celda.getX(), celda.getY(), enemigo.getGrafico());

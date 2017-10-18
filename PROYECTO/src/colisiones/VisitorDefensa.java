@@ -1,7 +1,7 @@
 package colisiones;
 
 import defensa.Defensa;
-import enemigos.Enemigo;
+import enemigos.ObjetoMovil;
 import objetos.*;
 import disparos.*;
 import obstaculo.*;
@@ -27,7 +27,7 @@ public class VisitorDefensa extends Visitor
      }
  	 
      
-     public void visitarEnemigo(Enemigo e)
+     public void visitarEnemigo(ObjetoMovil e)
      {
     	 // TODO Auto-generated method stub
     	 e.recibirAtaque(miDefensor.getFuerzaImpacto());

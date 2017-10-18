@@ -15,12 +15,6 @@ public abstract class Enemigo extends ObjetoMovil
 	protected VisitorEnemigo visitor;
 	protected int puntos; //puntos que devuelve al ser destruido
 
-	//metodos
-	public void setFabrica(FabricaDeOleadas f) 
-	{
-		fabrica = f;	
-	}
-	
 	public void avanzar() {
 		if(celda.getX() != 0) {
 			int xAnterior = celda.getX();

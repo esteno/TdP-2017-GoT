@@ -1,32 +1,32 @@
 package gui;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
-import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import java.util.Vector;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
 
-import defensa.Defensa;
 import logica.FabricaDeDefensa;
 import logica.Juego;
 import objetos.GameObjectGrafico;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
 
-public class GuiNueva
+import defensa.Defensa;
+import javax.swing.border.LineBorder;
+
+public class gui_r
 {
 
 	private JFrame frame;
@@ -56,7 +56,7 @@ public class GuiNueva
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GuiNueva window = new GuiNueva();
+					gui_r window = new gui_r();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -68,11 +68,9 @@ public class GuiNueva
 	/**
 	 * Create the application.
 	 */
-	public GuiNueva() 
+	public gui_r() 
 	{
-		
-		initialize();
-		
+		initialize();	
 	}
 
 	/**
@@ -87,12 +85,8 @@ public class GuiNueva
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		
-		
-		
-		
 		panelMapa = new JLayeredPane();
 		panelMapa.setBounds(0,0,ANCHO*32,ALTO*32);
-		
 		panelMapa.setBackground(Color.GRAY);
 		
 		
@@ -100,7 +94,6 @@ public class GuiNueva
 		panelCeldas.setLayout(null);
 		panelCeldas.setBounds(panelMapa.getBounds());
 		System.out.println(panelMapa.getBounds());
-		panelCeldas.setBackground(new Color(0,0,0,0));
 		panelMapa.add(panelCeldas, NIVELCELDA);
 		
 		panelDefensa = new JPanel();
@@ -129,7 +122,7 @@ public class GuiNueva
 				JLabel label = new JLabel();
 				label.setBounds(x ,y,alto,ancho);
 				label.setIcon(new ImageIcon(imagen));
-				label.addMouseListener(getMouseListener());
+				//label.addMouseListener(getMouseListener());
 				panelCeldas.add(label);
 				
 			}
@@ -144,133 +137,86 @@ public class GuiNueva
 		int x = panelMapa.getX() + panelMapa.getWidth();
 		int y = panelMapa.getY() + panelMapa.getHeight();
 		panelControl.setBounds(x, y, 300, 500);
-		panelControl.setOpaque(false);
 		
 		labelPuntaje = new JLabel("Puntaje: 0");
 		panelControl.add(labelPuntaje);
+	
 		
-		JButton botonAgregar = new JButton("Agregar Jorgito");
-		botonAgregar.addActionListener(new ActionListener() 
+		/*JButton botonPersonaje1 = new JButton("Personaje1");
+		botonPersonaje1.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				fabricaDeDefensa.construirJorgito();
 			}
 		});
-		panelControl.add(botonAgregar);
+		panelControl.add(botonPersonaje1);
+		*/
+		
+		JButton botonPersonaje2 = new JButton("Personaje2");
+		botonPersonaje2.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				fabricaDeDefensa.construirJorgito();
+			}
+		});
+		panelControl.add(botonPersonaje2);
+		
+		JButton botonPersonaje3 = new JButton("Personaje3");
+		botonPersonaje3.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				fabricaDeDefensa.construirJorgito();
+			}
+		});
+		panelControl.add(botonPersonaje3);
+		
+		JButton botonPersonaje4 = new JButton("Personaje4");
+		botonPersonaje4.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				fabricaDeDefensa.construirJorgito();
+			}
+		});
+		panelControl.add(botonPersonaje4);
+		
+		
+		JButton botonPersonaje5 = new JButton("Personaje5");
+		botonPersonaje5.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				fabricaDeDefensa.construirJorgito();
+			}
+		});
+		panelControl.add(botonPersonaje5);
 		
 		
 		
 	}
 	
+	//////////////// METODOS CON FUNCIONALIDADES /////////////////
+	public void agregarEnemigo(int x, int y, BufferedImage e) 
+	{
+		System.out.println("GUI agregarEnemigo x "+x*32+" y "+y*32);
+		JLabel labelEnemigo = new JLabel(new ImageIcon(e));
+		labelEnemigo.setBounds(x*32, y*32,e.getWidth(),e.getHeight());
+		panelEnemigos.add(labelEnemigo);
+		panelEnemigos.repaint();
+	}
 	
-	
+	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) 
+	{
+		
+	}
 	
 	
 	public void puntaje(int puntaje) 
 	{
 		labelPuntaje.setText("Puntaje: "+puntaje);
 	}
-	
-	
-	public void agregarEnemigo(int x, int y, BufferedImage e) 
-	{
-		System.out.println("GUI agregarEnemigo x "+x*32+" y "+y*32);
-		JLabel labelEnemigo = new JLabel(new ImageIcon(e));
-		
-		labelEnemigo.setBounds(x*32, y*32,e.getWidth(),e.getHeight());
-		panelEnemigos.add(labelEnemigo);
-		panelEnemigos.repaint();
-		panelEnemigos.validate();
-	}
-	
-	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) 
-	{
-		JLabel label = buscarLabel(xAnterior, yAnterior, panelEnemigos);
-		System.out.println("GUI label "+label+" bounds "+label.getBounds());
-		label.setBounds(x*32, y*32, label.getIcon().getIconWidth(), label.getIcon().getIconHeight());
-		System.out.println("GUI label pos nueva "+label+" bounds "+label.getBounds());
-		panelEnemigos.repaint();
-		panelEnemigos.validate();
-	}
-	
-	private JLabel buscarLabel(int x, int y, JPanel panel) {
-		Component[] arrComponents = panel.getComponents();
-		System.out.println("GUI buscar label x"+ x*32 + " y "+y*32);
-		JLabel label = null;
-		boolean encontre = false;
-		for(int i = 0; !encontre && i < arrComponents.length; i++ ) {
-			Component comp = arrComponents[i];
-			System.out.println("GUI buscarLabel x"+x*32+" y "+y*32+" bounds "+arrComponents[i].getBounds());
-			if(comp.getBounds().x == x*32 && comp.getBounds().y == y*32) {
-				encontre = true;
-				label = (JLabel) arrComponents[i];
-			}
-		}
-		System.out.println(encontre);
-		return label;
-	}
-	
-	public MouseListener getMouseListener() {
-		return new MouseListener() {
 
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				JLabel labelCelda = (JLabel) e.getComponent();
-				System.out.println("label celda"+labelCelda);
-				int x= labelCelda.getBounds().x / 32;
-				int y= labelCelda.getBounds().y / 32;
-				if(aEliminar)
-				{
-					
-					JLabel remover = buscarLabel(x, y, panelDefensa);
-					if(remover!=null){
-						System.out.println("remover no es nulo");
-						juego.eliminarDefensa(x, y);
-					}
-					aEliminar=false;
-				}
-				else
-				{ Defensa defensa = fabricaDeDefensa.getDefensa();
-				  if(defensa != null) 
-				  {
-
-					juego.agregarDefensa(x,y);
-					BufferedImage imagen = defensa.getGrafico();
-					System.out.println(imagen);
-					JLabel labelNuevo = new JLabel(new ImageIcon(imagen));
-					labelNuevo.setBounds(labelCelda.getBounds());
-					System.out.println("labelNuevo "+labelNuevo.isOpaque());
-					panelDefensa.add(labelNuevo);
-					System.out.println("panelMapa ND length "+panelDefensa.getComponentCount());
-				 }
-			   }
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-		};
-	}
 }

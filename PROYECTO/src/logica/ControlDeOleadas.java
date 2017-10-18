@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import enemigos.Enemigo;
+import objetos.ObjetoMovil;
 
 public class ControlDeOleadas implements Runnable {
 	

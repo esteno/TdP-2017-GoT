@@ -1,7 +1,7 @@
 package mapa;
 
 import celdas.Celda;
-import enemigos.Enemigo;
+import enemigos.ObjetoMovil;
 import logica.FabricaDeDefensa;
 import logica.Juego;
 import objetos.*;
@@ -66,7 +66,7 @@ public class Mapa
 		return toReturn;
 	}
 	
-	public Celda agregarEnemigo(Enemigo enemigo, int pos) {
+	public Celda agregarEnemigo(ObjetoMovil enemigo, int pos) {
 		matrizMovil[matrizMovil.length - 1][pos] = enemigo;
 		Celda toReturn = matrizCeldas[matrizCeldas.length - 1][pos];
 		enemigo.setCelda(toReturn);

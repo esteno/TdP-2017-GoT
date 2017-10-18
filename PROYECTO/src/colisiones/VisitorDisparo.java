@@ -1,7 +1,7 @@
 package colisiones;
 
 import defensa.Defensa;
-import enemigos.Enemigo;
+import enemigos.ObjetoMovil;
 import objetos.*;
 import disparos.*;
 import obstaculo.*;
@@ -19,14 +19,14 @@ public class VisitorDisparo extends Visitor
 	
 	//metodos
 	@Override
-	public void visitarDefensa(Defensa d)
+	public void visitar(Defensa d)
     { 
 		// TODO Auto-generated method stub
 		System.out.println("Un disparo ha visitado una defensa. No hay acción.");
     }
 	 
 	@Override
-    public void visitarEnemigo(Enemigo e)
+    public void visitar(Enemigo e)
     {
     	// TODO Auto-generated method stub
 	    miDisparo.destruir();  //al visitar un enemigo el disparo de destruye poniendo el grafico en null
@@ -34,14 +34,14 @@ public class VisitorDisparo extends Visitor
     }
 	
 	@Override
-    public void visitarDisparo(Disparo d)
+    public void visitar(Disparo d)
     {
     	// TODO Auto-generated method stub
 		System.out.println("Un disparo ha visitado un disparo. No hay acción.");
     }
 	
 	@Override
-    public void visitarAgua(Agua a)
+    public void visitar(Agua a)
 	{
     	// TODO Auto-generated method stub
 		// No pasa nada.
@@ -49,7 +49,7 @@ public class VisitorDisparo extends Visitor
     }
 	
 	@Override
-    public void visitarRoca(Roca r)
+    public void visitar(Roca r)
 	{
     	// TODO Auto-generated method stub
 		// No pasa nada.
