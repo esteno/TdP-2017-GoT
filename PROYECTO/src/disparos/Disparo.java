@@ -8,7 +8,8 @@ public class Disparo extends ObjetoMovil
 {
 
 	
-	public Disparo() {
+	public Disparo() 
+	{
 		alcance = 30;
 		grafico = fabricaGrafica.construirGraficoDisparo();
 	}
@@ -19,15 +20,14 @@ public class Disparo extends ObjetoMovil
 		v.visitarDisparo(this);
 	}
 
+	
 	@Override
 	public void avanzar()
 	{
 		Celda celdaNueva = celda.celdaDerecha();
 		
 		if(alcance > 0 || celdaNueva != null) 
-		{
-			
-			
+		{			
 			ObjetoMovil objetoMovil = celdaNueva.objetoMovil();
 			if(objetoMovil!=null)
 			{	
@@ -35,7 +35,6 @@ public class Disparo extends ObjetoMovil
 			} 
 			else 
 			{
-			
 				int xAnterior = celda.getX();
 				int yAnterior = celda.getY();
 				celda = celdaNueva;
@@ -44,21 +43,23 @@ public class Disparo extends ObjetoMovil
 				alcance--;
 			}
 		}
-	
-		else {
+		else
+		{
 			destruir();
 		}
 	}
 	
-	public void destruir() {
+	
+	public void destruir() 
+	{
 		celda.destruirEnemigo();
 	}
 
 
 	@Override
-	public void atacar() {
+	public void atacar() 
+	{
 		// TODO Auto-generated method stub
-		
 	}
 
 
