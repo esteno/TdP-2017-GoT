@@ -15,8 +15,10 @@ public abstract class Enemigo extends ObjetoMovil
 	protected VisitorEnemigo visitor;
 	protected int puntos; //puntos que devuelve al ser destruido
 
-	public void avanzar() {
-		if(celda.getX() != 0) {
+	public void avanzar()
+    {
+		if(celda.getX() != 0) 
+		{
 			int xAnterior = celda.getX();
 			int yAnterior = celda.getY();
 			Celda celdaNueva = celda.celdaIzquierda();
@@ -24,9 +26,28 @@ public abstract class Enemigo extends ObjetoMovil
 			{	
 				celda = celdaNueva;
 				celda.moverEnemigo(xAnterior, yAnterior);
-			} 
-			
+			} 	
 		}
+		
+		/*if(celda.getX() != 0) 
+		{
+			int xAnterior = celda.getX();
+			int yAnterior = celda.getY();
+			Celda celdaNueva = celda.celdaIzquierda();
+			
+			ObjetoMovil objetoMovil = celdaNueva.objetoMovil();
+			if(objetoMovil!=null)
+			{	
+				objetoMovil.aceptar(visitor);
+			}	
+	             //	if(!celdaNueva.hayEnemigo())
+			else
+			{	
+				celda = celdaNueva;
+				celda.moverEnemigo(xAnterior, yAnterior);
+			} 	
+		}*/
+
 	}
 	
 	public void destruir() 

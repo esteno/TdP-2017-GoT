@@ -5,10 +5,9 @@ import colisiones.Visitor;
 import colisiones.VisitorDisparo;
 import enemigos.*;
 
-public abstract class Disparo extends ObjetoMovil 
+public class Disparo extends ObjetoMovil 
 {
 
-	
 	protected VisitorDisparo visitor;
 	
 	
@@ -20,7 +19,8 @@ public abstract class Disparo extends ObjetoMovil
 	@Override
 	public void avanzar()
 	{
-		if(alcance > 0 || celda == null) 
+		//if(alcance > 0 || celda == null) 
+		while (alcance>0 || celda==null)
 		{
 			int xAnterior = celda.getX();
 			int yAnterior = celda.getY();
@@ -33,10 +33,11 @@ public abstract class Disparo extends ObjetoMovil
 			else 
 			{
 				celda = celdaNueva;
+				alcance--;
 			}
-		}
-		
+		 }		
 	}
+
 
 
 }
