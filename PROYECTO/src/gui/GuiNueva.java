@@ -34,9 +34,9 @@ public class GuiNueva
 	private Juego juego;
 	private final int ALTO = 8;
 	private final int ANCHO = 16;
-	private final int NIVELCELDA = 0;
+	private final int NIVELCELDA = 2;
 	private final int NIVELDEFENSA = 1;
-	private final int NIVELENEMIGO = 2;
+	private final int NIVELENEMIGO = 0;
 	
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	
@@ -180,35 +180,39 @@ public class GuiNueva
 		
 		labelEnemigo.setBounds(x*32, y*32,e.getWidth(),e.getHeight());
 		panelEnemigos.add(labelEnemigo);
-		panelEnemigos.repaint();
-		panelEnemigos.validate();
+		repintar();
 	}
 	
 	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) 
 	{
 		JLabel label = buscarLabel(xAnterior, yAnterior, panelEnemigos);
-		System.out.println("GUI label "+label+" bounds "+label.getBounds());
-		label.setBounds(x*32, y*32, label.getIcon().getIconWidth(), label.getIcon().getIconHeight());
-		System.out.println("GUI label pos nueva "+label+" bounds "+label.getBounds());
-		panelEnemigos.repaint();
-		panelEnemigos.validate();
+		label.setLocation(x*32,y*32);
+		repintar();
 	}
 	
 	private JLabel buscarLabel(int x, int y, JPanel panel) {
 		Component[] arrComponents = panel.getComponents();
-		System.out.println("GUI buscar label x"+ x*32 + " y "+y*32);
 		JLabel label = null;
 		boolean encontre = false;
 		for(int i = 0; !encontre && i < arrComponents.length; i++ ) {
 			Component comp = arrComponents[i];
-			System.out.println("GUI buscarLabel x"+x*32+" y "+y*32+" bounds "+arrComponents[i].getBounds());
 			if(comp.getBounds().x == x*32 && comp.getBounds().y == y*32) {
 				encontre = true;
 				label = (JLabel) arrComponents[i];
 			}
 		}
-		System.out.println(encontre);
 		return label;
+	}
+	
+	private void repintar() {
+		panelMapa.validate();
+		panelMapa.repaint();
+		//panelCeldas.validate();
+		//panelCeldas.repaint();
+		//panelDefensa.validate();
+		//panelDefensa.repaint();
+		//panelEnemigos.validate();
+		//panelEnemigos.repaint();
 	}
 	
 	public MouseListener getMouseListener() {
