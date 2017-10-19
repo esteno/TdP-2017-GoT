@@ -6,8 +6,6 @@ import colisiones.VisitorDisparo;
 
 public class Disparo extends ObjetoMovil 
 {
-
-	
 	public Disparo() 
 	{
 		alcance = 30;
