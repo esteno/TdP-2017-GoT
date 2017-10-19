@@ -18,19 +18,21 @@ public abstract class Disparo extends ObjetoMovil
 	}
 
 	@Override
-	public void avanzar() {
-		if(alcance > 0 || celda == null) {
+	public void avanzar()
+	{
+		if(alcance > 0 || celda == null) 
+		{
 			int xAnterior = celda.getX();
 			int yAnterior = celda.getY();
 			Celda celdaNueva = celda.celdaDerecha();
-			Enemigo enemigo = celdaNueva.hayEnemigo();
-			if(!celdaNueva.hayEnemigo())
+			ObjetoMovil objetoMovil = celdaNueva.objetoMovil();
+			if(objetoMovil!=null)
 			{	
-				celda = celdaNueva;
-				celda.moverEnemigo(xAnterior, yAnterior);
+				objetoMovil.aceptar(visitor);
 			} 
-			else {
-				
+			else 
+			{
+				celda = celdaNueva;
 			}
 		}
 		

@@ -36,14 +36,20 @@ public abstract class Celda
     	return grafica;
     }
     
-    public Celda celdaIzquierda() {
+    public Celda celdaIzquierda() 
+    {
     	return mapa.celdaIzquierda(this);
     }
     
+    public Celda celdaDerecha()
+    {
+    	return mapa.celdaDerecha(this);
+    }
     
     //preguntar esto
-    public boolean hayEnemigo() {
-    	return mapa.hayEnemigo(this);
+    public ObjetoMovil objetoMovil() 
+    {
+    	return mapa.getObjeto(this);
     }
     
     

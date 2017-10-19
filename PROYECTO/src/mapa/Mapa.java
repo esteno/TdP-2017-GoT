@@ -78,7 +78,8 @@ public class Mapa
 		matrizMovil[celda.getX()][celda.getY()] = movil;
 	}
 	
-	public boolean hayEnemigo(Celda celda) {
+	public boolean hayEnemigo(Celda celda) 
+	{
 		if(matrizMovil[celda.getX()][celda.getY()]!=null)
 			return true;
 		return false;
@@ -118,6 +119,11 @@ public class Mapa
 	public Juego getJuego()
 	{
 		return juego;
+	}
+	
+	public ObjetoMovil getObjeto(Celda c)
+	{
+		return matrizMovil[c.getX()][c.getY()];
 	}
 
 }
