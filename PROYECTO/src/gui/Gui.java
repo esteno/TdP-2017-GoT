@@ -34,6 +34,9 @@ public class Gui
 	private Juego juego;
 	private final int ALTO = 8;
 	private final int ANCHO = 16;
+	private final int ALTO_IMG = 32;
+	private final int ANCHO_IMG = 32;
+	
 	private final int NIVELCELDA = 2;
 	private final int NIVELDEFENSA = 1;
 	private final int NIVELENEMIGO = 0;
@@ -91,7 +94,7 @@ public class Gui
 		
 		
 		panelMapa = new JLayeredPane();
-		panelMapa.setBounds(0,0,ANCHO*32,ALTO*32);
+		panelMapa.setBounds(0,0,ANCHO*ANCHO_IMG,ALTO*ALTO_IMG);
 		
 		panelMapa.setBackground(Color.GRAY);
 		
@@ -175,10 +178,9 @@ public class Gui
 	
 	public void agregarEnemigo(int x, int y, BufferedImage e) 
 	{
-		System.out.println("GUI agregarEnemigo x "+x*32+" y "+y*32);
 		JLabel labelEnemigo = new JLabel(new ImageIcon(e));
 		
-		labelEnemigo.setBounds(x*32, y*32,e.getWidth(),e.getHeight());
+		labelEnemigo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,e.getWidth(),e.getHeight());
 		panelEnemigos.add(labelEnemigo);
 		repintar();
 	}
@@ -186,7 +188,7 @@ public class Gui
 	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) 
 	{
 		JLabel label = buscarLabel(xAnterior, yAnterior, panelEnemigos);
-		label.setLocation(x*32,y*32);
+		label.setLocation(x*ANCHO_IMG,y*ALTO_IMG);
 		repintar();
 	}
 	
@@ -196,7 +198,7 @@ public class Gui
 		boolean encontre = false;
 		for(int i = 0; !encontre && i < arrComponents.length; i++ ) {
 			Component comp = arrComponents[i];
-			if(comp.getBounds().x == x*32 && comp.getBounds().y == y*32) {
+			if(comp.getBounds().x == x*ANCHO_IMG && comp.getBounds().y == y*ALTO_IMG) {
 				encontre = true;
 				label = (JLabel) arrComponents[i];
 			}
@@ -222,8 +224,8 @@ public class Gui
 			public void mouseClicked(MouseEvent e) {
 				JLabel labelCelda = (JLabel) e.getComponent();
 				System.out.println("label celda"+labelCelda);
-				int x= labelCelda.getBounds().x / 32;
-				int y= labelCelda.getBounds().y / 32;
+				int x= labelCelda.getBounds().x / ANCHO_IMG;
+				int y= labelCelda.getBounds().y / ALTO_IMG;
 				if(aEliminar)
 				{
 					
