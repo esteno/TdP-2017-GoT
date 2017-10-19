@@ -14,12 +14,12 @@ public class Juego implements Runnable
 	private Puntaje puntaje;
 	private Mapa mapa;
 	
-	private GuiNueva gui;
+	private Gui gui;
 	
 
 	private ControlDeOleadas controlDeOleadas;
 	
-	public Juego(GuiNueva gui, int alto, int ancho) 
+	public Juego(Gui gui, int alto, int ancho) 
 	{
 		this.gui = gui;
 		puntaje = new Puntaje();

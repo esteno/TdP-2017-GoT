@@ -1,58 +1,54 @@
 package gui;
 
-import logica.*;
-import objetos.GameObjectGrafico;
-
 import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import celdas.Celda;
 import defensa.Defensa;
+import logica.FabricaDeDefensa;
+import logica.Juego;
+import objetos.GameObjectGrafico;
 
 import java.awt.BorderLayout;
-import javax.swing.JLayeredPane;
+import java.awt.Color;
+import java.awt.Component;
 
-import javax.swing.JButton;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import javax.swing.BoxLayout;
-
-public class Gui {
+public class Gui
+{
 
 	private JFrame frame;
+	
 	private Juego juego;
 	private final int ALTO = 8;
 	private final int ANCHO = 16;
-	
-	private JLabel[][] matrizLabelCelda;
-	private JLabel[][] matrizLabelEstatica;
-	private JLabel[][] matrizLabelEnemigo;
-	private JLabel labelPuntaje;
+	private final int NIVELCELDA = 2;
+	private final int NIVELDEFENSA = 1;
+	private final int NIVELENEMIGO = 0;
 	
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
-	private JLayeredPane panelMapa;
 	
-	private final int NIVELCELDA = 0;
-	private final int NIVELDEFENSA = 1;
-	private final int NIVELENEMIGO = 2;
-	
-	
+	private JLabel labelPuntaje;
 	private boolean aEliminar=false;
 	
+	private JLayeredPane panelMapa;
+	private JPanel panelControl;
+	private JPanel panelCeldas;
+	private JPanel panelDefensa;
+	private JPanel panelEnemigos;
+
 	/**
 	 * Launch the application.
 	 */
@@ -74,134 +70,150 @@ public class Gui {
 	 */
 	public Gui() 
 	{
-		juego = new Juego(this, ALTO, ANCHO);
-		matrizLabelCelda = new JLabel[ANCHO][ALTO];
-		matrizLabelEstatica = new JLabel[ANCHO][ALTO];
-		matrizLabelEnemigo = new JLabel[ANCHO][ALTO];
 		
-		initialize();	
+		initialize();
+		
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize() 
+	{
+		juego = new Juego(this, ALTO, ANCHO);
 		frame = new JFrame();
-		frame.setBounds(100, 100, 800, 600);
+		frame.setBounds(100, 100, 739, 489);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
-		JPanel panelControl = new JPanel();
+		
+		
+		
+		
+		panelMapa = new JLayeredPane();
+		panelMapa.setBounds(0,0,ANCHO*32,ALTO*32);
+		
+		panelMapa.setBackground(Color.GRAY);
+		
+		
+		panelCeldas = new JPanel();
+		panelCeldas.setLayout(null);
+		panelCeldas.setBounds(panelMapa.getBounds());
+		System.out.println(panelMapa.getBounds());
+		panelCeldas.setBackground(new Color(0,0,0,0));
+		panelMapa.add(panelCeldas, NIVELCELDA);
+		
+		panelDefensa = new JPanel();
+		panelDefensa.setLayout(null);
+		panelDefensa.setBounds(panelMapa.getBounds());
+		panelDefensa.setBackground(new Color(0,0,0,0));
+		panelMapa.add(panelDefensa, NIVELDEFENSA);
+		
+		panelEnemigos = new JPanel();
+		panelEnemigos.setLayout(null);
+		panelEnemigos.setBounds(panelMapa.getBounds());
+		panelEnemigos.setBackground(new Color(0,0,0,0));
+		panelMapa.add(panelEnemigos, NIVELENEMIGO);
+
+		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
+		
+		for(int i = 0; i < ANCHO; i++) 
+		{
+			for (int j = 0; j < ALTO; j++) 
+			{
+				BufferedImage imagen = graficos[i][j].getImagen();
+				int ancho = imagen.getWidth();
+				int alto = imagen.getHeight();
+				int x = i*ancho;
+				int y = j*alto;
+				JLabel label = new JLabel();
+				label.setBounds(x ,y,alto,ancho);
+				label.setIcon(new ImageIcon(imagen));
+				label.addMouseListener(getMouseListener());
+				panelCeldas.add(label);
+				
+			}
+		}
+		
+		frame.getContentPane().add(panelMapa, BorderLayout.CENTER);
+		panelMapa.setLayout(null);
+		
+		panelControl = new JPanel();
 		frame.getContentPane().add(panelControl, BorderLayout.EAST);
-		
-		
-		
 		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
+		int x = panelMapa.getX() + panelMapa.getWidth();
+		int y = panelMapa.getY() + panelMapa.getHeight();
+		panelControl.setBounds(x, y, 300, 500);
+		panelControl.setOpaque(false);
 		
 		labelPuntaje = new JLabel("Puntaje: 0");
 		panelControl.add(labelPuntaje);
+		
+		JButton botonAgregar = new JButton("Agregar Jorgito");
+		botonAgregar.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				fabricaDeDefensa.construirJorgito();
+			}
+		});
 		panelControl.add(botonAgregar);
 		
 		
-		//eliminar defensa
-		JButton botonEliminar= new JButton("Eliminar Jorgito");
-		botonEliminar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				aEliminar=true;
-	        }
-		});
-		panelControl.add(botonEliminar);
-
 		
+	}
+	
+	
+	
+	
+	
+	public void puntaje(int puntaje) 
+	{
+		labelPuntaje.setText("Puntaje: "+puntaje);
+	}
+	
+	
+	public void agregarEnemigo(int x, int y, BufferedImage e) 
+	{
+		System.out.println("GUI agregarEnemigo x "+x*32+" y "+y*32);
+		JLabel labelEnemigo = new JLabel(new ImageIcon(e));
 		
-		JButton botonAgregarEnemigo = new JButton("AgregarEnemigo");
-		botonAgregarEnemigo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				juego.crearEnemigo();
-				
-			}
-			
-		});
-		panelControl.add(botonAgregarEnemigo);
-
-		
-		panelMapa = new JLayeredPane();
-		frame.getContentPane().add(panelMapa);
-		panelMapa.setLayout(new GridBagLayout());
-
-		//Pide todas las celdas graficas y los agrega a un panel con un gridbaglayout.
-		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
-		for(int i = 0; i < ANCHO; i++) {
-			for (int j = 0; j < ALTO; j++) {
-				GridBagConstraints cons = new GridBagConstraints();
-				cons.gridheight = cons.gridwidth = 1;
-				cons.gridx = i;
-				cons.gridy = j;
-				JLabel label = new JLabel();
-				label.setIcon(new ImageIcon(graficos[i][j].getImagen()));
-				label.addMouseListener(getMouseListener());
-				
-				panelMapa.add(label, cons, NIVELCELDA);
-				matrizLabelCelda[i][j] = label;
-				
+		labelEnemigo.setBounds(x*32, y*32,e.getWidth(),e.getHeight());
+		panelEnemigos.add(labelEnemigo);
+		repintar();
+	}
+	
+	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) 
+	{
+		JLabel label = buscarLabel(xAnterior, yAnterior, panelEnemigos);
+		label.setLocation(x*32,y*32);
+		repintar();
+	}
+	
+	private JLabel buscarLabel(int x, int y, JPanel panel) {
+		Component[] arrComponents = panel.getComponents();
+		JLabel label = null;
+		boolean encontre = false;
+		for(int i = 0; !encontre && i < arrComponents.length; i++ ) {
+			Component comp = arrComponents[i];
+			if(comp.getBounds().x == x*32 && comp.getBounds().y == y*32) {
+				encontre = true;
+				label = (JLabel) arrComponents[i];
 			}
 		}
+		return label;
 	}
 	
-	public void agregarEnemigo(Celda celda, BufferedImage imagen) {
-		JLabel label = matrizLabelCelda[celda.getX()][celda.getY()];
-		GridBagConstraints cons = new GridBagConstraints();
-		cons.gridheight = cons.gridwidth = 1;
-		cons.gridx = celda.getX();
-		cons.gridy = celda.getY();
-		JLabel labelEnemigo = new JLabel();
-		labelEnemigo.setIcon(new ImageIcon(imagen));
-		labelEnemigo.setBounds(label.getBounds());
-		matrizLabelEnemigo[celda.getX()][celda.getY()] = labelEnemigo;
-		panelMapa.add(labelEnemigo, cons, NIVELENEMIGO);
-	//	panelMapa.validate();
-	
-	}
-	
-	
-	
-	private Vector<Integer> buscarCoordenadas(JLabel label) {
-		Vector<Integer> toReturn = new Vector<Integer>(2);
-		Boolean encontre = false;
-		for(int i = 0; i < matrizLabelCelda.length && !encontre; i++) {
-			for(int j = 0; j < matrizLabelCelda[0].length && !encontre; j++) {
-				if(matrizLabelCelda[i][j] == label) {
-					toReturn.add(0, i);
-					toReturn.add(1, j);
-					encontre = true;
-				}
-			}
-		}
-		return toReturn;
-	}
-	
-	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) {
-		JLabel labelEnemigo = matrizLabelEnemigo[xAnterior][yAnterior];
-		if(matrizLabelEnemigo[xAnterior][yAnterior] == labelEnemigo) {
-			matrizLabelEnemigo[xAnterior][yAnterior] = null;
-		}
-		matrizLabelEnemigo[x][y] = labelEnemigo;
-		labelEnemigo.setBounds(matrizLabelCelda[x][y].getBounds());
-		labelEnemigo.repaint();
-		
-	}
-	
-	public void eliminarEnemigo(int x, int y) {
-		JLabel aEliminar = matrizLabelEnemigo[x][y];
-		panelMapa.remove(aEliminar);
+	private void repintar() {
+		panelMapa.validate();
 		panelMapa.repaint();
-		matrizLabelEnemigo[x][y] = null;
+		//panelCeldas.validate();
+		//panelCeldas.repaint();
+		//panelDefensa.validate();
+		//panelDefensa.repaint();
+		//panelEnemigos.validate();
+		//panelEnemigos.repaint();
 	}
-	
-	public void puntaje(int i) {
-		labelPuntaje.setText("Puntaje: "+i);
-	}
-	
 	
 	public MouseListener getMouseListener() {
 		return new MouseListener() {
@@ -209,18 +221,16 @@ public class Gui {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				JLabel labelCelda = (JLabel) e.getComponent();
-				Vector<Integer> vector = buscarCoordenadas(labelCelda);
-				int x=vector.get(0);
-				int y=vector.get(1);
+				System.out.println("label celda"+labelCelda);
+				int x= labelCelda.getBounds().x / 32;
+				int y= labelCelda.getBounds().y / 32;
 				if(aEliminar)
 				{
-					JLabel remover = matrizLabelEstatica[x][y];
+					
+					JLabel remover = buscarLabel(x, y, panelDefensa);
 					if(remover!=null){
 						System.out.println("remover no es nulo");
 						juego.eliminarDefensa(x, y);
-						matrizLabelEstatica[x][y] = null;
-						panelMapa.remove(remover);
-						panelMapa.repaint();
 					}
 					aEliminar=false;
 				}
@@ -230,15 +240,13 @@ public class Gui {
 				  {
 
 					juego.agregarDefensa(x,y);
-					GridBagConstraints cons = new GridBagConstraints();
-					cons.gridheight = cons.gridwidth = 1;
-					cons.gridx = x;
-					cons.gridy = y;
 					BufferedImage imagen = defensa.getGrafico();
+					System.out.println(imagen);
 					JLabel labelNuevo = new JLabel(new ImageIcon(imagen));
 					labelNuevo.setBounds(labelCelda.getBounds());
-					matrizLabelEstatica[x][y] = labelNuevo;
-					panelMapa.add(labelNuevo, cons, NIVELDEFENSA);
+					System.out.println("labelNuevo "+labelNuevo.isOpaque());
+					panelDefensa.add(labelNuevo);
+					System.out.println("panelMapa ND length "+panelDefensa.getComponentCount());
 				 }
 			   }
 			}
