@@ -1,9 +1,12 @@
 package defensa;
 
 
-public abstract class DefensaCuerpo extends Defensa implements Runnable
+public abstract class DefensaCuerpo extends Defensa
 {
 	
-	public void run()
-	{}
+	public void atacar() {
+		
+	}
+	
+	
 }

@@ -38,8 +38,8 @@ public class Gui
 	private final int ANCHO_IMG = 32;
 	
 	private final int NIVELCELDA = 2;
-	private final int NIVELDEFENSA = 1;
-	private final int NIVELENEMIGO = 0;
+	private final int NIVELDEFENSA = 0;
+	private final int NIVELENEMIGO = 1;
 	
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	
@@ -188,12 +188,14 @@ public class Gui
 	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) 
 	{
 		JLabel label = buscarLabel(xAnterior, yAnterior, panelEnemigos);
+		System.out.println("disparo "+label);
 		label.setLocation(x*ANCHO_IMG,y*ALTO_IMG);
 		repintar();
 	}
 	
 	private JLabel buscarLabel(int x, int y, JPanel panel) {
 		Component[] arrComponents = panel.getComponents();
+		System.out.println("label buscar 0 "+arrComponents[0]);
 		JLabel label = null;
 		boolean encontre = false;
 		for(int i = 0; !encontre && i < arrComponents.length; i++ ) {
@@ -209,12 +211,6 @@ public class Gui
 	private void repintar() {
 		panelMapa.validate();
 		panelMapa.repaint();
-		//panelCeldas.validate();
-		//panelCeldas.repaint();
-		//panelDefensa.validate();
-		//panelDefensa.repaint();
-		//panelEnemigos.validate();
-		//panelEnemigos.repaint();
 	}
 	
 	public MouseListener getMouseListener() {
@@ -226,6 +222,7 @@ public class Gui
 				System.out.println("label celda"+labelCelda);
 				int x= labelCelda.getBounds().x / ANCHO_IMG;
 				int y= labelCelda.getBounds().y / ALTO_IMG;
+				System.out.println("x "+x+" y "+y);
 				if(aEliminar)
 				{
 					
@@ -236,21 +233,18 @@ public class Gui
 					}
 					aEliminar=false;
 				}
-				else
-				{ Defensa defensa = fabricaDeDefensa.getDefensa();
-				  if(defensa != null) 
-				  {
-
-					juego.agregarDefensa(x,y);
-					BufferedImage imagen = defensa.getGrafico();
-					System.out.println(imagen);
-					JLabel labelNuevo = new JLabel(new ImageIcon(imagen));
-					labelNuevo.setBounds(labelCelda.getBounds());
-					System.out.println("labelNuevo "+labelNuevo.isOpaque());
-					panelDefensa.add(labelNuevo);
-					System.out.println("panelMapa ND length "+panelDefensa.getComponentCount());
-				 }
-			   }
+				else {
+					Defensa defensa = fabricaDeDefensa.getDefensa();
+					if(defensa != null) 
+					{
+						juego.agregarDefensa(x,y);
+						BufferedImage imagen = defensa.getGrafico();
+						JLabel labelNuevo = new JLabel(new ImageIcon(imagen));
+						labelNuevo.setBounds(labelCelda.getBounds());
+						panelDefensa.add(labelNuevo);
+						repintar();
+					 }
+				   }
 			}
 
 			@Override

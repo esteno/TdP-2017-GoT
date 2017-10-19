@@ -17,12 +17,13 @@ public abstract class Enemigo extends ObjetoMovil
 
 	public void avanzar()
     {
-		if(celda.getX() != 0) 
+		Celda celdaNueva = celda.celdaIzquierda();
+		if(celdaNueva != null) 
 		{
 			int xAnterior = celda.getX();
 			int yAnterior = celda.getY();
-			Celda celdaNueva = celda.celdaIzquierda();
-			if(!celdaNueva.hayEnemigo())
+			
+			if(celdaNueva.objetoMovil() == null)
 			{	
 				celda = celdaNueva;
 				celda.moverEnemigo(xAnterior, yAnterior);
@@ -64,5 +65,7 @@ public abstract class Enemigo extends ObjetoMovil
 	{
 		v.visitarEnemigo(this);
 	}
+	
+	public void atacar() {}
 
 }

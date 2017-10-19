@@ -48,6 +48,12 @@ public class FabricaObjetoGrafico {
 		return new GameObjectGrafico("res/imagenes/defensa/test.png");
 	}
 	
+	//DISPARO
+	
+	public GameObjectGrafico construirGraficoDisparo() {
+		return new GameObjectGrafico("res/imagenes/disparo/disparo.png");
+	}
+	
 
 
 }

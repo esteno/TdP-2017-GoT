@@ -67,6 +67,8 @@ public abstract class GameObject
 	{
 		fuerza_impacto=-i;
 	}
+	
+	public abstract void atacar();
 }
 
 

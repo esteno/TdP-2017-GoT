@@ -3,12 +3,16 @@ import objetos.*;
 import celdas.Celda;
 import colisiones.Visitor;
 import colisiones.VisitorDisparo;
-import enemigos.*;
 
 public class Disparo extends ObjetoMovil 
 {
 
 	protected VisitorDisparo visitor;
+	
+	public Disparo() {
+		alcance = 30;
+		grafico = fabricaGrafica.construirGraficoDisparo();
+	}
 	
 	
 	public void aceptar(Visitor v)
@@ -19,12 +23,12 @@ public class Disparo extends ObjetoMovil
 	@Override
 	public void avanzar()
 	{
-		//if(alcance > 0 || celda == null) 
-		while (alcance>0 || celda==null)
+		Celda celdaNueva = celda.celdaDerecha();
+		
+		if(alcance > 0 || celdaNueva != null) 
 		{
-			int xAnterior = celda.getX();
-			int yAnterior = celda.getY();
-			Celda celdaNueva = celda.celdaDerecha();
+			
+			/*
 			ObjetoMovil objetoMovil = celdaNueva.objetoMovil();
 			if(objetoMovil!=null)
 			{	
@@ -32,10 +36,30 @@ public class Disparo extends ObjetoMovil
 			} 
 			else 
 			{
+			*/
+				int xAnterior = celda.getX();
+				int yAnterior = celda.getY();
 				celda = celdaNueva;
+				celda.moverEnemigo(xAnterior, yAnterior);
+				
 				alcance--;
 			}
-		 }		
+		/*	 }
+	
+		else {
+			destruir();
+		}*/
+	}
+	
+	public void destruir() {
+		
+	}
+
+
+	@Override
+	public void atacar() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

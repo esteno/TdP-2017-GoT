@@ -2,7 +2,7 @@ package defensa;
 
 import objetos.GameObjectGrafico;
 
-public class Jorgito extends DefensaCuerpo {
+public class Jorgito extends DefensaRango {
 	
 	//protected GameObjectGrafico grafico;
 

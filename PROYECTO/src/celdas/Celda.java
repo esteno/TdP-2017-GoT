@@ -63,5 +63,8 @@ public abstract class Celda
     public Mapa getMapa()
     { return mapa; }
     
+    public void generarDisparo() {
+    	mapa.generarDisparo(x, y);
+    }
 
 }

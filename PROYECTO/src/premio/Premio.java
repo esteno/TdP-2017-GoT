@@ -15,4 +15,11 @@ public abstract class Premio extends GameObject implements Runnable {
     {
     }
 	
+
+	@Override
+	public void atacar() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

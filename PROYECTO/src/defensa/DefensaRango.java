@@ -1,9 +1,10 @@
 package defensa;
 
-public abstract class DefensaRango extends Defensa implements Runnable 
+public abstract class DefensaRango extends Defensa
 
 {
-	public void run()
-	{}
+	public void atacar() {
+		celda.generarDisparo();
+	}
 
 }

@@ -15,4 +15,5 @@ public class ObjetoPrecioso extends Premio
 		
 	}
 
+
 }

@@ -1,6 +1,7 @@
 package mapa;
 
 import celdas.Celda;
+import defensa.Defensa;
 import logica.FabricaDeDefensa;
 import logica.Juego;
 import objetos.*;
@@ -65,11 +66,9 @@ public class Mapa
 		return toReturn;
 	}
 	
-	public Celda agregarEnemigo(ObjetoMovil enemigo, int pos) {
-		matrizMovil[matrizMovil.length - 1][pos] = enemigo;
-		Celda toReturn = matrizCeldas[matrizCeldas.length - 1][pos];
-		enemigo.setCelda(toReturn);
-		return toReturn;
+	public void agregarEnemigo(ObjetoMovil enemigo, int x, int y) {
+		matrizMovil[x][y] = enemigo;
+		enemigo.setCelda(matrizCeldas[x][y]);
 		
 	}
 	
@@ -89,7 +88,6 @@ public class Mapa
 	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) {
 		matrizMovil[x][y] = matrizMovil[xAnterior][yAnterior];
 		matrizMovil[xAnterior][yAnterior] = null;
-		System.out.println("MAPA moverEnemigo x "+x+" y "+y+" xA "+xAnterior+" yA "+yAnterior);
 		juego.moverEnemigoGrafico(x, y, xAnterior, yAnterior);
 	}
  
@@ -97,7 +95,6 @@ public class Mapa
 	public void eliminarDefensa(int x, int y)
 	{
 			GameObject g=matrizEstatica[x][y];
-			System.out.println("matriz a eliminar "+matrizEstatica[x][y]==null+" x="+x+" y="+y);
 			matrizEstatica[x][y]=null;
 			g.destruir();
 	}
@@ -108,12 +105,12 @@ public class Mapa
 		juego.eliminarEnemigo(x, y);
 	}
 	
-	public void agregarDefensa(int x, int y)
+	public void agregarDefensa(Defensa defensa, int x, int y)
 	{
 		if(matrizEstatica[x][y] == null) {
-			matrizEstatica[x][y]= fabricaDeDefensa.getDefensa();
+			matrizEstatica[x][y]= defensa;
 		}
-		fabricaDeDefensa.reset();
+		defensa.setCelda(matrizCeldas[x][y]);
 	}
 
 	public Juego getJuego()
@@ -124,6 +121,10 @@ public class Mapa
 	public ObjetoMovil getObjeto(Celda c)
 	{
 		return matrizMovil[c.getX()][c.getY()];
+	}
+	
+	public void generarDisparo(int x, int y) {
+		juego.generarDisparo(x, y);
 	}
 
 }
