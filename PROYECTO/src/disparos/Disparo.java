@@ -7,7 +7,6 @@ import colisiones.VisitorDisparo;
 public class Disparo extends ObjetoMovil 
 {
 
-	protected VisitorDisparo visitor;
 	
 	public Disparo() {
 		alcance = 30;
@@ -28,15 +27,15 @@ public class Disparo extends ObjetoMovil
 		if(alcance > 0 || celdaNueva != null) 
 		{
 			
-			/*
+			
 			ObjetoMovil objetoMovil = celdaNueva.objetoMovil();
 			if(objetoMovil!=null)
 			{	
-				objetoMovil.aceptar(visitor);
+				objetoMovil.aceptar(new VisitorDisparo(this));
 			} 
 			else 
 			{
-			*/
+			
 				int xAnterior = celda.getX();
 				int yAnterior = celda.getY();
 				celda = celdaNueva;
@@ -44,15 +43,15 @@ public class Disparo extends ObjetoMovil
 				
 				alcance--;
 			}
-		/*	 }
+		}
 	
 		else {
 			destruir();
-		}*/
+		}
 	}
 	
 	public void destruir() {
-		
+		celda.destruirEnemigo();
 	}
 
 

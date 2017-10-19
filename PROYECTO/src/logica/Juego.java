@@ -96,7 +96,7 @@ public class Juego implements Runnable
 	
 	public void eliminarEnemigo(int x, int y)
 	{
-		//gui.eliminarEnemigo(x, y);
+		gui.eliminarMovil(x, y);
 	}
 	
 	public void sumarPuntaje(int p) 
