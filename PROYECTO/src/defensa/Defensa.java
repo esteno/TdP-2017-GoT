@@ -10,11 +10,7 @@ public abstract class Defensa extends GameObject
      protected VisitorDefensa visitor;
      protected int precio;
      
-     
-     public Defensa()
-     {
-    	// super()
-     }
+    
      
      public void aceptar(Visitor v)
      {

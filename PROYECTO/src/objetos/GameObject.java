@@ -13,9 +13,9 @@ public abstract class GameObject
 	protected GameObjectGrafico grafico;
 	protected Celda celda;
 	protected int puntos_vida; // de vida de cada objeto
-	protected Boolean isRunning = true;
+	protected boolean isRunning = true;
 	protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
-	protected int fuerza_impacto;
+	protected int fuerza_impacto; // cuanta vida consume al atacar
 	protected int alcance;
 	
 	//metodos

@@ -5,13 +5,12 @@ import colisiones.Visitor;
 import colisiones.VisitorDisparo;
 import enemigos.*;
 
-public class Disparo extends ObjetoMovil {
-	protected VisitorDisparo visitor;
-	protected int alcance;
+public abstract class Disparo extends ObjetoMovil 
+{
+
 	
-	public Disparo(int a) {
-		alcance = a;
-	}
+	protected VisitorDisparo visitor;
+	
 	
 	public void aceptar(Visitor v)
 	{
