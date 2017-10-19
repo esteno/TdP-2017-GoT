@@ -1,16 +1,18 @@
 package colisiones;
 
 import defensa.Defensa;
-import enemigos.ObjetoMovil;
+import enemigos.Enemigo;
 import objetos.*;
 import disparos.*;
 import obstaculo.*;
 
 public class VisitorEnemigo extends Visitor
 {
-	protected ObjetoMovil miEnemigo;
+	protected Enemigo miEnemigo;
+	
+	
 	//constructor
-	public VisitorEnemigo(ObjetoMovil g)
+	public VisitorEnemigo(Enemigo g)
 	{
 		miEnemigo=g;
 	}
@@ -18,21 +20,21 @@ public class VisitorEnemigo extends Visitor
 	
 	//metodos
 	@Override
-	public void visitar(Defensa d)
+	public void visitarDefensor(Defensa d)
     { 
 		// TODO Auto-generated method stub
 		d.recibirAtaque(miEnemigo.getFuerzaImpacto()); //de miEnemigo;
 	}
 	
 	@Override
-    public void visitar(Enemigo e)
+    public void visitarEnemigo(Enemigo e)
     {
     	// TODO Auto-generated method stub
 		System.out.println("Un enemigo ha visitado un enemigo. No hay acción.");
     }
 	
 	@Override
-    public void visitar(Disparo d)
+    public void visitarDisparo(Disparo d)
     { 
     	// TODO Auto-generated method stub
     	d.destruir();
@@ -40,14 +42,14 @@ public class VisitorEnemigo extends Visitor
     }
 	
 	@Override
-    public void visitar(Agua a)
+    public void visitarAgua(Agua a)
 	{
     	// TODO Auto-generated method stub
     	//morir ahogado o avanzar lento
     }
 	
 	@Override
-    public void visitar(Roca r)
+    public void visitarRoca(Roca r)
 	{
     	// TODO Auto-generated method stub
 		r.recibirAtaque(miEnemigo.getFuerzaImpacto());

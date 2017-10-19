@@ -1,7 +1,6 @@
 package mapa;
 
 import celdas.Celda;
-import enemigos.ObjetoMovil;
 import logica.FabricaDeDefensa;
 import logica.Juego;
 import objetos.*;
