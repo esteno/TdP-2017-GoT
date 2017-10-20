@@ -196,11 +196,11 @@ public class Gui
 	public void eliminarMovil(int x, int y) {
 		JLabel aEliminar = buscarLabel(x, y, panelEnemigos);
 		panelEnemigos.remove(aEliminar);
+		
 	}
 	
 	private JLabel buscarLabel(int x, int y, JPanel panel) {
 		Component[] arrComponents = panel.getComponents();
-		System.out.println("label buscar 0 "+arrComponents[0]);
 		JLabel label = null;
 		boolean encontre = false;
 		for(int i = 0; !encontre && i < arrComponents.length; i++ ) {

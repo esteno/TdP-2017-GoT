@@ -47,9 +47,9 @@ public abstract class Celda
     }
     
     //preguntar esto
-    public GameObject objetoEstatico() 
+    public ObjetoMovil objetoMovil() 
     {
-    	return mapa.getObjetoEstatico(this);
+    	return mapa.getObjeto(this);
     }
     
     

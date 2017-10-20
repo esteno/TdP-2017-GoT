@@ -51,16 +51,13 @@ public class ControlDeOleadas implements Runnable {
 				for(Enemigo descarte : listaDescarte) {
 					listaEnemigos.remove(descarte);
 					juego.sumarPuntaje(descarte.getPuntos());
-					descarte.destruir();
 				}
 				listaDescarte.clear();
-				for(Enemigo enemigo : listaEnemigos) 
-				{
-					enemigo.avanzar();
-					if(enemigo.getPuntosVida() <= 0)
-					{
+				for(Enemigo enemigo : listaEnemigos) {
+					if(enemigo.getPuntosVida() <= 0) {
 						listaDescarte.add(enemigo);
-					}
+					}else
+					enemigo.avanzar();
 				}
 			}
 			catch (InterruptedException e) {

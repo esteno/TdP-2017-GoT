@@ -101,7 +101,7 @@ public class Mapa
 	
 	public void eliminarEnemigo(int x, int y)
 	{
-		matrizEstatica[x][y]=null;
+		matrizMovil[x][y]=null;
 		juego.eliminarEnemigo(x, y);
 	}
 	
@@ -118,9 +118,9 @@ public class Mapa
 		return juego;
 	}
 	
-	public GameObject getObjetoEstatico(Celda c)
+	public ObjetoMovil getObjeto(Celda c)
 	{
-		return matrizEstatica[c.getX()][c.getY()];
+		return matrizMovil[c.getX()][c.getY()];
 	}
 	
 	public void generarDisparo(int x, int y) {

@@ -36,10 +36,10 @@ public class ControlDisparo implements Runnable {
 				}
 				listaDescarte.clear();
 				for(Disparo disparo : listaDisparos) {
-					disparo.avanzar();
-					if(disparo.getAlcance() <= 0) {
+					if(disparo.getAlcance() <= 0) 
 						listaDescarte.add(disparo);
-					}
+					else
+						disparo.avanzar();
 				}
 			}
 			catch (InterruptedException e) {

@@ -22,14 +22,17 @@ public class VisitorDisparo extends Visitor
 	public void visitarDefensor(Defensa d)
     { 
 		// TODO Auto-generated method stub
-		System.out.println("Un disparo ha visitado una defensa. No hay acción.");
+		System.out.println("Un disparo ha visitado una defensa. No hay acciï¿½n.");
     }
 	 
 	@Override
     public void visitarEnemigo(Enemigo e)
     {
     	// TODO Auto-generated method stub
+		System.out.println("quiere destruir mi desparo");
 	    miDisparo.destruir();  //al visitar un enemigo el disparo de destruye poniendo el grafico en null
+		System.out.println("quiere destruir mi enemigo");
+
 	    e.destruir(); //por ahora destruye el enemigo
     }
 	
@@ -37,7 +40,7 @@ public class VisitorDisparo extends Visitor
     public void visitarDisparo(Disparo d)
     {
     	// TODO Auto-generated method stub
-		System.out.println("Un disparo ha visitado un disparo. No hay acción.");
+		System.out.println("Un disparo ha visitado un disparo. No hay acciï¿½n.");
     }
 	
 	@Override
@@ -45,7 +48,7 @@ public class VisitorDisparo extends Visitor
 	{
     	// TODO Auto-generated method stub
 		// No pasa nada.
-		System.out.println("Un disparo ha visitado el agua. No hay acción.");
+		System.out.println("Un disparo ha visitado el agua. No hay acciï¿½n.");
     }
 	
 	@Override
@@ -53,7 +56,7 @@ public class VisitorDisparo extends Visitor
 	{
     	// TODO Auto-generated method stub
 		// No pasa nada.
-		System.out.println("Un disparo ha visitado una roca. No hay acción.");
+		System.out.println("Un disparo ha visitado una roca. No hay acciï¿½n.");
 	} 
 
 }
