@@ -3,6 +3,7 @@ package enemigos;
 import celdas.Celda;
 import colisiones.Visitor;
 import colisiones.VisitorEnemigo;
+import defensa.Defensa;
 import logica.FabricaDeOleadas;
 import objetos.GameObject;
 import objetos.ObjetoMovil;
@@ -23,12 +24,20 @@ public abstract class Enemigo extends ObjetoMovil
 			int xAnterior = celda.getX();
 			int yAnterior = celda.getY();
 			
-			if(celdaNueva.objetoMovil() == null)
+			if(celdaNueva.objetoEstatico() == null)
 			{	
 				celda = celdaNueva;
 				celda.moverEnemigo(xAnterior, yAnterior);
 			} 	
 		}
+    }
+	
+	public void atacar()
+	{
+		GameObject aAtacar = celda.celdaIzquierda().objetoEstatico();
+		aAtacar.aceptar(visitor);
+	}
+
 		
 		/*if(celda.getX() != 0) 
 		{
@@ -49,7 +58,7 @@ public abstract class Enemigo extends ObjetoMovil
 			} 	
 		}*/
 
-	}
+	
 	
 	public void destruir() 
 	{
@@ -66,6 +75,5 @@ public abstract class Enemigo extends ObjetoMovil
 		v.visitarEnemigo(this);
 	}
 	
-	public void atacar() {}
 
 }

@@ -118,9 +118,9 @@ public class Mapa
 		return juego;
 	}
 	
-	public ObjetoMovil getObjeto(Celda c)
+	public GameObject getObjetoEstatico(Celda c)
 	{
-		return matrizMovil[c.getX()][c.getY()];
+		return matrizEstatica[c.getX()][c.getY()];
 	}
 	
 	public void generarDisparo(int x, int y) {
