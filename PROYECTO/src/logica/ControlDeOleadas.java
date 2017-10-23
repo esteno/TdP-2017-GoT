@@ -56,8 +56,10 @@ public class ControlDeOleadas implements Runnable {
 				for(Enemigo enemigo : listaEnemigos) {
 					if(enemigo.getPuntosVida() <= 0) {
 						listaDescarte.add(enemigo);
-					}else
-					enemigo.avanzar();
+					}
+					else {
+						enemigo.avanzar();
+					}
 				}
 			}
 			catch (InterruptedException e) {

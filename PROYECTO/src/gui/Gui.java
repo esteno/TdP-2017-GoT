@@ -102,7 +102,6 @@ public class Gui
 		panelCeldas = new JPanel();
 		panelCeldas.setLayout(null);
 		panelCeldas.setBounds(panelMapa.getBounds());
-		System.out.println(panelMapa.getBounds());
 		panelCeldas.setBackground(new Color(0,0,0,0));
 		panelMapa.add(panelCeldas, NIVELCELDA);
 		
@@ -188,7 +187,6 @@ public class Gui
 	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) 
 	{
 		JLabel label = buscarLabel(xAnterior, yAnterior, panelEnemigos);
-		System.out.println("disparo "+label);
 		label.setLocation(x*ANCHO_IMG,y*ALTO_IMG);
 		repintar();
 	}
@@ -224,16 +222,13 @@ public class Gui
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				JLabel labelCelda = (JLabel) e.getComponent();
-				System.out.println("label celda"+labelCelda);
 				int x= labelCelda.getBounds().x / ANCHO_IMG;
 				int y= labelCelda.getBounds().y / ALTO_IMG;
-				System.out.println("x "+x+" y "+y);
 				if(aEliminar)
 				{
 					
 					JLabel remover = buscarLabel(x, y, panelDefensa);
 					if(remover!=null){
-						System.out.println("remover no es nulo");
 						juego.eliminarDefensa(x, y);
 					}
 					aEliminar=false;

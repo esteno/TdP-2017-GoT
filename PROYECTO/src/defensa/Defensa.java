@@ -9,6 +9,8 @@ public abstract class Defensa extends GameObject
      protected Nivel nivel;
      protected VisitorDefensa visitor;
      protected int precio;
+     protected int velocidadAtaque;
+     protected int proximoAtaque;
      
     
      

@@ -67,4 +67,5 @@ public abstract class Celda
     	mapa.generarDisparo(x, y);
     }
 
+
 }

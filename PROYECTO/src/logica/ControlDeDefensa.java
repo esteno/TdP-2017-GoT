@@ -21,6 +21,7 @@ public class ControlDeDefensa implements Runnable {
 	}
 	
 	public void agregarDefensa(Defensa defensa) {
+		System.out.println("agregada defensa");
 		listaDefensa.add(defensa);
 	}
 	
@@ -34,9 +35,11 @@ public class ControlDeDefensa implements Runnable {
 				}
 				listaDescarte.clear();
 				for(Defensa defensa : listaDefensa) {
-					defensa.atacar();
 					if(defensa.getPuntosVida() <= 0) {
 						listaDescarte.add(defensa);
+					}
+					else {
+						defensa.atacar();
 					}
 				}
 			}
