@@ -35,7 +35,8 @@ public class ControlDisparo implements Runnable {
 					listaDisparos.remove(descarte);
 				}
 				listaDescarte.clear();
-				for(Disparo disparo : listaDisparos) {
+				for(Disparo disparo : listaDisparos) 
+				{
 					if(disparo.getAlcance() <= 0) 
 						listaDescarte.add(disparo);
 					else
