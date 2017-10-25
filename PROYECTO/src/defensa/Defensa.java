@@ -6,7 +6,7 @@ import colisiones.*;
 
 public abstract class Defensa extends GameObject 
 {
-     protected Nivel nivel;
+     //protected Nivel nivel;
      protected VisitorDefensa visitor;
      protected int precio;
      protected int velocidadAtaque;

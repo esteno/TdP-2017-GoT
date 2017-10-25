@@ -24,6 +24,7 @@ public class Juego implements Runnable
 	private ControlDisparo controlDisparo;
 	private ControlDeDefensa controlDeDefensa;
 	
+	
 	public Juego(Gui gui, int alto, int ancho) 
 	{
 		this.alto = alto;
@@ -69,12 +70,7 @@ public class Juego implements Runnable
 		return mapa.getGraficos();
 	}
 	
-	
-	public void agregarJugador()
-	{
-	      //mapa.getGraficos()
-	}
-	
+
 	public void agregarEnemigo(ObjetoMovil enemigo, int x, int y) 
 	{
 		mapa.agregarEnemigo(enemigo, x, y);
