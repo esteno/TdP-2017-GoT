@@ -25,6 +25,7 @@ import objetos.GameObjectGrafico;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import javax.swing.border.LineBorder;
 
 public class Gui
 {
@@ -34,8 +35,8 @@ public class Gui
 	private Juego juego;
 	private final int ALTO = 8;
 	private final int ANCHO = 16;
-	private final int ALTO_IMG = 32;
-	private final int ANCHO_IMG = 32;
+	private final int ALTO_IMG = 50; // antes 32
+	private final int ANCHO_IMG = 50; // antes 32
 	
 	private final int NIVELCELDA = 2;
 	private final int NIVELDEFENSA = 0;
@@ -51,6 +52,8 @@ public class Gui
 	private JPanel panelCeldas;
 	private JPanel panelDefensa;
 	private JPanel panelEnemigos;
+	private JPanel panelPersonajes;
+	private JButton btnJorgito;
 
 	/**
 	 * Launch the application.
@@ -85,7 +88,8 @@ public class Gui
 	{
 		juego = new Juego(this, ALTO, ANCHO);
 		frame = new JFrame();
-		frame.setBounds(100, 100, 739, 489);
+		// ANTES frame.setBounds(100, 100, 739, 489);
+		frame.setBounds(100, 100, 1000, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
@@ -95,7 +99,7 @@ public class Gui
 		
 		panelMapa = new JLayeredPane();
 		panelMapa.setBounds(0,0,ANCHO*ANCHO_IMG,ALTO*ALTO_IMG);
-		
+		panelMapa.setLocation(200,100);
 		panelMapa.setBackground(Color.GRAY);
 		
 		
@@ -140,26 +144,39 @@ public class Gui
 		frame.getContentPane().add(panelMapa, BorderLayout.CENTER);
 		panelMapa.setLayout(null);
 		
-		panelControl = new JPanel();
+		JPanel panelPer = new JPanel();
+		panelPer.setBackground(new Color(255, 255, 204));
+		panelPer.setBounds(128, 0, 464, 49);
+		panelMapa.add(panelPer);
+		panelPer.setLayout(null);
+		
+		labelPuntaje = new JLabel("Puntaje: 0");
+		labelPuntaje.setBounds(26, 11, 50, 14);
+		panelPer.add(labelPuntaje);
+		
+		panelPersonajes = new JPanel();
+		panelPersonajes.setBounds(10, 11, 99, 539);
+		panelMapa.add(panelPersonajes);
+		panelPersonajes.setLayout(null);
+		
+		btnJorgito = new JButton("Jorgito");
+		btnJorgito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnJorgito.setBounds(10, 11, 83, 23);
+		panelPersonajes.add(btnJorgito);
+		
+		//panelControl = new JPanel();
+		/*panelControl.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelControl.setBackground(new Color(255, 0, 255));
 		frame.getContentPane().add(panelControl, BorderLayout.EAST);
 		panelControl.setLayout(new GridLayout(0, 1, 0, 0));
 		int x = panelMapa.getX() + panelMapa.getWidth();
 		int y = panelMapa.getY() + panelMapa.getHeight();
-		panelControl.setBounds(x, y, 300, 500);
-		panelControl.setOpaque(false);
-		
-		labelPuntaje = new JLabel("Puntaje: 0");
-		panelControl.add(labelPuntaje);
-		
-		JButton botonAgregar = new JButton("Agregar Jorgito");
-		botonAgregar.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				fabricaDeDefensa.construirJorgito();
-			}
-		});
-		panelControl.add(botonAgregar);
+		//panelControl.setBounds(x, y, 300, 500);
+		 * */
+		//panelControl.setLocation(0, 0);
 		
 		
 		
