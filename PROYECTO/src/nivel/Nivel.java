@@ -6,7 +6,7 @@ public abstract class Nivel
 {
 
 	//atributos
-	
+	String path;
 	
 	//
 	public Nivel()
