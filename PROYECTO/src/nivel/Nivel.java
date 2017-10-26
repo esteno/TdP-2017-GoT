@@ -6,7 +6,6 @@ public abstract class Nivel
 {
 
 	//atributos
-	protected Juego juego;
 	
 	
 	//
@@ -14,7 +13,7 @@ public abstract class Nivel
 	{}
 	
 	// metodos
-	public abstract Nivel getSiguienteNivel();
+
 	
 	public abstract void crearNivel();
 }

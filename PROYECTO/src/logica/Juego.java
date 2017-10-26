@@ -2,6 +2,7 @@ package logica;
 
 import mapa.*;
 import nivel.Nivel;
+import nivel.Niveles;
 import objetos.*;
 import objetos.GameObjectGrafico;
 import celdas.Celda;
@@ -25,11 +26,8 @@ public class Juego implements Runnable
 	private ControlDisparo controlDisparo;
 	private ControlDeDefensa controlDeDefensa;
 	
-	
-	private Nivel miNivel;
-	
-	
-	
+//	private Nivel miNivel;
+	private Niveles niveles;
 	
 	
 	
@@ -124,18 +122,5 @@ public class Juego implements Runnable
 	public void generarDisparo(int x, int y) {
 		controlDisparo.agregarDisparo(x, y);
 	}
-	
-	
-	
-	
-	
-	///////////////////////////////////////////////////
-	public void setNivel(Nivel nivel)
-	{
-		miNivel = nivel;
-	}
-	
-	
-	
 	
 }
