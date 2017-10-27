@@ -28,6 +28,7 @@ public class Juego implements Runnable
 	
 //	private Nivel miNivel;
 	private Niveles niveles;
+	private Parser parser;
 	
 	
 	
@@ -38,9 +39,14 @@ public class Juego implements Runnable
 		this.gui = gui;
 		puntaje = new Puntaje();
 		mapa = new Mapa(this, alto, ancho);
+		parser = new Parser(mapa, alto, ancho);
+		mapa.cambiarMapa(parser.parsearNivel("res/niveles/nivel1.txt"));
+		
 		controlDeOleadas = new ControlDeOleadas(this, new FabricaDeOleadas(), alto);
 		controlDisparo = new ControlDisparo(this);
 		controlDeDefensa = new ControlDeDefensa(this);
+		
+		
 		
 		new Thread(controlDeOleadas).start();
 		new Thread(controlDisparo).start();

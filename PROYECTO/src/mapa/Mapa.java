@@ -31,6 +31,7 @@ public class Mapa
 		matrizEstatica = new GameObject[ancho][alto];
 		matrizMovil = new ObjetoMovil[ancho][alto];
 		
+		/*
 		//Inicializo la matriz con celdas
 		for(int i = 0; i < ancho; i++) {
 			for (int j = 0; j < alto; j++) {
@@ -38,8 +39,12 @@ public class Mapa
 				matrizCeldas[i][j] = generadorDeCeldas.generar(this, i, j);
 			}
 		}
-		
+		*/
 		this.juego = juego;
+	}
+	
+	public void cambiarMapa(Celda[][] celdas) {
+		matrizCeldas = celdas;
 	}
 	
 	public Celda celdaIzquierda(Celda celdaActual) {

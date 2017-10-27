@@ -1,4 +1,4 @@
-package nivel;
+package logica;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -16,12 +16,16 @@ public class Parser
 	private int alto;
 	private int ancho;
 	
-	public Parser(Mapa m, int alto, int ancho) {
-		mapa = m;
+	public Parser(Mapa mapa, int alto, int ancho) {
+		this.mapa = mapa;
+		this.alto = alto;
+		this.ancho = ancho;
+		
 	}
 	
 	public Celda[][] parsearNivel(String path) {
-		Celda[][] arregloCeldas = null;
+		Celda[][] arregloCeldas = new Celda[ancho][alto];
+		System.out.println("ancho "+ancho+" alto "+alto);
 		Celda celda = null;
 		try {
             FileReader fileReader = new FileReader(path);
@@ -31,12 +35,9 @@ public class Parser
             
             String linea = null;
             
-            Celda[][] arreglo = new Celda[alto][ancho];
-    		System.out.println("arreglo length "+arreglo.length+ " "+arreglo[0].length);
     		for(int i = 0; i < alto; i++) {
     			linea = bufferedReader.readLine();
     			for(int j = 0; j < ancho; j++) {
-    				
     				switch(linea.charAt(j)) {
     					case 'C':
     						celda = new CeldaComun(mapa, i, j);
@@ -50,6 +51,7 @@ public class Parser
     					default:
     						celda = new CeldaComun(mapa, i, j);
     				}
+    				arregloCeldas[j][i] = celda;
     			}
     		}
             
