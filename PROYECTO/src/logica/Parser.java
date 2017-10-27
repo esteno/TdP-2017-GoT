@@ -40,16 +40,16 @@ public class Parser
     			for(int j = 0; j < ancho; j++) {
     				switch(linea.charAt(j)) {
     					case 'C':
-    						celda = new CeldaComun(mapa, i, j);
+    						celda = new CeldaComun(mapa, j, i);
     						break;
     					case 'A':
-    						celda = new CeldaArena(mapa, i, j);
+    						celda = new CeldaArena(mapa, j, i);
     						break;
     					case 'L':
-    						celda = new CeldaLago(mapa, i, j);
+    						celda = new CeldaLago(mapa, j, i);
     						break;
     					default:
-    						celda = new CeldaComun(mapa, i, j);
+    						celda = new CeldaComun(mapa, j, i);
     				}
     				arregloCeldas[j][i] = celda;
     			}
