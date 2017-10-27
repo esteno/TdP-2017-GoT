@@ -11,4 +11,10 @@ public class Nivel1 extends Nivel
 		
 	}
 
+	@Override
+	public void crearNivel() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
