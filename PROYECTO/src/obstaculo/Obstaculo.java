@@ -15,8 +15,7 @@ public abstract class Obstaculo extends GameObject implements Runnable
 	{}
 
 	
-	public void accionar(GameObject o)
-    {}
-	
-	public void atacar() {}
+
+	public void atacar() 
+	{}
 }

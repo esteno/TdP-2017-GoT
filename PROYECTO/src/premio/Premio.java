@@ -11,10 +11,7 @@ public abstract class Premio extends GameObject implements Runnable {
 	
 	public void run() {}
 	
-	public void accionar(GameObject o)
-    {
-    }
-	
+
 
 	@Override
 	public void atacar() {

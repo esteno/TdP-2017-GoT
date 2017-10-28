@@ -23,7 +23,7 @@ public class VisitorDefensa extends Visitor
 	     public void visitarDefensor(Defensa d)
 	     { 
 	    	// TODO Auto-generated method stub
-	    	System.out.println("Un defensor ha visitado un defensor. No hay acción."); 
+	    	System.out.println("Un defensor ha visitado un defensor. No hay accion."); 
 	     }
 	 	 
 	     
@@ -38,16 +38,18 @@ public class VisitorDefensa extends Visitor
 	     { 
 	    	 // TODO Auto-generated method stub
 	    	 // Este caso no se va a dar pues el disparo siempre avanza hacia adelante y el defensor es estatico.
-	    	 System.out.println("Un defensor ha visitado un disparo. No hay acción.");
+	    	 System.out.println("Un defensor ha visitado un disparo. No hay accion.");
 	     }
 	 	
 	     public void visitarAgua(Agua a)
 	 	 {
+	    	 System.out.println("Una defensa ha visitado agua. No hay accion.");
 	    	// TODO Auto-generated method stub
 	     }
 	 	
 	     public void visitarRoca(Roca r)
 	 	 { 
+	    	 System.out.println("Una defensa ha visitado una roca. No hay accion.");
 	    	// TODO Auto-generated method stub
 	     } 
 

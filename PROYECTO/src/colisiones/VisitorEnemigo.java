@@ -30,14 +30,14 @@ public class VisitorEnemigo extends Visitor
     public void visitarEnemigo(Enemigo e)
     {
     	// TODO Auto-generated method stub
-		System.out.println("Un enemigo ha visitado un enemigo. No hay acción.");
+		System.out.println("Un enemigo ha visitado un enemigo. No hay accion.");
     }
 	
 	@Override
     public void visitarDisparo(Disparo d)
     { 
     	// TODO Auto-generated method stub
-    	d.destruir();
+    	d.destruir();   // Destruye a disparo.
     	miEnemigo.destruir();
     }
 	
@@ -45,14 +45,23 @@ public class VisitorEnemigo extends Visitor
     public void visitarAgua(Agua a)
 	{
     	// TODO Auto-generated method stub
-    	//morir ahogado o avanzar lento
+		// VER EL IMPACTO QUE TENDRA AGUA EN ENEMIGO
+    	miEnemigo.recibirAtaque(a.getFuerzaImpacto());
     }
 	
 	@Override
     public void visitarRoca(Roca r)
 	{
     	// TODO Auto-generated method stub
-		r.recibirAtaque(miEnemigo.getFuerzaImpacto());
-    } 
+		if(r.getPuntosVida()<=0)
+		{
+			r.destruir();
+		}
+		else
+		{
+			// Enemigo golpea a Roca hasta destruirla, es decir le quita a Roca puntos de vida.
+	     	r.recibirAtaque(miEnemigo.getFuerzaImpacto());
+		}	
+	} 
 	
 }

@@ -12,7 +12,7 @@ public class Roca extends Obstaculo
 	
 	public void aceptar(Visitor v)
 	{
-		
+		v.visitarRoca(this);
 	}
 
 

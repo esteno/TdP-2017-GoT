@@ -12,5 +12,7 @@ public class Agua extends Obstaculo
 
 	
 	public void aceptar(Visitor v)
-	{}
+	{
+		v.visitarAgua(this);
+	}
 }

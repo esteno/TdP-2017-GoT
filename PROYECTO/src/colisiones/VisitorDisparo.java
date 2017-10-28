@@ -22,7 +22,7 @@ public class VisitorDisparo extends Visitor
 	public void visitarDefensor(Defensa d)
     { 
 		// TODO Auto-generated method stub
-		System.out.println("Un disparo ha visitado una defensa. No hay acci�n.");
+		System.out.println("Un disparo ha visitado una defensa. No hay accion.");
     }
 	 
 	@Override
@@ -40,7 +40,7 @@ public class VisitorDisparo extends Visitor
     public void visitarDisparo(Disparo d)
     {
     	// TODO Auto-generated method stub
-		System.out.println("Un disparo ha visitado un disparo. No hay acci�n.");
+		System.out.println("Un disparo ha visitado un disparo. No hay accion.");
     }
 	
 	@Override
@@ -48,7 +48,7 @@ public class VisitorDisparo extends Visitor
 	{
     	// TODO Auto-generated method stub
 		// No pasa nada.
-		System.out.println("Un disparo ha visitado el agua. No hay acci�n.");
+		System.out.println("Un disparo ha visitado el agua. No hay accion.");
     }
 	
 	@Override
@@ -56,7 +56,7 @@ public class VisitorDisparo extends Visitor
 	{
     	// TODO Auto-generated method stub
 		// No pasa nada.
-		System.out.println("Un disparo ha visitado una roca. No hay acci�n.");
+		System.out.println("Un disparo ha visitado una roca. No hay accion.");
 	} 
 
 }
