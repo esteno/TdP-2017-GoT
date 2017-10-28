@@ -42,14 +42,6 @@ public class VisitorEnemigo extends Visitor
     }
 	
 	@Override
-    public void visitarAgua(Agua a)
-	{
-    	// TODO Auto-generated method stub
-		// VER EL IMPACTO QUE TENDRA AGUA EN ENEMIGO
-    	miEnemigo.recibirAtaque(a.getFuerzaImpacto());
-    }
-	
-	@Override
     public void visitarRoca(Roca r)
 	{
     	// TODO Auto-generated method stub
@@ -63,5 +55,18 @@ public class VisitorEnemigo extends Visitor
 	     	r.recibirAtaque(miEnemigo.getFuerzaImpacto());
 		}	
 	} 
+	
+	public void visitarArbolCaido(ArbolCaido a)
+ 	{
+		 System.out.println("Una defensa ha visitado un arbol caido.");
+	     // TODO Auto-generated method stub
+		 
+ 	}
+	
+	public void visitarCaminanteCaido(CaminanteCaido c)
+	{
+		 System.out.println("Una defensa ha visitado un caminante caido.");
+	     // TODO Auto-generated method stub
+	}
 	
 }

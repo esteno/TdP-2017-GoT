@@ -44,14 +44,6 @@ public class VisitorDisparo extends Visitor
     }
 	
 	@Override
-    public void visitarAgua(Agua a)
-	{
-    	// TODO Auto-generated method stub
-		// No pasa nada.
-		System.out.println("Un disparo ha visitado el agua. No hay accion.");
-    }
-	
-	@Override
     public void visitarRoca(Roca r)
 	{
     	// TODO Auto-generated method stub
@@ -59,4 +51,15 @@ public class VisitorDisparo extends Visitor
 		System.out.println("Un disparo ha visitado una roca. No hay accion.");
 	} 
 
+	public void visitarArbolCaido(ArbolCaido a)
+ 	{
+		System.out.println("Una defensa ha visitado un arbol caido. No hay accion.");
+     	// TODO Auto-generated method stub
+ 	}
+	
+	public void visitarCaminanteCaido(CaminanteCaido c)
+	{
+		System.out.println("Una defensa ha visitado un caminante caido. No hay accion.");
+	    // TODO Auto-generated method stub
+	}
 }
