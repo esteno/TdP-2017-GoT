@@ -20,7 +20,7 @@ public class VisitorEnemigo extends Visitor
 	
 	//metodos
 	@Override
-	public void visitarDefensor(Defensa d)
+	public void visitarDefensor(GameObject d)
     { 
 		// TODO Auto-generated method stub
 		d.recibirAtaque(miEnemigo.getFuerzaImpacto()); //de miEnemigo;
