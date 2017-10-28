@@ -5,6 +5,9 @@ import nivel.Nivel;
 import nivel.Niveles;
 import objetos.*;
 import objetos.GameObjectGrafico;
+
+import java.awt.image.BufferedImage;
+
 import celdas.Celda;
 import defensa.*;
 import gui.*;
@@ -127,6 +130,23 @@ public class Juego implements Runnable
 	
 	public void generarDisparo(int x, int y) {
 		controlDisparo.agregarDisparo(x, y);
+	}
+
+
+	public void dibujarDefensa(int x, int y, BufferedImage grafico) {
+		gui.dibujarDefensa(x, y, grafico);
+		
+	}
+
+
+	public void crearMuro() {
+		mapa.crearMuro();
+		
+	}
+	
+	public void gameOver() {
+		gui.gameOver();
+		
 	}
 	
 }

@@ -1,5 +1,6 @@
 package celdas;
 
+import defensa.Defensa;
 import logica.FabricaObjetoGrafico;
 import mapa.Mapa;
 import objetos.GameObject;
@@ -66,6 +67,11 @@ public abstract class Celda
     public void generarDisparo() {
     	mapa.generarDisparo(x, y);
     }
+
+
+	public GameObject getEstatico() {
+		return mapa.getEstatico(this);
+	}
 
 
 }
