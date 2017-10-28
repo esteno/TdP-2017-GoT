@@ -8,7 +8,7 @@ import obstaculo.*;
 public abstract class Visitor 
 {	 
 	//metodos
-	public abstract void visitarDefensor(Defensa d);
+	public abstract void visitarDefensor(GameObject d);
 	
 	public abstract void visitarEnemigo(Enemigo e);
 	

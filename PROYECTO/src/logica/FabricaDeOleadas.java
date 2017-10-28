@@ -17,7 +17,7 @@ public class FabricaDeOleadas{
 	public List<Enemigo> generarPrimeraOleada() {
 		
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-		for(int i = 0; i < 5 ; i++)
+		for(int i = 0; i < 1 ; i++)
 			toReturn.add(new EnemigoRojo());
 		return toReturn;
 	}

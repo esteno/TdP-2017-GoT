@@ -1,7 +1,7 @@
 package mapa;
 
 import celdas.Celda;
-import defensa.Defensa;
+import defensa.*;
 import logica.FabricaDeDefensa;
 import logica.Juego;
 import objetos.*;
@@ -45,6 +45,7 @@ public class Mapa
 	
 	public void cambiarMapa(Celda[][] celdas) {
 		matrizCeldas = celdas;
+		
 	}
 	
 	public Celda celdaIzquierda(Celda celdaActual) {
@@ -130,6 +131,20 @@ public class Mapa
 	
 	public void generarDisparo(int x, int y) {
 		juego.generarDisparo(x, y);
+	}
+
+	public void crearMuro() {
+		for(int i = 0; i<matrizEstatica[0].length; i++) {
+			Defensa muro = new Muro(juego);
+			matrizEstatica[0][i] = muro;
+			juego.dibujarDefensa(0, i, muro.getGrafico());
+		}
+		
+	}
+
+	public GameObject getEstatico(Celda celda) {
+		System.out.println("MAPA getEstatico en x "+celda.getX()+" y "+celda.getY()+" obj "+matrizEstatica[celda.getX()][celda.getY()]);
+		return matrizEstatica[celda.getX()][celda.getY()];
 	}
 
 }

@@ -59,6 +59,10 @@ public class FabricaObjetoGrafico
 		return new GameObjectGrafico("res/imagenes/defensa/test.png");
 	}
 	
+	public GameObjectGrafico construirGraficoMuro() {
+		return new GameObjectGrafico("res/imagenes/defensa/muro.png");
+	}
+	
 	//DISPARO
 	
 	public GameObjectGrafico construirGraficoDisparo() 

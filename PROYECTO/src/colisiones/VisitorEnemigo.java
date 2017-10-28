@@ -1,6 +1,7 @@
 package colisiones;
 
 import defensa.Defensa;
+import defensa.Muro;
 import enemigos.Enemigo;
 import objetos.*;
 import disparos.*;
@@ -20,7 +21,7 @@ public class VisitorEnemigo extends Visitor
 	
 	//metodos
 	@Override
-	public void visitarDefensor(Defensa d)
+	public void visitarDefensor(GameObject d)
     { 
 		// TODO Auto-generated method stub
 		d.recibirAtaque(miEnemigo.getFuerzaImpacto()); //de miEnemigo;
@@ -30,7 +31,7 @@ public class VisitorEnemigo extends Visitor
     public void visitarEnemigo(Enemigo e)
     {
     	// TODO Auto-generated method stub
-		System.out.println("Un enemigo ha visitado un enemigo. No hay acción.");
+		System.out.println("Un enemigo ha visitado un enemigo. No hay acciï¿½n.");
     }
 	
 	@Override

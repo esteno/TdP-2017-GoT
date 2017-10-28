@@ -1,10 +1,11 @@
 package colisiones;
 
 
-	import defensa.Defensa;
-	import disparos.*;
-	import enemigos.Enemigo;
-	import obstaculo.*;
+import defensa.Defensa;
+import objetos.*;
+import disparos.*;
+import enemigos.Enemigo;
+import obstaculo.*;
 
 public class VisitorDefensa extends Visitor
 {
@@ -20,10 +21,10 @@ public class VisitorDefensa extends Visitor
 	     
 	     //metodos
 	     @Override
-	     public void visitarDefensor(Defensa d)
+	     public void visitarDefensor(GameObject d)
 	     { 
 	    	// TODO Auto-generated method stub
-	    	System.out.println("Un defensor ha visitado un defensor. No hay acción."); 
+	    	System.out.println("Un defensor ha visitado un defensor. No hay acciï¿½n."); 
 	     }
 	 	 
 	     
@@ -38,7 +39,7 @@ public class VisitorDefensa extends Visitor
 	     { 
 	    	 // TODO Auto-generated method stub
 	    	 // Este caso no se va a dar pues el disparo siempre avanza hacia adelante y el defensor es estatico.
-	    	 System.out.println("Un defensor ha visitado un disparo. No hay acción.");
+	    	 System.out.println("Un defensor ha visitado un disparo. No hay acciï¿½n.");
 	     }
 	 	
 	     public void visitarAgua(Agua a)

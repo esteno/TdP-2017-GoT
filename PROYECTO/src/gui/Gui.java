@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import defensa.Defensa;
@@ -123,6 +124,7 @@ public class Gui
 
 		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
 		
+		
 		for(int i = 0; i < ANCHO; i++) 
 		{
 			for (int j = 0; j < ALTO; j++) 
@@ -140,6 +142,8 @@ public class Gui
 				
 			}
 		}
+		
+		juego.crearMuro();
 		
 		frame.getContentPane().add(panelMapa, BorderLayout.CENTER);
 		panelMapa.setLayout(null);
@@ -289,5 +293,19 @@ public class Gui
 			}
 			
 		};
+	}
+	
+	public void dibujarDefensa(int x, int y, BufferedImage grafico) {
+		JLabel labelCelda = buscarLabel(x, y, panelCeldas);
+		BufferedImage imagen = grafico;
+		JLabel labelNuevo = new JLabel(new ImageIcon(imagen));
+		labelNuevo.setBounds(labelCelda.getBounds());
+		panelDefensa.add(labelNuevo);
+		repintar();
+	}
+
+	public void gameOver() {
+		JOptionPane.showMessageDialog(frame, "Game Over");
+		
 	}
 }
