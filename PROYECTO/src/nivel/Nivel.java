@@ -1,19 +1,24 @@
 package nivel;
 
-import logica.Juego;
+import java.util.List;
+
+import enemigos.Enemigo;
+import estadoEnemigo.EstadoEnemigo;
 
 public abstract class Nivel 
 {
 
 	//atributos
-	String path;
-	
-	//
-	public Nivel()
-	{}
+	protected String path;
+	protected EstadoEnemigo estado;
 	
 	// metodos
 
 	
-	public abstract void crearNivel();
+	
+	public abstract List<Enemigo> getOleada();
+
+	public String getPath() {
+		return path;
+	}
 }

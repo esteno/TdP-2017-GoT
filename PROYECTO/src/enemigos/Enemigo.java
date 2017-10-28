@@ -3,8 +3,7 @@ package enemigos;
 import celdas.Celda;
 import colisiones.Visitor;
 import colisiones.VisitorEnemigo;
-import defensa.Defensa;
-import logica.FabricaDeOleadas;
+import estadoEnemigo.EstadoEnemigo;
 import objetos.GameObject;
 import objetos.ObjetoMovil;
 
@@ -12,12 +11,17 @@ public abstract class Enemigo extends ObjetoMovil
 {
 	
 	//atributos
-	private FabricaDeOleadas fabrica;
+	protected EstadoEnemigo estado;
 	protected Visitor visitor;
 	protected int puntos; //puntos que devuelve al ser destruido
 	
 	public Enemigo() {
 		visitor = new VisitorEnemigo(this);
+	}
+	
+	public int getFuerzaImpacto()
+	{
+		return (int) Math.floor(fuerza_impacto*estado.multiplicador());
 	}
 
 	public void avanzar()
@@ -59,10 +63,14 @@ public abstract class Enemigo extends ObjetoMovil
 	
 	public void atacar() {
 		GameObject defensa = celda.getEstatico();
-		System.out.println("Enemigo atacar "+defensa);
 		if(defensa != null) {
 			visitor.visitarDefensor(defensa);
 		}
+	}
+
+	public void setEstado(EstadoEnemigo estado) {
+		this.estado = estado;
+		
 	}
 
 }

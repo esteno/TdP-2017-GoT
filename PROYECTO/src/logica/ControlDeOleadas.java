@@ -9,19 +9,14 @@ import objetos.ObjetoMovil;
 public class ControlDeOleadas implements Runnable {
 	
 	private Juego juego;
-	private FabricaDeOleadas fabrica;
 	private int alto;
 	private List<Enemigo> listaInsercion;
 	private List<Enemigo> listaEnemigos;
 	private List<Enemigo> listaDescarte;
 	private boolean isRunning = true;
 	
-	private int contador = 0;
-	private int primeraOleada = 1000;
-	
-	public ControlDeOleadas(Juego juego, FabricaDeOleadas fabrica, int a) {
+	public ControlDeOleadas(Juego juego, int a) {
 		this.juego = juego;
-		this.fabrica = fabrica;
 		alto = a;
 		listaInsercion = new ArrayList<Enemigo>();
 		listaEnemigos = new ArrayList<Enemigo>();
@@ -29,17 +24,15 @@ public class ControlDeOleadas implements Runnable {
 		
 	}
 	
-	public void generarEnemigo() {
-			}
+	public void setOleada(List<Enemigo> lista) {
+		listaInsercion = lista;
+	}
 	
 	public void run() {
 		while(isRunning) {
 			try {
-				contador += 100;
-				Thread.sleep(contador);
-				if(contador == primeraOleada ) {
-					listaInsercion = fabrica.generarPrimeraOleada();
-				}
+				Thread.sleep(100);
+				
 				if(!listaInsercion.isEmpty()) {
 					Enemigo enemigo = listaInsercion.get(0);
 					int rand = (int) Math.floor(Math.random() * (alto - 1));

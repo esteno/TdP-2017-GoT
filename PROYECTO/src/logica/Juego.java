@@ -13,7 +13,7 @@ import defensa.*;
 import gui.*;
 
 
-public class Juego implements Runnable 
+public class Juego
 {
 	
 	private Puntaje puntaje;
@@ -31,6 +31,8 @@ public class Juego implements Runnable
 	
 //	private Nivel miNivel;
 	private Niveles niveles;
+	private int numNivel;
+	private Nivel nivelActual;
 	private Parser parser;
 	
 	
@@ -42,14 +44,18 @@ public class Juego implements Runnable
 		this.gui = gui;
 		puntaje = new Puntaje();
 		mapa = new Mapa(this, alto, ancho);
-		parser = new Parser(mapa, alto, ancho);
-		mapa.cambiarMapa(parser.parsearNivel("res/niveles/nivel1.txt"));
+		niveles = new Niveles();
 		
-		controlDeOleadas = new ControlDeOleadas(this, new FabricaDeOleadas(), alto);
+		parser = new Parser(mapa, alto, ancho);
+		
+		
+		
+		controlDeOleadas = new ControlDeOleadas(this, alto);
 		controlDisparo = new ControlDisparo(this);
 		controlDeDefensa = new ControlDeDefensa(this);
 		
-		
+		numNivel = 1;
+		sigNivel();
 		
 		new Thread(controlDeOleadas).start();
 		new Thread(controlDisparo).start();
@@ -57,10 +63,16 @@ public class Juego implements Runnable
 	}
 	
 	
-	public void run() 
-	{         }
+	public void sigNivel() {
+		nivelActual = niveles.getNivel(numNivel);
+		numNivel++;
+		mapa.cambiarMapa(parser.parsearNivel(nivelActual.getPath()));
+		generarOleada();
+	}
 	
-	
+	public void generarOleada() {
+		controlDeOleadas.setOleada(nivelActual.getOleada());
+	}
 	
 	public void agregarDefensa(int x, int y)
 	{
@@ -92,12 +104,6 @@ public class Juego implements Runnable
 		gui.agregarEnemigo(x, y, enemigo.getGrafico());
 	}
 	
-	
-	public void crearEnemigo() 
-	{
-		System.out.println("JUEGO fabricaDeOleadas.generarEnemigo()");
-		controlDeOleadas.generarEnemigo();
-	}
 	
 	public void moverEnemigoGrafico(int xAnterior, int yAnterior, int xNuevo, int yNuevo)
 	{

@@ -77,7 +77,7 @@ public class Gui
 	 */
 	public Gui() 
 	{
-		
+		frame = new JFrame();
 		initialize();
 		
 	}
@@ -87,8 +87,8 @@ public class Gui
 	 */
 	private void initialize() 
 	{
-		juego = new Juego(this, ALTO, ANCHO);
-		frame = new JFrame();
+		
+		//frame = new JFrame();
 		// ANTES frame.setBounds(100, 100, 739, 489);
 		frame.setBounds(100, 100, 1000, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -121,7 +121,9 @@ public class Gui
 		panelEnemigos.setBounds(panelMapa.getBounds());
 		panelEnemigos.setBackground(new Color(0,0,0,0));
 		panelMapa.add(panelEnemigos, NIVELENEMIGO);
-
+		
+		frame.getContentPane().repaint();
+		juego = new Juego(this, ALTO, ANCHO);
 		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
 		
 		
@@ -305,7 +307,17 @@ public class Gui
 	}
 
 	public void gameOver() {
-		JOptionPane.showMessageDialog(frame, "Game Over");
+		int reply = JOptionPane.showConfirmDialog(frame, "Has perdido!\nQuieres jugar de nuevo?", "Game Over", JOptionPane.YES_NO_OPTION);
+		if (reply == JOptionPane.YES_OPTION) {
+			frame.getContentPane().removeAll();
+			frame.getContentPane().repaint();
+			
+			initialize();
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Gracias por jugar!");
+			System.exit(0);
+		}
 		
 	}
 }

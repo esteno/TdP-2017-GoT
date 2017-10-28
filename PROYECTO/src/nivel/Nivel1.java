@@ -1,20 +1,29 @@
 package nivel;
 
-import logica.Juego;
+import java.util.ArrayList;
+import java.util.List;
+
+import enemigos.Enemigo;
+import estadoEnemigo.*;
+import logica.BuilderDeOleadas;
 
 public class Nivel1 extends Nivel
 {
 	
 	
+	
 	public Nivel1() {
-		path = "";
+		path = "res/niveles/nivel1.txt";
+		estado = new EstadoEnemigoNivel1();
 		
 	}
 
 	@Override
-	public void crearNivel() {
-		// TODO Auto-generated method stub
-		
+	public List<Enemigo> getOleada() {
+		BuilderDeOleadas builder = BuilderDeOleadas.getInstancia();
+		List<Enemigo> toReturn = new ArrayList<Enemigo>();
+		toReturn.addAll(builder.generarEnemigoRojo(10, estado));
+		return toReturn;
 	}
 
 }

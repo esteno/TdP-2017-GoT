@@ -143,7 +143,6 @@ public class Mapa
 	}
 
 	public GameObject getEstatico(Celda celda) {
-		System.out.println("MAPA getEstatico en x "+celda.getX()+" y "+celda.getY()+" obj "+matrizEstatica[celda.getX()][celda.getY()]);
 		return matrizEstatica[celda.getX()][celda.getY()];
 	}
 
