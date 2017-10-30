@@ -1,14 +1,14 @@
 package colisiones;
 
 
-	import defensa.Defensa;
-	import disparos.*;
-	import enemigos.Enemigo;
-	import obstaculo.*;
+import defensa.Defensa;
+import disparos.*;
+import enemigos.Enemigo;
+import enemigos.Enemigo.*;
 import premio.AceroValirio;
 import premio.Barricada;
-import premio.Bomba;
 import premio.CampoProteccion;
+import premio.Mina;
 import objetos.*;
 
 public class VisitorDefensa extends Visitor
@@ -48,7 +48,7 @@ public class VisitorDefensa extends Visitor
 	 	
 
 		@Override
-		public void visitarBomba(Bomba b) {
+		public void visitarMina(Mina m) {
 			// TODO Auto-generated method stub
 			
 		}

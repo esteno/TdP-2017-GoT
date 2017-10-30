@@ -2,9 +2,9 @@ package premio;
 
 import colisiones.Visitor;
 
-public class Bomba extends ObjetoPrecioso {
+public class Mina extends ObjetoPrecioso {
 
-	public Bomba() {
+	public Mina() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -12,7 +12,7 @@ public class Bomba extends ObjetoPrecioso {
 	public void aceptar(Visitor v) 
 	{
 		// TODO Auto-generated method stub
-		
+		v.visitarMina(this);
 	}
 
 }

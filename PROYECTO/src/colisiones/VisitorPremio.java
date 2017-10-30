@@ -8,8 +8,8 @@ import obstaculo.CaminanteCaido;
 import obstaculo.Roca;
 import premio.AceroValirio;
 import premio.Barricada;
-import premio.Bomba;
 import premio.CampoProteccion;
+import premio.Mina;
 import premio.Premio;
 
 public class VisitorPremio extends Visitor 
@@ -26,9 +26,9 @@ public class VisitorPremio extends Visitor
 	}
 
 	@Override
-	public void visitarEnemigo(Enemigo e) {
+	public void visitarEnemigo(Enemigo e) 
+	{
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -37,11 +37,13 @@ public class VisitorPremio extends Visitor
 
 	}
 
+	// En este visitor debo afectar a enemigo
 
 	@Override
-	public void visitarBomba(Bomba b) {
+	public void visitarMina(Mina m) 
+	{
 		// TODO Auto-generated method stub
-		
+	    m.destruir();	
 	}
 
 	@Override
@@ -57,9 +59,9 @@ public class VisitorPremio extends Visitor
 	}
 
 	@Override
-	public void visitarAceroValirio(AceroValirio a) {
+	public void visitarAceroValirio(AceroValirio a) 
+	{
 		// TODO Auto-generated method stub
-		
 	}
 
 }

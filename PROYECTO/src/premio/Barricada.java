@@ -12,7 +12,7 @@ public class Barricada extends ObjetoPrecioso {
 	public void aceptar(Visitor v) 
 	{
 		// TODO Auto-generated method stub
-		
+		v.visitarBarricada(this);
 	}
 
 }

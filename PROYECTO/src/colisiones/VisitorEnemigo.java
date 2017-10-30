@@ -7,8 +7,8 @@ import disparos.*;
 import obstaculo.*;
 import premio.AceroValirio;
 import premio.Barricada;
-import premio.Bomba;
 import premio.CampoProteccion;
+import premio.Mina;
 
 public class VisitorEnemigo extends Visitor
 {
@@ -48,9 +48,10 @@ public class VisitorEnemigo extends Visitor
 
 
 	@Override
-	public void visitarBomba(Bomba b) {
+	public void visitarMina(Mina m) 
+	{
 		// TODO Auto-generated method stub
-		
+		m.destruir();
 	}
 
 
