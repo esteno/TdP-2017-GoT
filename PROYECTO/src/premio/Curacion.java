@@ -12,7 +12,8 @@ public class Curacion extends MagiaTemporal
 	
 	public void aceptar(Visitor v)
 	{
-		
+		// NO TIENE VISITOR
+		// REESTABLECE LOS PUNTOS DE VIDA DE LOS DEFENSORES
 	}
 
 }

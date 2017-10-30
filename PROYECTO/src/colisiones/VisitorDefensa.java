@@ -5,7 +5,11 @@ package colisiones;
 	import disparos.*;
 	import enemigos.Enemigo;
 	import obstaculo.*;
-	import objetos.*;
+import premio.AceroValirio;
+import premio.Barricada;
+import premio.Bomba;
+import premio.CampoProteccion;
+import objetos.*;
 
 public class VisitorDefensa extends Visitor
 {
@@ -58,5 +62,29 @@ public class VisitorDefensa extends Visitor
 		{
 			 System.out.println("Una defensa ha visitado un caminante caido. No hay accion.");
 		     // TODO Auto-generated method stub
+		}
+
+		@Override
+		public void visitarBomba(Bomba b) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void visitarCampoProteccion(CampoProteccion c) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void visitarBarricada(Barricada b) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void visitarAceroValirio(AceroValirio a) {
+			// TODO Auto-generated method stub
+			
 		}
 }

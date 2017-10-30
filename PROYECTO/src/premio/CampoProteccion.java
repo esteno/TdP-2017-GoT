@@ -4,6 +4,8 @@ import colisiones.Visitor;
 
 public class CampoProteccion extends MagiaTemporal 
 {
+	
+	
 
 	public CampoProteccion() 
 	{
@@ -11,7 +13,7 @@ public class CampoProteccion extends MagiaTemporal
 	}
 	public void aceptar(Visitor v)
 	{
-		
+		v.visitarCampoProteccion(this);
 	}
 
 }

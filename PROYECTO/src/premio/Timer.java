@@ -1,5 +1,6 @@
 package premio;
 
-public class Timer {
+public class Timer 
+{
 
 }

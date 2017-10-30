@@ -5,6 +5,10 @@ import enemigos.Enemigo;
 import objetos.*;
 import disparos.*;
 import obstaculo.*;
+import premio.AceroValirio;
+import premio.Barricada;
+import premio.Bomba;
+import premio.CampoProteccion;
 
 public class VisitorEnemigo extends Visitor
 {
@@ -67,6 +71,34 @@ public class VisitorEnemigo extends Visitor
 	{
 		 System.out.println("Una defensa ha visitado un caminante caido.");
 	     // TODO Auto-generated method stub
+	}
+
+
+	@Override
+	public void visitarBomba(Bomba b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void visitarCampoProteccion(CampoProteccion c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void visitarBarricada(Barricada b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void visitarAceroValirio(AceroValirio a) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
