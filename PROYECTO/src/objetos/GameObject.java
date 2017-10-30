@@ -1,10 +1,12 @@
 package objetos;
 
 import java.awt.image.BufferedImage;
+
+import javax.swing.ImageIcon;
+
 import colisiones.*;
 import celdas.Celda;
 import logica.FabricaObjetoGrafico;
-import logica.Juego;
 
 public abstract class GameObject
 {
@@ -19,7 +21,7 @@ public abstract class GameObject
 	protected int alcance;
 	
 	//metodos
-	public BufferedImage getGrafico()
+	public ImageIcon getGrafico()
 	{
 		return grafico.getImagen();
 	}

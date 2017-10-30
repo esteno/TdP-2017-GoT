@@ -52,6 +52,10 @@ public class FabricaObjetoGrafico
 		return new GameObjectGrafico("res/imagenes/enemigo/inmaculado.png");
 	}
 	
+	public GameObjectGrafico construirGraficoZombi() {
+		return new GameObjectGrafico("res/imagenes/enemigo/zombicamina.gif");
+	}
+	
 	//DEFENSA
 	
 	public GameObjectGrafico construirGraficoJorgito() 

@@ -8,7 +8,7 @@ import enemigos.*;
 import estadoEnemigo.EstadoEnemigo;
 import objetos.ObjetoMovil;
 
-public class BuilderDeOleadas{
+public class BuilderDeOleadas {
 	
 	private static BuilderDeOleadas instancia = null;
 	
@@ -34,10 +34,10 @@ public class BuilderDeOleadas{
 		return toReturn;
 	}
 	
-	public List<Enemigo> generarZombi1(int cant, EstadoEnemigo estado) {
+	public List<Enemigo> generarZombi(int cant, EstadoEnemigo estado) {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		for(int i = 0; i < cant ; i++) {
-			Enemigo enemigo = new EnemigoRojo();
+			Enemigo enemigo = new Zombi();
 			enemigo.setEstado(estado);
 			toReturn.add(enemigo);
 		}

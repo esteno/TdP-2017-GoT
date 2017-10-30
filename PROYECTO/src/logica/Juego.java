@@ -8,6 +8,8 @@ import objetos.GameObjectGrafico;
 
 import java.awt.image.BufferedImage;
 
+import javax.swing.ImageIcon;
+
 import celdas.Celda;
 import defensa.*;
 import enemigos.Enemigo;
@@ -140,8 +142,8 @@ public class Juego
 	}
 
 
-	public void dibujarDefensa(int x, int y, BufferedImage grafico) {
-		gui.dibujarDefensa(x, y, grafico);
+	public void dibujarDefensa(int x, int y, ImageIcon imageIcon) {
+		gui.dibujarDefensa(x, y, imageIcon);
 		
 	}
 

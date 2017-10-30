@@ -124,14 +124,14 @@ public class Gui
 		{
 			for (int j = 0; j < ALTO; j++) 
 			{
-				BufferedImage imagen = graficos[i][j].getImagen();
-				int ancho = imagen.getWidth();
-				int alto = imagen.getHeight();
+				ImageIcon imagen = graficos[i][j].getImagen();
+				int ancho = imagen.getIconWidth();
+				int alto = imagen.getIconHeight();
 				int x = i*ancho;
 				int y = j*alto;
 				JLabel label = new JLabel();
 				label.setBounds(x ,y,alto,ancho);
-				label.setIcon(new ImageIcon(imagen));
+				label.setIcon(imagen);
 				label.addMouseListener(getMouseListener());
 				panelCeldas.add(label);
 				
@@ -186,10 +186,10 @@ public class Gui
 		labelPuntaje.setText("Puntaje: "+puntaje);
 	}
 
-	public void agregarObjetoMovil(int x, int y, BufferedImage grafico) 
+	public void agregarObjetoMovil(int x, int y, ImageIcon imageIcon) 
 	{
 		JLabel labelEnemigo = new JLabel();
-		labelEnemigo.setIcon(new javax.swing.ImageIcon(grafico));
+		labelEnemigo.setIcon(imageIcon);
 		labelEnemigo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
 		panelEnemigos.add(labelEnemigo);
 		repintar();
@@ -249,8 +249,8 @@ public class Gui
 					if(defensa != null) 
 					{
 						juego.agregarDefensa(x,y);
-						BufferedImage imagen = defensa.getGrafico();
-						JLabel labelNuevo = new JLabel(new ImageIcon(imagen));
+						ImageIcon imagen = defensa.getGrafico();
+						JLabel labelNuevo = new JLabel(imagen);
 						labelNuevo.setBounds(labelCelda.getBounds());
 						panelDefensa.add(labelNuevo);
 						repintar();
@@ -285,10 +285,9 @@ public class Gui
 		};
 	}
 	
-	public void dibujarDefensa(int x, int y, BufferedImage grafico) {
+	public void dibujarDefensa(int x, int y, ImageIcon imagen) {
 		JLabel labelCelda = buscarLabel(x, y, panelCeldas);
-		BufferedImage imagen = grafico;
-		JLabel labelNuevo = new JLabel(new ImageIcon(imagen));
+		JLabel labelNuevo = new JLabel(imagen);
 		labelNuevo.setBounds(labelCelda.getBounds());
 		panelDefensa.add(labelNuevo);
 		repintar();

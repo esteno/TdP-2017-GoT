@@ -22,7 +22,7 @@ public class Nivel1 extends Nivel
 	public List<Enemigo> getOleada() {
 		BuilderDeOleadas builder = BuilderDeOleadas.getInstancia();
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-		toReturn.addAll(builder.generarZombi1(10, estado));
+		toReturn.addAll(builder.generarZombi(10, estado));
 		return toReturn;
 	}
 

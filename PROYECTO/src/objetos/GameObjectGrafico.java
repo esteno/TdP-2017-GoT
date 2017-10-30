@@ -1,35 +1,31 @@
 package objetos;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
-import logica.Juego;
 
 public class GameObjectGrafico 
 {
 	
-	protected BufferedImage imagen;
+	protected ImageIcon imagen;
 	
 	
 	public GameObjectGrafico(String path) 
 	{
-		try 
-		{
-		    imagen = ImageIO.read(new File(path));
-		}
-		catch (IOException e)
-		{
-			System.out.println("Imagen no encontrada");
-		}
+	    try {
+			imagen = new ImageIcon(new URL("file:"+path));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}// ImageIO.read(new File(path));
 	}
 	
 	
 	
 	
-	public BufferedImage getImagen() 
+	public ImageIcon getImagen() 
 	{
 		return imagen;
 	}
