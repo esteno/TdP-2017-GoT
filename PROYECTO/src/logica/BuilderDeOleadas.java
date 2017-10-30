@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import enemigos.*;
-import estadoEnemigo.EstadoEnemigo;
+import estadoEnemigo.EstadoMultiplicador;
 import objetos.ObjetoMovil;
 
 public class BuilderDeOleadas {
@@ -23,7 +23,7 @@ public class BuilderDeOleadas {
 		return instancia;
 	}
 	
-	public List<Enemigo> generarEnemigoRojo(int cant, EstadoEnemigo estado) {
+	public List<Enemigo> generarEnemigoRojo(int cant, EstadoMultiplicador estado) {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		for(int i = 0; i < cant ; i++) {
 			Enemigo enemigo = new EnemigoRojo();
@@ -34,7 +34,7 @@ public class BuilderDeOleadas {
 		return toReturn;
 	}
 	
-	public List<Enemigo> generarZombi(int cant, EstadoEnemigo estado) {
+	public List<Enemigo> generarZombi(int cant, EstadoMultiplicador estado) {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		for(int i = 0; i < cant ; i++) {
 			Enemigo enemigo = new Zombi();

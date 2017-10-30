@@ -1,6 +1,6 @@
 package estadoEnemigo;
 
-public abstract class EstadoEnemigo {
+public abstract class EstadoMultiplicador {
 	protected double multiplicador;
 	
 	public double multiplicador() {

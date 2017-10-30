@@ -18,8 +18,10 @@ public class VisitorPremio extends Visitor
 	protected Premio miPremio;
 	
 	@Override
-	public void visitarDefensor(GameObject d) {
+	public void visitarDefensor(GameObject d) 
+	{
 		// TODO Auto-generated method stub
+		System.out.println("Un premio ha visitado un defensor. No hay accion.");
 
 	}
 

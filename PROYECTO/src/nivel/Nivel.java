@@ -3,14 +3,14 @@ package nivel;
 import java.util.List;
 
 import enemigos.Enemigo;
-import estadoEnemigo.EstadoEnemigo;
+import estadoEnemigo.EstadoMultiplicador;
 
 public abstract class Nivel 
 {
 
 	//atributos
 	protected String path;
-	protected EstadoEnemigo estado;
+	protected EstadoMultiplicador estado;
 	
 	// metodos
 

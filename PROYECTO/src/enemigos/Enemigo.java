@@ -3,7 +3,7 @@ package enemigos;
 import celdas.Celda;
 import colisiones.Visitor;
 import colisiones.VisitorEnemigo;
-import estadoEnemigo.EstadoEnemigo;
+import estadoEnemigo.EstadoMultiplicador;
 import objetos.GameObject;
 import objetos.ObjetoMovil;
 
@@ -11,7 +11,7 @@ public abstract class Enemigo extends ObjetoMovil
 {
 	
 	//atributos
-	protected EstadoEnemigo estado;
+	protected EstadoMultiplicador estado;
 	protected Visitor visitor;
 	protected int puntos; //puntos que devuelve al ser destruido
 	
@@ -64,7 +64,7 @@ public abstract class Enemigo extends ObjetoMovil
 		}
 	}
 
-	public void setEstado(EstadoEnemigo estado) {
+	public void setEstado(EstadoMultiplicador estado) {
 		this.estado = estado;
 		
 	}
