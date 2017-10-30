@@ -23,4 +23,6 @@ public abstract class Premio extends GameObject implements Runnable
 		// TODO Auto-generated method stub
 	}
 	
+	
+	
 }
