@@ -2,7 +2,8 @@ package premio;
 
 public abstract class MagiaTemporal extends Premio {
 
-	public MagiaTemporal() {
+	public MagiaTemporal() 
+	{
 		// TODO Auto-generated constructor stub
 	}
 

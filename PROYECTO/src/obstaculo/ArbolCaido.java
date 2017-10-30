@@ -10,5 +10,4 @@ public class ArbolCaido extends Obstaculo {
 		// TODO Auto-generated method stub
         v.visitarArbolCaido(this); 
 	}
-
 }
