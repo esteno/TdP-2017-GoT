@@ -1,9 +1,9 @@
 package obstaculo;
 
-import objetos.GameObject;
 import colisiones.*;
+import defensa.Defensa;
 
-public abstract class Obstaculo extends GameObject implements Runnable 
+public abstract class Obstaculo extends Defensa implements Runnable 
 {
 
 	public Obstaculo() 
