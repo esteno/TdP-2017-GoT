@@ -57,7 +57,8 @@ public abstract class Enemigo extends ObjetoMovil
 	}
 	
 	public void atacar() {
-		GameObject defensa = celda.getEstatico();
+		Celda celdaIzq = celda.celdaIzquierda();
+		GameObject defensa = celdaIzq.getEstatico();
 		if(defensa != null) {
 			visitor.visitarDefensor(defensa);
 		}

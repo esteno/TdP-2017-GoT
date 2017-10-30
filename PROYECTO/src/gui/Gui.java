@@ -78,6 +78,9 @@ public class Gui
 	public Gui() 
 	{
 		frame = new JFrame();
+		frame.setBounds(100, 100, 1000, 600);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		initialize();
 		
 	}
@@ -87,16 +90,6 @@ public class Gui
 	 */
 	private void initialize() 
 	{
-		
-		//frame = new JFrame();
-		// ANTES frame.setBounds(100, 100, 739, 489);
-		frame.setBounds(100, 100, 1000, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new BorderLayout(0, 0));
-		
-		
-		
-		
 		
 		panelMapa = new JLayeredPane();
 		panelMapa.setBounds(0,0,ANCHO*ANCHO_IMG,ALTO*ALTO_IMG);
@@ -168,6 +161,7 @@ public class Gui
 		btnJorgito = new JButton("Jorgito");
 		btnJorgito.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				FabricaDeDefensa.getInstancia().construirJorgito(); 
 			}
 		});
 		btnJorgito.setBounds(10, 11, 83, 23);
