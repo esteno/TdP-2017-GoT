@@ -36,7 +36,7 @@ public class ControlDeOleadas implements Runnable {
 				if(!listaInsercion.isEmpty()) {
 					Enemigo enemigo = listaInsercion.get(0);
 					int rand = (int) Math.floor(Math.random() * (alto - 1));
-					juego.agregarEnemigo(enemigo, juego.getAncho(), rand);
+					juego.agregarObjetoMovil(enemigo, juego.getAncho(), rand);
 					listaEnemigos.add(enemigo);
 					listaInsercion.remove(0);
 				}

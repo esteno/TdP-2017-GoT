@@ -192,10 +192,10 @@ public class Gui
 		labelPuntaje.setText("Puntaje: "+puntaje);
 	}
 
-	public void agregarEnemigo(int x, int y, String s) 
+	public void agregarObjetoMovil(int x, int y, BufferedImage grafico) 
 	{
 		JLabel labelEnemigo = new JLabel();
-		labelEnemigo.setIcon(new javax.swing.ImageIcon(s));
+		labelEnemigo.setIcon(new javax.swing.ImageIcon(grafico));
 		labelEnemigo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
 		panelEnemigos.add(labelEnemigo);
 		repintar();

@@ -99,10 +99,10 @@ public class Juego
 	}
 	
 
-	public void agregarEnemigo(Enemigo enemigo, int x, int y) 
+	public void agregarObjetoMovil(ObjetoMovil obj, int x, int y) 
 	{
-		mapa.agregarEnemigo(enemigo, x, y);
-		gui.agregarEnemigo(x, y, enemigo.getPath());
+		mapa.agregarObjetoMovil(obj, x, y);
+		gui.agregarObjetoMovil(x, y, obj.getGrafico());
 	}
 	
 	

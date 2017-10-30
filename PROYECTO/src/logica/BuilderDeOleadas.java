@@ -37,7 +37,7 @@ public class BuilderDeOleadas{
 	public List<Enemigo> generarZombi1(int cant, EstadoEnemigo estado) {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		for(int i = 0; i < cant ; i++) {
-			Enemigo enemigo = new Zombi1();
+			Enemigo enemigo = new EnemigoRojo();
 			enemigo.setEstado(estado);
 			toReturn.add(enemigo);
 		}

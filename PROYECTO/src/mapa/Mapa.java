@@ -72,9 +72,9 @@ public class Mapa
 		return toReturn;
 	}
 	
-	public void agregarEnemigo(ObjetoMovil enemigo, int x, int y) {
-		matrizMovil[x][y] = enemigo;
-		enemigo.setCelda(matrizCeldas[x][y]);
+	public void agregarObjetoMovil(ObjetoMovil obj, int x, int y) {
+		matrizMovil[x][y] = obj;
+		obj.setCelda(matrizCeldas[x][y]);
 		
 	}
 	
