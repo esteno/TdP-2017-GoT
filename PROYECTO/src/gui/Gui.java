@@ -229,7 +229,7 @@ public class Gui
 	}
 	
 	private void repintar() {
-		///panelMapa.validate();
+		panelMapa.validate();
 		panelMapa.repaint();
 	}
 	
