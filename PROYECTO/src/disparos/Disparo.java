@@ -9,6 +9,7 @@ public class Disparo extends ObjetoMovil
 	public Disparo() 
 	{
 		alcance = 30;
+		fuerza_impacto = 1000;
 		grafico = fabricaGrafica.construirGraficoDisparo();
 	}
 	

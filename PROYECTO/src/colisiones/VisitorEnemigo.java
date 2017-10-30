@@ -41,8 +41,8 @@ public class VisitorEnemigo extends Visitor
     public void visitarDisparo(Disparo d)
     { 
     	// TODO Auto-generated method stub
-    	d.destruir();   // Destruye a disparo.
-    	miEnemigo.destruir();
+    	d.destruir();  // Destruye a disparo.
+    	//miEnemigo.destruir();
     }
 	
 

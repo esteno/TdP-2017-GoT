@@ -14,6 +14,8 @@ public class ControlDeOleadas implements Runnable {
 	private List<Enemigo> listaEnemigos;
 	private List<Enemigo> listaDescarte;
 	private boolean isRunning = true;
+	private int cantOleadas = 3;
+	private int aInsertar;
 	
 	public ControlDeOleadas(Juego juego, int a) {
 		this.juego = juego;
@@ -26,6 +28,7 @@ public class ControlDeOleadas implements Runnable {
 	
 	public void setOleada(List<Enemigo> lista) {
 		listaInsercion = lista;
+		aInsertar = 0;
 	}
 	
 	public void run() {
@@ -33,12 +36,13 @@ public class ControlDeOleadas implements Runnable {
 			try {
 				Thread.sleep(100);
 				
-				if(!listaInsercion.isEmpty()) {
-					Enemigo enemigo = listaInsercion.get(0);
+				if(aInsertar < listaInsercion.size()) {
+					
+					Enemigo enemigo = listaInsercion.get(aInsertar);
 					int rand = (int) Math.floor(Math.random() * (alto - 1));
 					juego.agregarObjetoMovil(enemigo, juego.getAncho(), rand);
 					listaEnemigos.add(enemigo);
-					listaInsercion.remove(0);
+					aInsertar++;
 				}
 				
 				for(Enemigo descarte : listaDescarte) {
@@ -47,12 +51,24 @@ public class ControlDeOleadas implements Runnable {
 				}
 				listaDescarte.clear();
 				for(Enemigo enemigo : listaEnemigos) {
-					if(enemigo.getPuntosVida() <= 0) {
-						listaDescarte.add(enemigo);
+					if(listaEnemigos.size() == 0 && cantOleadas != 0) {
+						Thread.sleep(2000);
+						aInsertar = 0;
+						cantOleadas--;
 					}
 					else {
-						enemigo.atacar();
-						enemigo.avanzar();
+						if(cantOleadas == 0) {
+							juego.sigNivel();
+						}
+						else {
+							if(enemigo.getPuntosVida() <= 0) {
+								listaDescarte.add(enemigo);
+							}
+							else {
+								enemigo.atacar();
+								enemigo.avanzar();
+							}
+						}
 					}
 				}
 			}
