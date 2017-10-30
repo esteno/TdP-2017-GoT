@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 
 import celdas.Celda;
 import defensa.*;
+import enemigos.Enemigo;
 import gui.*;
 
 
@@ -98,10 +99,10 @@ public class Juego
 	}
 	
 
-	public void agregarEnemigo(ObjetoMovil enemigo, int x, int y) 
+	public void agregarEnemigo(Enemigo enemigo, int x, int y) 
 	{
 		mapa.agregarEnemigo(enemigo, x, y);
-		gui.agregarEnemigo(x, y, enemigo.getGrafico());
+		gui.agregarEnemigo(x, y, enemigo.getPath());
 	}
 	
 	

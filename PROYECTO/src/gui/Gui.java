@@ -185,24 +185,18 @@ public class Gui
 		//panelControl.setLocation(0, 0);
 		
 		
-		
 	}
 	
-	
-	
-	
-	
-	public void puntaje(int puntaje) 
+	public void puntaje(int puntaje)
 	{
 		labelPuntaje.setText("Puntaje: "+puntaje);
 	}
-	
-	
-	public void agregarEnemigo(int x, int y, BufferedImage e) 
+
+	public void agregarEnemigo(int x, int y, String s) 
 	{
-		JLabel labelEnemigo = new JLabel(new ImageIcon(e));
-		
-		labelEnemigo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,e.getWidth(),e.getHeight());
+		JLabel labelEnemigo = new JLabel();
+		labelEnemigo.setIcon(new javax.swing.ImageIcon(s));
+		labelEnemigo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
 		panelEnemigos.add(labelEnemigo);
 		repintar();
 	}
@@ -235,7 +229,7 @@ public class Gui
 	}
 	
 	private void repintar() {
-		panelMapa.validate();
+		///panelMapa.validate();
 		panelMapa.repaint();
 	}
 	

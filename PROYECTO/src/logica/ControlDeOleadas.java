@@ -31,7 +31,7 @@ public class ControlDeOleadas implements Runnable {
 	public void run() {
 		while(isRunning) {
 			try {
-				Thread.sleep(100);
+				Thread.sleep(1000);
 				
 				if(!listaInsercion.isEmpty()) {
 					Enemigo enemigo = listaInsercion.get(0);

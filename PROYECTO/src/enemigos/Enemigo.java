@@ -15,6 +15,9 @@ public abstract class Enemigo extends ObjetoMovil
 	protected Visitor visitor;
 	protected int puntos; //puntos que devuelve al ser destruido
 	
+	protected String path; //path del gif
+	
+	
 	public Enemigo() {
 		visitor = new VisitorEnemigo(this);
 	}
@@ -24,28 +27,22 @@ public abstract class Enemigo extends ObjetoMovil
 		return (int) Math.floor(fuerza_impacto*estado.multiplicador());
 	}
 
-	public void avanzar()
-    {
+	public void avanzar(){
 		Celda celdaNueva = celda.celdaIzquierda();
-		if(celdaNueva != null) 
-		{
+		if(celdaNueva != null) 	{
 			int xAnterior = celda.getX();
 			int yAnterior = celda.getY();
 			
-			if(celdaNueva.objetoMovil() == null)
-			{	
+			if(celdaNueva.objetoMovil() == null){	
 				celda = celdaNueva;
 				celda.moverEnemigo(xAnterior, yAnterior);
-			} 	
+			} 
 		}
-		else {
+		else 
 			destruir();
-		}
-
 	}
 	
-	public void destruir() 
-	{
+	public void destruir() 	{
 		System.out.println("Soy un enemigo con vida"+puntos_vida);
 		puntos_vida=0;
 		celda.destruirEnemigo();	
@@ -55,9 +52,7 @@ public abstract class Enemigo extends ObjetoMovil
 		return puntos;
 	}
 	
-	
-	public void aceptar(Visitor v)
-	{
+	public void aceptar(Visitor v){
 		v.visitarEnemigo(this);
 	}
 	
@@ -71,6 +66,10 @@ public abstract class Enemigo extends ObjetoMovil
 	public void setEstado(EstadoEnemigo estado) {
 		this.estado = estado;
 		
+	}
+	
+	public String getPath(){
+		return path;
 	}
 
 }
