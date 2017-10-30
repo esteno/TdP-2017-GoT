@@ -33,10 +33,14 @@ public abstract class Enemigo extends ObjetoMovil
 			int xAnterior = celda.getX();
 			int yAnterior = celda.getY();
 			
-			if(celdaNueva.objetoMovil() == null){	
+			if(contVelocidad <= 0 && celdaNueva.objetoMovil() == null){	
 				celda = celdaNueva;
 				celda.moverEnemigo(xAnterior, yAnterior);
-			} 
+				contVelocidad = velocidad;
+			}
+			else {
+				contVelocidad -= 100*celda.getMultiVelocidad();
+			}
 		}
 		else 
 			destruir();
