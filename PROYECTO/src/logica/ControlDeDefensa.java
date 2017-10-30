@@ -28,7 +28,7 @@ public class ControlDeDefensa implements Runnable {
 	public void run() {
 		while(isRunning) {
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(100);
 				
 				for(Defensa descarte : listaDescarte) {
 					listaDefensa.remove(descarte);

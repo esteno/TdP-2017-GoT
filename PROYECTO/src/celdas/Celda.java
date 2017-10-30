@@ -14,6 +14,7 @@ public abstract class Celda
     protected int x;
     protected int y;
     protected GameObjectGrafico grafica;
+    protected double multiVelocidad;
     protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
   
     
@@ -24,7 +25,8 @@ public abstract class Celda
     	this.x=x;
     	this.y=y;
     }
-
+    
+   
     
     //metodos
     public int getX()
@@ -32,6 +34,10 @@ public abstract class Celda
     
     public int getY()
     {return y; }
+    
+    public double getMultiVelocidad() {
+    	return multiVelocidad;
+    }
     
     public GameObjectGrafico getGrafico() {
     	return grafica;
