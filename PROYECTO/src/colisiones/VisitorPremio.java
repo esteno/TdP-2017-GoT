@@ -35,23 +35,6 @@ public class VisitorPremio extends Visitor
 
 	}
 
-	@Override
-	public void visitarRoca(Roca r) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void visitarArbolCaido(ArbolCaido a) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void visitarCaminanteCaido(CaminanteCaido c) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public void visitarBomba(Bomba b) {

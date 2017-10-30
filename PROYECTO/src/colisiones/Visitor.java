@@ -15,12 +15,6 @@ public abstract class Visitor
 	
 	public abstract void visitarDisparo(Disparo d);
 	
-	public abstract void visitarRoca(Roca r);
-
-	public abstract void visitarArbolCaido(ArbolCaido a);
-	
-	public abstract void visitarCaminanteCaido(CaminanteCaido c);
-	
 	public abstract void visitarBomba(Bomba b);
 	
 	public abstract void visitarCampoProteccion(CampoProteccion c);

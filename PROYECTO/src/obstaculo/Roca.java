@@ -10,10 +10,7 @@ public class Roca extends Obstaculo
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void aceptar(Visitor v)
-	{
-		v.visitarRoca(this);
-	}
+
 
 
 }

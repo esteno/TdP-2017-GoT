@@ -45,33 +45,6 @@ public class VisitorEnemigo extends Visitor
     	miEnemigo.destruir();
     }
 	
-	@Override
-    public void visitarRoca(Roca r)
-	{
-    	// TODO Auto-generated method stub
-		if(r.getPuntosVida()<=0)
-		{
-			r.destruir();
-		}
-		else
-		{
-			// Enemigo golpea a Roca hasta destruirla, es decir le quita a Roca puntos de vida.
-	     	r.recibirAtaque(miEnemigo.getFuerzaImpacto());
-		}	
-	} 
-	
-	public void visitarArbolCaido(ArbolCaido a)
- 	{
-		 System.out.println("Una defensa ha visitado un arbol caido.");
-	     // TODO Auto-generated method stub
-		 
- 	}
-	
-	public void visitarCaminanteCaido(CaminanteCaido c)
-	{
-		 System.out.println("Una defensa ha visitado un caminante caido.");
-	     // TODO Auto-generated method stub
-	}
 
 
 	@Override
