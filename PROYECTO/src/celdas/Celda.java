@@ -64,8 +64,9 @@ public abstract class Celda
     	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
     }
     
-    public void destruirEnemigo() {
-    	mapa.eliminarEnemigo(x, y);
+    public void destruirObjetoMovil() 
+    {
+    	mapa.eliminarObjetoMovil(x, y);
     }
     public Mapa getMapa()
     { return mapa; }

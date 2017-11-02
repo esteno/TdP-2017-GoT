@@ -115,7 +115,7 @@ public class Juego
 	}
 	
 	
-	public void eliminarEnemigo(int x, int y)
+	public void eliminarObjetoMovil(int x, int y)
 	{
 		gui.eliminarMovil(x, y);
 	}

@@ -53,7 +53,7 @@ public class Disparo extends ObjetoMovil
 	{
 		System.out.println("Soy un disparo con alcance "+alcance);
 		alcance=0;
-		celda.destruirEnemigo();
+		celda.destruirObjetoMovil();
 	}
 
 

@@ -9,4 +9,5 @@ public abstract class ObjetoMovil extends GameObject
 	
 	public abstract void avanzar();
 	
+	
 }

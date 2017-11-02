@@ -105,10 +105,10 @@ public class Mapa
 			g.destruir();
 	}
 	
-	public void eliminarEnemigo(int x, int y)
+	public void eliminarObjetoMovil(int x, int y)
 	{
 		matrizMovil[x][y]=null;
-		juego.eliminarEnemigo(x, y);
+		juego.eliminarObjetoMovil(x, y);
 	}
 	
 	public void agregarDefensa(Defensa defensa, int x, int y)
