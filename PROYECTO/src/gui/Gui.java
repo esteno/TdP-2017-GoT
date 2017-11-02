@@ -3,6 +3,7 @@ package gui;
 import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -10,6 +11,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.util.Vector;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,6 +30,7 @@ import java.awt.Color;
 import java.awt.Component;
 import javax.swing.border.LineBorder;
 import java.awt.SystemColor;
+import javax.swing.SwingConstants;
 
 public class Gui
 {
@@ -153,7 +156,7 @@ public class Gui
 		panelPer.setLayout(null);
 		
 		labelPuntaje = new JLabel("Puntaje: 0");
-		labelPuntaje.setBounds(26, 11, 50, 14);
+		labelPuntaje.setBounds(26, 11, 64, 14);
 		panelPer.add(labelPuntaje);
 		
 		JLabel lblMonedas = new JLabel("Monedas: ");
@@ -186,21 +189,23 @@ public class Gui
 		panelMapa.add(panelPremios);
 		panelPremios.setLayout(null);
 		
-		JButton botonMina = new JButton("Mina");
-		botonMina.setEnabled(false);
-		botonMina.setBounds(34, 35, 92, 23);
-		panelPremios.add(botonMina);
+		JButton botonBomba = new JButton("");
+		botonBomba.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBomba.png"));
+		botonBomba.setBounds(34, 11, 92, 59);
+		panelPremios.add(botonBomba);
 		
-		JButton botonBarricada = new JButton("Barricada");
-		botonBarricada.setEnabled(false);
-		botonBarricada.setBounds(163, 35, 89, 23);
+		JButton botonBarricada = new JButton("");
+		botonBarricada.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBarricada.png"));
+		botonBarricada.setBounds(163, 11, 89, 59);
 		panelPremios.add(botonBarricada);
 		
 		JButton botonFuegovalyrio = new JButton("");
-		botonFuegovalyrio.setSelectedIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\botonFuegoValyrio.png"));
-		botonFuegovalyrio.setBounds(292, 17, 109, 59);
-		ImageIcon fuegoValyrio = new ImageIcon("botonFuegoValyrio.png");
-		botonFuegovalyrio.setIcon(fuegoValyrio);
+		botonFuegovalyrio.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\botonFuegoValyrio.png"));
+		botonFuegovalyrio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		botonFuegovalyrio.setBounds(292, 11, 92, 59);
 		panelPremios.add(botonFuegovalyrio);
 		
 		//panelControl = new JPanel();
