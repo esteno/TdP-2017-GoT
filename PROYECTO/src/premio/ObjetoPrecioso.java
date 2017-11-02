@@ -7,12 +7,16 @@ import defensa.Defensa;
 
 public abstract class ObjetoPrecioso extends Premio
 {
+	
+	protected int puntos_extra;
 
 	public ObjetoPrecioso() 
 	{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public abstract void accionar(List<Defensa> list);
-	
+	public int plus()
+	{
+		return puntos_extra;
+	}
 }

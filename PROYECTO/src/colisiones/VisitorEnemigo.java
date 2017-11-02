@@ -68,7 +68,11 @@ public class VisitorEnemigo extends Visitor
 	{
 		// TODO Auto-generated method stub
 		// enemigo al colisionar con fuego valyrio, muere inmediatamente.
+		
 	    miEnemigo.recibirAtaque(miEnemigo.getFuerzaImpacto()); 	
+	    f.plus();
+	    f.destruir();
+	    miEnemigo.destruir();
 	}
 
 

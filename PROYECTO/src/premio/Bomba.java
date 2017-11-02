@@ -24,10 +24,5 @@ public class Bomba extends ObjetoPrecioso {
 		
 	}
 
-	@Override
-	public void accionar(List<Defensa> list) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

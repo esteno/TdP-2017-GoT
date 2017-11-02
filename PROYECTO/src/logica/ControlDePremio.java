@@ -41,5 +41,8 @@ public class ControlDePremio
 		premioTemporal.accionar(l);
 	}
 	
-	
+	public void sumarPlus()
+	{
+		juego.sumarPuntaje(p);
+	}
 }
