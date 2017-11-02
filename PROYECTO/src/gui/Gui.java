@@ -148,20 +148,16 @@ public class Gui
 		frame.getContentPane().add(panelMapa, BorderLayout.CENTER);
 		panelMapa.setLayout(null);
 		
-		JPanel panelPer = new JPanel();
-		panelPer.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelPer.setBackground(SystemColor.menu);
-		panelPer.setBounds(171, 11, 238, 81);
-		panelMapa.add(panelPer);
-		panelPer.setLayout(null);
+		JPanel panelPuntaje = new JPanel();
+		panelPuntaje.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelPuntaje.setBackground(SystemColor.menu);
+		panelPuntaje.setBounds(171, 11, 117, 81);
+		panelMapa.add(panelPuntaje);
+		panelPuntaje.setLayout(null);
 		
 		labelPuntaje = new JLabel("Puntaje: 0");
 		labelPuntaje.setBounds(26, 11, 64, 14);
-		panelPer.add(labelPuntaje);
-		
-		JLabel lblMonedas = new JLabel("Monedas: ");
-		lblMonedas.setBounds(146, 11, 64, 14);
-		panelPer.add(lblMonedas);
+		panelPuntaje.add(labelPuntaje);
 		
 		panelPersonajes = new JPanel();
 		panelPersonajes.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -185,18 +181,18 @@ public class Gui
 		
 		JPanel panelPremios = new JPanel();
 		panelPremios.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelPremios.setBounds(455, 11, 411, 81);
+		panelPremios.setBounds(455, 11, 492, 81);
 		panelMapa.add(panelPremios);
 		panelPremios.setLayout(null);
 		
 		JButton botonBomba = new JButton("");
 		botonBomba.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBomba.png"));
-		botonBomba.setBounds(34, 11, 92, 59);
+		botonBomba.setBounds(120, 11, 92, 59);
 		panelPremios.add(botonBomba);
 		
 		JButton botonBarricada = new JButton("");
 		botonBarricada.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBarricada.png"));
-		botonBarricada.setBounds(163, 11, 89, 59);
+		botonBarricada.setBounds(250, 11, 89, 59);
 		panelPremios.add(botonBarricada);
 		
 		JButton botonFuegovalyrio = new JButton("");
@@ -205,8 +201,27 @@ public class Gui
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		botonFuegovalyrio.setBounds(292, 11, 92, 59);
+		botonFuegovalyrio.setBounds(378, 11, 92, 59);
 		panelPremios.add(botonFuegovalyrio);
+		
+		JLabel lblPremios = new JLabel("PREMIOS: ");
+		lblPremios.setBounds(10, 36, 71, 14);
+		panelPremios.add(lblPremios);
+		
+		JPanel panelMonedas = new JPanel();
+		panelMonedas.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelMonedas.setBounds(315, 11, 117, 81);
+		panelMapa.add(panelMonedas);
+		panelMonedas.setLayout(null);
+		
+		JLabel lblMonedas = new JLabel("Monedas:  0");
+		lblMonedas.setBounds(10, 11, 97, 14);
+		panelMonedas.add(lblMonedas);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\monedas.gif"));
+		label.setBounds(37, 25, 70, 45);
+		panelMonedas.add(label);
 		
 		//panelControl = new JPanel();
 		/*panelControl.setBorder(new LineBorder(new Color(0, 0, 0)));
