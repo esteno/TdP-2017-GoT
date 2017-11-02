@@ -15,4 +15,10 @@ public class Mina extends ObjetoPrecioso {
 		v.visitarMina(this);
 	}
 
+	@Override
+	public void atacar() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
