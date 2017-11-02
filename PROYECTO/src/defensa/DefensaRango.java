@@ -14,6 +14,7 @@ public abstract class DefensaRango extends Defensa {
 			celda.generarDisparo();
 			proximoAtaque = velocidadAtaque;
 		}
+		//Si no decrementa el contador de proximo ataque.
 		else {
 			proximoAtaque--;
 		}

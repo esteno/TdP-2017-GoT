@@ -82,13 +82,12 @@ public abstract class Celda
     	mapa.eliminarObjetoMovil(x, y);
     }
     
-
-    
+    //Genera un nuevo disparo en esta celda
     public void generarDisparo() {
     	mapa.generarDisparo(x, y);
     }
 
-
+    //Devuelve el objeto estatico sobre esta celda.
 	public GameObject getEstatico() {
 		return mapa.getEstatico(this);
 	}
