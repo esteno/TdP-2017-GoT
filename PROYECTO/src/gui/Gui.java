@@ -82,7 +82,7 @@ public class Gui
 	 */
 	public Gui() 
 	{
-		frame = new JFrame();
+		frame = new JFrame("NIGHT KING DEFENSE");
 		frame.setBounds(100, 100, 1000, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
