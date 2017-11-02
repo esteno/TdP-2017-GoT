@@ -187,16 +187,19 @@ public class Gui
 		paneloObjetosPreciosos.setLayout(null);
 		
 		JButton botonBomba = new JButton("");
+		botonBomba.setEnabled(false);
 		botonBomba.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBomba.png"));
 		botonBomba.setBounds(152, 11, 92, 59);
 		paneloObjetosPreciosos.add(botonBomba);
 		
 		JButton botonBarricada = new JButton("");
+		botonBarricada.setEnabled(false);
 		botonBarricada.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBarricada.png"));
 		botonBarricada.setBounds(279, 11, 89, 59);
 		paneloObjetosPreciosos.add(botonBarricada);
 		
 		JButton botonFuegovalyrio = new JButton("");
+		botonFuegovalyrio.setEnabled(false);
 		botonFuegovalyrio.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\botonFuegoValyrio.png"));
 		botonFuegovalyrio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -235,16 +238,19 @@ public class Gui
 		panelMagiaTemporal.add(lblMagiaTemporal);
 		
 		JButton botonCampoProteccion = new JButton("");
+		botonCampoProteccion.setEnabled(false);
 		botonCampoProteccion.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\gemaceleste.png"));
 		botonCampoProteccion.setBounds(202, 11, 89, 30);
 		panelMagiaTemporal.add(botonCampoProteccion);
 		
 		JButton botonDanioDoble = new JButton("");
+		botonDanioDoble.setEnabled(false);
 		botonDanioDoble.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\gemaroja.png"));
 		botonDanioDoble.setBounds(338, 11, 89, 30);
 		panelMagiaTemporal.add(botonDanioDoble);
 		
 		JButton botonCuracion = new JButton("");
+		botonCuracion.setEnabled(false);
 		botonCuracion.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\gemaverde.png"));
 		botonCuracion.setBounds(479, 11, 89, 30);
 		panelMagiaTemporal.add(botonCuracion);
