@@ -9,9 +9,6 @@ import premio.*;
 
 public class Mapa 
 { 
-	//Generador de Celdas con distinto tipo de terreno
-	private GeneradorDeCeldas generadorDeCeldas= GeneradorDeCeldas.instancia();
-	
 	//Matriz que va a contener las celdas que conforman el mapa.
 	private Celda[][] matrizCeldas;
 	
@@ -31,15 +28,6 @@ public class Mapa
 		matrizEstatica = new GameObject[ancho][alto];
 		matrizMovil = new ObjetoMovil[ancho][alto];
 		
-		/*
-		//Inicializo la matriz con celdas
-		for(int i = 0; i < ancho; i++) {
-			for (int j = 0; j < alto; j++) {
-				
-				matrizCeldas[i][j] = generadorDeCeldas.generar(this, i, j);
-			}
-		}
-		*/
 		this.juego = juego;
 	}
 	

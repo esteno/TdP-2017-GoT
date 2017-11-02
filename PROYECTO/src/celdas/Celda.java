@@ -7,14 +7,26 @@ import objetos.GameObject;
 import objetos.GameObjectGrafico;
 import objetos.ObjetoMovil;
 
+/**
+ * Clase que modela las celdas logicas de un mapa para ser usada por los personajes y elementos.
+ * @author Comision 15
+ *
+ */
 public abstract class Celda 
 {
 	//atributos
     protected Mapa mapa;
+    //Posicion de la celda dentro del mapa.
     protected int x;
     protected int y;
+    
+    //Objeto grafico que se muestra en pantalla
     protected GameObjectGrafico grafica;
+    
+    //Multiplicador de velocidad para los que se muevan sobre esta celda.
     protected double multiVelocidad;
+    
+    //Instancia de la fabrica de objetos graficos
     protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
   
     
@@ -53,23 +65,24 @@ public abstract class Celda
     	return mapa.celdaDerecha(this);
     }
     
-    //preguntar esto
+    //Devuelve el objeto movil que está sobre esta celda
     public ObjetoMovil objetoMovil() 
     {
     	return mapa.getObjeto(this);
     }
     
-    
+    //Mueve un enemigo de la posicion (xAnterior, yAnterior) a su nueva posicion (x,y).
     public void moverEnemigo(int xAnterior, int yAnterior) {
     	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
     }
     
+    //Elemina un objeto movil del juego
     public void destruirObjetoMovil() 
     {
     	mapa.eliminarObjetoMovil(x, y);
     }
-    public Mapa getMapa()
-    { return mapa; }
+    
+
     
     public void generarDisparo() {
     	mapa.generarDisparo(x, y);

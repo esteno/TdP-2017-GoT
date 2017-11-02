@@ -8,8 +8,14 @@ import enemigos.*;
 import estadoEnemigo.EstadoMultiplicador;
 import objetos.ObjetoMovil;
 
+/**
+ * Fabrica de oleadas de enemigos
+ * @author Comision 15
+ *
+ */
 public class BuilderDeOleadas {
 	
+	//Atributo estatico para el singleton
 	private static BuilderDeOleadas instancia = null;
 	
 	
@@ -22,6 +28,8 @@ public class BuilderDeOleadas {
 		}
 		return instancia;
 	}
+	
+	//Todos los metodos devuelven una lista con la cantidad pedida de un tipo particular de enemigo
 	
 	public List<Enemigo> generarEnemigoRojo(int cant, EstadoMultiplicador estado) {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();

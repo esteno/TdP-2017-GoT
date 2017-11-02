@@ -19,24 +19,32 @@ import gui.*;
 
 public class Juego
 {
-	
+	//Objeto que mantiene el puntaje
 	private Puntaje puntaje;
+	//Objeto que mantiene el mapa
 	private Mapa mapa;
 	
+	//Alto del juego
 	private int alto;
+	//Ancho del juego
 	private int ancho;
 	
+	//GUI
 	private Gui gui;
 	
-
+	//Instancia de controles
 	private ControlDeOleadas controlDeOleadas;
 	private ControlDisparo controlDisparo;
 	private ControlDeDefensa controlDeDefensa;
 	
-//	private Nivel miNivel;
+	//Objeto que mantiene los nieveles del juego
 	private Niveles niveles;
+	//Numero de nivel actual
 	private int numNivel;
+	//Nivel actual
 	private Nivel nivelActual;
+	
+	//Objeto que transforma un archivo de texto en una matriz de celdas
 	private Parser parser;
 	
 	
@@ -66,7 +74,7 @@ public class Juego
 		new Thread(controlDeDefensa).start();
 	}
 	
-	
+	//Siguiente nivel basado en numNivel
 	public void sigNivel() {
 		nivelActual = niveles.getNivel(numNivel);
 		numNivel++;
@@ -74,10 +82,12 @@ public class Juego
 		generarOleada();
 	}
 	
-	public void generarOleada() {
+	//Genera la oleada para el control
+	private void generarOleada() {
 		controlDeOleadas.setOleada(nivelActual.getOleada());
 	}
 	
+	//Agrega la defensa guardada en la fabrica en la pos x,y
 	public void agregarDefensa(int x, int y)
 	{
 		
@@ -87,21 +97,20 @@ public class Juego
 	}
 	
 	
-	
+	//Elimina una defensa de mapa
 	public void eliminarDefensa(int x,int y )
 	{
 	    mapa.eliminarDefensa(x,y);  
 	}
 	
 	
-	
-	
+	//Retorna una matriz de celdas que representa el mapa
 	public GameObjectGrafico[][] getCeldasGraficas()
 	{
 		return mapa.getGraficos();
 	}
 	
-
+	//Agrega un objeto movil al mapa y graficamente si es posible
 	public Boolean agregarObjetoMovil(ObjetoMovil obj, int x, int y) 
 	{
 		Boolean puedoAgregar = mapa.agregarObjetoMovil(obj, x, y);
@@ -110,41 +119,36 @@ public class Juego
 		return puedoAgregar;
 	}
 	
-	
+	//Mueve un enemigo graficamente de (xAnterior, yAnterior) a (x,y)
 	public void moverEnemigoGrafico(int xAnterior, int yAnterior, int xNuevo, int yNuevo)
 	{
 		gui.moverEnemigoGrafico(xAnterior, yAnterior, xNuevo, yNuevo);
 	}
 	
-	
+	//Eleimina graficamente un ObjetoMovil
 	public void eliminarObjetoMovil(int x, int y)
 	{
 		gui.eliminarMovil(x, y);
 	}
 	
+	//Suma un puntaje
 	public void sumarPuntaje(int p) 
 	{
-		morirLogico(p);
+		puntaje.sumarPuntaje(p);
 		gui.puntaje(puntaje.puntaje());
 	}
 	
-   
-	
-	private void morirLogico(int puntos)
-    {	
-	   puntaje.sumarPuntaje(puntos);
-	   //puntaje.sumarOro(o);
-    }
 	
 	public int getAncho() {
 		return ancho - 1;
 	}
 	
+	//Genera un nuevo disparo en x,y
 	public void generarDisparo(int x, int y) {
 		controlDisparo.agregarDisparo(x, y);
 	}
 
-
+	//Dibuja una defense en x,y
 	public void dibujarDefensa(int x, int y, GameObject obj) {
 		gui.dibujarDefensa(x, y, obj);
 		
