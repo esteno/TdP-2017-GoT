@@ -27,6 +27,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.border.LineBorder;
+import java.awt.SystemColor;
 
 public class Gui
 {
@@ -92,6 +93,7 @@ public class Gui
 	{
 		
 		panelMapa = new JLayeredPane();
+		panelMapa.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelMapa.setBounds(0,0,ANCHO*ANCHO_IMG,ALTO*ALTO_IMG);
 		panelMapa.setLocation(200,100);
 		panelMapa.setBackground(Color.GRAY);
@@ -144,8 +146,9 @@ public class Gui
 		panelMapa.setLayout(null);
 		
 		JPanel panelPer = new JPanel();
-		panelPer.setBackground(new Color(255, 255, 204));
-		panelPer.setBounds(128, 0, 464, 49);
+		panelPer.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelPer.setBackground(SystemColor.menu);
+		panelPer.setBounds(171, 11, 238, 81);
 		panelMapa.add(panelPer);
 		panelPer.setLayout(null);
 		
@@ -153,8 +156,13 @@ public class Gui
 		labelPuntaje.setBounds(26, 11, 50, 14);
 		panelPer.add(labelPuntaje);
 		
+		JLabel lblMonedas = new JLabel("Monedas: ");
+		lblMonedas.setBounds(146, 11, 64, 14);
+		panelPer.add(lblMonedas);
+		
 		panelPersonajes = new JPanel();
-		panelPersonajes.setBounds(10, 11, 99, 539);
+		panelPersonajes.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelPersonajes.setBounds(10, 11, 151, 539);
 		panelMapa.add(panelPersonajes);
 		panelPersonajes.setLayout(null);
 		
@@ -166,6 +174,32 @@ public class Gui
 		});
 		btnJorgito.setBounds(10, 11, 83, 23);
 		panelPersonajes.add(btnJorgito);
+		
+		JButton botonYgritte = new JButton("Ygritte");
+		botonYgritte.setEnabled(false);
+		botonYgritte.setBounds(10, 76, 89, 23);
+		panelPersonajes.add(botonYgritte);
+		
+		JPanel panelPremios = new JPanel();
+		panelPremios.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelPremios.setBounds(455, 11, 411, 81);
+		panelMapa.add(panelPremios);
+		panelPremios.setLayout(null);
+		
+		JButton botonMina = new JButton("Mina");
+		botonMina.setEnabled(false);
+		botonMina.setBounds(34, 35, 92, 23);
+		panelPremios.add(botonMina);
+		
+		JButton botonBarricada = new JButton("Barricada");
+		botonBarricada.setEnabled(false);
+		botonBarricada.setBounds(163, 35, 89, 23);
+		panelPremios.add(botonBarricada);
+		
+		JButton botonFuegovalyrio = new JButton("FuegoValyrio");
+		botonFuegovalyrio.setEnabled(false);
+		botonFuegovalyrio.setBounds(292, 35, 109, 23);
+		panelPremios.add(botonFuegovalyrio);
 		
 		//panelControl = new JPanel();
 		/*panelControl.setBorder(new LineBorder(new Color(0, 0, 0)));

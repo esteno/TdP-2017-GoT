@@ -1,5 +1,7 @@
 package premio;
 
+import java.util.List;
+
 import colisiones.Visitor;
 import defensa.Defensa;
 
@@ -12,12 +14,15 @@ public class CampoProteccion extends MagiaTemporal
 	{
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 	public void aceptar(Visitor v)
-	{
-		//v.visitarCampoProteccion(this);
-	}
+	{}
+	
+	
 	@Override
-	public void accionar(Defensa d) {
+	public void accionar(List<Defensa> list) 
+	{
 		// TODO Auto-generated method stub
 		
 	}

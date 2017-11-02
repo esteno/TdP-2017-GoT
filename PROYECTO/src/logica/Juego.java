@@ -7,6 +7,7 @@ import objetos.*;
 import objetos.GameObjectGrafico;
 
 import java.awt.image.BufferedImage;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 
@@ -156,6 +157,14 @@ public class Juego
 	public void gameOver() {
 		gui.gameOver();
 		
+	}
+	
+	
+	
+	// modificacion para Premios de tipo Magia Temporal
+	public List<Defensa> getDefensas()
+	{
+		return controlDeDefensa.getListaDefensa();
 	}
 	
 }

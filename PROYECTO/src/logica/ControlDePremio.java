@@ -3,7 +3,7 @@ package logica;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import defensa.Defensa;
 import premio.*;
 
 
@@ -34,5 +34,10 @@ public class ControlDePremio
 	public void agregarObjetoPrecioso(ObjetoPrecioso obj)
 	{
 		listaObjetoPrecioso.add(obj);
+	}
+	
+	public void accionarMagiaTemporal()
+	{
+		
 	}
 }

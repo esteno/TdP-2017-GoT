@@ -50,5 +50,10 @@ public class ControlDeDefensa implements Runnable {
 			
 		}
 	}
+	
+	public List<Defensa> getListaDefensa()
+	{
+		return listaDefensa;
+	}
 
 }

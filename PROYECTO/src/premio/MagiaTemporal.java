@@ -1,5 +1,7 @@
 package premio;
 
+import java.util.List;
+
 import defensa.Defensa;
 
 public abstract class MagiaTemporal extends Premio 
@@ -10,6 +12,7 @@ public abstract class MagiaTemporal extends Premio
 	{
 		// TODO Auto-generated constructor stub
 	}
-	public abstract void accionar(Defensa d); 
+	public abstract void accionar(List<Defensa> list);
+
 
 }
