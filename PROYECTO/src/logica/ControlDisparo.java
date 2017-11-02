@@ -9,12 +9,14 @@ import disparos.Disparo;
 public class ControlDisparo implements Runnable {
 	
 	private Juego juego;
+	private List<Disparo> listaInsercion;
 	private List<Disparo> listaDisparos;
 	private List<Disparo> listaDescarte;
 	private boolean isRunning = true;
 	
 	public ControlDisparo(Juego juego) {
 		this.juego = juego;
+		listaInsercion = new ArrayList<Disparo>();
 		listaDisparos = new ArrayList<Disparo>();
 		listaDescarte = new ArrayList<Disparo>();
 		
@@ -22,7 +24,7 @@ public class ControlDisparo implements Runnable {
 	
 	public void agregarDisparo(int x, int y) {
 		Disparo disparoNuevo = new Disparo();
-		listaDisparos.add(disparoNuevo);
+		listaInsercion.add(disparoNuevo);
 		juego.agregarObjetoMovil(disparoNuevo, x, y);
 	}
 	
@@ -35,6 +37,10 @@ public class ControlDisparo implements Runnable {
 					listaDisparos.remove(descarte);
 				}
 				listaDescarte.clear();
+				for(Disparo insertar: listaInsercion) {
+					listaDisparos.add(insertar);
+				}
+				listaInsercion.clear();
 				for(Disparo disparo : listaDisparos) 
 				{
 					if(disparo.getAlcance() <= 0) 

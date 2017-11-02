@@ -1,17 +1,25 @@
 package nivel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import enemigos.Enemigo;
+import estadoEnemigo.EstadoEnemigoNivel1;
+import logica.BuilderDeOleadas;
 
 public class Nivel2 extends Nivel
 {
 
-	@Override
-	public List<Enemigo> getOleada() {
-		// TODO Auto-generated method stub
-		return null;
+	public Nivel2() {
+		path = "res/niveles/nivel2.txt";
+		estado = new EstadoEnemigoNivel1();
 	}
 	
-
+	@Override
+	public List<Enemigo> getOleada() {
+		BuilderDeOleadas builder = BuilderDeOleadas.getInstancia();
+		List<Enemigo> toReturn = new ArrayList<Enemigo>();
+		toReturn.addAll(builder.generarZombi(10, estado));
+		return toReturn;
+	}
 }

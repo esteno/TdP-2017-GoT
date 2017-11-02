@@ -1,5 +1,6 @@
 package objetos;
 
+import java.awt.Container;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -34,7 +35,10 @@ public class GameObjectGrafico
 	}
 	
 	public void destruir() {
-		label.getParent().remove(label);
+		Container padre = label.getParent();
+		padre.remove(label);
+		padre.validate();
+		padre.repaint();
 	}
 	
 	

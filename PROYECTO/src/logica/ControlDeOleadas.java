@@ -55,25 +55,22 @@ public class ControlDeOleadas implements Runnable {
 				}
 				listaDescarte.clear();
 				for(Enemigo enemigo : listaEnemigos) {
-					if(listaEnemigos.size() == 0 && cantOleadas != 0) {
-						Thread.sleep(2000);
-						aInsertar = 0;
-						cantOleadas--;
+					if(enemigo.getPuntosVida() <= 0) {
+						listaDescarte.add(enemigo);
 					}
 					else {
-						if(cantOleadas == 0) {
-							juego.sigNivel();
-						}
-						else {
-							if(enemigo.getPuntosVida() <= 0) {
-								listaDescarte.add(enemigo);
-							}
-							else {
-								enemigo.atacar();
-								enemigo.avanzar();
-							}
-						}
+						enemigo.atacar();
+						enemigo.avanzar();
 					}
+				}
+				if(listaEnemigos.size() == 0 && cantOleadas != 0) {
+					System.out.println("nueva oleada");
+					Thread.sleep(2000);
+					aInsertar = 0;
+					cantOleadas--;
+				}
+				if(cantOleadas == 0) {
+					juego.sigNivel();
 				}
 			}
 			catch (InterruptedException e) {
