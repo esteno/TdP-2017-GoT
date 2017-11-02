@@ -1,5 +1,7 @@
 package premio;
 
+import java.util.List;
+
 import colisiones.Visitor;
 import defensa.Defensa;
 
@@ -17,8 +19,9 @@ public class Curacion extends MagiaTemporal
 		// REESTABLECE LOS PUNTOS DE VIDA DE LOS DEFENSORES
 	}
 
+
 	@Override
-	public void accionar(Defensa d) {
+	public void accionar(List<Defensa> list) {
 		// TODO Auto-generated method stub
 		
 	}

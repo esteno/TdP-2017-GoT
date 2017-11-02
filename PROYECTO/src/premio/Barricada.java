@@ -1,6 +1,9 @@
 package premio;
 
+import java.util.List;
+
 import colisiones.Visitor;
+import defensa.Defensa;
 
 public class Barricada extends ObjetoPrecioso {
 
@@ -17,6 +20,12 @@ public class Barricada extends ObjetoPrecioso {
 
 	@Override
 	public void atacar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void accionar(List<Defensa> list) {
 		// TODO Auto-generated method stub
 		
 	}

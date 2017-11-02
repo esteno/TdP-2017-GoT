@@ -171,29 +171,30 @@ public class Gui
 				FabricaDeDefensa.getInstancia().construirJorgito(); 
 			}
 		});
-		btnJorgito.setBounds(10, 11, 83, 23);
+		btnJorgito.setBounds(10, 11, 83, 54);
 		panelPersonajes.add(btnJorgito);
 		
-		JButton botonYgritte = new JButton("Ygritte");
+		JButton botonYgritte = new JButton("");
 		botonYgritte.setEnabled(false);
-		botonYgritte.setBounds(10, 76, 89, 23);
+		botonYgritte.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\defensa\\ygrette.png"));
+		botonYgritte.setBounds(10, 76, 89, 50);
 		panelPersonajes.add(botonYgritte);
 		
-		JPanel panelPremios = new JPanel();
-		panelPremios.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelPremios.setBounds(455, 11, 492, 81);
-		panelMapa.add(panelPremios);
-		panelPremios.setLayout(null);
+		JPanel paneloObjetosPreciosos = new JPanel();
+		paneloObjetosPreciosos.setBorder(new LineBorder(new Color(0, 0, 0)));
+		paneloObjetosPreciosos.setBounds(455, 11, 519, 81);
+		panelMapa.add(paneloObjetosPreciosos);
+		paneloObjetosPreciosos.setLayout(null);
 		
 		JButton botonBomba = new JButton("");
 		botonBomba.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBomba.png"));
-		botonBomba.setBounds(120, 11, 92, 59);
-		panelPremios.add(botonBomba);
+		botonBomba.setBounds(152, 11, 92, 59);
+		paneloObjetosPreciosos.add(botonBomba);
 		
 		JButton botonBarricada = new JButton("");
 		botonBarricada.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBarricada.png"));
-		botonBarricada.setBounds(250, 11, 89, 59);
-		panelPremios.add(botonBarricada);
+		botonBarricada.setBounds(279, 11, 89, 59);
+		paneloObjetosPreciosos.add(botonBarricada);
 		
 		JButton botonFuegovalyrio = new JButton("");
 		botonFuegovalyrio.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\botonFuegoValyrio.png"));
@@ -201,12 +202,12 @@ public class Gui
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		botonFuegovalyrio.setBounds(378, 11, 92, 59);
-		panelPremios.add(botonFuegovalyrio);
+		botonFuegovalyrio.setBounds(402, 11, 92, 59);
+		paneloObjetosPreciosos.add(botonFuegovalyrio);
 		
-		JLabel lblPremios = new JLabel("PREMIOS: ");
-		lblPremios.setBounds(10, 36, 71, 14);
-		panelPremios.add(lblPremios);
+		JLabel lblPremios = new JLabel("OBJETOS PRECIOSOS: ");
+		lblPremios.setBounds(10, 23, 132, 47);
+		paneloObjetosPreciosos.add(lblPremios);
 		
 		JPanel panelMonedas = new JPanel();
 		panelMonedas.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -222,6 +223,31 @@ public class Gui
 		label.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\monedas.gif"));
 		label.setBounds(37, 25, 70, 45);
 		panelMonedas.add(label);
+		
+		JPanel panelMagiaTemporal = new JPanel();
+		panelMagiaTemporal.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelMagiaTemporal.setBounds(171, 502, 600, 48);
+		panelMapa.add(panelMagiaTemporal);
+		panelMagiaTemporal.setLayout(null);
+		
+		JLabel lblMagiaTemporal = new JLabel("MAGIA TEMPORAL: ");
+		lblMagiaTemporal.setBounds(28, 23, 135, 14);
+		panelMagiaTemporal.add(lblMagiaTemporal);
+		
+		JButton botonCampoProteccion = new JButton("");
+		botonCampoProteccion.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\gemaceleste.png"));
+		botonCampoProteccion.setBounds(202, 11, 89, 30);
+		panelMagiaTemporal.add(botonCampoProteccion);
+		
+		JButton botonDanioDoble = new JButton("");
+		botonDanioDoble.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\gemaroja.png"));
+		botonDanioDoble.setBounds(338, 11, 89, 30);
+		panelMagiaTemporal.add(botonDanioDoble);
+		
+		JButton botonCuracion = new JButton("");
+		botonCuracion.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\gemaverde.png"));
+		botonCuracion.setBounds(479, 11, 89, 30);
+		panelMagiaTemporal.add(botonCuracion);
 		
 		//panelControl = new JPanel();
 		/*panelControl.setBorder(new LineBorder(new Color(0, 0, 0)));

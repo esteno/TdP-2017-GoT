@@ -15,7 +15,7 @@ public abstract class Visitor
 	
 	public abstract void visitarDisparo(Disparo d);
 	
-	public abstract void visitarMina(Mina m);
+	public abstract void visitarBomba(Bomba m);
 	
 	public abstract void visitarBarricada(Barricada b);
 	

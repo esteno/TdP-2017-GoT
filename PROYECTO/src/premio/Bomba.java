@@ -1,10 +1,13 @@
 package premio;
 
+import java.util.List;
+
 import colisiones.Visitor;
+import defensa.Defensa;
 
-public class Mina extends ObjetoPrecioso {
+public class Bomba extends ObjetoPrecioso {
 
-	public Mina() {
+	public Bomba() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -12,11 +15,17 @@ public class Mina extends ObjetoPrecioso {
 	public void aceptar(Visitor v) 
 	{
 		// TODO Auto-generated method stub
-		v.visitarMina(this);
+		v.visitarBomba(this);
 	}
 
 	@Override
 	public void atacar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void accionar(List<Defensa> list) {
 		// TODO Auto-generated method stub
 		
 	}

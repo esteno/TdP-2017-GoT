@@ -1,5 +1,7 @@
 package premio;
 
+import java.util.List;
+
 import colisiones.Visitor;
 import defensa.Defensa;
 
@@ -10,5 +12,7 @@ public abstract class ObjetoPrecioso extends Premio
 	{
 		// TODO Auto-generated constructor stub
 	}
+	
+	public abstract void accionar(List<Defensa> list);
 	
 }

@@ -1,6 +1,9 @@
 package premio;
 
+import java.util.List;
+
 import colisiones.Visitor;
+import defensa.Defensa;
 
 public class FuegoValyrio extends ObjetoPrecioso 
 {
@@ -14,6 +17,13 @@ public class FuegoValyrio extends ObjetoPrecioso
     {
 		// TODO Auto-generated method stub
         v.visitarFuegoValyrio(this);
+	}
+
+
+	@Override
+	public void accionar(List<Defensa> list) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

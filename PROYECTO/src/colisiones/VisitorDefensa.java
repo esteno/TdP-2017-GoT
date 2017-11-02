@@ -6,9 +6,9 @@ import disparos.*;
 import enemigos.Enemigo;
 import enemigos.Enemigo.*;
 import premio.Barricada;
+import premio.Bomba;
 import premio.CampoProteccion;
 import premio.FuegoValyrio;
-import premio.Mina;
 import objetos.*;
 
 public class VisitorDefensa extends Visitor
@@ -47,7 +47,7 @@ public class VisitorDefensa extends Visitor
 	     }
 
 		@Override
-		public void visitarMina(Mina m) {
+		public void visitarBomba(Bomba m) {
 			// TODO Auto-generated method stub
 			
 		}
@@ -63,6 +63,10 @@ public class VisitorDefensa extends Visitor
 			// TODO Auto-generated method stub
 			
 		}
+
+		
+
+	
 	 	
 
 		
