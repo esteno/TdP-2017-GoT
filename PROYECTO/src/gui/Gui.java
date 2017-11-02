@@ -196,9 +196,11 @@ public class Gui
 		botonBarricada.setBounds(163, 35, 89, 23);
 		panelPremios.add(botonBarricada);
 		
-		JButton botonFuegovalyrio = new JButton("FuegoValyrio");
-		botonFuegovalyrio.setEnabled(false);
-		botonFuegovalyrio.setBounds(292, 35, 109, 23);
+		JButton botonFuegovalyrio = new JButton("");
+		botonFuegovalyrio.setSelectedIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\botonFuegoValyrio.png"));
+		botonFuegovalyrio.setBounds(292, 17, 109, 59);
+		ImageIcon fuegoValyrio = new ImageIcon("botonFuegoValyrio.png");
+		botonFuegovalyrio.setIcon(fuegoValyrio);
 		panelPremios.add(botonFuegovalyrio);
 		
 		//panelControl = new JPanel();
