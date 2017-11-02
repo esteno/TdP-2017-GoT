@@ -1,6 +1,7 @@
 package premio;
 
 import colisiones.Visitor;
+import defensa.Defensa;
 
 public class Curacion extends MagiaTemporal
 {
@@ -14,6 +15,12 @@ public class Curacion extends MagiaTemporal
 	{
 		// NO TIENE VISITOR
 		// REESTABLECE LOS PUNTOS DE VIDA DE LOS DEFENSORES
+	}
+
+	@Override
+	public void accionar(Defensa d) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

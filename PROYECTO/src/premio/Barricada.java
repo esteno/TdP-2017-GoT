@@ -15,4 +15,10 @@ public class Barricada extends ObjetoPrecioso {
 		v.visitarBarricada(this);
 	}
 
+	@Override
+	public void atacar() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

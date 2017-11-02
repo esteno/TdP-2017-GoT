@@ -1,6 +1,7 @@
 package premio;
 
 import colisiones.Visitor;
+import defensa.Defensa;
 
 public class CampoProteccion extends MagiaTemporal 
 {
@@ -13,7 +14,12 @@ public class CampoProteccion extends MagiaTemporal
 	}
 	public void aceptar(Visitor v)
 	{
-		v.visitarCampoProteccion(this);
+		//v.visitarCampoProteccion(this);
+	}
+	@Override
+	public void accionar(Defensa d) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

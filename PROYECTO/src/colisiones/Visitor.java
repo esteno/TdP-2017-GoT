@@ -17,9 +17,8 @@ public abstract class Visitor
 	
 	public abstract void visitarMina(Mina m);
 	
-	public abstract void visitarCampoProteccion(CampoProteccion c);
-	
 	public abstract void visitarBarricada(Barricada b);
 	
-	public abstract void visitarAceroValirio(AceroValirio a);
+	public abstract void visitarFuegoValyrio(FuegoValyrio f);
+  	
 }

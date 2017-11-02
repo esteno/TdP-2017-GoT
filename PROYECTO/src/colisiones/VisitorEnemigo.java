@@ -5,9 +5,9 @@ import enemigos.Enemigo;
 import objetos.*;
 import disparos.*;
 import obstaculo.*;
-import premio.AceroValirio;
 import premio.Barricada;
 import premio.CampoProteccion;
+import premio.FuegoValyrio;
 import premio.Mina;
 
 public class VisitorEnemigo extends Visitor
@@ -42,37 +42,35 @@ public class VisitorEnemigo extends Visitor
     { 
     	// TODO Auto-generated method stub
     	d.destruir();  // Destruye a disparo.
-    	//miEnemigo.destruir();
     }
-	
 
 
 	@Override
 	public void visitarMina(Mina m) 
 	{
 		// TODO Auto-generated method stub
-		m.destruir();
+		m.destruir(); // la mina explota
+		miEnemigo.destruir();
 	}
 
 
 	@Override
-	public void visitarCampoProteccion(CampoProteccion c) {
+	public void visitarBarricada(Barricada b) 
+	{
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void visitarBarricada(Barricada b) {
+	public void visitarFuegoValyrio(FuegoValyrio f) 
+	{
 		// TODO Auto-generated method stub
 		
 	}
+	
 
 
-	@Override
-	public void visitarAceroValirio(AceroValirio a) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 }

@@ -5,9 +5,9 @@ import defensa.Defensa;
 import disparos.*;
 import enemigos.Enemigo;
 import enemigos.Enemigo.*;
-import premio.AceroValirio;
 import premio.Barricada;
 import premio.CampoProteccion;
+import premio.FuegoValyrio;
 import premio.Mina;
 import objetos.*;
 
@@ -45,16 +45,9 @@ public class VisitorDefensa extends Visitor
 	    	 // Este caso no se va a dar pues el disparo siempre avanza hacia adelante y el defensor es estatico.
 	    	 System.out.println("Un defensor ha visitado un disparo. No hay accion.");
 	     }
-	 	
 
 		@Override
 		public void visitarMina(Mina m) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void visitarCampoProteccion(CampoProteccion c) {
 			// TODO Auto-generated method stub
 			
 		}
@@ -66,8 +59,11 @@ public class VisitorDefensa extends Visitor
 		}
 
 		@Override
-		public void visitarAceroValirio(AceroValirio a) {
+		public void visitarFuegoValyrio(FuegoValyrio f) {
 			// TODO Auto-generated method stub
 			
 		}
+	 	
+
+		
 }

@@ -1,8 +1,9 @@
 package premio;
 
 import colisiones.Visitor;
+import defensa.Defensa;
 
-public class DanioDoble extends Premio 
+public class DanioDoble extends MagiaTemporal
 {
 
 	public DanioDoble() 
@@ -14,6 +15,12 @@ public class DanioDoble extends Premio
 	{
 		//NO HACE NADA, ES DECIR, NADIE LO VISITA
 		//SOLO SETTEA EL IMPACTO DE LOS DEFENSORES, LA DUPLICA
+	}
+
+	@Override
+	public void accionar(Defensa d) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

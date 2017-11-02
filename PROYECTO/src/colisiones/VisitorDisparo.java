@@ -5,9 +5,9 @@ import objetos.*;
 import disparos.*;
 import enemigos.Enemigo;
 import obstaculo.*;
-import premio.AceroValirio;
 import premio.Barricada;
 import premio.CampoProteccion;
+import premio.FuegoValyrio;
 import premio.Mina;
 
 public class VisitorDisparo extends Visitor
@@ -46,16 +46,9 @@ public class VisitorDisparo extends Visitor
     	// TODO Auto-generated method stub
 		System.out.println("Un disparo ha visitado un disparo. No hay accion.");
     }
-	
 
 	@Override
 	public void visitarMina(Mina m) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void visitarCampoProteccion(CampoProteccion c) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -67,8 +60,10 @@ public class VisitorDisparo extends Visitor
 	}
 
 	@Override
-	public void visitarAceroValirio(AceroValirio a) {
+	public void visitarFuegoValyrio(FuegoValyrio f) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+
 }

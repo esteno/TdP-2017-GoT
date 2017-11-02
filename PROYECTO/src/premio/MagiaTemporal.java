@@ -1,5 +1,7 @@
 package premio;
 
+import defensa.Defensa;
+
 public abstract class MagiaTemporal extends Premio 
 {
 	protected Timer timer; 
@@ -8,5 +10,6 @@ public abstract class MagiaTemporal extends Premio
 	{
 		// TODO Auto-generated constructor stub
 	}
+	public abstract void accionar(Defensa d); 
 
 }
