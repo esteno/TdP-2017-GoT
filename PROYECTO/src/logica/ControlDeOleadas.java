@@ -37,12 +37,16 @@ public class ControlDeOleadas implements Runnable {
 				Thread.sleep(100);
 				
 				if(aInsertar < listaInsercion.size()) {
-					
+					System.out.println("aInsertar "+aInsertar);
 					Enemigo enemigo = listaInsercion.get(aInsertar);
 					int rand = (int) Math.floor(Math.random() * (alto - 1));
-					juego.agregarObjetoMovil(enemigo, juego.getAncho(), rand);
-					listaEnemigos.add(enemigo);
-					aInsertar++;
+					Boolean agregue = juego.agregarObjetoMovil(enemigo, juego.getAncho(), rand);
+					if(agregue) {
+						listaEnemigos.add(enemigo);
+						
+						aInsertar++;
+					}
+					System.out.println("agregue "+agregue);
 				}
 				
 				for(Enemigo descarte : listaDescarte) {

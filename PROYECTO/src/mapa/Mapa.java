@@ -72,10 +72,13 @@ public class Mapa
 		return toReturn;
 	}
 	
-	public void agregarObjetoMovil(ObjetoMovil obj, int x, int y) {
-		matrizMovil[x][y] = obj;
-		obj.setCelda(matrizCeldas[x][y]);
-		
+	public boolean agregarObjetoMovil(ObjetoMovil obj, int x, int y) {
+		if(matrizMovil[x][y] == null) {
+			matrizMovil[x][y] = obj;
+			obj.setCelda(matrizCeldas[x][y]);
+			return true;
+		}
+		return false;
 	}
 	
 	public void moverMovilIzquierda(Celda celda, ObjetoMovil movil) {

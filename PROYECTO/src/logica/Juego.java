@@ -102,10 +102,12 @@ public class Juego
 	}
 	
 
-	public void agregarObjetoMovil(ObjetoMovil obj, int x, int y) 
+	public Boolean agregarObjetoMovil(ObjetoMovil obj, int x, int y) 
 	{
-		mapa.agregarObjetoMovil(obj, x, y);
-		gui.agregarObjetoMovil(x, y, obj);
+		Boolean puedoAgregar = mapa.agregarObjetoMovil(obj, x, y);
+		if(puedoAgregar)
+			gui.agregarObjetoMovil(x, y, obj);
+		return puedoAgregar;
 	}
 	
 	
