@@ -137,7 +137,7 @@ public class Mapa
 		for(int i = 0; i<matrizEstatica[0].length; i++) {
 			Defensa muro = new Muro(juego);
 			matrizEstatica[0][i] = muro;
-			juego.dibujarDefensa(0, i, muro.getGrafico());
+			juego.dibujarDefensa(0, i, muro);
 		}
 		
 	}

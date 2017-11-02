@@ -21,9 +21,9 @@ public abstract class GameObject
 	protected int alcance;
 	
 	//metodos
-	public ImageIcon getGrafico()
+	public GameObjectGrafico getGrafico()
 	{
-		return grafico.getImagen();
+		return grafico;
 	}
 	
 	public void setCelda(Celda celdaNueva)
@@ -68,7 +68,7 @@ public abstract class GameObject
 	public void recibirAtaque(int i)
 	{
 		puntos_vida=-i;
-		if(puntos_vida <= 0) {
+		if(puntos_vida < 0) {
 			destruir();
 		}
 	}

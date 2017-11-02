@@ -105,7 +105,7 @@ public class Juego
 	public void agregarObjetoMovil(ObjetoMovil obj, int x, int y) 
 	{
 		mapa.agregarObjetoMovil(obj, x, y);
-		gui.agregarObjetoMovil(x, y, obj.getGrafico());
+		gui.agregarObjetoMovil(x, y, obj);
 	}
 	
 	
@@ -143,8 +143,8 @@ public class Juego
 	}
 
 
-	public void dibujarDefensa(int x, int y, ImageIcon imageIcon) {
-		gui.dibujarDefensa(x, y, imageIcon);
+	public void dibujarDefensa(int x, int y, GameObject obj) {
+		gui.dibujarDefensa(x, y, obj);
 		
 	}
 

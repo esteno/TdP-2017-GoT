@@ -5,11 +5,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 
 public class GameObjectGrafico 
 {
-	
+	protected JLabel label;
 	protected ImageIcon imagen;
 	
 	
@@ -22,12 +23,18 @@ public class GameObjectGrafico
 		}// ImageIO.read(new File(path));
 	}
 	
-	
+	public void setLabel(JLabel l) {
+		label = l;
+	}
 	
 	
 	public ImageIcon getImagen() 
 	{
 		return imagen;
+	}
+	
+	public void destruir() {
+		label.getParent().remove(label);
 	}
 	
 	

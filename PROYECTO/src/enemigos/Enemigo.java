@@ -49,7 +49,8 @@ public abstract class Enemigo extends ObjetoMovil
 	public void destruir() 	{
 		System.out.println("Soy un enemigo con vida"+puntos_vida);
 		puntos_vida=0;
-		celda.destruirObjetoMovil();	
+		grafico.destruir();
+		//celda.destruirObjetoMovil();	
 	}
 	
 	public int getPuntos() {

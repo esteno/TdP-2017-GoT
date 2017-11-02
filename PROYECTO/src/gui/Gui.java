@@ -23,6 +23,7 @@ import javax.swing.JPanel;
 import defensa.Defensa;
 import logica.FabricaDeDefensa;
 import logica.Juego;
+import objetos.GameObject;
 import objetos.GameObjectGrafico;
 
 import java.awt.BorderLayout;
@@ -274,10 +275,12 @@ public class Gui
 		labelPuntaje.setText("Puntaje: "+puntaje);
 	}
 
-	public void agregarObjetoMovil(int x, int y, ImageIcon imageIcon) 
+	public void agregarObjetoMovil(int x, int y, GameObject obj) 
 	{
+		
 		JLabel labelEnemigo = new JLabel();
-		labelEnemigo.setIcon(imageIcon);
+		obj.getGrafico().setLabel(labelEnemigo);
+		labelEnemigo.setIcon(obj.getGrafico().getImagen());
 		labelEnemigo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
 		panelEnemigos.add(labelEnemigo);
 		repintar();
@@ -339,8 +342,9 @@ public class Gui
 					if(defensa != null) 
 					{
 						juego.agregarDefensa(x,y);
-						ImageIcon imagen = defensa.getGrafico();
+						ImageIcon imagen = defensa.getGrafico().getImagen();
 						JLabel labelNuevo = new JLabel(imagen);
+						defensa.getGrafico().setLabel(labelNuevo);
 						labelNuevo.setBounds(labelCelda.getBounds());
 						panelDefensa.add(labelNuevo);
 						repintar();
@@ -375,9 +379,10 @@ public class Gui
 		};
 	}
 	
-	public void dibujarDefensa(int x, int y, ImageIcon imagen) {
+	public void dibujarDefensa(int x, int y, GameObject obj) {
 		JLabel labelCelda = buscarLabel(x, y, panelCeldas);
-		JLabel labelNuevo = new JLabel(imagen);
+		JLabel labelNuevo = new JLabel(obj.getGrafico().getImagen());
+		obj.getGrafico().setLabel(labelNuevo);
 		labelNuevo.setBounds(labelCelda.getBounds());
 		panelDefensa.add(labelNuevo);
 		repintar();
