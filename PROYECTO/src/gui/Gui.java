@@ -291,8 +291,10 @@ public class Gui
 	}
 	
 	public void eliminarMovil(int x, int y) {
+		System.out.println("GUI Quiero eliminar en x "+x+" y "+y);
 		JLabel aEliminar = buscarLabel(x, y, panelEnemigos);
 		panelEnemigos.remove(aEliminar);
+		repintar();
 		
 	}
 	
