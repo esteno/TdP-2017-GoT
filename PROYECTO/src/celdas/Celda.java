@@ -63,6 +63,10 @@ public class Celda
     	return toReturn;
     }
     
+    public ObjetoDeMapa getObjetoDeMapa() {
+    	return objeto;
+    }
+    
     public Celda celdaIzquierda() 
     {
     	return mapa.celdaIzquierda(this);

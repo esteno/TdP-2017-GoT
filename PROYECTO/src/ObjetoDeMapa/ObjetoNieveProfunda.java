@@ -6,7 +6,7 @@ public class ObjetoNieveProfunda extends ObjetoDeMapa {
 	
 	public ObjetoNieveProfunda() {
 		grafico = FabricaObjetoGrafico.getInstancia().construirGraficoNieveProfunda();
-		multiplicadorVelocidad = 0.5;
+		multiplicadorVelocidad = 0.8;
 	}
 
 }

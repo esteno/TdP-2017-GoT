@@ -37,6 +37,14 @@ public class Mapa
 	
 	public void cambiarMapa(Celda[][] celdas) {
 		matrizCeldas = celdas;
+		for(int i = 0; i < matrizCeldas.length; i++) {
+			for(int j = 0; j < matrizCeldas[0].length; j++) {
+				ObjetoDeMapa objeto = matrizCeldas[i][j].getObjetoDeMapa();
+				if(objeto != null) {
+					matrizDeObjetoDeMapa[i][j] = objeto;
+				}
+			}
+		}
 		
 	}
 	
