@@ -4,8 +4,10 @@ import defensa.*;
 
 public class FabricaDeDefensa 
 {
-	
+	//Instancia de la fabrica para el singleton
 	private static FabricaDeDefensa instancia = null;
+	
+	//Ultimo producto creado
 	private Defensa defensaCreada = null;
 	
 	private FabricaDeDefensa() 
