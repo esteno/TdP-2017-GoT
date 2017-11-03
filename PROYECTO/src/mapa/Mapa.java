@@ -1,5 +1,8 @@
 package mapa;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ObjetoDeMapa.ObjetoDeMapa;
 import celdas.Celda;
 import defensa.*;
@@ -139,6 +142,19 @@ public class Mapa
 
 	public GameObject getEstatico(Celda celda) {
 		return matrizEstatica[celda.getX()][celda.getY()];
+	}
+	
+	public List<ObjetoMovil> adyacentes(Celda c) {
+
+		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
+		for (int x=c.getX()-1; x<c.getX()+2; x++)
+			for (int y=c.getY()-1; y<c.getX()+2; y++)
+				if ((x<matrizMovil.length)&&(y<matrizMovil[0].length))			
+					if (matrizMovil[x][y]!=null)
+					                l.add(matrizMovil[x][y]);
+		return l;
+		
+		
 	}
 
 }
