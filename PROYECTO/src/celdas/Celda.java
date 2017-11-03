@@ -1,5 +1,8 @@
 package celdas;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ObjetoDeMapa.ObjetoDeMapa;
 import defensa.Defensa;
 import logica.FabricaObjetoGrafico;
@@ -63,6 +66,10 @@ public class Celda
     	return toReturn;
     }
     
+    public ObjetoDeMapa getObjetoDeMapa() {
+    	return objeto;
+    }
+    
     public Celda celdaIzquierda() 
     {
     	return mapa.celdaIzquierda(this);
@@ -100,5 +107,11 @@ public class Celda
 		return mapa.getEstatico(this);
 	}
 
+	public List<ObjetoMovil> adyacentes() {
+		
+		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
+		l=mapa.adyacentes(this);
+		return l;
+	}
 
 }
