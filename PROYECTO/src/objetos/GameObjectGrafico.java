@@ -1,6 +1,7 @@
 package objetos;
 
 import java.awt.Container;
+import java.awt.Label;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -26,6 +27,9 @@ public class GameObjectGrafico
 	
 	public void setLabel(JLabel l) {
 		label = l;
+	}
+	public JLabel getLabel(){
+		return label;
 	}
 	
 	

@@ -64,6 +64,7 @@ public class Juego
 		new Thread(controlDeOleadas).start();
 		new Thread(controlDisparo).start();
 		new Thread(controlDeDefensa).start();
+		new Thread(gui).start();
 	}
 	
 	
@@ -111,9 +112,9 @@ public class Juego
 	}
 	
 	
-	public void moverEnemigoGrafico(int xAnterior, int yAnterior, int xNuevo, int yNuevo)
+	public void moverEnemigoGrafico(ObjetoMovil o)
 	{
-		gui.moverEnemigoGrafico(xAnterior, yAnterior, xNuevo, yNuevo);
+		gui.moverEnemigoGrafico(o);
 	}
 	
 	

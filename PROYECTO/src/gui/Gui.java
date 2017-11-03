@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.Icon;
@@ -21,10 +23,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import defensa.Defensa;
+import enemigos.Enemigo;
 import logica.FabricaDeDefensa;
 import logica.Juego;
-import objetos.GameObject;
-import objetos.GameObjectGrafico;
+import objetos.*;
+
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -33,7 +36,7 @@ import javax.swing.border.LineBorder;
 import java.awt.SystemColor;
 import javax.swing.SwingConstants;
 
-public class Gui
+public class Gui implements Runnable
 {
 
 	private JFrame frame;
@@ -60,6 +63,8 @@ public class Gui
 	private JPanel panelEnemigos;
 	private JPanel panelPersonajes;
 	private JButton btnJorgito;
+	
+	private List<ObjetoMovil> moviles;
 
 	/**
 	 * Launch the application.
@@ -95,7 +100,7 @@ public class Gui
 	 */
 	private void initialize() 
 	{
-		
+		moviles= new LinkedList<ObjetoMovil>();
 		panelMapa = new JLayeredPane();
 		panelMapa.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelMapa.setBounds(0,0,ANCHO*ANCHO_IMG,ALTO*ALTO_IMG);
@@ -286,11 +291,32 @@ public class Gui
 		repintar();
 	}
 	
-	public void moverEnemigoGrafico(int x, int y, int xAnterior, int yAnterior) 
+	public void moverEnemigoGrafico(ObjetoMovil o) 
 	{
-		JLabel label = buscarLabel(xAnterior, yAnterior, panelEnemigos);
-		label.setLocation(x*ANCHO_IMG,y*ALTO_IMG);
-		repintar();
+		moviles.add(o);
+		System.out.println("agrego un obj");
+	}
+	
+	public void run(){
+		System.out.println("startttttttttttttt  "+moviles.isEmpty());
+		boolean estado=true;
+		while(estado){
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Quiere mover");
+			for(ObjetoMovil o : moviles) {
+				System.out.println("Tamaño de moviles "+moviles.size());
+				if(!o.moverGrafico()){
+					moviles.remove(o);
+					o.Lock(false);
+				}
+				repintar();
+			}
+		}
 	}
 	
 	public void eliminarMovil(int x, int y) {
@@ -316,8 +342,9 @@ public class Gui
 	}
 	
 	private void repintar() {
-		panelMapa.validate();
+		///panelMapa.validate();
 		panelMapa.repaint();
+
 	}
 	
 	public MouseListener getMouseListener() {

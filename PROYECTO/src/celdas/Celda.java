@@ -60,8 +60,8 @@ public abstract class Celda
     }
     
     
-    public void moverEnemigo(int xAnterior, int yAnterior) {
-    	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
+    public void moverEnemigo(ObjetoMovil o,int xAnterior, int yAnterior) {
+    	mapa.moverEnemigo(o,x, y, xAnterior, yAnterior);
     }
     
     public void destruirObjetoMovil() 

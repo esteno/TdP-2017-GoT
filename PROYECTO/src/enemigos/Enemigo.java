@@ -20,6 +20,7 @@ public abstract class Enemigo extends ObjetoMovil
 	
 	public Enemigo() {
 		visitor = new VisitorEnemigo(this);
+		bloqueado=false;
 	}
 	
 	public int getFuerzaImpacto()
@@ -28,22 +29,25 @@ public abstract class Enemigo extends ObjetoMovil
 	}
 
 	public void avanzar(){
+		if(!Lock(true)){
 		Celda celdaNueva = celda.celdaIzquierda();
-		if(celdaNueva != null) 	{
-			int xAnterior = celda.getX();
-			int yAnterior = celda.getY();
-			
-			if(contVelocidad <= 0 && celdaNueva.objetoMovil() == null){	
-				celda = celdaNueva;
-				celda.moverEnemigo(xAnterior, yAnterior);
-				contVelocidad = velocidad;
+			if(celdaNueva != null) 	{
+				int xAnterior = celda.getX();
+				int yAnterior = celda.getY();
+				
+				if(contVelocidad <= 0 && celdaNueva.objetoMovil() == null){	
+					celda = celdaNueva;
+					bloqueado=true;
+					celda.moverEnemigo(this,xAnterior, yAnterior);
+					contVelocidad = velocidad;
+				}
+				else {
+					contVelocidad -= 100*celda.getMultiVelocidad();
+				}
 			}
-			else {
-				contVelocidad -= 100*celda.getMultiVelocidad();
-			}
+			else 
+				destruir();
 		}
-		else 
-			destruir();
 	}
 	
 	public void destruir() 	{

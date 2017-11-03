@@ -94,10 +94,10 @@ public class Mapa
 	}
 	
 	
-	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) {
+	public void moverEnemigo(ObjetoMovil o,int x, int y, int xAnterior, int yAnterior) {
 		matrizMovil[x][y] = matrizMovil[xAnterior][yAnterior];
 		matrizMovil[xAnterior][yAnterior] = null;
-		juego.moverEnemigoGrafico(x, y, xAnterior, yAnterior);
+		juego.moverEnemigoGrafico(o);
 	}
  
  

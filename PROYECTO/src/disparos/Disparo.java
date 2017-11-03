@@ -8,6 +8,7 @@ public class Disparo extends ObjetoMovil
 {
 	public Disparo() 
 	{
+		velocidad=8;
 		alcance = 30;
 		fuerza_impacto = 1000;
 		grafico = fabricaGrafica.construirGraficoDisparo();
@@ -37,7 +38,7 @@ public class Disparo extends ObjetoMovil
 				int xAnterior = celda.getX();
 				int yAnterior = celda.getY();
 				celda = celdaNueva;
-				celda.moverEnemigo(xAnterior, yAnterior);
+				celda.moverEnemigo(this,xAnterior, yAnterior);
 				
 				alcance--;
 			}
