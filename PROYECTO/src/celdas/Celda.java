@@ -71,15 +71,9 @@ public abstract class Celda
     	return mapa.getObjeto(this);
     }
     
-<<<<<<< HEAD
-    
+    //Mueve un enemigo de la posicion (xAnterior, yAnterior) a su nueva posicion (x,y).
     public void moverEnemigo(ObjetoMovil o,int xAnterior, int yAnterior) {
     	mapa.moverEnemigo(o,x, y, xAnterior, yAnterior);
-=======
-    //Mueve un enemigo de la posicion (xAnterior, yAnterior) a su nueva posicion (x,y).
-    public void moverEnemigo(int xAnterior, int yAnterior) {
-    	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
->>>>>>> b463d95563a49a116de57a0d094830dd644f7b52
     }
     
     //Elemina un objeto movil del juego

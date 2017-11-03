@@ -31,13 +31,16 @@ public abstract class Enemigo extends ObjetoMovil
 
 	
 	public void avanzar(){
-<<<<<<< HEAD
+
 		if(!Lock(true)){
+		//Si la celda es nula quiere decir que llego al borde izquierdo del mapa.
 		Celda celdaNueva = celda.celdaIzquierda();
 			if(celdaNueva != null) 	{
+				//Guarda la posicion acutal
 				int xAnterior = celda.getX();
 				int yAnterior = celda.getY();
 				
+				//Si ya se puede mover y no hay nada en la celda adyacente se mueve
 				if(contVelocidad <= 0 && celdaNueva.objetoMovil() == null){	
 					celda = celdaNueva;
 					bloqueado=true;
@@ -45,27 +48,9 @@ public abstract class Enemigo extends ObjetoMovil
 					contVelocidad = velocidad;
 				}
 				else {
+					//descuenta de contador
 					contVelocidad -= 100*celda.getMultiVelocidad();
 				}
-=======
-		//Pide la celda para avanzar hacia la izquierda
-		Celda celdaNueva = celda.celdaIzquierda();
-		//Si la celda es nula quiere decir que llego al borde izquierdo del mapa.
-		if(celdaNueva != null) 	{
-			//Guarda la posicion acutal
-			int xAnterior = celda.getX();
-			int yAnterior = celda.getY();
-			
-			//Si ya se puede mover y no hay nada en la celda adyacente se mueve
-			if(contVelocidad <= 0 && celdaNueva.objetoMovil() == null){	
-				celda = celdaNueva;
-				celda.moverEnemigo(xAnterior, yAnterior);
-				contVelocidad = velocidad;
-			}
-			else {
-				//descuenta de contador
-				contVelocidad -= 100*celda.getMultiVelocidad();
->>>>>>> b463d95563a49a116de57a0d094830dd644f7b52
 			}
 			else 
 				destruir();

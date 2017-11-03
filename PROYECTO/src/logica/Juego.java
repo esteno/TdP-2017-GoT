@@ -120,14 +120,7 @@ public class Juego
 		return puedoAgregar;
 	}
 	
-<<<<<<< HEAD
-	
-	public void moverEnemigoGrafico(ObjetoMovil o)
-=======
-	//Mueve un enemigo graficamente de (xAnterior, yAnterior) a (x,y)
-	public void moverEnemigoGrafico(int xAnterior, int yAnterior, int xNuevo, int yNuevo)
->>>>>>> b463d95563a49a116de57a0d094830dd644f7b52
-	{
+	public void moverEnemigoGrafico(ObjetoMovil o){
 		gui.moverEnemigoGrafico(o);
 	}
 	

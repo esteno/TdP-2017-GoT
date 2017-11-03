@@ -44,13 +44,10 @@ public class Disparo extends ObjetoMovil
 				
 				//Cambia de celda
 				celda = celdaNueva;
-<<<<<<< HEAD
-				celda.moverEnemigo(this,xAnterior, yAnterior);
-=======
->>>>>>> b463d95563a49a116de57a0d094830dd644f7b52
-				
+
 				//Se mueve
-				celda.moverEnemigo(xAnterior, yAnterior);
+				celda.moverEnemigo(this,xAnterior, yAnterior);
+
 				//Decrementa el alcance
 				alcance--;
 			}
