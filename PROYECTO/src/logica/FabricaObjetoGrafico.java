@@ -29,14 +29,14 @@ public class FabricaObjetoGrafico
 	}
 	
 	
-	public GameObjectGrafico construirGraficoCeldaArena() 
+	public GameObjectGrafico construirGraficoNieveProfunda() 
 	{
-		return new GameObjectGrafico("res/imagenes/celda/Terreno2.png");
+		return new GameObjectGrafico("res/imagenes/celda/TerrenoNieveProfunda.png");
 	}
 	
-	public GameObjectGrafico construirGraficoCeldaLago() 
+	public GameObjectGrafico construirGraficoLago() 
 	{
-		return new GameObjectGrafico("res/imagenes/celda/Terreno3.png");
+		return new GameObjectGrafico("res/imagenes/celda/TerrenoLago.png");
 	}
 	
 	//ENEMIGOS

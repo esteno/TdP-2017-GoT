@@ -1,5 +1,6 @@
 package celdas;
 
+import ObjetoDeMapa.ObjetoDeMapa;
 import defensa.Defensa;
 import logica.FabricaObjetoGrafico;
 import mapa.Mapa;
@@ -12,7 +13,7 @@ import objetos.ObjetoMovil;
  * @author Comision 15
  *
  */
-public abstract class Celda 
+public class Celda 
 {
 	//atributos
     protected Mapa mapa;
@@ -21,14 +22,9 @@ public abstract class Celda
     protected int y;
     
     //Objeto grafico que se muestra en pantalla
-    protected GameObjectGrafico grafica;
+    protected GameObjectGrafico grafico;
     
-    //Multiplicador de velocidad para los que se muevan sobre esta celda.
-    protected double multiVelocidad;
-    
-    //Instancia de la fabrica de objetos graficos
-    protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
-  
+    private ObjetoDeMapa objeto;
     
     //constructor 
     public Celda(Mapa m, int x, int y)
@@ -36,6 +32,7 @@ public abstract class Celda
     	mapa=m;
     	this.x=x;
     	this.y=y;
+    	grafico = FabricaObjetoGrafico.getInstancia().construirGraficoCeldaComun();
     }
     
    
@@ -47,12 +44,23 @@ public abstract class Celda
     public int getY()
     {return y; }
     
-    public double getMultiVelocidad() {
-    	return multiVelocidad;
+    public GameObjectGrafico getGrafico() {
+    	if(objeto != null) {
+    		return objeto.getGrafico();
+    	}
+    	return grafico;
     }
     
-    public GameObjectGrafico getGrafico() {
-    	return grafica;
+    public void setObjetoDeMapa(ObjetoDeMapa obj) {
+    	objeto = obj;
+    }
+    
+    public double getMultiVelocidad() {
+    	double toReturn = 1.0;
+    	if(objeto != null) {
+    		toReturn = objeto.getMultiVelocidad();
+    	}
+    	return toReturn;
     }
     
     public Celda celdaIzquierda() 

@@ -1,5 +1,6 @@
 package mapa;
 
+import ObjetoDeMapa.ObjetoDeMapa;
 import celdas.Celda;
 import defensa.*;
 import logica.FabricaDeDefensa;
@@ -11,6 +12,8 @@ public class Mapa
 { 
 	//Matriz que va a contener las celdas que conforman el mapa.
 	private Celda[][] matrizCeldas;
+	
+	private ObjetoDeMapa[][] matrizDeObjetoDeMapa;
 	
 	//Matriz que tiene todo lo que son defensas del jugador y obstaculos
 	private GameObject[][] matrizEstatica;
@@ -25,6 +28,7 @@ public class Mapa
 	public Mapa(Juego juego, int alto, int ancho)
 	{
 		matrizCeldas = new Celda[ancho][alto];
+		matrizDeObjetoDeMapa = new ObjetoDeMapa[ancho][alto];
 		matrizEstatica = new GameObject[ancho][alto];
 		matrizMovil = new ObjetoMovil[ancho][alto];
 		

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ObjetoDeMapa.*;
 import celdas.*;
 import mapa.Mapa;
 
@@ -38,18 +39,16 @@ public class Parser
     		for(int i = 0; i < alto; i++) {
     			linea = bufferedReader.readLine();
     			for(int j = 0; j < ancho; j++) {
+    				celda = new Celda(mapa, j, i);
     				switch(linea.charAt(j)) {
     					case 'C':
-    						celda = new CeldaComun(mapa, j, i);
     						break;
-    					case 'A':
-    						celda = new CeldaArena(mapa, j, i);
+    					case 'N':
+    						celda.setObjetoDeMapa(new ObjetoNieveProfunda());
     						break;
     					case 'L':
-    						celda = new CeldaLago(mapa, j, i);
+    						celda.setObjetoDeMapa(new ObjetoLago());
     						break;
-    					default:
-    						celda = new CeldaComun(mapa, j, i);
     				}
     				arregloCeldas[j][i] = celda;
     			}
