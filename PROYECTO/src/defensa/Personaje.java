@@ -10,6 +10,9 @@ public class Personaje extends Defensa
      
     protected int aux;
 
+    
+    
+    
 	@Override
 	public void atacar() 
 	{
