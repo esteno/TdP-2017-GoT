@@ -8,7 +8,7 @@ public class Personaje extends Defensa
      
     protected final int fuerza_impacto_inicio = this.fuerza_impacto;
      
-    protected int aux;
+    protected int aux = this.getPuntosVida();
 
 	@Override
 	public void atacar() 
@@ -24,13 +24,7 @@ public class Personaje extends Defensa
 	
 	public void curacion()
 	{
-		this.guardarPuntosVida();
 		puntos_vida = puntos_vida_inicio;
-	}
-	
-	private void guardarPuntosVida()
-	{
-		aux = this.getPuntosVida();
 	}
 
 }

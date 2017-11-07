@@ -23,7 +23,7 @@ public abstract class Defensa extends GameObject
      
      public void aceptar(Visitor v)
      {
-    	 v.visitarDefensa(this);
+    	 v.visitarDefensor(this);
      }
      
   
