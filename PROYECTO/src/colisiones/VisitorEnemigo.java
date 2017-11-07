@@ -5,10 +5,9 @@ import enemigos.Enemigo;
 import objetos.*;
 import disparos.*;
 import obstaculo.*;
-import premio.Barricada;
 import premio.Bomba;
 import premio.CampoProteccion;
-import premio.FuegoValyrio;
+import premio.Mina;
 
 
 public class VisitorEnemigo extends Visitor
@@ -25,7 +24,7 @@ public class VisitorEnemigo extends Visitor
 	
 	//metodos
 	@Override
-	public void visitarDefensor(GameObject d)
+	public void visitarDefensa(GameObject d)
     { 
 		// TODO Auto-generated method stub
 		d.recibirAtaque(miEnemigo.getFuerzaImpacto()); //de miEnemigo;
@@ -56,12 +55,7 @@ public class VisitorEnemigo extends Visitor
 	}
 
 
-	@Override
-	public void visitarBarricada(Barricada b) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 
 	@Override
 	public void visitarFuegoValyrio(FuegoValyrio f) 
@@ -70,9 +64,24 @@ public class VisitorEnemigo extends Visitor
 		// enemigo al colisionar con fuego valyrio, muere inmediatamente.
 		
 	    miEnemigo.recibirAtaque(miEnemigo.getFuerzaImpacto()); 	
-	    f.plus();
 	    f.destruir();
 	    miEnemigo.destruir();
+	}
+
+
+	@Override
+	public void visitarMina(Mina m) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void visitarCampoProteccion(CampoProteccion c) 
+	{
+		// TODO Auto-generated method stub
+		c.destruir();
+		miEnemigo.destruir();
 	}
 
 

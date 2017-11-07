@@ -12,6 +12,7 @@ public class Mina extends Explosivo{
 		proximoAtaque = 0;
 		puntos_vida = 50;
 		grafico = fabricaGrafica.construirGraficoExplosivo();
+		precio = 0 ;
 	}
 
 	public void atacar() {
