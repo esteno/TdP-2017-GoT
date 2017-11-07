@@ -10,6 +10,7 @@ import objetos.ObjetoMovil;
 public abstract class Explosivo extends Defensa
 {
 
+	// Explosivo es Objeto Precioso
 	
 	public void recibirAtaque() {
 		
