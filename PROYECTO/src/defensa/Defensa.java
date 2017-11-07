@@ -18,7 +18,11 @@ public abstract class Defensa extends GameObject
      //Contador que se va decrementando, cuando llega a 0 la defensa ataca.
      protected int proximoAtaque;
      
-    
+     protected final int puntos_vida_inicio = this.puntos_vida;
+     
+     protected final int fuerza_impacto_inicio=this.fuerza_impacto;
+     
+     
      
      public void aceptar(Visitor v)
      {

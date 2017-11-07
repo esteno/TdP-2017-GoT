@@ -5,7 +5,7 @@ import java.util.List;
 import colisiones.Visitor;
 import defensa.Defensa;
 
-public class CampoProteccion extends MagiaTemporal 
+public class CampoProteccion
 {
 	
 	
@@ -19,12 +19,5 @@ public class CampoProteccion extends MagiaTemporal
 	public void aceptar(Visitor v)
 	{}
 	
-	
-	@Override
-	public void accionar(List<Defensa> list) 
-	{
-		// TODO Auto-generated method stub
-		
-	}
 
 }
