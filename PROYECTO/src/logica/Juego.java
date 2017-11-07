@@ -146,6 +146,11 @@ public class Juego
 	public void generarDisparo(int x, int y) {
 		controlDisparo.agregarDisparo(x, y);
 	}
+	
+	public void generarDisparoDoble(int x, int y, int z) {
+		controlDisparo.agregarDisparoDoble(x, y,z);
+		
+	}
 
 	//Dibuja una defense en x,y
 	public void dibujarDefensa(int x, int y, GameObject obj) {
@@ -171,5 +176,6 @@ public class Juego
 	{
 		return controlDeDefensa.getListaDefensa();
 	}
+
 	
 }

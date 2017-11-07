@@ -32,6 +32,15 @@ public class ControlDisparo implements Runnable {
 		juego.agregarObjetoMovil(disparoNuevo, x, y);
 	}
 	
+
+	public void agregarDisparoDoble(int x, int y, int z) {
+		//Agrega un disparo doble nuevo
+				Disparo disparoNuevo = new Disparo();
+				listaInsercion.add(disparoNuevo);
+				juego.agregarObjetoMovil(disparoNuevo, x, y);
+				juego.agregarObjetoMovil(disparoNuevo, x, z);	
+	}
+	
 	public void run() {
 		while(isRunning) {
 			try {
@@ -63,5 +72,6 @@ public class ControlDisparo implements Runnable {
 			
 		}
 	}
+
 
 }
