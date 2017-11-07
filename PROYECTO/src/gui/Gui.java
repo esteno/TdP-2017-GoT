@@ -181,46 +181,41 @@ public class Gui implements Runnable
 		panelPersonajes.add(btnJorgito);
 		
 		JButton botonYgritte = new JButton("");
-		botonYgritte.setEnabled(false);
-		botonYgritte.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\defensa\\ygrette.png"));
-		botonYgritte.setBounds(10, 76, 89, 50);
+		botonYgritte.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\defensa\\ygretteespera.gif"));
+		botonYgritte.setBounds(10, 76, 83, 66);
 		panelPersonajes.add(botonYgritte);
 		
-		JPanel paneloObjetosPreciosos = new JPanel();
-		paneloObjetosPreciosos.setBorder(new LineBorder(new Color(0, 0, 0)));
-		paneloObjetosPreciosos.setBounds(455, 11, 519, 81);
-		panelMapa.add(paneloObjetosPreciosos);
-		paneloObjetosPreciosos.setLayout(null);
+		JButton btnDragon = new JButton("Drogon");
+		btnDragon.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\defensa\\blackdragonespera.gif"));
+		btnDragon.setBounds(10, 153, 83, 54);
+		panelPersonajes.add(btnDragon);
+		
+		JPanel paneloExplosivos = new JPanel();
+		paneloExplosivos.setBorder(new LineBorder(new Color(0, 0, 0)));
+		paneloExplosivos.setBounds(425, 11, 228, 81);
+		panelMapa.add(paneloExplosivos);
+		paneloExplosivos.setLayout(null);
 		
 		JButton botonBomba = new JButton("");
 		botonBomba.setEnabled(false);
-		botonBomba.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBomba.png"));
-		botonBomba.setBounds(152, 11, 92, 59);
-		paneloObjetosPreciosos.add(botonBomba);
+		botonBomba.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\objetosPreciosos\\iconoBomba.png"));
+		botonBomba.setBounds(95, 11, 63, 59);
+		paneloExplosivos.add(botonBomba);
 		
-		JButton botonBarricada = new JButton("");
-		botonBarricada.setEnabled(false);
-		botonBarricada.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBarricada.png"));
-		botonBarricada.setBounds(279, 11, 89, 59);
-		paneloObjetosPreciosos.add(botonBarricada);
+		JButton botonMina = new JButton("");
+		botonMina.setEnabled(false);
+		botonMina.setIcon(null);
+		botonMina.setBounds(159, 11, 63, 59);
+		paneloExplosivos.add(botonMina);
 		
-		JButton botonFuegovalyrio = new JButton("");
-		botonFuegovalyrio.setEnabled(false);
-		botonFuegovalyrio.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\botonFuegoValyrio.png"));
-		botonFuegovalyrio.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		botonFuegovalyrio.setBounds(402, 11, 92, 59);
-		paneloObjetosPreciosos.add(botonFuegovalyrio);
-		
-		JLabel lblPremios = new JLabel("OBJETOS PRECIOSOS: ");
-		lblPremios.setBounds(10, 23, 132, 47);
-		paneloObjetosPreciosos.add(lblPremios);
+		JLabel labelExplosivos = new JLabel("EXPLOSIVOS: ");
+		labelExplosivos.setHorizontalAlignment(SwingConstants.TRAILING);
+		labelExplosivos.setBounds(0, 23, 85, 47);
+		paneloExplosivos.add(labelExplosivos);
 		
 		JPanel panelMonedas = new JPanel();
 		panelMonedas.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelMonedas.setBounds(315, 11, 117, 81);
+		panelMonedas.setBounds(298, 11, 117, 81);
 		panelMapa.add(panelMonedas);
 		panelMonedas.setLayout(null);
 		
@@ -229,7 +224,7 @@ public class Gui implements Runnable
 		panelMonedas.add(lblMonedas);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\monedas.gif"));
+		label.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\monedas.gif"));
 		label.setBounds(37, 25, 70, 45);
 		panelMonedas.add(label);
 		
