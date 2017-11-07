@@ -5,7 +5,7 @@ package defensa;
  * @author Comision 15
  *
  */
-public abstract class DefensaCuerpo extends Defensa
+public abstract class DefensaCuerpo extends Personaje
 {
 	
 	public void atacar() {

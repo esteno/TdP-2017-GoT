@@ -1,8 +1,10 @@
 package defensa;
 
-public class Dothraki extends DefensaCuerpo {
+public class Dothraki extends DefensaCuerpo 
+{
 
-	public Dothraki() {
+	public Dothraki() 
+	{
 		// TODO Auto-generated constructor stub
 	}
 

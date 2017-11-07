@@ -1,28 +1,24 @@
 package premio;
 
-import java.util.List;
+import logica.Timer;
 
-import colisiones.Visitor;
-import defensa.Defensa;
+public class Bomba extends Explosivo
+{
 
-public class Bomba extends ObjetoPrecioso {
-
-	public Bomba() {
-		// TODO Auto-generated constructor stub
+	Timer t;
+	public Bomba() 
+	{	
+		
+		t=new Timer(this);
+		new Thread(t).start();
+		velocidadAtaque = 0;
+		proximoAtaque = 0;
+		puntos_vida = 50;
+		grafico = fabricaGrafica.construirGraficoExplosivo();
 	}
 
-	@Override
-	public void aceptar(Visitor v) 
-	{
-		// TODO Auto-generated method stub
-		v.visitarBomba(this);
-	}
-
-	@Override
 	public void atacar() {
-		// TODO Auto-generated method stub
 		
 	}
-
 
 }

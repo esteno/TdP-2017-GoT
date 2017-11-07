@@ -1,12 +1,14 @@
-package defensa;
+package premio;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import colisiones.VisitorDefensa;
+import defensa.Defensa;
 import objetos.ObjetoMovil;
 
-public abstract class Explosivo extends Defensa{
+public abstract class Explosivo extends Defensa
+{
 
 	
 	public void recibirAtaque() {

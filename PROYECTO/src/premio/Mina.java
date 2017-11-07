@@ -1,14 +1,13 @@
-package defensa;
+package premio;
+
 
 import logica.Timer;
 
-public class Bomba extends Explosivo{
+public class Mina extends Explosivo{
 
 	Timer t;
-	public Bomba() {	
+	public Mina() {	
 		
-		t=new Timer(this);
-		new Thread(t).start();
 		velocidadAtaque = 0;
 		proximoAtaque = 0;
 		puntos_vida = 50;
@@ -16,7 +15,8 @@ public class Bomba extends Explosivo{
 	}
 
 	public void atacar() {
-		
+			
 	}
-
+	
+	
 }
