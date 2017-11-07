@@ -138,6 +138,12 @@ public class Mapa
 	public void generarDisparo(int x, int y) {
 		juego.generarDisparo(x, y);
 	}
+	
+
+	public void generarDisparoDoble(int x, int y, int z) {
+		juego.generarDisparoDoble(x, y,z);
+		
+	}
 
 	public void crearMuro() {
 		for(int i = 0; i<matrizEstatica[0].length; i++) {
