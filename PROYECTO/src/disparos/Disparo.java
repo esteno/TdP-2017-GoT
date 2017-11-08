@@ -26,18 +26,21 @@ public class Disparo extends ObjetoMovil
 	{
 		//Pide la celda a la que se va a mover
 		Celda celdaDerecha = celda.celdaDerecha();
+		
+		//Pido el objeto movil de la celda que esta a la derecha
+		ObjetoMovil objetoMovil = celdaDerecha.objetoMovil();
+		
 		//Si todavia tiene alcance y no llego al 
-		if (  (alcance > 0 )   &&   (celdaDerecha != null) )
-		{	
-			//Si hay otro objeto movil en esa celda
-			ObjetoMovil objetoMovil = celdaDerecha.objetoMovil();
-			if(objetoMovil!=null)
-			{	
+		if (  (alcance > 0 )   &&   (objetoMovil != null) )
+			
+			
+			//if(objetoMovil!=null)
+			//{	
 				//Le pasa el visitor, si es enemigo lo ataca, si es otro disparo no hace nada.
-				objetoMovil.aceptar(new VisitorDisparo(this));
-			} 
-			else 
-			{
+		objetoMovil.aceptar(new VisitorDisparo(this));
+			//} 
+		else 
+		{
 				//Guarda la posicion actual
 				int xAnterior = celda.getX();
 				int yAnterior = celda.getY();
@@ -50,12 +53,8 @@ public class Disparo extends ObjetoMovil
 
 				//Decrementa el alcance
 				alcance--;
-			}
 		}
-		else
-		{
-			destruir();
-		}
+		
 	}
 	
 	

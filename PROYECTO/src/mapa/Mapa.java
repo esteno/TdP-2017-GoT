@@ -141,8 +141,14 @@ public class Mapa
 	
 	public ObjetoMovil getObjeto(Celda c)
 	{
-		return matrizMovil[c.getX()][c.getY()];
+		int x = c.getX();
+		int y = c.getY();
+		ObjetoMovil toReturn = null;
+		if (  y <= (matrizMovil[x].length-1)  )
+		    toReturn = matrizMovil[x][y];
+		return toReturn;
 	}
+	
 	
 	public void generarDisparo(int x, int y) {
 		juego.generarDisparo(x, y);
