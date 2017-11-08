@@ -42,8 +42,10 @@ public class Gui implements Runnable
 	private JFrame frame;
 	
 	private Juego juego;
-	private final int ALTO = 8;
-	private final int ANCHO = 16;
+	private final int ALTO = 8; // cantidad de filas
+	private final int ANCHO = 16; // cantidad de columnas
+	
+	
 	private final int ALTO_IMG = 50; // antes 32
 	private final int ANCHO_IMG = 50; // antes 32
 	
@@ -90,7 +92,7 @@ public class Gui implements Runnable
 	public Gui() 
 	{
 		frame = new JFrame("NIGHT KING DEFENSE");
-		frame.setBounds(100, 100, 1000, 600);
+		frame.setBounds(100, 100, 600, 1000);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		initialize();
@@ -134,9 +136,9 @@ public class Gui implements Runnable
 		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
 		
 		
-		for(int i = 0; i < ANCHO; i++) 
+		for(int i = 0; i < ALTO; i++) 
 		{
-			for (int j = 0; j < ALTO; j++) 
+			for (int j = 0; j < ANCHO; j++) 
 			{
 				ImageIcon imagen = graficos[i][j].getImagen();
 				int ancho = imagen.getIconWidth();
@@ -336,7 +338,8 @@ public class Gui implements Runnable
 		boolean encontre = false;
 		for(int i = 0; !encontre && i < arrComponents.length; i++ ) {
 			Component comp = arrComponents[i];
-			if(comp.getBounds().x == x*ANCHO_IMG && comp.getBounds().y == y*ALTO_IMG) {
+			if(comp.getBounds().x == x*ALTO_IMG && comp.getBounds().y == y*ANCHO_IMG) 
+			{
 				encontre = true;
 				label = (JLabel) arrComponents[i];
 			}

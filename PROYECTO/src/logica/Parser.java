@@ -25,8 +25,8 @@ public class Parser
 	}
 	
 	public Celda[][] parsearNivel(String path) {
-		Celda[][] arregloCeldas = new Celda[ancho][alto];
-		System.out.println("ancho "+ancho+" alto "+alto);
+		Celda[][] arregloCeldas = new Celda[alto][ancho];
+		System.out.println("fila"+alto+" columna "+ancho);
 		Celda celda = null;
 		try {
             FileReader fileReader = new FileReader(path);
@@ -50,7 +50,7 @@ public class Parser
     						celda.setObjetoDeMapa(new ObjetoLago());
     						break;
     				}
-    				arregloCeldas[j][i] = celda;
+    				arregloCeldas[i][j] = celda;
     			}
     		}
             

@@ -13,6 +13,9 @@ import premio.*;
 
 public class Mapa 
 { 
+	
+	
+	
 	//Matriz que va a contener las celdas que conforman el mapa.
 	private Celda[][] matrizCeldas;
 	
@@ -25,37 +28,63 @@ public class Mapa
 	private ObjetoMovil[][] matrizMovil;
 	
 	private Juego juego;
+	
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
+	
+	
+	
+	
+	
+	
 	
 	
 	public Mapa(Juego juego, int alto, int ancho)
 	{
-		matrizCeldas = new Celda[ancho][alto];
-		matrizDeObjetoDeMapa = new ObjetoDeMapa[ancho][alto];
-		matrizEstatica = new GameObject[ancho][alto];
-		matrizMovil = new ObjetoMovil[ancho][alto];
+		// alto = cantidad de FILAS
+		// ancho = cantidad de COLUMNAS
+		matrizCeldas = new Celda[alto][ancho];
+		matrizDeObjetoDeMapa = new ObjetoDeMapa[alto][ancho];
+		matrizEstatica = new GameObject[alto][ancho];
+		matrizMovil = new ObjetoMovil[alto][ancho];
 		
 		this.juego = juego;
 	}
 	
-	public void cambiarMapa(Celda[][] celdas) {
+	
+	
+	
+	public void cambiarMapa(Celda[][] celdas) 
+	{
 		matrizCeldas = celdas;
-		for(int i = 0; i < matrizCeldas.length; i++) {
-			for(int j = 0; j < matrizCeldas[0].length; j++) {
-				ObjetoDeMapa objeto = matrizCeldas[i][j].getObjetoDeMapa();
-				if(objeto != null) {
-					matrizDeObjetoDeMapa[i][j] = objeto;
+		
+		for(int fila = 0; fila < matrizCeldas.length; fila++) 
+		{
+			for(int columna = 0; columna < matrizCeldas[0].length; columna++)
+			{
+				ObjetoDeMapa objeto = matrizCeldas[fila][columna].getObjetoDeMapa();
+				if(objeto != null) 
+				{
+					matrizDeObjetoDeMapa[fila][columna] = objeto;
 				}
 			}
 		}
-		
 	}
 	
-	public Celda celdaIzquierda(Celda celdaActual) {
-		Celda celdaArriba = null;
-		if(celdaActual.getX() != 0)
-			celdaArriba = matrizCeldas[celdaActual.getX()- 1][celdaActual.getY()];
-		return celdaArriba;
+	
+	
+	
+	public Celda celdaIzquierda(Celda celdaActual) 
+	{
+		Celda celdaIzquierda = null;
+		int fila = celdaActual.getX();
+		int columna = celdaActual.getY();
+		
+		if( columna > 0)
+		{
+			celdaIzquierda = matrizCeldas[fila][columna-1];
+		}
+		
+		return celdaIzquierda;
 	}
 	
 	

@@ -64,7 +64,7 @@ public class Juego
 		
 		
 		
-		controlDeOleadas = new ControlDeOleadas(this, alto);
+		controlDeOleadas = new ControlDeOleadas(this);
 		controlDisparo = new ControlDisparo(this);
 		controlDeDefensa = new ControlDeDefensa(this);
 		
@@ -122,6 +122,8 @@ public class Juego
 		return puedoAgregar;
 	}
 	
+	
+	
 	public void moverEnemigoGrafico(ObjetoMovil o){
 		gui.moverEnemigoGrafico(o);
 	}
@@ -140,7 +142,8 @@ public class Juego
 	}
 	
 	
-	public int getAncho() {
+	public int getAncho() 
+	{
 		return ancho - 1;
 	}
 	

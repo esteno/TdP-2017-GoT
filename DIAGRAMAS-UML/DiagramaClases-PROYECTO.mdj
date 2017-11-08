@@ -31697,6 +31697,34 @@
 											"text": "+curacion(): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFfmTWhw5CHkFI=",
+											"_parent": {
+												"$ref": "AAAAAAFflFXQhhP5lUM="
+											},
+											"model": {
+												"$ref": "AAAAAAFfmTWhE5A2q6Y="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 3245,
+											"top": 3918,
+											"width": 113.09619140625,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+Operation1()",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5
 										}
 									],
 									"visible": true,
@@ -31711,7 +31739,7 @@
 									"left": 3240,
 									"top": 3883,
 									"width": 123.09619140625,
-									"height": 38,
+									"height": 53,
 									"autoResize": false
 								},
 								{
@@ -31775,7 +31803,7 @@
 							"left": 3240,
 							"top": 3848,
 							"width": 123.09619140625,
-							"height": 73,
+							"height": 88,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
@@ -32070,7 +32098,7 @@
 								"$ref": "AAAAAAFeWhbyA1yDZLg="
 							},
 							"lineStyle": 1,
-							"points": "3289:4095;3288:4056;3304:4056;3302:3921",
+							"points": "3289:4095;3288:4056;3304:4056;3302:3936",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -32210,7 +32238,7 @@
 								"$ref": "AAAAAAFeWhclDV2pWTI="
 							},
 							"lineStyle": 1,
-							"points": "3494:4103;3496:4056;3304:4056;3302:3921",
+							"points": "3494:4103;3496:4056;3304:4056;3302:3936",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -47531,6 +47559,20 @@
 									"direction": "return"
 								}
 							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFfmTWhE5A2q6Y=",
+							"_parent": {
+								"$ref": "AAAAAAFflFXQgxPwmC4="
+							},
+							"name": "Operation1",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
 							"concurrency": "sequential",
 							"isQuery": false,
 							"isAbstract": false
