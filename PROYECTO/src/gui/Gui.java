@@ -65,6 +65,8 @@ public class Gui implements Runnable
 	private JButton btnJorgito;
 	
 	private List<ObjetoMovil> moviles;
+	private List<ObjetoMovil> movilesDescarte;
+	
 
 	/**
 	 * Launch the application.
@@ -101,6 +103,7 @@ public class Gui implements Runnable
 	private void initialize() 
 	{
 		moviles= new LinkedList<ObjetoMovil>();
+		movilesDescarte= new LinkedList<ObjetoMovil>();
 		panelMapa = new JLayeredPane();
 		panelMapa.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelMapa.setBounds(0,0,ANCHO*ANCHO_IMG,ALTO*ALTO_IMG);
@@ -297,7 +300,7 @@ public class Gui implements Runnable
 		boolean estado=true;
 		while(estado){
 			try {
-				Thread.sleep(100);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -306,11 +309,16 @@ public class Gui implements Runnable
 			for(ObjetoMovil o : moviles) {
 				System.out.println("Tamaño de moviles "+moviles.size());
 				if(!o.moverGrafico()){
-					moviles.remove(o);
+					movilesDescarte.add(o);
 					o.Lock(false);
 				}
 				repintar();
 			}
+			for(ObjetoMovil o : movilesDescarte){
+				moviles.remove(o);
+			}
+			if(movilesDescarte.size()>0)
+				movilesDescarte.clear();
 		}
 	}
 	
