@@ -74,6 +74,13 @@ public class ControlDeOleadas implements Runnable {
 						enemigo.avanzar();
 					}
 				}
+				
+				// si la cantidad de enemigos es mayor a 
+				
+				
+				
+				
+				
 				//Si no hay mas enemigos y aun hay oleadas, se crea una nueva
 				if(listaEnemigos.size() == 0 && cantOleadas != 0) {
 					System.out.println("nueva oleada");

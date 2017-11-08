@@ -49,6 +49,8 @@ public class Juego
 	
 	
 	
+	
+	
 	public Juego(Gui gui, int alto, int ancho) 
 	{
 		this.alto = alto;
