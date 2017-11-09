@@ -157,12 +157,12 @@ public class Gui implements Runnable
 		JPanel panelPuntaje = new JPanel();
 		panelPuntaje.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelPuntaje.setBackground(SystemColor.menu);
-		panelPuntaje.setBounds(171, 11, 117, 81);
+		panelPuntaje.setBounds(171, 11, 92, 81);
 		panelMapa.add(panelPuntaje);
 		panelPuntaje.setLayout(null);
 		
 		labelPuntaje = new JLabel("Puntaje: 0");
-		labelPuntaje.setBounds(26, 11, 64, 14);
+		labelPuntaje.setBounds(10, 31, 64, 14);
 		panelPuntaje.add(labelPuntaje);
 		
 		panelPersonajes = new JPanel();
@@ -188,20 +188,20 @@ public class Gui implements Runnable
 		
 		JPanel paneloObjetosPreciosos = new JPanel();
 		paneloObjetosPreciosos.setBorder(new LineBorder(new Color(0, 0, 0)));
-		paneloObjetosPreciosos.setBounds(455, 11, 519, 81);
+		paneloObjetosPreciosos.setBounds(362, 11, 302, 81);
 		panelMapa.add(paneloObjetosPreciosos);
 		paneloObjetosPreciosos.setLayout(null);
 		
 		JButton botonBomba = new JButton("");
 		botonBomba.setEnabled(false);
 		botonBomba.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBomba.png"));
-		botonBomba.setBounds(152, 11, 92, 59);
+		botonBomba.setBounds(10, 11, 92, 59);
 		paneloObjetosPreciosos.add(botonBomba);
 		
 		JButton botonBarricada = new JButton("");
 		botonBarricada.setEnabled(false);
 		botonBarricada.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBarricada.png"));
-		botonBarricada.setBounds(279, 11, 89, 59);
+		botonBarricada.setBounds(106, 11, 89, 59);
 		paneloObjetosPreciosos.add(botonBarricada);
 		
 		JButton botonFuegovalyrio = new JButton("");
@@ -211,21 +211,17 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		botonFuegovalyrio.setBounds(402, 11, 92, 59);
+		botonFuegovalyrio.setBounds(200, 11, 92, 59);
 		paneloObjetosPreciosos.add(botonFuegovalyrio);
-		
-		JLabel lblPremios = new JLabel("OBJETOS PRECIOSOS: ");
-		lblPremios.setBounds(10, 23, 132, 47);
-		paneloObjetosPreciosos.add(lblPremios);
 		
 		JPanel panelMonedas = new JPanel();
 		panelMonedas.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelMonedas.setBounds(315, 11, 117, 81);
+		panelMonedas.setBounds(267, 11, 92, 81);
 		panelMapa.add(panelMonedas);
 		panelMonedas.setLayout(null);
 		
 		JLabel lblMonedas = new JLabel("Monedas:  0");
-		lblMonedas.setBounds(10, 11, 97, 14);
+		lblMonedas.setBounds(10, 33, 72, 14);
 		panelMonedas.add(lblMonedas);
 		
 		JLabel label = new JLabel("");
