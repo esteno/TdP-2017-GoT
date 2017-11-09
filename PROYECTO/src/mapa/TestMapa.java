@@ -4,6 +4,8 @@ import celdas.Celda;
 import gui.Gui;
 import logica.Juego;
 
+
+/*
 public class TestMapa 
 {
 
@@ -30,3 +32,4 @@ public class TestMapa
 	}
 
 }
+*/
