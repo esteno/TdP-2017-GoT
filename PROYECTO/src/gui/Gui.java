@@ -42,10 +42,8 @@ public class Gui implements Runnable
 	private JFrame frame;
 	
 	private Juego juego;
-	private final int ALTO = 8; // cantidad de filas
-	private final int ANCHO = 16; // cantidad de columnas
-	
-	
+	private final int ALTO = 8;
+	private final int ANCHO = 16;
 	private final int ALTO_IMG = 50; // antes 32
 	private final int ANCHO_IMG = 50; // antes 32
 	
@@ -67,8 +65,6 @@ public class Gui implements Runnable
 	private JButton btnJorgito;
 	
 	private List<ObjetoMovil> moviles;
-	private List<ObjetoMovil> movilesDescarte;
-	
 
 	/**
 	 * Launch the application.
@@ -92,7 +88,7 @@ public class Gui implements Runnable
 	public Gui() 
 	{
 		frame = new JFrame("NIGHT KING DEFENSE");
-		frame.setBounds(100, 100, 600, 1000);
+		frame.setBounds(100, 100, 1000, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		initialize();
@@ -105,7 +101,6 @@ public class Gui implements Runnable
 	private void initialize() 
 	{
 		moviles= new LinkedList<ObjetoMovil>();
-		movilesDescarte= new LinkedList<ObjetoMovil>();
 		panelMapa = new JLayeredPane();
 		panelMapa.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelMapa.setBounds(0,0,ANCHO*ANCHO_IMG,ALTO*ALTO_IMG);
@@ -136,9 +131,9 @@ public class Gui implements Runnable
 		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
 		
 		
-		for(int i = 0; i < ALTO; i++) 
+		for(int i = 0; i < ANCHO; i++) 
 		{
-			for (int j = 0; j < ANCHO; j++) 
+			for (int j = 0; j < ALTO; j++) 
 			{
 				ImageIcon imagen = graficos[i][j].getImagen();
 				int ancho = imagen.getIconWidth();
@@ -186,41 +181,46 @@ public class Gui implements Runnable
 		panelPersonajes.add(btnJorgito);
 		
 		JButton botonYgritte = new JButton("");
-		botonYgritte.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\defensa\\ygretteespera.gif"));
-		botonYgritte.setBounds(10, 76, 83, 66);
+		botonYgritte.setEnabled(false);
+		botonYgritte.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\defensa\\ygrette.png"));
+		botonYgritte.setBounds(10, 76, 89, 50);
 		panelPersonajes.add(botonYgritte);
 		
-		JButton btnDragon = new JButton("Drogon");
-		btnDragon.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\defensa\\blackdragonespera.gif"));
-		btnDragon.setBounds(10, 153, 83, 54);
-		panelPersonajes.add(btnDragon);
-		
-		JPanel paneloExplosivos = new JPanel();
-		paneloExplosivos.setBorder(new LineBorder(new Color(0, 0, 0)));
-		paneloExplosivos.setBounds(425, 11, 228, 81);
-		panelMapa.add(paneloExplosivos);
-		paneloExplosivos.setLayout(null);
+		JPanel paneloObjetosPreciosos = new JPanel();
+		paneloObjetosPreciosos.setBorder(new LineBorder(new Color(0, 0, 0)));
+		paneloObjetosPreciosos.setBounds(455, 11, 519, 81);
+		panelMapa.add(paneloObjetosPreciosos);
+		paneloObjetosPreciosos.setLayout(null);
 		
 		JButton botonBomba = new JButton("");
 		botonBomba.setEnabled(false);
-		botonBomba.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\objetosPreciosos\\iconoBomba.png"));
-		botonBomba.setBounds(95, 11, 63, 59);
-		paneloExplosivos.add(botonBomba);
+		botonBomba.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBomba.png"));
+		botonBomba.setBounds(152, 11, 92, 59);
+		paneloObjetosPreciosos.add(botonBomba);
 		
-		JButton botonMina = new JButton("");
-		botonMina.setEnabled(false);
-		botonMina.setIcon(null);
-		botonMina.setBounds(159, 11, 63, 59);
-		paneloExplosivos.add(botonMina);
+		JButton botonBarricada = new JButton("");
+		botonBarricada.setEnabled(false);
+		botonBarricada.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBarricada.png"));
+		botonBarricada.setBounds(279, 11, 89, 59);
+		paneloObjetosPreciosos.add(botonBarricada);
 		
-		JLabel labelExplosivos = new JLabel("EXPLOSIVOS: ");
-		labelExplosivos.setHorizontalAlignment(SwingConstants.TRAILING);
-		labelExplosivos.setBounds(0, 23, 85, 47);
-		paneloExplosivos.add(labelExplosivos);
+		JButton botonFuegovalyrio = new JButton("");
+		botonFuegovalyrio.setEnabled(false);
+		botonFuegovalyrio.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\botonFuegoValyrio.png"));
+		botonFuegovalyrio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		botonFuegovalyrio.setBounds(402, 11, 92, 59);
+		paneloObjetosPreciosos.add(botonFuegovalyrio);
+		
+		JLabel lblPremios = new JLabel("OBJETOS PRECIOSOS: ");
+		lblPremios.setBounds(10, 23, 132, 47);
+		paneloObjetosPreciosos.add(lblPremios);
 		
 		JPanel panelMonedas = new JPanel();
 		panelMonedas.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelMonedas.setBounds(298, 11, 117, 81);
+		panelMonedas.setBounds(315, 11, 117, 81);
 		panelMapa.add(panelMonedas);
 		panelMonedas.setLayout(null);
 		
@@ -229,7 +229,7 @@ public class Gui implements Runnable
 		panelMonedas.add(lblMonedas);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\monedas.gif"));
+		label.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\monedas.gif"));
 		label.setBounds(37, 25, 70, 45);
 		panelMonedas.add(label);
 		
@@ -302,7 +302,7 @@ public class Gui implements Runnable
 		boolean estado=true;
 		while(estado){
 			try {
-				Thread.sleep(500);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -311,16 +311,11 @@ public class Gui implements Runnable
 			for(ObjetoMovil o : moviles) {
 				System.out.println("Tamaño de moviles "+moviles.size());
 				if(!o.moverGrafico()){
-					movilesDescarte.add(o);
+					moviles.remove(o);
 					o.Lock(false);
 				}
 				repintar();
 			}
-			for(ObjetoMovil o : movilesDescarte){
-				moviles.remove(o);
-			}
-			if(movilesDescarte.size()>0)
-				movilesDescarte.clear();
 		}
 	}
 	
@@ -338,8 +333,7 @@ public class Gui implements Runnable
 		boolean encontre = false;
 		for(int i = 0; !encontre && i < arrComponents.length; i++ ) {
 			Component comp = arrComponents[i];
-			if(comp.getBounds().x == x*ALTO_IMG && comp.getBounds().y == y*ANCHO_IMG) 
-			{
+			if(comp.getBounds().x == x*ANCHO_IMG && comp.getBounds().y == y*ALTO_IMG) {
 				encontre = true;
 				label = (JLabel) arrComponents[i];
 			}
