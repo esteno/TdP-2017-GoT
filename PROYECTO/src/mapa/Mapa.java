@@ -13,9 +13,6 @@ import premio.*;
 
 public class Mapa 
 { 
-	
-	
-	
 	//Matriz que va a contener las celdas que conforman el mapa.
 	private Celda[][] matrizCeldas;
 	
@@ -28,80 +25,45 @@ public class Mapa
 	private ObjetoMovil[][] matrizMovil;
 	
 	private Juego juego;
-	
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
-	
-	
-	
-	
-	
-	
 	
 	
 	public Mapa(Juego juego, int alto, int ancho)
 	{
-		// alto = cantidad de FILAS
-		// ancho = cantidad de COLUMNAS
-		matrizCeldas = new Celda[alto][ancho];
-		matrizDeObjetoDeMapa = new ObjetoDeMapa[alto][ancho];
-		matrizEstatica = new GameObject[alto][ancho];
-		matrizMovil = new ObjetoMovil[alto][ancho];
+		matrizCeldas = new Celda[ancho][alto];
+		matrizDeObjetoDeMapa = new ObjetoDeMapa[ancho][alto];
+		matrizEstatica = new GameObject[ancho][alto];
+		matrizMovil = new ObjetoMovil[ancho][alto];
 		
 		this.juego = juego;
 	}
 	
-	
-	
-	
-	public void cambiarMapa(Celda[][] celdas) 
-	{
+	public void cambiarMapa(Celda[][] celdas) {
 		matrizCeldas = celdas;
-		
-		for(int fila = 0; fila < matrizCeldas.length; fila++) 
-		{
-			for(int columna = 0; columna < matrizCeldas[0].length; columna++)
-			{
-				ObjetoDeMapa objeto = matrizCeldas[fila][columna].getObjetoDeMapa();
-				if(objeto != null) 
-				{
-					matrizDeObjetoDeMapa[fila][columna] = objeto;
+		for(int i = 0; i < matrizCeldas.length; i++) {
+			for(int j = 0; j < matrizCeldas[0].length; j++) {
+				ObjetoDeMapa objeto = matrizCeldas[i][j].getObjetoDeMapa();
+				if(objeto != null) {
+					matrizDeObjetoDeMapa[i][j] = objeto;
 				}
 			}
 		}
-	}
-	
-	
-	
-	
-	public Celda celdaIzquierda(Celda celdaActual) 
-	{
-		Celda celdaIzquierda = null;
-		int fila = celdaActual.getX();
-		int columna = celdaActual.getY();
 		
-		if( columna > 0)
-		{
-			celdaIzquierda = matrizCeldas[fila][columna-1];
-		}
-		
-		return celdaIzquierda;
 	}
 	
-	
-	
-	
-	public Celda celdaDerecha(Celda celdaActual) 
-	{
-		int x = celdaActual.getX();
-		Celda celdaDerecha = null;
-		if( celdaActual.getY() < (matrizCeldas[x].length-1) )
-			celdaDerecha = matrizCeldas[x][celdaActual.getY()+1];
-		return celdaDerecha;
+	public Celda celdaIzquierda(Celda celdaActual) {
+		Celda celdaArriba = null;
+		if(celdaActual.getX() != 0)
+			celdaArriba = matrizCeldas[celdaActual.getX()- 1][celdaActual.getY()];
+		return celdaArriba;
 	}
 	
-	
-	
-	
+	public Celda celdaDerecha(Celda celdaActual) {
+		Celda celdaAbajo = null;
+		if(celdaActual.getX() != matrizCeldas.length-1)
+			celdaAbajo = matrizCeldas[celdaActual.getX()+1][celdaActual.getY()];
+		return celdaAbajo;
+	}
 	
 	public GameObjectGrafico[][] getGraficos() {
 		GameObjectGrafico[][] toReturn = new GameObjectGrafico[matrizCeldas.length][matrizCeldas[0].length];
@@ -170,25 +132,20 @@ public class Mapa
 	
 	public ObjetoMovil getObjeto(Celda c)
 	{
-		int x = c.getX();
-		int y = c.getY();
-		ObjetoMovil toReturn = null;
-		if (  y <= (matrizMovil[x].length-1)  )
-		    toReturn = matrizMovil[x][y];
-		return toReturn;
+		return matrizMovil[c.getX()][c.getY()];
 	}
 	
 	
 	public void generarDisparo(int x, int y) {
 		juego.generarDisparo(x, y);
 	}
-	
 
 	public void generarDisparoDoble(int x, int y, int z) {
 		juego.generarDisparoDoble(x, y,z);
 		
 	}
-
+	
+	
 	public void crearMuro() {
 		for(int i = 0; i<matrizEstatica[0].length; i++) {
 			Defensa muro = new Muro(juego);

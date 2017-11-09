@@ -49,8 +49,6 @@ public class Juego
 	
 	
 	
-	
-	
 	public Juego(Gui gui, int alto, int ancho) 
 	{
 		this.alto = alto;
@@ -64,7 +62,7 @@ public class Juego
 		
 		
 		
-		controlDeOleadas = new ControlDeOleadas(this);
+		controlDeOleadas = new ControlDeOleadas(this, alto);
 		controlDisparo = new ControlDisparo(this);
 		controlDeDefensa = new ControlDeDefensa(this);
 		
@@ -122,8 +120,6 @@ public class Juego
 		return puedoAgregar;
 	}
 	
-	
-	
 	public void moverEnemigoGrafico(ObjetoMovil o){
 		gui.moverEnemigoGrafico(o);
 	}
@@ -142,8 +138,7 @@ public class Juego
 	}
 	
 	
-	public int getAncho() 
-	{
+	public int getAncho() {
 		return ancho - 1;
 	}
 	
@@ -151,12 +146,16 @@ public class Juego
 	public void generarDisparo(int x, int y) {
 		controlDisparo.agregarDisparo(x, y);
 	}
+
 	
 	public void generarDisparoDoble(int x, int y, int z) {
 		controlDisparo.agregarDisparoDoble(x, y,z);
 		
 	}
-
+	
+	
+	
+	
 	//Dibuja una defense en x,y
 	public void dibujarDefensa(int x, int y, GameObject obj) {
 		gui.dibujarDefensa(x, y, obj);
@@ -181,6 +180,5 @@ public class Juego
 	{
 		return controlDeDefensa.getListaDefensa();
 	}
-
 	
 }
