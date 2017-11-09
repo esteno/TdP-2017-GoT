@@ -36,9 +36,12 @@ public class Mapa
 		matrizMovil = new ObjetoMovil[ancho][alto];
 		
 		this.juego = juego;
+		
+		
 	}
 	
-	public void cambiarMapa(Celda[][] celdas) {
+	public void cambiarMapa(Celda[][] celdas) 
+	{
 		matrizCeldas = celdas;
 		for(int i = 0; i < matrizCeldas.length; i++) {
 			for(int j = 0; j < matrizCeldas[0].length; j++) {
@@ -170,6 +173,13 @@ public class Mapa
 		return l;
 		
 		
+	}
+	
+	
+	
+	public Celda [][] getMatriz()
+	{
+		return matrizCeldas;
 	}
 
 }
