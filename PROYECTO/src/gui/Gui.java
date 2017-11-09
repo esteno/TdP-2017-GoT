@@ -233,34 +233,6 @@ public class Gui implements Runnable
 		label.setBounds(37, 25, 70, 45);
 		panelMonedas.add(label);
 		
-		JPanel panelMagiaTemporal = new JPanel();
-		panelMagiaTemporal.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelMagiaTemporal.setBounds(171, 502, 600, 48);
-		panelMapa.add(panelMagiaTemporal);
-		panelMagiaTemporal.setLayout(null);
-		
-		JLabel lblMagiaTemporal = new JLabel("MAGIA TEMPORAL: ");
-		lblMagiaTemporal.setBounds(28, 23, 135, 14);
-		panelMagiaTemporal.add(lblMagiaTemporal);
-		
-		JButton botonCampoProteccion = new JButton("");
-		botonCampoProteccion.setEnabled(false);
-		botonCampoProteccion.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\gemaceleste.png"));
-		botonCampoProteccion.setBounds(202, 11, 89, 30);
-		panelMagiaTemporal.add(botonCampoProteccion);
-		
-		JButton botonDanioDoble = new JButton("");
-		botonDanioDoble.setEnabled(false);
-		botonDanioDoble.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\gemaroja.png"));
-		botonDanioDoble.setBounds(338, 11, 89, 30);
-		panelMagiaTemporal.add(botonDanioDoble);
-		
-		JButton botonCuracion = new JButton("");
-		botonCuracion.setEnabled(false);
-		botonCuracion.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\gemaverde.png"));
-		botonCuracion.setBounds(479, 11, 89, 30);
-		panelMagiaTemporal.add(botonCuracion);
-		
 		//panelControl = new JPanel();
 		/*panelControl.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelControl.setBackground(new Color(255, 0, 255));
