@@ -21,8 +21,8 @@ public class Celda
 	//atributos
     protected Mapa mapa;
     //Posicion de la celda dentro del mapa.
-    protected int fila; // seria el X
-    protected int columna; // seria el Y
+    protected int x;
+    protected int y;
     
     //Objeto grafico que se muestra en pantalla
     protected GameObjectGrafico grafico;
@@ -33,128 +33,81 @@ public class Celda
     public Celda(Mapa m, int x, int y)
     {
     	mapa=m;
-    	fila=x;
-    	columna=y;
+    	this.x=x;
+    	this.y=y;
     	grafico = FabricaObjetoGrafico.getInstancia().construirGraficoCeldaComun();
     }
     
    
     
     //metodos
-    
     public int getX()
-    {
-    	return fila; 
-    }
-    
-    
+    {return x; }
     
     public int getY()
-    {
-    	return columna; 
-    }
+    {return y; }
     
-    
-    
-    
-    public GameObjectGrafico getGrafico() 
-    {
-    	GameObjectGrafico grafico = null;
-    	
-    	if(objeto != null) 
-    	{
-    		grafico = objeto.getGrafico();
+    public GameObjectGrafico getGrafico() {
+    	if(objeto != null) {
+    		return objeto.getGrafico();
     	}
     	return grafico;
     }
     
-    
-    
-    
-    public void setObjetoDeMapa(ObjetoDeMapa obj) 
-    {
+    public void setObjetoDeMapa(ObjetoDeMapa obj) {
     	objeto = obj;
     }
     
-    
-    
-    public double getMultiVelocidad()
-    {
+    public double getMultiVelocidad() {
     	double toReturn = 1.0;
-    	if(objeto != null) 
-    	{
+    	if(objeto != null) {
     		toReturn = objeto.getMultiVelocidad();
     	}
     	return toReturn;
     }
     
-    
-    
-    public ObjetoDeMapa getObjetoDeMapa() 
-    {
+    public ObjetoDeMapa getObjetoDeMapa() {
     	return objeto;
     }
-    
-    
     
     public Celda celdaIzquierda() 
     {
     	return mapa.celdaIzquierda(this);
     }
     
-    
-    
     public Celda celdaDerecha()
     {
     	return mapa.celdaDerecha(this);
     }
     
-    
-    
-    //Devuelve el objeto movil que est√° sobre esta celda
+    //Devuelve el objeto movil que est· sobre esta celda
     public ObjetoMovil objetoMovil() 
     {
     	return mapa.getObjeto(this);
     }
     
-    
-    
     //Mueve un enemigo de la posicion (xAnterior, yAnterior) a su nueva posicion (x,y).
-    public void moverEnemigo(ObjetoMovil o,int xAnterior, int yAnterior) 
-    {
-    	mapa.moverEnemigo(o,fila, columna, xAnterior, yAnterior);
+    public void moverEnemigo(ObjetoMovil o,int xAnterior, int yAnterior) {
+    	mapa.moverEnemigo(o,x, y, xAnterior, yAnterior);
     }
-    
-    
     
     //Elemina un objeto movil del juego
     public void destruirObjetoMovil() 
     {
-    	mapa.eliminarObjetoMovil(fila, columna);
+    	mapa.eliminarObjetoMovil(x, y);
     }
-    
-    
     
     //Genera un nuevo disparo en esta celda
     public void generarDisparo() {
-    	mapa.generarDisparo(fila, columna);
+    	mapa.generarDisparo(x, y);
     }
-    
-    
-    
 
     //Devuelve el objeto estatico sobre esta celda.
-	public GameObject getEstatico() 
-	{
+	public GameObject getEstatico() {
 		return mapa.getEstatico(this);
 	}
-	
-	
-	
-	
 
-	public List<ObjetoMovil> adyacentes() 
-	{
+	public List<ObjetoMovil> adyacentes() {
 		
 		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
 		l=mapa.adyacentes(this);
