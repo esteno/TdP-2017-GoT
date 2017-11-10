@@ -2,9 +2,14 @@ package estadoEnemigo;
 
 public abstract class EstadoMultiplicador 
 {
-	protected double multiplicador;
+	protected double multiplicadorAtaque;
+	protected double multiplicadorVida;
 	
-	public double multiplicador() {
-		return multiplicador;
+	public double multiplicadorAtaque() {
+		return multiplicadorAtaque;
+	}
+	
+	public double multiplicadorVida() {
+		return multiplicadorVida;
 	}
 }

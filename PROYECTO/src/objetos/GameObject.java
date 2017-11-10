@@ -14,10 +14,10 @@ public abstract class GameObject
 	//atributos
 	protected GameObjectGrafico grafico;
 	protected Celda celda;
-	protected int puntos_vida; // de vida de cada objeto
+	protected int puntosVida; // de vida de cada objeto
 	protected boolean isRunning = true;
 	protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
-	protected int fuerza_impacto; // cuanta vida consume al atacar
+	protected int fuerzaImpacto; // cuanta vida consume al atacar
 	protected int alcance;
 	
 	//metodos
@@ -50,13 +50,13 @@ public abstract class GameObject
 	
 	public int getFuerzaImpacto()
 	{
-		return fuerza_impacto;
+		return fuerzaImpacto;
 	}
 
 	
 	public int getPuntosVida()
 	{
-		return puntos_vida;
+		return puntosVida;
 	}
 	
 	
@@ -67,8 +67,8 @@ public abstract class GameObject
 	
 	public void recibirAtaque(int i)
 	{
-		puntos_vida=-i;
-		if(puntos_vida < 0) {
+		puntosVida=-i;
+		if(puntosVida < 0) {
 			destruir();
 		}
 	}

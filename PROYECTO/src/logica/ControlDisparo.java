@@ -25,20 +25,11 @@ public class ControlDisparo implements Runnable {
 		
 	}
 	
-	public void agregarDisparo(int x, int y) {
+	public void agregarDisparo(Disparo disparo, int x, int y) {
 		//Agrega un disparo nuevo
-		Disparo disparoNuevo = new Disparo();
+		Disparo disparoNuevo = disparo;
 		listaInsercion.add(disparoNuevo);
 		juego.agregarObjetoMovil(disparoNuevo, x, y);
-	}
-	
-
-	public void agregarDisparoDoble(int x, int y, int z) {
-		//Agrega un disparo doble nuevo
-				Disparo disparoNuevo = new Disparo();
-				listaInsercion.add(disparoNuevo);
-				juego.agregarObjetoMovil(disparoNuevo, x, y);
-				juego.agregarObjetoMovil(disparoNuevo, x, z);	
 	}
 	
 	public void run() {

@@ -6,6 +6,7 @@ import java.util.List;
 import ObjetoDeMapa.ObjetoDeMapa;
 import celdas.Celda;
 import defensa.*;
+import disparos.Disparo;
 import logica.FabricaDeDefensa;
 import logica.Juego;
 import objetos.*;
@@ -57,14 +58,14 @@ public class Mapa
 	public Celda celdaIzquierda(Celda celdaActual) {
 		Celda celdaArriba = null;
 		if(celdaActual.getX() != 0)
-			celdaArriba = matrizCeldas[celdaActual.getX()- 1][celdaActual.getY()];
+			celdaArriba = matrizCeldas[celdaActual.getX() - 1][celdaActual.getY()];
 		return celdaArriba;
 	}
 	
 	public Celda celdaDerecha(Celda celdaActual) {
 		Celda celdaAbajo = null;
 		if(celdaActual.getX() != matrizCeldas.length-1)
-			celdaAbajo = matrizCeldas[celdaActual.getX()+1][celdaActual.getY()];
+			celdaAbajo = matrizCeldas[celdaActual.getX() + 1][celdaActual.getY()];
 		return celdaAbajo;
 	}
 	
@@ -139,13 +140,9 @@ public class Mapa
 	}
 	
 	
-	public void generarDisparo(int x, int y) {
-		juego.generarDisparo(x, y);
-	}
-
-	public void generarDisparoDoble(int x, int y, int z) {
-		juego.generarDisparoDoble(x, y,z);
-		
+	public void generarDisparo(Disparo disparo, int x, int y) {
+		agregarObjetoMovil(disparo, x, y);
+		juego.generarDisparo(disparo, x, y);
 	}
 	
 	

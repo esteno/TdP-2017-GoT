@@ -5,6 +5,7 @@ import java.util.List;
 
 import ObjetoDeMapa.ObjetoDeMapa;
 import defensa.Defensa;
+import disparos.Disparo;
 import logica.FabricaObjetoGrafico;
 import mapa.Mapa;
 import objetos.GameObject;
@@ -80,7 +81,7 @@ public class Celda
     	return mapa.celdaDerecha(this);
     }
     
-    //Devuelve el objeto movil que está sobre esta celda
+    //Devuelve el objeto movil que estï¿½ sobre esta celda
     public ObjetoMovil objetoMovil() 
     {
     	return mapa.getObjeto(this);
@@ -98,8 +99,8 @@ public class Celda
     }
     
     //Genera un nuevo disparo en esta celda
-    public void generarDisparo() {
-    	mapa.generarDisparo(x, y);
+    public void generarDisparo(Disparo disparo) {
+    	mapa.generarDisparo(disparo, x, y);
     }
 
     //Devuelve el objeto estatico sobre esta celda.

@@ -18,6 +18,7 @@ public abstract class Defensa extends GameObject
      //Contador que se va decrementando, cuando llega a 0 la defensa ataca.
      protected int proximoAtaque;
      
+     
     
      
      

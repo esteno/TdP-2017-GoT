@@ -6,11 +6,11 @@ import colisiones.VisitorDisparo;
 
 public class Disparo extends ObjetoMovil 
 {
-	public Disparo() 
+	public Disparo(double danio) 
 	{
 		velocidad=8;
 		alcance = 30;
-		fuerza_impacto = 1000;
+		fuerzaImpacto = (int) Math.floor(danio);
 		grafico = fabricaGrafica.construirGraficoDisparo();
 	}
 	

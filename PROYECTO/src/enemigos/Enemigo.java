@@ -28,7 +28,7 @@ public abstract class Enemigo extends ObjetoMovil
 	//La fuerza de ataque es la fuerza de impacto por el estado de ataque, redondeado a un entero.
 	public int getFuerzaImpacto()
 	{
-		return (int) Math.floor(fuerza_impacto*estado.multiplicador());
+		return (int) Math.floor(fuerzaImpacto*estado.multiplicadorAtaque());
 	}
 
 	
@@ -62,7 +62,7 @@ public abstract class Enemigo extends ObjetoMovil
 	
 	public void destruir() 	{
 		//Los puntos de vida se ponen en cero para poder ser removida de la lista de control
-		puntos_vida=0;
+		puntosVida=0;
 		grafico.destruir();
 		//celda.destruirObjetoMovil();	
 	}

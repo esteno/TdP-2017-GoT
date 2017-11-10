@@ -198,7 +198,7 @@ public class Gui implements Runnable
 		
 		JButton botonBomba = new JButton("");
 		botonBomba.setEnabled(false);
-		botonBomba.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBomba.png"));
+		botonBomba.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoBomba.png"));
 		botonBomba.setBounds(10, 11, 92, 59);
 		paneloObjetosPreciosos.add(botonBomba);
 		

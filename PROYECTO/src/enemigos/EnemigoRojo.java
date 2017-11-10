@@ -9,7 +9,7 @@ public class EnemigoRojo extends Enemigo {
 		grafico = fabricaGrafica.construirGraficoEnemigoRojo();
 	    velocidad=-5;
 	    puntos=100;
-	    puntos_vida=2;
+	    puntosVida=2;
 	}
 
 }

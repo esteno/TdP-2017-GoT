@@ -10,7 +10,7 @@ public class Muro extends Defensa {
 		juego = j;
 		velocidadAtaque = 0;
 		proximoAtaque = 0;
-		puntos_vida = 100000;
+		puntosVida = 100000;
 		grafico = fabricaGrafica.construirGraficoMuro();
 	}
 	@Override

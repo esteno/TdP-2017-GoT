@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 
 import celdas.Celda;
 import defensa.*;
+import disparos.Disparo;
 import enemigos.Enemigo;
 import gui.*;
 
@@ -143,15 +144,10 @@ public class Juego
 	}
 	
 	//Genera un nuevo disparo en x,y
-	public void generarDisparo(int x, int y) {
-		controlDisparo.agregarDisparo(x, y);
+	public void generarDisparo(Disparo disparo, int x, int y) {
+		controlDisparo.agregarDisparo(disparo, x, y);
 	}
 
-	
-	public void generarDisparoDoble(int x, int y, int z) {
-		controlDisparo.agregarDisparoDoble(x, y,z);
-		
-	}
 	
 	
 	
