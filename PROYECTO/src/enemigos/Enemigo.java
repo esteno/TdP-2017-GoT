@@ -18,6 +18,8 @@ public abstract class Enemigo extends ObjetoMovil
 	protected Visitor visitor;
 	protected int puntos; //puntos que devuelve al ser destruido
 	
+	protected boolean atacando=false;
+	
 	public Enemigo() {
 		visitor = new VisitorEnemigo(this);
 		bloqueado=false;
@@ -32,29 +34,30 @@ public abstract class Enemigo extends ObjetoMovil
 	
 	public void avanzar(){
 
-		if(!Lock(true)){
-		//Si la celda es nula quiere decir que llego al borde izquierdo del mapa.
-		Celda celdaNueva = celda.celdaIzquierda();
-			if(celdaNueva != null) 	{
-				//Guarda la posicion acutal
-				int xAnterior = celda.getX();
-				int yAnterior = celda.getY();
-				
-				//Si ya se puede mover y no hay nada en la celda adyacente se mueve
-				if(contVelocidad <= 0 && celdaNueva.objetoMovil() == null){	
-					celda = celdaNueva;
-					bloqueado=true;
-					celda.moverEnemigo(this,xAnterior, yAnterior);
-					contVelocidad = velocidad;
+		if(!atacando)
+			if(!Lock(true)){
+			//Si la celda es nula quiere decir que llego al borde izquierdo del mapa.
+			Celda celdaNueva = celda.celdaIzquierda();
+				if(celdaNueva != null) 	{
+					//Guarda la posicion acutal
+					int xAnterior = celda.getX();
+					int yAnterior = celda.getY();
+					
+					//Si ya se puede mover y no hay nada en la celda adyacente se mueve
+					if(contVelocidad <= 0 && celdaNueva.objetoMovil() == null){	
+						celda = celdaNueva;
+						bloqueado=true;
+						celda.moverEnemigo(this,xAnterior, yAnterior);
+						contVelocidad = velocidad;
+					}
+					else {
+						//descuenta de contador
+						contVelocidad -= 100*celda.getMultiVelocidad();
+					}
 				}
-				else {
-					//descuenta de contador
-					contVelocidad -= 100*celda.getMultiVelocidad();
-				}
+				else 
+					destruir();
 			}
-			else 
-				destruir();
-		}
 	}
 	
 	public void destruir() 	{
@@ -77,7 +80,10 @@ public abstract class Enemigo extends ObjetoMovil
 		GameObject defensa = celdaIzq.getEstatico();
 		if(defensa != null) {
 			visitor.visitarDefensa(defensa);
+			atacando=true;
+			System.out.println("Atacaaaa");
 		}
+		else atacando=false;
 	}
 
 	public void setEstado(EstadoMultiplicador estado) {

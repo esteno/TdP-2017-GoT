@@ -70,7 +70,6 @@ public class ControlDeOleadas implements Runnable {
 						listaDescarte.add(enemigo);
 					}
 					else {
-						enemigo.atacar();
 						enemigo.avanzar();
 					}
 				}

@@ -65,6 +65,8 @@ public class Gui implements Runnable
 	private JButton btnJorgito;
 	
 	private List<ObjetoMovil> moviles;
+	private List<ObjetoMovil> aBorrar;
+	private List<ObjetoMovil> aAgregar;
 
 	/**
 	 * Launch the application.
@@ -101,6 +103,8 @@ public class Gui implements Runnable
 	private void initialize() 
 	{
 		moviles= new LinkedList<ObjetoMovil>();
+		aBorrar= new LinkedList<ObjetoMovil>();
+		aAgregar= new LinkedList<ObjetoMovil>();
 		panelMapa = new JLayeredPane();
 		panelMapa.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelMapa.setBounds(0,0,ANCHO*ANCHO_IMG,ALTO*ALTO_IMG);
@@ -261,12 +265,10 @@ public class Gui implements Runnable
 	
 	public void moverEnemigoGrafico(ObjetoMovil o) 
 	{
-		moviles.add(o);
-		System.out.println("agrego un obj");
+		aAgregar.add(o);
 	}
 	
 	public void run(){
-		System.out.println("startttttttttttttt  "+moviles.isEmpty());
 		boolean estado=true;
 		while(estado){
 			try {
@@ -275,15 +277,24 @@ public class Gui implements Runnable
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println("Quiere mover");
+			
+			for(ObjetoMovil o : aAgregar){
+				moviles.add(o);
+			}
+			aAgregar.clear();
+			
 			for(ObjetoMovil o : moviles) {
-				System.out.println("Tamaño de moviles "+moviles.size());
 				if(!o.moverGrafico()){
-					moviles.remove(o);
+					aBorrar.add(o);
 					o.Lock(false);
 				}
 				repintar();
 			}
+			
+			for(ObjetoMovil o : aBorrar){
+				moviles.remove(o);
+			}
+			aBorrar.clear();
 		}
 	}
 	
