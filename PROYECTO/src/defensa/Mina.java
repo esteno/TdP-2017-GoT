@@ -23,12 +23,8 @@ public class Mina extends Explosivo{
 	
 	public void atacar() {
 		
-		destruir();
-	}
-	
-	public void destruir(){
-		
 		for (ObjetoMovil c:getCelda().getMapa().adyacentes(getCelda()))
 			c.aceptar(v);
+		destruir();
 	}
 }

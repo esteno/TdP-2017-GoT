@@ -45,15 +45,6 @@ public class VisitorEnemigo extends Visitor
     }
 
 
-	public void visitarBomba(Bomba b) 
-	{
-		// TODO Auto-generated method stub
-		
-		miEnemigo.recibirAtaque(b.getFuerzaImpacto());
-	    b.destruir();	
-	}
-
-
 	public void visitarFuegoValyrio(FuegoValyrio f) 
 	{
 		// TODO Auto-generated method stub
@@ -62,12 +53,6 @@ public class VisitorEnemigo extends Visitor
 	    miEnemigo.recibirAtaque(miEnemigo.getFuerzaImpacto()); 	
 	    f.destruir();
 	    miEnemigo.destruir();
-	}
-
-	
-	public void visitarMina(Mina m) {
-		// TODO Auto-generated method stub
-		
 	}
 
 

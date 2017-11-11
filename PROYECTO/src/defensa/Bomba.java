@@ -26,12 +26,9 @@ public class Bomba extends Explosivo{
 	
 	public void atacar() {
 		
+		for (ObjetoMovil c:getCelda().getMapa().adyacentes(getCelda()))
+			c.aceptar(v);
 		destruir();
 	}
 	
-	public void destruir(){
-		
-		for (ObjetoMovil c:getCelda().getMapa().adyacentes(getCelda()))
-			c.aceptar(v);
-	}
 }
