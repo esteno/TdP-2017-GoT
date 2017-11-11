@@ -1,8 +1,5 @@
 package colisiones;
 import objetos.*;
-import defensa.*;
-import defensa.Bomba;
-import defensa.Mina;
 import enemigos.*;
 import disparos.*;
 import obstaculo.*;
