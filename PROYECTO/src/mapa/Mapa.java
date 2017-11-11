@@ -141,7 +141,6 @@ public class Mapa
 	
 	
 	public void generarDisparo(Disparo disparo, int x, int y) {
-		agregarObjetoMovil(disparo, x, y);
 		juego.generarDisparo(disparo, x, y);
 	}
 	
