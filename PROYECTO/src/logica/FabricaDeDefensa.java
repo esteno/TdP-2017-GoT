@@ -31,6 +31,11 @@ public class FabricaDeDefensa
 		defensaCreada=new Bomba();	
 	}
 	
+	public void construirMina() {
+
+		defensaCreada=new Mina();
+	}
+	
 	public Defensa getDefensa() {
 		return defensaCreada;
 	}
@@ -38,6 +43,5 @@ public class FabricaDeDefensa
 	public void reset() {
 		defensaCreada = null;
 	}
-
 	
 }

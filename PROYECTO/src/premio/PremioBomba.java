@@ -5,7 +5,7 @@ import logica.*;
 public class PremioBomba{
 	
 	private FabricaDeDefensa f;
-	static int c=0;
+	private static int c=0;
 	public PremioBomba(FabricaDeDefensa fab){
 		
 		f=fab;
