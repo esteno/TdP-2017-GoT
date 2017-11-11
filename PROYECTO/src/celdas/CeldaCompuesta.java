@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ObjetoDeMapa.ObjetoDeMapa;
+import disparos.Disparo;
 import logica.FabricaObjetoGrafico;
 import mapa.Mapa;
 import objetos.GameObject;
@@ -98,8 +99,9 @@ public class CeldaCompuesta extends Celda
 	    }
 	    
 	    //Genera un nuevo disparo en esta celda
-	    public void generarDisparo() {
-	    	mapa.generarDisparoDoble(x, y,z);
+	    public void generarDisparo(Disparo disparo) {
+	    	mapa.generarDisparo(disparo,x, y);
+	    	mapa.generarDisparo(disparo,x, z);
 	    }
 
 	    //Devuelve el objeto estatico sobre esta celda.

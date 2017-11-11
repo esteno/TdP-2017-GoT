@@ -1,6 +1,8 @@
 package colisiones;
 import objetos.*;
 import defensa.*;
+import defensa.Bomba;
+import defensa.Mina;
 import enemigos.*;
 import disparos.*;
 import obstaculo.*;
@@ -14,10 +16,6 @@ public abstract class Visitor
 	public abstract void visitarEnemigo(Enemigo e);
 	
 	public abstract void visitarDisparo(Disparo d);
-	
-	public abstract void visitarBomba(Bomba b);
-	
-	public abstract void visitarMina(Mina m);
 	
 	public abstract void visitarFuegoValyrio(FuegoValyrio f);
 	

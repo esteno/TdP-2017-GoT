@@ -116,9 +116,9 @@ public class FabricaObjetoGrafico
 		return new GameObjectGrafico("res/imagenes/disparo/mina.png");
 	}
 
-	public GameObjectGrafico construirGraficoExplosivo() {
+	public GameObjectGrafico construirGraficoBomba() {
 		
-		return new GameObjectGrafico("res/imagenes/disparo/explosivo.png");
+		return new GameObjectGrafico("res/imagenes/disparo/bomba.png");
 	}
 	
 }

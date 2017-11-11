@@ -5,9 +5,9 @@ import enemigos.Enemigo;
 import objetos.*;
 import disparos.*;
 import obstaculo.*;
-import premio.Bomba;
+import defensa.Bomba;
 import premio.CampoProteccion;
-import premio.Mina;
+import defensa.Mina;
 
 
 public class VisitorEnemigo extends Visitor
@@ -45,19 +45,15 @@ public class VisitorEnemigo extends Visitor
     }
 
 
-	@Override
-	public void visitarBomba(Bomba m) 
+	public void visitarBomba(Bomba b) 
 	{
 		// TODO Auto-generated method stub
 		
-		miEnemigo.recibirAtaque(m.getFuerzaImpacto());
-	    m.destruir();	
+		miEnemigo.recibirAtaque(b.getFuerzaImpacto());
+	    b.destruir();	
 	}
 
 
-	
-
-	@Override
 	public void visitarFuegoValyrio(FuegoValyrio f) 
 	{
 		// TODO Auto-generated method stub
@@ -68,8 +64,7 @@ public class VisitorEnemigo extends Visitor
 	    miEnemigo.destruir();
 	}
 
-
-	@Override
+	
 	public void visitarMina(Mina m) {
 		// TODO Auto-generated method stub
 		

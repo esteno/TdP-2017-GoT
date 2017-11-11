@@ -1,0 +1,30 @@
+package premio;
+
+import logica.*;
+
+public class PremioBomba{
+	
+	private FabricaDeDefensa f;
+	static int c=0;
+	public PremioBomba(FabricaDeDefensa fab){
+		
+		f=fab;
+	}
+
+	public void aumentarBombas(){
+		
+		c++;
+	}
+	
+	public boolean hayBombas() {
+		
+		return c>0;
+	}
+	
+	public void agregarBomba() {
+		
+		if (c>0)
+			f.construirBomba();
+	}
+	
+}

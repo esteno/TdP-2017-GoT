@@ -114,5 +114,8 @@ public class Celda
 		l=mapa.adyacentes(this);
 		return l;
 	}
+	public Mapa getMapa() {
+		return mapa;
+	}
 
 }

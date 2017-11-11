@@ -22,7 +22,13 @@ public class FabricaDeDefensa
 	}
 	
 	public void construirJorgito() {
+		
 		defensaCreada = new Jorgito();
+	}
+	
+	public void construirBomba() {
+
+		defensaCreada=new Bomba();	
 	}
 	
 	public Defensa getDefensa() {
@@ -32,4 +38,6 @@ public class FabricaDeDefensa
 	public void reset() {
 		defensaCreada = null;
 	}
+
+	
 }

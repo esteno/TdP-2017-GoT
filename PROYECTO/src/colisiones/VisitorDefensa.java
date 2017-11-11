@@ -4,10 +4,9 @@ package colisiones;
 import defensa.Defensa;
 import disparos.*;
 import enemigos.Enemigo;
-import enemigos.Enemigo.*;
-import premio.Bomba;
+import defensa.Bomba;
 import premio.CampoProteccion;
-import premio.Mina;
+import defensa.Mina;
 import objetos.*;
 import obstaculo.FuegoValyrio;
 
@@ -46,27 +45,27 @@ public class VisitorDefensa extends Visitor
 	    	 System.out.println("Un defensor ha visitado un disparo. No hay accion.");
 	     }
 
-		@Override
-		public void visitarBomba(Bomba b) 
-		{
+
+		public void visitarBomba(Bomba b){
+			
+			// TODO Auto-generated method stub
+		}
+
+
+		public void visitarMina(Mina m){
+			
 			// TODO Auto-generated method stub
 		}
 
 		@Override
-		public void visitarMina(Mina m) 
-		{
+		public void visitarFuegoValyrio(FuegoValyrio f){
+			
 			// TODO Auto-generated method stub
 		}
 
 		@Override
-		public void visitarFuegoValyrio(FuegoValyrio f)
-		{
-			// TODO Auto-generated method stub
-		}
-
-		@Override
-		public void visitarCampoProteccion(CampoProteccion c) 
-		{
+		public void visitarCampoProteccion(CampoProteccion c){
+			
 			// TODO Auto-generated method stub
 		}
 
