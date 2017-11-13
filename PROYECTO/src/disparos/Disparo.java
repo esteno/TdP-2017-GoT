@@ -8,7 +8,7 @@ public class Disparo extends ObjetoMovil
 {
 	protected int alcance;
 	
-	protected Visitor visitorDisparo;
+	protected Visitor visitor;
 	
 	
 	public Disparo(double danio) 
@@ -87,7 +87,7 @@ public class Disparo extends ObjetoMovil
 	@Override
 	public Visitor getVisitor() {
 		// TODO Auto-generated method stub
-		return visitorDisparo;
+		return visitor;
 	}
 
 

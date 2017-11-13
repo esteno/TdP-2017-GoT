@@ -15,13 +15,13 @@ public abstract class Enemigo extends ObjetoMovil
 	protected EstadoMultiplicador estado;
 	
 	//Visitor que usa la clase
-	protected Visitor visitorEnemigo;
+	protected Visitor visitor;
 	protected int puntos; //puntos que devuelve al ser destruido
 	
 	protected boolean atacando=false;
 	
 	public Enemigo() {
-		visitorEnemigo = new VisitorEnemigo(this);
+		visitor = new VisitorEnemigo(this);
 		bloqueado=false;
 	}
 	
@@ -79,7 +79,7 @@ public abstract class Enemigo extends ObjetoMovil
 		Celda celdaIzq = celda.celdaIzquierda();
 		GameObject defensa = celdaIzq.getEstatico();
 		if(defensa != null) {
-			visitorEnemigo.visitarDefensa(defensa);
+			visitor.visitarDefensa(defensa);
 			atacando=true;
 			System.out.println("Atacaaaa");
 		}
@@ -94,7 +94,7 @@ public abstract class Enemigo extends ObjetoMovil
 	
 	public Visitor getVisitor()
 	{
-		return visitorEnemigo;
+		return visitor;
 	}
 
 }

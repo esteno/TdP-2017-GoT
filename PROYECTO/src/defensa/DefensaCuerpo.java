@@ -21,7 +21,7 @@ public abstract class DefensaCuerpo extends Personaje
 		// si hay objeto movil, lo visita.
 		if(objetoMovil != null)
 		{
-			aceptar(objetoMovil.getVisitor());
+			objetoMovil.aceptar(visitor);
 		}
 	}
 	
