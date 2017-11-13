@@ -2,6 +2,8 @@ package objetos;
 
 import javax.swing.JLabel;
 
+import colisiones.Visitor;
+
 public abstract class ObjetoMovil extends GameObject
 {
 	
@@ -30,5 +32,7 @@ public abstract class ObjetoMovil extends GameObject
 		actual.setBounds(x, actual.getBounds().y, 50, 50);
 		return toret;
 	}
+	
+	public abstract Visitor getVisitor();
 	
 }

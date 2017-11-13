@@ -8,6 +8,9 @@ public class Disparo extends ObjetoMovil
 {
 	protected int alcance;
 	
+	protected Visitor visitorDisparo;
+	
+	
 	public Disparo(double danio) 
 	{
 		velocidad=8;
@@ -78,6 +81,13 @@ public class Disparo extends ObjetoMovil
 	
 	public int getAlcance() {
 		return alcance;
+	}
+
+
+	@Override
+	public Visitor getVisitor() {
+		// TODO Auto-generated method stub
+		return visitorDisparo;
 	}
 
 
