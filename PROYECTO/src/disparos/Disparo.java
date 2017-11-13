@@ -29,7 +29,7 @@ public class Disparo extends ObjetoMovil
 		//Pide la celda a la que se va a mover
 		Celda celdaNueva = celda.celdaDerecha();
 		//Si todavia tiene alcance y no llego al 
-		if(alcance > 0 || celdaNueva != null) 
+		if(alcance > 0 && celdaNueva != null) 
 		{	
 			//Si hay otro objeto movil en esa celda
 			ObjetoMovil objetoMovil = celdaNueva.objetoMovil();
@@ -48,7 +48,7 @@ public class Disparo extends ObjetoMovil
 				celda = celdaNueva;
 
 				//Se mueve
-				celda.moverEnemigo(this,xAnterior, yAnterior);
+				celda.moverEnemigo(xAnterior, yAnterior);
 
 				//Decrementa el alcance
 				alcance--;

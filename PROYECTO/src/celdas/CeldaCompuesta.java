@@ -54,9 +54,9 @@ public class CeldaCompuesta extends Celda
 	    
 	    
 	    //Mueve un enemigo de la posicion (xAnterior, yAnterior) a su nueva posicion (x,y).
-	    public void moverEnemigo(ObjetoMovil o,int xAnterior, int yAnterior) {
-	    	mapa.moverEnemigo(o,x, y, xAnterior, yAnterior);
-	    	mapa.moverEnemigo(o,x, z, xAnterior, yAnterior);
+	    public void moverEnemigo(int xAnterior, int yAnterior) {
+	    	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
+	    	mapa.moverEnemigo(x, z, xAnterior, yAnterior);
 	    }
 	    
 	    //Genera un nuevo disparo en esta celda

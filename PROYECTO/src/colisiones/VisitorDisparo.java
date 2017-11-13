@@ -28,7 +28,7 @@ public class VisitorDisparo extends Visitor{
     public void visitarEnemigo(Enemigo e){
 		
     	//System.out.println("quiere destruir mi desparo");
-	    miDisparo.destruir();  //al visitar un enemigo el disparo de destruye poniendo el grafico en null
+	    //miDisparo.destruir();  //al visitar un enemigo el disparo de destruye poniendo el grafico en null
 		//System.out.println("quiere destruir mi enemigo");
 
 	    e.recibirAtaque(miDisparo.getFuerzaImpacto()); //por ahora destruye el enemigo

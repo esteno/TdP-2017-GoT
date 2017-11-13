@@ -60,11 +60,10 @@ public class Mapa
 	}
 	
 	public Celda celdaDerecha(Celda celdaActual) {
-		
-		Celda celdaAbajo = null;
-		if(celdaActual.getX() != matrizCeldas.length-1)
-			celdaAbajo = matrizCeldas[celdaActual.getX() + 1][celdaActual.getY()];
-		return celdaAbajo;
+		Celda celdaDerecha = null;
+		if(celdaActual.getX() <= matrizCeldas.length-1)
+			celdaDerecha = matrizCeldas[celdaActual.getX() + 1][celdaActual.getY()];
+		return celdaDerecha;
 	}
 	
 	public GameObjectGrafico[][] getGraficos() {
@@ -95,11 +94,11 @@ public class Mapa
 	}
 	
 	
-	public void moverEnemigo(ObjetoMovil o,int x, int y, int xAnterior, int yAnterior) {
+	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) {
 		
 		matrizMovil[x][y] = matrizMovil[xAnterior][yAnterior];
 		matrizMovil[xAnterior][yAnterior] = null;
-		juego.moverEnemigoGrafico(o);
+		juego.moverEnemigoGrafico(matrizMovil[x][y]);
 	}
  
  

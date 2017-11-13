@@ -47,7 +47,7 @@ public abstract class Enemigo extends ObjetoMovil
 					if(contVelocidad <= 0 && celdaNueva.objetoMovil() == null){	
 						celda = celdaNueva;
 						bloqueado=true;
-						celda.moverEnemigo(this,xAnterior, yAnterior);
+						celda.moverEnemigo(xAnterior, yAnterior);
 						contVelocidad = velocidad;
 					}
 					else {
