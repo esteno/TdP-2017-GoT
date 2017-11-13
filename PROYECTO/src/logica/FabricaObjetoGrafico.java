@@ -12,6 +12,8 @@ public class FabricaObjetoGrafico
 	private FabricaObjetoGrafico() 
 	{}
 	
+	
+	
 	public static FabricaObjetoGrafico getInstancia() 
 	{
 		if(instancia == null) 
@@ -29,30 +31,44 @@ public class FabricaObjetoGrafico
 	}
 	
 	
+	
+	
 	public GameObjectGrafico construirGraficoNieveProfunda() 
 	{
 		return new GameObjectGrafico("res/imagenes/celda/TerrenoNieveProfunda.png");
 	}
+	
+	
 	
 	public GameObjectGrafico construirGraficoLago() 
 	{
 		return new GameObjectGrafico("res/imagenes/celda/TerrenoLago.png");
 	}
 	
+	
 	//ENEMIGOS
 	public GameObjectGrafico construirGraficoEnemigoRojo() {
 		return new GameObjectGrafico("res/imagenes/enemigo/enemigo.png");
 	}
 	
+	
+	
 	public GameObjectGrafico construirGraficoZombi() {
 		return new GameObjectGrafico("res/imagenes/enemigo/zombicamina.gif");
 	}
+	
+	
 	public GameObjectGrafico construirOsoSalvaje() {
 		return new GameObjectGrafico("res/imagenes/enemigo/osocamina.gif");
 	}
+	
+	
+	
 	public GameObjectGrafico construirZombiFrio() {
 		return new GameObjectGrafico("res/imagenes/enemigo/zombipcamina.gif");
 	}
+	
+	
 	public GameObjectGrafico construirSalvaje() {
 		return new GameObjectGrafico("res/imagenes/enemigo/e1camina.gif");
 	}
@@ -61,12 +77,18 @@ public class FabricaObjetoGrafico
 	public GameObjectGrafico getZombiAtaca() {
 		return new GameObjectGrafico("res/imagenes/enemigo/zombiataca.gif");
 	}
+	
+	
 	public GameObjectGrafico getOsoSalvajeAtaca() {
 		return new GameObjectGrafico("res/imagenes/enemigo/osoataca.gif");
 	}
+	
+	
 	public GameObjectGrafico getZombiFrioAtaca() {
 		return new GameObjectGrafico("res/imagenes/enemigo/zombipataca.gif");
 	}
+	
+	
 	public GameObjectGrafico getSalvajeAtaca() {
 		return new GameObjectGrafico("res/imagenes/enemigo/e1ataca.gif");
 	}
@@ -76,20 +98,28 @@ public class FabricaObjetoGrafico
 		return new GameObjectGrafico("res/imagenes/enemigo/zombiaparece.gif");
 	}
 	
+	
 	///Enemigo Muere
 	
 	public GameObjectGrafico getZombiMuere() {
 		return new GameObjectGrafico("res/imagenes/enemigo/zombimuere.gif");
 	}
+	
+	
 	public GameObjectGrafico getOsoSalvajeMuere() {
 		return new GameObjectGrafico("res/imagenes/enemigo/osomuere.gif");
 	}
+	
+	
 	public GameObjectGrafico getZombiFrioMuere() {
 		return new GameObjectGrafico("res/imagenes/enemigo/zombipmuere.gif");
 	}
+	
+	
 	public GameObjectGrafico getSalvajeMuere() {
 		return new GameObjectGrafico("res/imagenes/enemigo/e1muere.gif");
 	}
+	
 	
 	// PERSONAJES
 	public GameObjectGrafico construirGraficoJorgito() 
@@ -100,7 +130,7 @@ public class FabricaObjetoGrafico
 	
 	
 	public GameObjectGrafico construirGraficoInmaculado(){
-		return new GameObjectGrafico("res/imagenes/enemigo/inmaculado.png");
+		return new GameObjectGrafico("");
 	}
 	
 	
@@ -110,12 +140,29 @@ public class FabricaObjetoGrafico
 	}
 	
 	
+	public GameObjectGrafico construirGraficoYgritte()
+	{
+		return new GameObjectGrafico("res/imagenes/defensa/ygretteataca.gif");
+	}
+	
+	
+	public GameObjectGrafico construirGraficoMountain()
+	{
+		return new GameObjectGrafico("res/imagenes/defensa/mountainataca.gif");
+	}
+	
+	
+	public GameObjectGrafico construirGraficoGendry()
+	{
+		return new GameObjectGrafico("res/imagenes/defensa/gendryataca.gif");
+	}
 	
 	//DEFENSA
 	
 	public GameObjectGrafico construirGraficoMuro() {
 		return new GameObjectGrafico("res/imagenes/defensa/muro.png");
 	}
+	
 	
 	public GameObjectGrafico construirGraficoCampoProtector() {
 		return new GameObjectGrafico("res/imagenes/defensa/campoProtector.png");
@@ -131,11 +178,13 @@ public class FabricaObjetoGrafico
 		return new GameObjectGrafico("res/imagenes/disparo/disparo.png");
 	}
 
+	
 	public GameObjectGrafico construirGraficoMina() {
 		
 		return new GameObjectGrafico("res/imagenes/disparo/mina.png");
 	}
 
+	
 	public GameObjectGrafico construirGraficoBomba() {
 		
 		return new GameObjectGrafico("res/imagenes/disparo/bomba.png");

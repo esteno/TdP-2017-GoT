@@ -1,17 +1,17 @@
 package defensa;
 
-public class Ygritte extends DefensaRango 
+public class Gendry extends DefensaCuerpo 
 {
 
-	public Ygritte() 
+	public Gendry()
 	{
 		// TODO Auto-generated constructor stub
 		velocidadAtaque = 4;
 		proximoAtaque = 0;
 		puntosVida = 250;
-		fuerzaImpacto = 40;
+		fuerzaImpacto = 55;
 		precio = 250;
-		grafico = fabricaGrafica.construirGraficoYgritte();
+		grafico = fabricaGrafica.construirGraficoGendry();
 	}
 
 }

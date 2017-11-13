@@ -3,10 +3,13 @@ package defensa;
 public class Dragon extends DefensaRango {
 
 	public Dragon() 
-	{
-		// TODO Auto-generated constructor stub
+	{	
+		velocidadAtaque = 8;
+		proximoAtaque = 0;
+		puntosVida = 400;
+		fuerzaImpacto = 100;
+		precio = 450;
 		grafico = fabricaGrafica.construirGraficoDragon();
-		precio = 300;
 	}
 
 }

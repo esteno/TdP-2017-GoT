@@ -33,9 +33,9 @@ public class FabricaDeDefensa
 		defensaCreada = new Ygritte();
 	}
 	
-	public void construirDothraki()
+	public void construirMountain()
 	{
-		defensaCreada = new Dothraki();
+		defensaCreada = new Mountain();
 	}
 	
 	public void construirDragon()
@@ -48,9 +48,9 @@ public class FabricaDeDefensa
 		defensaCreada = new Inmaculado();
 	}
 	
-	public void construirJonSnow()
+	public void construirGendry()
 	{
-		defensaCreada = new JonSnow();
+		defensaCreada = new Gendry();
 	}
 	
 	public Defensa getDefensa() 

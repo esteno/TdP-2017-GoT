@@ -12432,7 +12432,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "Jon Snow",
+											"text": "Gendry",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -28753,11 +28753,11 @@
 											"containerExtending": false,
 											"left": 3525,
 											"top": 4391,
-											"width": 52.72998046875,
+											"width": 57.763671875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "Dothraki",
+											"text": "Mountain",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -28822,7 +28822,7 @@
 									"containerExtending": false,
 									"left": 3520,
 									"top": 4384,
-									"width": 62.72998046875,
+									"width": 67.763671875,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -28858,7 +28858,7 @@
 									"containerExtending": false,
 									"left": 3520,
 									"top": 4409,
-									"width": 62.72998046875,
+									"width": 67.763671875,
 									"height": 10,
 									"autoResize": false
 								},
@@ -28882,7 +28882,7 @@
 									"containerExtending": false,
 									"left": 3520,
 									"top": 4419,
-									"width": 62.72998046875,
+									"width": 67.763671875,
 									"height": 10,
 									"autoResize": false
 								},
@@ -28946,7 +28946,7 @@
 							"containerExtending": false,
 							"left": 3520,
 							"top": 4384,
-							"width": 62.72998046875,
+							"width": 67.763671875,
 							"height": 45,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
@@ -31523,7 +31523,7 @@
 											"containerExtending": false,
 											"left": 3245,
 											"top": 3855,
-											"width": 113.09619140625,
+											"width": 115,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -31592,7 +31592,7 @@
 									"containerExtending": false,
 									"left": 3240,
 									"top": 3848,
-									"width": 123.09619140625,
+									"width": 125,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -31628,7 +31628,7 @@
 									"containerExtending": false,
 									"left": 3240,
 									"top": 3873,
-									"width": 123.09619140625,
+									"width": 125,
 									"height": 10,
 									"autoResize": false
 								},
@@ -31662,7 +31662,7 @@
 											"containerExtending": false,
 											"left": 3245,
 											"top": 3888,
-											"width": 113.09619140625,
+											"width": 115,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -31690,7 +31690,7 @@
 											"containerExtending": false,
 											"left": 3245,
 											"top": 3903,
-											"width": 113.09619140625,
+											"width": 115,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -31718,7 +31718,7 @@
 											"containerExtending": false,
 											"left": 3245,
 											"top": 3918,
-											"width": 113.09619140625,
+											"width": 115,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -31738,7 +31738,7 @@
 									"containerExtending": false,
 									"left": 3240,
 									"top": 3883,
-									"width": 123.09619140625,
+									"width": 125,
 									"height": 53,
 									"autoResize": false
 								},
@@ -31802,7 +31802,7 @@
 							"containerExtending": false,
 							"left": 3240,
 							"top": 3848,
-							"width": 123.09619140625,
+							"width": 125,
 							"height": 88,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
@@ -32098,7 +32098,7 @@
 								"$ref": "AAAAAAFeWhbyA1yDZLg="
 							},
 							"lineStyle": 1,
-							"points": "3289:4095;3288:4056;3304:4056;3302:3936",
+							"points": "3289:4095;3288:4056;3304:4056;3303:3936",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -32238,7 +32238,7 @@
 								"$ref": "AAAAAAFeWhclDV2pWTI="
 							},
 							"lineStyle": 1,
-							"points": "3494:4103;3496:4056;3304:4056;3302:3936",
+							"points": "3494:4103;3496:4056;3304:4056;3303:3936",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -42910,7 +42910,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Jon Snow",
+					"name": "Gendry",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -46818,7 +46818,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Dothraki",
+					"name": "Mountain",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
