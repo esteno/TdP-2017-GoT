@@ -199,7 +199,7 @@ public class Gui implements Runnable
 		botonYgritte.setBounds(10, 76, 89, 50);
 		panelPersonajes.add(botonYgritte);
 		
-		// BOTON DOTHRAKI
+		// BOTON MOUNTAIN
 		JButton botonMountain = new JButton("Mountain");
 		botonMountain.addActionListener(new ActionListener() 
 		{
@@ -235,7 +235,7 @@ public class Gui implements Runnable
 		botonInmaculado.setBounds(10, 273, 89, 50);
 		panelPersonajes.add(botonInmaculado);
 		
-		// BOTON JON SNOW
+		// BOTON GENDRY
 		JButton botonGendry = new JButton("Gendry");
 		botonGendry.addActionListener(new ActionListener() 
 		{

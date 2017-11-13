@@ -8,8 +8,10 @@ package defensa;
 public abstract class DefensaCuerpo extends Personaje
 {
 	
-	public void atacar() {
-		
+	
+	public void atacar() 
+	{
+		//aceptar()
 	}
 	
 	

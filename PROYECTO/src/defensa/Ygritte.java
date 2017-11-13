@@ -11,6 +11,7 @@ public class Ygritte extends DefensaRango
 		puntosVida = 250;
 		fuerzaImpacto = 40;
 		precio = 250;
+		alcance = 0;
 		grafico = fabricaGrafica.construirGraficoYgritte();
 	}
 
