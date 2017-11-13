@@ -1,11 +1,12 @@
 package premio;
 
-import logica.*;
+import logica.FabricaDeDefensa;
 
 public class PremioBomba{
 	
 	private FabricaDeDefensa f;
 	private static int c=0;
+	
 	public PremioBomba(FabricaDeDefensa fab){
 		
 		f=fab;
