@@ -4,7 +4,6 @@ import objetos.*;
 import disparos.*;
 import enemigos.Enemigo;
 import obstaculo.*;
-import premio.CampoProteccion;
 
 
 public class VisitorDisparo extends Visitor{
@@ -47,11 +46,6 @@ public class VisitorDisparo extends Visitor{
 		// TODO Auto-generated method stub		
 	}
 
-	@Override
-	public void visitarCampoProteccion(CampoProteccion c) {
-		
-		// TODO Auto-generated method stub	
-	}
 
 
 

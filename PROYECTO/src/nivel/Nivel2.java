@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import enemigos.Enemigo;
-import estadoEnemigo.EstadoEnemigoNivel1;
+import estadoMultiplicador.EstadoEnemigoNivel1;
 import logica.BuilderDeOleadas;
 
 public class Nivel2 extends Nivel

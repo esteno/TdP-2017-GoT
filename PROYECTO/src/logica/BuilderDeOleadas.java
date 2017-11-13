@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import enemigos.*;
-import estadoEnemigo.EstadoMultiplicador;
+import estadoMultiplicador.EstadoMultiplicador;
 import objetos.ObjetoMovil;
 
 /**

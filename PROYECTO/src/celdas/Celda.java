@@ -105,7 +105,7 @@ public class Celda
 
     //Devuelve el objeto estatico sobre esta celda.
 	public GameObject getEstatico() {
-		return mapa.getEstatico(this);
+		return mapa.getEstatico(x, y);
 	}
 
 	public List<ObjetoMovil> adyacentes() {

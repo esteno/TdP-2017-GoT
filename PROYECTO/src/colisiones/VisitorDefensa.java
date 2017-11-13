@@ -5,7 +5,6 @@ import defensa.Defensa;
 import disparos.*;
 import enemigos.Enemigo;
 import defensa.Bomba;
-import premio.CampoProteccion;
 import defensa.Mina;
 import objetos.*;
 import obstaculo.FuegoValyrio;
@@ -56,12 +55,6 @@ public class VisitorDefensa extends Visitor
 
 		@Override
 		public void visitarFuegoValyrio(FuegoValyrio f){
-			
-			// TODO Auto-generated method stub
-		}
-
-		@Override
-		public void visitarCampoProteccion(CampoProteccion c){
 			
 			// TODO Auto-generated method stub
 		}

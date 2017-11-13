@@ -4,7 +4,6 @@ import enemigos.Enemigo;
 import objetos.*;
 import disparos.*;
 import obstaculo.*;
-import premio.CampoProteccion;
 
 
 public class VisitorEnemigo extends Visitor
@@ -46,13 +45,6 @@ public class VisitorEnemigo extends Visitor
 	    miEnemigo.recibirAtaque(miEnemigo.getFuerzaImpacto()); 	
 	    f.destruir();
 	    miEnemigo.destruir();
-	}
-
-	@Override
-	public void visitarCampoProteccion(CampoProteccion c) 
-	{
-		c.destruir();
-		miEnemigo.destruir();
 	}
 
 

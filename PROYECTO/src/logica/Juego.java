@@ -4,7 +4,6 @@ import mapa.*;
 import nivel.Nivel;
 import nivel.Niveles;
 import objetos.*;
-import objetos.GameObjectGrafico;
 
 import java.awt.image.BufferedImage;
 import java.util.List;
@@ -98,11 +97,19 @@ public class Juego
 		FabricaDeDefensa.getInstancia().reset();
 	}
 	
+	public void agregarDefensa(Defensa def, int x, int y)
+	{
+		
+		mapa.agregarDefensa(def, x, y);
+		controlDeDefensa.agregarDefensa(def);
+	}
+	
 	
 	//Elimina una defensa de mapa
 	public void eliminarDefensa(int x,int y )
 	{
-	    mapa.eliminarDefensa(x,y);  
+	    Defensa defensa = mapa.eliminarEstatico(x,y);
+	    controlDeDefensa.removerDefensa(defensa);
 	}
 	
 	

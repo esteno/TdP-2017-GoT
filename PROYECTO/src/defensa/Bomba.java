@@ -1,17 +1,17 @@
 package defensa;
 
+import logica.Temporal;
 import logica.Timer;
 import objetos.ObjetoMovil;
 import colisiones.*;
 
-public class Bomba extends Explosivo{
+public class Bomba extends Explosivo implements Temporal{
 
-	Timer t;
+	Timer timer;
 	Visitor v;
 	public Bomba() {	
 		
-		t=new Timer(this);
-		new Thread(t).start();
+		timer  = new Timer(this, 3000);
 		velocidadAtaque = 0;
 		proximoAtaque = 0;
 		grafico = fabricaGrafica.construirGraficoBomba();

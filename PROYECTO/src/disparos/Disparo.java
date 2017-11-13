@@ -6,6 +6,8 @@ import colisiones.VisitorDisparo;
 
 public class Disparo extends ObjetoMovil 
 {
+	protected int alcance;
+	
 	public Disparo(double danio) 
 	{
 		velocidad=8;
@@ -72,6 +74,10 @@ public class Disparo extends ObjetoMovil
 	public void atacar() 
 	{
 		// TODO Auto-generated method stub
+	}
+	
+	public int getAlcance() {
+		return alcance;
 	}
 
 

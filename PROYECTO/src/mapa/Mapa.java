@@ -20,7 +20,7 @@ public class Mapa
 	private ObjetoDeMapa[][] matrizDeObjetoDeMapa;
 	
 	//Matriz que tiene todo lo que son defensas del jugador y obstaculos
-	private GameObject[][] matrizEstatica;
+	private Defensa[][] matrizEstatica;
 	
 	//Matriz que contiene a los enemigos y los disparos de la defensa.
 	private ObjetoMovil[][] matrizMovil;
@@ -33,7 +33,7 @@ public class Mapa
 		
 		matrizCeldas = new Celda[ancho][alto];
 		matrizDeObjetoDeMapa = new ObjetoDeMapa[ancho][alto];
-		matrizEstatica = new GameObject[ancho][alto];
+		matrizEstatica = new Defensa[ancho][alto];
 		matrizMovil = new ObjetoMovil[ancho][alto];		
 		this.juego = juego;	
 	}
@@ -103,11 +103,10 @@ public class Mapa
 	}
  
  
-	public void eliminarDefensa(int x, int y){
-		
-			GameObject g=matrizEstatica[x][y];
-			matrizEstatica[x][y]=null;
-			g.destruir();
+	public Defensa eliminarEstatico(int x, int y){
+		Defensa defensa = matrizEstatica[x][y];
+		matrizEstatica[x][y]=null;
+		return defensa;
 	}
 	
 	public void eliminarObjetoMovil(int x, int y){
@@ -149,8 +148,8 @@ public class Mapa
 		
 	}
 
-	public GameObject getEstatico(Celda celda) {
-		return matrizEstatica[celda.getX()][celda.getY()];
+	public GameObject getEstatico(int x, int y) {
+		return matrizEstatica[x][y];
 	}
 	
 	public List<ObjetoMovil> adyacentes(Celda c) {

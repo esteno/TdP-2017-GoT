@@ -16,6 +16,5 @@ public abstract class Visitor
 	
 	public abstract void visitarFuegoValyrio(FuegoValyrio f);
 	
-	public abstract void visitarCampoProteccion(CampoProteccion c);
   	
 }

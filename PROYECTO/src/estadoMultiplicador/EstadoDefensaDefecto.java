@@ -1,4 +1,4 @@
-package estadoEnemigo;
+package estadoMultiplicador;
 
 public class EstadoDefensaDefecto extends EstadoMultiplicador {
 	

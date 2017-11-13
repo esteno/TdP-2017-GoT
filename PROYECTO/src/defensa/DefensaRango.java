@@ -9,6 +9,8 @@ import disparos.Disparo;
  */
 public abstract class DefensaRango extends Personaje {
 	
+	protected int alcance;
+	
 	
 	public void atacar() {
 		//Cuando la defensa de rango ataca crea un disparo en su posicion actual
@@ -20,6 +22,12 @@ public abstract class DefensaRango extends Personaje {
 		else {
 			proximoAtaque--;
 		}
+	}
+	
+	
+	public int getAlcance()
+	{
+		return alcance;
 	}
 
 }

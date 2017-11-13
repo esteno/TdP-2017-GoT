@@ -18,7 +18,7 @@ public abstract class GameObject
 	protected boolean isRunning = true;
 	protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
 	protected int fuerzaImpacto; // cuanta vida consume al atacar
-	protected int alcance;
+
 	
 	//metodos
 	public GameObjectGrafico getGrafico()
@@ -59,11 +59,7 @@ public abstract class GameObject
 		return puntosVida;
 	}
 	
-	
-	public int getAlcance()
-	{
-		return alcance;
-	}
+
 	
 	public void recibirAtaque(int i)
 	{

@@ -3,7 +3,7 @@ package enemigos;
 import celdas.Celda;
 import colisiones.Visitor;
 import colisiones.VisitorEnemigo;
-import estadoEnemigo.EstadoMultiplicador;
+import estadoMultiplicador.EstadoMultiplicador;
 import objetos.GameObject;
 import objetos.ObjetoMovil;
 

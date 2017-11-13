@@ -4,16 +4,19 @@ import objetos.GameObject;
 
 public class Timer implements Runnable{
 
-	GameObject gObject; 
+	Temporal temporal; 
+	private int sleep;
 	
-	public Timer(GameObject objeto){
-		gObject=objeto;
+	public Timer(Temporal temp, int tiempo){
+		temporal = temp;
+		sleep = tiempo;
+		new Thread(this).start();
 	}
 
 	public void run() {
 		try {
-			Thread.sleep(3000);
-			gObject.accionarPorTiempo();
+			Thread.sleep(sleep);
+			temporal.accionarPorTiempo();
 		} catch (InterruptedException e) {
 
 			e.printStackTrace();

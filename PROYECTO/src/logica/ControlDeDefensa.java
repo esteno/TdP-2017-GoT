@@ -27,8 +27,11 @@ public class ControlDeDefensa implements Runnable {
 	}
 	
 	public void agregarDefensa(Defensa defensa) {
-		System.out.println("agregada defensa");
 		listaInsercion.add(defensa);
+	}
+	
+	public void removerDefensa(Defensa defensa) {
+		listaDescarte.add(defensa);
 	}
 	
 	public void run() {

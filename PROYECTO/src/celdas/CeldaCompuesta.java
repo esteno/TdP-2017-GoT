@@ -31,48 +31,18 @@ public class CeldaCompuesta extends Celda
 	    
 	    //constructor 
 	    
-	    public CeldaCompuesta(Mapa m, int a, int b) {
-			super(m, a, b);
-			mapa=m;
-			c1=new Celda (m,a,b);
-			c2=new Celda (m,a,b+1);
-			x=a;
-			y=b;
-			z=c2.getY();
+	    public CeldaCompuesta(Mapa map, int x, int y) {
+			super(map, x, y);
+			mapa=map;
+			this.x=x;
+			this.y=y;
+			c1=new Celda (map, x, y);
+			c2=new Celda (map, x, y+1);
+			z=y+1;
 			grafico = FabricaObjetoGrafico.getInstancia().construirGraficoCeldaComun();
 		}
 	       
-	    //metodos
-	    public int getX(){
-	    	return x; 
-	    }
 	    
-	    public int getY(){
-	    	return y; 
-	    }
-	    
-	    public GameObjectGrafico getGrafico() {
-	    	if(objeto != null) {
-	    		return objeto.getGrafico();
-	    	}
-	    	return grafico;
-	    }
-	    
-	    public void setObjetoDeMapa(ObjetoDeMapa obj) {
-	    	objeto = obj;
-	    }
-	    
-	    public double getMultiVelocidad() {
-	    	double toReturn = 1.0;
-	    	if(objeto != null) {
-	    		toReturn = objeto.getMultiVelocidad();
-	    	}
-	    	return toReturn;
-	    }
-	    
-	    public ObjetoDeMapa getObjetoDeMapa() {
-	    	return objeto;
-	    }
 	    
 	    public Celda celdaIzquierda(){
 	    	return mapa.celdaIzquierda(c1);
@@ -82,10 +52,6 @@ public class CeldaCompuesta extends Celda
 	    	return mapa.celdaDerecha(c1);
 	    }
 	    
-	    //Devuelve el objeto movil que está sobre esta celda
-	    public ObjetoMovil objetoMovil(){
-	    	return mapa.getObjeto(this);
-	    }
 	    
 	    //Mueve un enemigo de la posicion (xAnterior, yAnterior) a su nueva posicion (x,y).
 	    public void moverEnemigo(ObjetoMovil o,int xAnterior, int yAnterior) {
@@ -93,27 +59,10 @@ public class CeldaCompuesta extends Celda
 	    	mapa.moverEnemigo(o,x, z, xAnterior, yAnterior);
 	    }
 	    
-	    //Elemina un objeto movil del juego
-	    public void destruirObjetoMovil(){
-	    	mapa.eliminarObjetoMovil(x, y);
-	    }
-	    
 	    //Genera un nuevo disparo en esta celda
 	    public void generarDisparo(Disparo disparo) {
 	    	mapa.generarDisparo(disparo,x, y);
 	    	mapa.generarDisparo(disparo,x, z);
 	    }
-
-	    //Devuelve el objeto estatico sobre esta celda.
-		public GameObject getEstatico() {
-			return mapa.getEstatico(this);
-		}
-
-		public List<ObjetoMovil> adyacentes() {
-			
-			List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
-			l=mapa.adyacentes(this);
-			return l;
-		}
 
 	}

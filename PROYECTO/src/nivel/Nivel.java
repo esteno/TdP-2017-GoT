@@ -3,7 +3,7 @@ package nivel;
 import java.util.List;
 
 import enemigos.Enemigo;
-import estadoEnemigo.EstadoMultiplicador;
+import estadoMultiplicador.EstadoMultiplicador;
 
 public abstract class Nivel 
 {
