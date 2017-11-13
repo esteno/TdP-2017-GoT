@@ -40,7 +40,7 @@ public class FabricaDeDefensa
 	
 	public void construirDragon()
 	{
-		//defensaCreada = new Dragon();
+		defensaCreada = new Dragon();
 	}
 	
 	public void construirInmaculado()

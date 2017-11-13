@@ -1,6 +1,6 @@
 package defensa;
 
-public abstract class Dragon extends DefensaRango {
+public class Dragon extends DefensaRango {
 
 	public Dragon() 
 	{
