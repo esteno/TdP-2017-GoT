@@ -59,10 +59,13 @@ public class Mapa
 		return celdaArriba;
 	}
 	
-	public Celda celdaDerecha(Celda celdaActual) {
+	public Celda celdaDerecha(Celda celdaActual) 
+	{
 		Celda celdaDerecha = null;
 		if(celdaActual.getX() <= matrizCeldas.length-1)
+		{
 			celdaDerecha = matrizCeldas[celdaActual.getX() + 1][celdaActual.getY()];
+		}
 		return celdaDerecha;
 	}
 	
@@ -77,6 +80,7 @@ public class Mapa
 		return toReturn;
 	}
 	
+	
 	public boolean agregarObjetoMovil(ObjetoMovil obj, int x, int y) {
 		
 		if(matrizMovil[x][y] == null) {
@@ -86,6 +90,7 @@ public class Mapa
 		}
 		return false;
 	}
+	
 	
 	public void moverMovilIzquierda(Celda celda, ObjetoMovil movil) {
 		

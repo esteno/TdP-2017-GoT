@@ -157,6 +157,13 @@ public class FabricaObjetoGrafico
 		return new GameObjectGrafico("res/imagenes/defensa/gendryataca.gif");
 	}
 	
+	
+	public GameObjectGrafico construirGraficoBronn()
+	{
+		return new GameObjectGrafico("");
+	}
+	
+	
 	//DEFENSA
 	
 	public GameObjectGrafico construirGraficoMuro() {

@@ -53,6 +53,12 @@ public class FabricaDeDefensa
 		defensaCreada = new Gendry();
 	}
 	
+	
+	public void construirBronn()
+	{
+		defensaCreada = new Bronn();
+	}
+	
 	public Defensa getDefensa() 
 	{
 		return defensaCreada;
