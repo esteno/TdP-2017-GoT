@@ -2,11 +2,9 @@ package premio;
 
 
 import logica.FabricaDeDefensa;
-import logica.Timer;
 
 public class PremioMina{
 
-	Timer t;
 	private FabricaDeDefensa f;
 	private static int c=0;
 	

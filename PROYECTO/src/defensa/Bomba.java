@@ -15,15 +15,5 @@ public class Bomba extends Explosivo implements Temporal{
 		grafico = fabricaGrafica.construirGraficoBomba();
 		puntosVida=1;
 	}
-
-	public void recibirAtaque(int i) {
-		
-		atacar();
-	}
-	
-	public void atacar() {
-		
-		destruir();
-	}
 	
 }

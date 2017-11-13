@@ -20,7 +20,7 @@ public class VisitorExplosivo extends Visitor
 	     }
 	     
 	     //metodos
-	     @Override
+
 	     public void visitarDefensa(GameObject d){
 	    	 
 	    	 d.recibirAtaque(miExplosivo.getFuerzaImpacto());
@@ -43,7 +43,6 @@ public class VisitorExplosivo extends Visitor
 			// TODO Auto-generated method stub
 		}
 
-		@Override
 		public void visitarExplosivo(GameObject ex) {
 
 			System.out.println("Las bombas no se dañan entre si");

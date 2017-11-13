@@ -11,8 +11,13 @@ public abstract class Explosivo extends Defensa{
 	
 	public void recibirAtaque(int i) {
 		
-		destruir();
+		atacar();
 	
+	}
+	
+	public void atacar() {
+		
+		destruir();
 	}
 	
 	public void destruir() {

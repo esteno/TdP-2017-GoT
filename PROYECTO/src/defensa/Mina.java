@@ -12,13 +12,4 @@ public class Mina extends Explosivo{
 		puntosVida=1;
 	}
 	
-	public void recibirAtaque(int i) {
-		
-		atacar();
-	}
-	
-	public void atacar() {
-		
-		destruir();
-	}
 }
