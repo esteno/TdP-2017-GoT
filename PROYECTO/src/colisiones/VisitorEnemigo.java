@@ -48,6 +48,13 @@ public class VisitorEnemigo extends Visitor
 	}
 
 
+	@Override
+	public void visitarExplosivo(GameObject ex) {
+
+		ex.recibirAtaque(miEnemigo.getFuerzaImpacto());
+	}
+
+
 
 
 	

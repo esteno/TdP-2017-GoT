@@ -3,12 +3,13 @@ import objetos.*;
 import enemigos.*;
 import disparos.*;
 import obstaculo.*;
-import premio.*;
 
 public abstract class Visitor 
 {	 
 	//metodos
 	public abstract void visitarDefensa(GameObject d);
+	
+	public abstract void visitarExplosivo(GameObject ex);
 	
 	public abstract void visitarEnemigo(Enemigo e);
 	

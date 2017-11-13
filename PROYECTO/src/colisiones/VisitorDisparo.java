@@ -46,6 +46,12 @@ public class VisitorDisparo extends Visitor{
 		// TODO Auto-generated method stub		
 	}
 
+	@Override
+	public void visitarExplosivo(GameObject ex) {
+		// no pasa nada
+		
+	}
+
 
 
 

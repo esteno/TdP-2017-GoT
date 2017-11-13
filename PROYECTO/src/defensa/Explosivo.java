@@ -3,13 +3,13 @@ package defensa;
 import java.util.ArrayList;
 import java.util.List;
 
-import colisiones.VisitorDefensa;
+import colisiones.*;
 import objetos.ObjetoMovil;
 
 public abstract class Explosivo extends Defensa{
 
 	
-	public void recibirAtaque() {
+	public void recibirAtaque(int i) {
 		
 		destruir();
 	
@@ -19,11 +19,14 @@ public abstract class Explosivo extends Defensa{
 		
 		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
 		l=celda.adyacentes();
-		VisitorDefensa v=new VisitorDefensa(this);
+		VisitorExplosivo v=new VisitorExplosivo(this);
 		for (ObjetoMovil o:l)
 			o.aceptar(v);	
 		celda.destruirObjetoMovil();
 	}
 
-
+	public void aceptar(Visitor v){
+		
+		v.visitarExplosivo(this);
+    }
 }
