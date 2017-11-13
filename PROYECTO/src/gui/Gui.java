@@ -184,11 +184,40 @@ public class Gui implements Runnable
 		btnJorgito.setBounds(10, 11, 83, 54);
 		panelPersonajes.add(btnJorgito);
 		
-		JButton botonYgritte = new JButton("");
+		// BOTON YGRITTE
+		JButton botonYgritte = new JButton("Ygritte");
+		botonYgritte.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				
+			}
+		});
 		botonYgritte.setEnabled(false);
 		botonYgritte.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\defensa\\ygrette.png"));
 		botonYgritte.setBounds(10, 76, 89, 50);
 		panelPersonajes.add(botonYgritte);
+		
+		// BOTON DOTHRAKI
+		JButton botonDothraki = new JButton("Dothraki");
+		botonDothraki.setEnabled(false);
+		botonDothraki.setBounds(10, 137, 89, 54);
+		panelPersonajes.add(botonDothraki);
+		
+		JButton botonDragon = new JButton("Dragon");
+		botonDragon.setEnabled(false);
+		botonDragon.setBounds(10, 202, 89, 54);
+		panelPersonajes.add(botonDragon);
+		
+		JButton botonInmaculado = new JButton("Inmaculado");
+		botonInmaculado.setEnabled(false);
+		botonInmaculado.setBounds(10, 273, 89, 50);
+		panelPersonajes.add(botonInmaculado);
+		
+		JButton botonJonsnow = new JButton("JonSnow");
+		botonJonsnow.setEnabled(false);
+		botonJonsnow.setBounds(10, 338, 89, 43);
+		panelPersonajes.add(botonJonsnow);
 		
 		JPanel paneloObjetosPreciosos = new JPanel();
 		paneloObjetosPreciosos.setBorder(new LineBorder(new Color(0, 0, 0)));

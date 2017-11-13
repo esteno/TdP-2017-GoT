@@ -21,11 +21,48 @@ public class FabricaDeDefensa
 		return instancia;
 	}
 	
+	//PERSONAJES
 	public void construirJorgito() {
 		
 		defensaCreada = new Jorgito();
 	}
 	
+	
+	public void construirYgritte()
+	{
+		defensaCreada = new Ygritte();
+	}
+	
+	public void construirDothraki()
+	{
+		defensaCreada = new Dothraki();
+	}
+	
+	public void construirDragon()
+	{
+		//defensaCreada = new Dragon();
+	}
+	
+	public void construirInmaculado()
+	{
+		defensaCreada = new Inmaculado();
+	}
+	
+	public void construirJonSnow()
+	{
+		defensaCreada = new JonSnow();
+	}
+	
+	public Defensa getDefensa() 
+	{
+		return defensaCreada;
+	}
+	
+	public void reset() {
+		defensaCreada = null;
+	}
+	
+	// OBSTACULOS
 	public void construirBomba() {
 
 		defensaCreada=new Bomba();	
@@ -35,13 +72,5 @@ public class FabricaDeDefensa
 
 		defensaCreada=new Mina();
 	}
-	
-	public Defensa getDefensa() {
-		return defensaCreada;
-	}
-	
-	public void reset() {
-		defensaCreada = null;
-	}
-	
+
 }

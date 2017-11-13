@@ -43,9 +43,7 @@ public class FabricaObjetoGrafico
 	public GameObjectGrafico construirGraficoEnemigoRojo() {
 		return new GameObjectGrafico("res/imagenes/enemigo/enemigo.png");
 	}
-	public GameObjectGrafico construirGraficoInmaculado(){
-		return new GameObjectGrafico("res/imagenes/enemigo/inmaculado.png");
-	}
+	
 	public GameObjectGrafico construirGraficoZombi() {
 		return new GameObjectGrafico("res/imagenes/enemigo/zombicamina.gif");
 	}
@@ -93,12 +91,27 @@ public class FabricaObjetoGrafico
 		return new GameObjectGrafico("res/imagenes/enemigo/e1muere.gif");
 	}
 	
-	//DEFENSA
-	
+	// PERSONAJES
 	public GameObjectGrafico construirGraficoJorgito() 
 	{
 		return new GameObjectGrafico("res/imagenes/defensa/test.png");
 	}
+	
+	
+	
+	public GameObjectGrafico construirGraficoInmaculado(){
+		return new GameObjectGrafico("res/imagenes/enemigo/inmaculado.png");
+	}
+	
+	
+	public GameObjectGrafico construirGraficoDragon()
+	{
+		return new GameObjectGrafico("");
+	}
+	
+	
+	
+	//DEFENSA
 	
 	public GameObjectGrafico construirGraficoMuro() {
 		return new GameObjectGrafico("res/imagenes/defensa/muro.png");
@@ -107,6 +120,9 @@ public class FabricaObjetoGrafico
 	public GameObjectGrafico construirGraficoCampoProtector() {
 		return new GameObjectGrafico("res/imagenes/defensa/campoProtector.png");
 	}
+	
+	
+	
 	
 	//DISPARO
 	
