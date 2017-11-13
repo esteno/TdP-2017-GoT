@@ -7,7 +7,7 @@ import colisiones.*;
 public abstract class Defensa extends GameObject 
 {
      //protected Nivel nivel;
-     protected VisitorDefensa visitor;
+     protected VisitorDefensa visitor = new VisitorDefensa(this);
      
      //Cuanto cuesta crear esta defensa
      protected int precio;
