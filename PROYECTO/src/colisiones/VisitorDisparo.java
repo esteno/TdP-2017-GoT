@@ -25,19 +25,19 @@ public class VisitorDisparo extends Visitor{
     }
 	 
 	@Override
-    public void visitarEnemigo(Enemigo e){
-		
-    	//System.out.println("quiere destruir mi desparo");
-	    //miDisparo.destruir();  //al visitar un enemigo el disparo de destruye poniendo el grafico en null
-		//System.out.println("quiere destruir mi enemigo");
-
+    public void visitarEnemigo(Enemigo e)
+	{	
+    	System.out.println("Yo Disparo recibi a un enemigo.");
 	    e.recibirAtaque(miDisparo.getFuerzaImpacto()); //por ahora destruye el enemigo
-    }
+		System.out.println("Yo Disparo dañe a un enemigo.");
+	    miDisparo.destruir();  //al visitar un enemigo el disparo de destruye poniendo el grafico en null
+		System.out.println("Disparo destruido.");
+	}
 	
 	@Override
-    public void visitarDisparo(Disparo d){
-		
-    	System.out.println("Un disparo ha visitado un disparo. No hay accion.");
+    public void visitarDisparo(Disparo d)
+	{
+    	System.out.println("Yo Disparo recibi un disparo. No hay accion.");
     }
 
 	@Override
@@ -47,9 +47,9 @@ public class VisitorDisparo extends Visitor{
 	}
 
 	@Override
-	public void visitarExplosivo(GameObject ex) {
-		// no pasa nada
-		
+	public void visitarExplosivo(GameObject ex)
+	{
+		// no pasa nada	
 	}
 
 

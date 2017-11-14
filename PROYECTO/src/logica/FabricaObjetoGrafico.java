@@ -130,7 +130,7 @@ public class FabricaObjetoGrafico
 	
 	
 	public GameObjectGrafico construirGraficoInmaculado(){
-		return new GameObjectGrafico("");
+		return new GameObjectGrafico("res/imagenes/defensa/soldadoataca.gif");
 	}
 	
 	
@@ -160,7 +160,7 @@ public class FabricaObjetoGrafico
 	
 	public GameObjectGrafico construirGraficoBronn()
 	{
-		return new GameObjectGrafico("");
+		return new GameObjectGrafico("res/imagenes/defensa/arqueropataca.gif");
 	}
 	
 	
@@ -197,4 +197,13 @@ public class FabricaObjetoGrafico
 		return new GameObjectGrafico("res/imagenes/disparo/bomba.png");
 	}
 	
+	
+	
+	// LABELS BOTONES
+	
+	public GameObjectGrafico botonBronn()
+	{
+		return new GameObjectGrafico("res/imagenes/juego/botonBronn.png");
+	}
+ 	
 }

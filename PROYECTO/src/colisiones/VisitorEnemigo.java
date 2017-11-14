@@ -34,7 +34,7 @@ public class VisitorEnemigo extends Visitor
 	@Override
     public void visitarDisparo(Disparo d)
     { 
-    	d.destruir();  // Destruye a disparo.
+		// La resposabilidad de esta colision la tiene visitorDisparo
     }
 
 

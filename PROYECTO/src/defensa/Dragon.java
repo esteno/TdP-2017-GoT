@@ -8,7 +8,7 @@ public class Dragon extends DefensaRango {
 		proximoAtaque = 0;
 		puntosVida = 400;
 		fuerzaImpacto = 100;
-		precio = 450;
+		precio = 1000;
 		grafico = fabricaGrafica.construirGraficoDragon();
 	}
 

@@ -10,7 +10,7 @@ public class Mountain extends DefensaCuerpo
 		proximoAtaque = 0;
 		puntosVida = 350;
 		fuerzaImpacto = 70;
-		precio = 300;
+		precio = 500;
 		grafico = fabricaGrafica.construirGraficoMountain();
 	}
 
