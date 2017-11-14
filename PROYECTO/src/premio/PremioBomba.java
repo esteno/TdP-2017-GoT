@@ -22,10 +22,8 @@ public class PremioBomba{
 		return c>0;
 	}
 	
-	public void agregarBomba() {
+	public void restarBomba() {
 		
-		if (c>0)
-			f.construirBomba();
 		c--;
 	}
 	

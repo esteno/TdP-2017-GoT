@@ -22,10 +22,9 @@ public class PremioMina{
 		return c>0;
 	}
 	
-	public void agregarMina() {
+	public void restarMina() {
 		
-		if (c>0)
-			f.construirMina();
+		c--;
 	}
 	
 }

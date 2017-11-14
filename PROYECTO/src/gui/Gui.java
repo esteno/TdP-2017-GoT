@@ -26,7 +26,7 @@ import defensa.Defensa;
 import enemigos.Enemigo;
 import logica.*;
 import objetos.*;
-
+import premio.*;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -50,6 +50,8 @@ public class Gui implements Runnable
 	private final int NIVELDEFENSA = 0;
 	private final int NIVELENEMIGO = 1;
 	private Puntaje p;
+	private PremioBomba pb;
+	private PremioMina pm;
 	
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	
@@ -138,6 +140,8 @@ public class Gui implements Runnable
 		
 		frame.getContentPane().repaint();
 		juego = new Juego(this, ALTO, ANCHO);
+		pb= new PremioBomba(fabricaDeDefensa);
+		pm=new PremioMina(fabricaDeDefensa);
 		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
 		
 		
@@ -200,8 +204,8 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				FabricaDeDefensa.getInstancia().construirYgritte(); 
-				p.restarOro(30);	
-				if (p.getOro()<30)
+				p.restarOro(600);	
+				if (p.getOro()<600)
 					botonYgritte.setEnabled(false);
 					
 			}
@@ -216,8 +220,8 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent e) 
 			{
 				FabricaDeDefensa.getInstancia().construirMountain();
-				p.restarOro(80);	
-				if (p.getOro()<80)
+				p.restarOro(500);	
+				if (p.getOro()<500)
 					botonMountain.setEnabled(false);
 			}
 		});
@@ -231,8 +235,8 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent e) 
 			{
 				FabricaDeDefensa.getInstancia().construirDragon();
-				p.restarOro(100);	
-				if (p.getOro()<100)
+				p.restarOro(1000);	
+				if (p.getOro()<1000)
 					botonDragon.setEnabled(false);
 					
 			}
@@ -248,8 +252,8 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent e)
 			{
 				FabricaDeDefensa.getInstancia().construirInmaculado();
-				p.restarOro(50);	
-				if (p.getOro()<50)
+				p.restarOro(200);	
+				if (p.getOro()<200)
 					botonInmaculado.setEnabled(false);
 					
 			}
@@ -264,8 +268,8 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent e) 
 			{
 				FabricaDeDefensa.getInstancia().construirGendry();
-				p.restarOro(15);	
-				if (p.getOro()<15)
+				p.restarOro(400);	
+				if (p.getOro()<400)
 					botonGendry.setEnabled(false);
 			}
 		});
@@ -278,8 +282,8 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				FabricaDeDefensa.getInstancia().construirBronn();
-				p.restarOro(40);	
-				if (p.getOro()<40)
+				p.restarOro(300);	
+				if (p.getOro()<300)
 					botonBomba.setEnabled(false);
 			}
 		});
@@ -304,8 +308,8 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				FabricaDeDefensa.getInstancia().construirBomba();
-				p.restarOro(250);	
-				if (p.getOro()<250)
+				pb.restarBomba();	
+				if (!pb.hayBombas())
 					botonBomba.setEnabled(false);
 			}
 		});
@@ -320,8 +324,8 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				FabricaDeDefensa.getInstancia().construirMina();
-				p.restarOro(200);	
-				if (p.getOro()<200)
+				pm.restarMina();	
+				if (!pm.hayMinas())
 					botonMina.setEnabled(false);
 			}
 		});
@@ -366,12 +370,10 @@ public class Gui implements Runnable
 	public void puntaje(int puntaje)
 	{
 		labelPuntaje.setText("Puntaje: "+puntaje);
-		if (puntaje>=250)
+		if (pb.hayBombas())
 			botonBomba.setEnabled(true);
-		if (puntaje>=200)
+		if (pm.hayMinas())
 			botonMina.setEnabled(true);
-		if (puntaje>=150)
-			botonFuegovalyrio.setEnabled(true);
 	}
 
 	public void agregarObjetoMovil(int x, int y, GameObject obj) 
@@ -427,7 +429,7 @@ public class Gui implements Runnable
 		repintar();
 		p.sumarOro(20);
 		p.sumarPuntaje(10);
-		
+		puntaje (p.puntaje());
 	}
 	
 	private JLabel buscarLabel(int x, int y, JPanel panel) {
