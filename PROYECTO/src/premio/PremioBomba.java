@@ -26,6 +26,7 @@ public class PremioBomba{
 		
 		if (c>0)
 			f.construirBomba();
+		c--;
 	}
 	
 }

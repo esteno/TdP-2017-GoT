@@ -24,8 +24,7 @@ import javax.swing.JPanel;
 
 import defensa.Defensa;
 import enemigos.Enemigo;
-import logica.FabricaDeDefensa;
-import logica.Juego;
+import logica.*;
 import objetos.*;
 
 
@@ -50,6 +49,7 @@ public class Gui implements Runnable
 	private final int NIVELCELDA = 2;
 	private final int NIVELDEFENSA = 0;
 	private final int NIVELENEMIGO = 1;
+	private Puntaje p;
 	
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	
@@ -63,6 +63,12 @@ public class Gui implements Runnable
 	private JPanel panelEnemigos;
 	private JPanel panelPersonajes;
 	private JButton btnJorgito;
+	private JButton botonBomba;
+	private JButton botonBarricada;
+	private JButton botonFuegovalyrio;
+	private JButton botonMina;
+	
+	
 	
 	private List<ObjetoMovil> moviles;
 	private List<ObjetoMovil> aBorrar;
@@ -194,6 +200,10 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				FabricaDeDefensa.getInstancia().construirYgritte(); 
+				p.restarOro(30);	
+				if (p.getOro()<30)
+					botonYgritte.setEnabled(false);
+					
 			}
 		});
 		botonYgritte.setBounds(13, 69, 80, 80);
@@ -206,6 +216,9 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent e) 
 			{
 				FabricaDeDefensa.getInstancia().construirMountain();
+				p.restarOro(80);	
+				if (p.getOro()<80)
+					botonMountain.setEnabled(false);
 			}
 		});
 		botonMountain.setBounds(13, 149, 80, 80);
@@ -218,6 +231,10 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent e) 
 			{
 				FabricaDeDefensa.getInstancia().construirDragon();
+				p.restarOro(100);	
+				if (p.getOro()<100)
+					botonDragon.setEnabled(false);
+					
 			}
 		});
 		botonDragon.setBounds(13, 230, 80, 80);
@@ -231,6 +248,10 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent e)
 			{
 				FabricaDeDefensa.getInstancia().construirInmaculado();
+				p.restarOro(50);	
+				if (p.getOro()<50)
+					botonInmaculado.setEnabled(false);
+					
 			}
 		});
 		botonInmaculado.setBounds(13, 310, 80, 80);
@@ -243,6 +264,9 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent e) 
 			{
 				FabricaDeDefensa.getInstancia().construirGendry();
+				p.restarOro(15);	
+				if (p.getOro()<15)
+					botonGendry.setEnabled(false);
 			}
 		});
 		botonGendry.setBounds(13, 390, 80, 80);
@@ -254,6 +278,9 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				FabricaDeDefensa.getInstancia().construirBronn();
+				p.restarOro(40);	
+				if (p.getOro()<40)
+					botonBomba.setEnabled(false);
 			}
 		});
 		botonBronn.setBounds(13, 470, 80, 80);
@@ -268,19 +295,47 @@ public class Gui implements Runnable
 		panelMapa.add(paneloObjetosPreciosos);
 		paneloObjetosPreciosos.setLayout(null);
 		
-		JButton botonBomba = new JButton("");
+		
+		p=new Puntaje();
+		botonBomba = new JButton("");
 		botonBomba.setEnabled(false);
+		botonBomba.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				FabricaDeDefensa.getInstancia().construirBomba();
+				p.restarOro(250);	
+				if (p.getOro()<250)
+					botonBomba.setEnabled(false);
+			}
+		});
 		botonBomba.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoBomba.png"));
 		botonBomba.setBounds(10, 11, 92, 59);
 		paneloObjetosPreciosos.add(botonBomba);
 		
-		JButton botonBarricada = new JButton("");
+		botonMina = new JButton("");
+		botonMina.setEnabled(false);
+		botonMina.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				FabricaDeDefensa.getInstancia().construirMina();
+				p.restarOro(20);	
+				if (p.getOro()<250)
+					botonMina.setEnabled(false);
+			}
+		});
+		botonMina.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoMina.png"));
+		botonMina.setBounds(10, 11, 92, 59);
+		paneloObjetosPreciosos.add(botonMina);	
+		
+		botonBarricada = new JButton("");
 		botonBarricada.setEnabled(false);
 		botonBarricada.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBarricada.png"));
 		botonBarricada.setBounds(106, 11, 89, 59);
 		paneloObjetosPreciosos.add(botonBarricada);
 		
-		JButton botonFuegovalyrio = new JButton("");
+		botonFuegovalyrio = new JButton("");
 		botonFuegovalyrio.setEnabled(false);
 		botonFuegovalyrio.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\botonFuegoValyrio.png"));
 		botonFuegovalyrio.addActionListener(new ActionListener() {
@@ -311,6 +366,12 @@ public class Gui implements Runnable
 	public void puntaje(int puntaje)
 	{
 		labelPuntaje.setText("Puntaje: "+puntaje);
+		if (puntaje>=250)
+			botonBomba.setEnabled(true);
+		if (puntaje>=200)
+			botonMina.setEnabled(true);
+		if (puntaje>=150)
+			botonFuegovalyrio.setEnabled(true);
 	}
 
 	public void agregarObjetoMovil(int x, int y, GameObject obj) 
