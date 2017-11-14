@@ -25,7 +25,7 @@ public class FabricaObjetoGrafico
 	
 	//CELDAS GRAFICAS 
 	
-	public GameObjectGrafico construirGraficoCeldaComun() 
+	public GameObjectGrafico construirGraficoObjetoComun() 
 	{
 		return new GameObjectGrafico("res/imagenes/celda/Terreno1.png");
 	}

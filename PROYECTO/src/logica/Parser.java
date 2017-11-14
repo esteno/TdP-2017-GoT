@@ -42,6 +42,7 @@ public class Parser
     				celda = new Celda(mapa, j, i);
     				switch(linea.charAt(j)) {
     					case 'C':
+    						celda.setObjetoDeMapa(new ObjetoComun());
     						break;
     					case 'N':
     						celda.setObjetoDeMapa(new ObjetoNieveProfunda());

@@ -25,9 +25,6 @@ public class Celda
     protected int x;
     protected int y;
     
-    //Objeto grafico que se muestra en pantalla
-    protected GameObjectGrafico grafico;
-    
     private ObjetoDeMapa objeto;
     
     //constructor 
@@ -36,7 +33,6 @@ public class Celda
     	mapa=m;
     	this.x=x;
     	this.y=y;
-    	grafico = FabricaObjetoGrafico.getInstancia().construirGraficoCeldaComun();
     }
     
    
@@ -49,10 +45,7 @@ public class Celda
     {return y; }
     
     public GameObjectGrafico getGrafico() {
-    	if(objeto != null) {
-    		return objeto.getGrafico();
-    	}
-    	return grafico;
+    	return objeto.getGrafico();
     }
     
     public void setObjetoDeMapa(ObjetoDeMapa obj) {
@@ -60,11 +53,7 @@ public class Celda
     }
     
     public double getMultiVelocidad() {
-    	double toReturn = 1.0;
-    	if(objeto != null) {
-    		toReturn = objeto.getMultiVelocidad();
-    	}
-    	return toReturn;
+    	return objeto.getMultiVelocidad();
     }
     
     public ObjetoDeMapa getObjetoDeMapa() {

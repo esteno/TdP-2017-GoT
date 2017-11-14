@@ -1,7 +1,5 @@
 package defensa;
 
-import colisiones.VisitorDefensa;
-import objetos.GameObjectGrafico;
 
 public class Jorgito extends DefensaCuerpo {
 	
