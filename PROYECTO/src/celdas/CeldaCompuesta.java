@@ -39,7 +39,6 @@ public class CeldaCompuesta extends Celda
 			c1=new Celda (map, x, y);
 			c2=new Celda (map, x, y+1);
 			z=y+1;
-			grafico = FabricaObjetoGrafico.getInstancia().construirGraficoCeldaComun();
 		}
 	       
 	    
