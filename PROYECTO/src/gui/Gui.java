@@ -320,8 +320,8 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				FabricaDeDefensa.getInstancia().construirMina();
-				p.restarOro(20);	
-				if (p.getOro()<250)
+				p.restarOro(200);	
+				if (p.getOro()<200)
 					botonMina.setEnabled(false);
 			}
 		});
