@@ -43,6 +43,17 @@ public class ControlDeOleadas implements Runnable {
 		while(isRunning) {
 			try {
 				Thread.sleep(100);
+				
+				//Enemigos a mover
+				for(Enemigo enemigo : listaEnemigos) {
+					if(enemigo.getPuntosVida() <= 0) {
+						listaDescarte.add(enemigo);
+					}
+					else {
+						enemigo.avanzar();
+					}
+				}
+				
 				//Se inserta de a uno por vez si es posible por cada sleep
 				if(aInsertar < listaInsercion.size()) {
 					System.out.println("aInsertar "+aInsertar);
@@ -64,15 +75,7 @@ public class ControlDeOleadas implements Runnable {
 					juego.sumarPuntaje(descarte.getPuntos());
 				}
 				listaDescarte.clear();
-				//Enemigos a mover
-				for(Enemigo enemigo : listaEnemigos) {
-					if(enemigo.getPuntosVida() <= 0) {
-						listaDescarte.add(enemigo);
-					}
-					else {
-						enemigo.avanzar();
-					}
-				}
+
 				//Si no hay mas enemigos y aun hay oleadas, se crea una nueva
 				if(listaEnemigos.size() == 0 && cantOleadas != 0) {
 					System.out.println("nueva oleada");

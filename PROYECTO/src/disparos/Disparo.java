@@ -68,7 +68,7 @@ public class Disparo extends ObjetoMovil
 	{
 		//Para poder ser removido 
 		alcance=0;
-		//celda.destruirObjetoMovil();
+		celda.destruirObjetoMovil();
 		grafico.destruir();
 	}
 
