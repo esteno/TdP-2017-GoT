@@ -425,6 +425,8 @@ public class Gui implements Runnable
 		JLabel aEliminar = buscarLabel(x, y, panelEnemigos);
 		panelEnemigos.remove(aEliminar);
 		repintar();
+		p.sumarOro(20);
+		p.sumarPuntaje(10);
 		
 	}
 	
