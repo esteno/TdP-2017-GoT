@@ -79,4 +79,22 @@ public class FabricaDeDefensa
 		defensaCreada=new Mina();
 	}
 
+	public void construirCampo() {
+		
+		defensaCreada=new Mina();
+		
+	}
+
+	public void construirDanio() {
+		
+		defensaCreada=new Mina();
+		
+	}
+	
+	public void construirCuracion() {
+		
+		defensaCreada=new Mina();
+		
+	}
+
 }

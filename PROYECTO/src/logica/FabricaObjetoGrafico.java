@@ -2,8 +2,7 @@ package logica;
 
 import objetos.GameObjectGrafico;
 
-public class FabricaObjetoGrafico 
-{
+public class FabricaObjetoGrafico {
 	
 	private static FabricaObjetoGrafico instancia = null;
 	
@@ -14,10 +13,10 @@ public class FabricaObjetoGrafico
 	
 	
 	
-	public static FabricaObjetoGrafico getInstancia() 
-	{
-		if(instancia == null) 
-		{
+	public static FabricaObjetoGrafico getInstancia() {
+		
+		if(instancia == null) {
+			
 			instancia = new FabricaObjetoGrafico();
 		}
 		return instancia;
@@ -25,16 +24,16 @@ public class FabricaObjetoGrafico
 	
 	//CELDAS GRAFICAS 
 	
-	public GameObjectGrafico construirGraficoObjetoComun() 
-	{
+	public GameObjectGrafico construirGraficoObjetoComun(){
+		
 		return new GameObjectGrafico("res/imagenes/celda/Terreno1.png");
 	}
 	
 	
 	
 	
-	public GameObjectGrafico construirGraficoNieveProfunda() 
-	{
+	public GameObjectGrafico construirGraficoNieveProfunda(){
+		
 		return new GameObjectGrafico("res/imagenes/celda/TerrenoNieveProfunda.png");
 	}
 	
@@ -122,8 +121,8 @@ public class FabricaObjetoGrafico
 	
 	
 	// PERSONAJES
-	public GameObjectGrafico construirGraficoJorgito() 
-	{
+	public GameObjectGrafico construirGraficoJorgito() {
+		
 		return new GameObjectGrafico("res/imagenes/defensa/test.png");
 	}
 	
@@ -134,32 +133,32 @@ public class FabricaObjetoGrafico
 	}
 	
 	
-	public GameObjectGrafico construirGraficoDragon()
-	{
+	public GameObjectGrafico construirGraficoDragon(){
+		
 		return new GameObjectGrafico("res/imagenes/defensa/dragon.png");
 	}
 	
 	
-	public GameObjectGrafico construirGraficoYgritte()
-	{
+	public GameObjectGrafico construirGraficoYgritte(){
+		
 		return new GameObjectGrafico("res/imagenes/defensa/ygretteataca.gif");
 	}
 	
 	
-	public GameObjectGrafico construirGraficoMountain()
-	{
+	public GameObjectGrafico construirGraficoMountain(){
+		
 		return new GameObjectGrafico("res/imagenes/defensa/mountainataca.gif");
 	}
 	
 	
-	public GameObjectGrafico construirGraficoGendry()
-	{
+	public GameObjectGrafico construirGraficoGendry(){
+		
 		return new GameObjectGrafico("res/imagenes/defensa/gendryataca.gif");
 	}
 	
 	
-	public GameObjectGrafico construirGraficoBronn()
-	{
+	public GameObjectGrafico construirGraficoBronn(){
+		
 		return new GameObjectGrafico("res/imagenes/defensa/arqueropataca.gif");
 	}
 	
@@ -180,8 +179,8 @@ public class FabricaObjetoGrafico
 	
 	//DISPARO
 	
-	public GameObjectGrafico construirGraficoDisparo() 
-	{
+	public GameObjectGrafico construirGraficoDisparo() {
+		
 		return new GameObjectGrafico("res/imagenes/disparo/disparo.png");
 	}
 
@@ -201,9 +200,23 @@ public class FabricaObjetoGrafico
 	
 	// LABELS BOTONES
 	
-	public GameObjectGrafico botonBronn()
-	{
+	public GameObjectGrafico botonBronn(){
+		
 		return new GameObjectGrafico("res/imagenes/juego/botonBronn.png");
+	}
+
+
+
+	public GameObjectGrafico construirGraficoDanio() {
+
+		return new GameObjectGrafico("res/imagenes/juego/botonDanio.png");
+	}
+
+
+
+	public GameObjectGrafico construirGraficoCuracion() {
+
+		return new GameObjectGrafico("res/imagenes/juego/botonCuracion.png");
 	}
  	
 }

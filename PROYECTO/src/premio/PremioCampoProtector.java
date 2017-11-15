@@ -11,6 +11,7 @@ public class PremioCampoProtector implements Temporal	{
 	private Juego juego;
 	private Defensa personaje;
 	private CampoProtector campo;
+	private static int c=0;
 	
 	public PremioCampoProtector(Personaje personaje) {
 		campo = new CampoProtector(this, personaje);
@@ -31,6 +32,21 @@ public class PremioCampoProtector implements Temporal	{
 		juego.eliminarDefensa(celda.getX(), celda.getY());
 		juego.agregarDefensa(personaje, celda.getX(), celda.getY());
 		
+	}
+
+	public void aumentarCampo() {
+		 
+		c++;
+	}
+
+	public void restarCampo() {
+
+		c--;
+	}
+
+	public boolean hayCampos() {
+		
+		return c>0;
 	}
 
 }

@@ -1,15 +1,12 @@
 package premio;
 
-import logica.FabricaDeDefensa;
 
 public class PremioBomba{
 	
-	private FabricaDeDefensa f;
 	private static int c=0;
 	
-	public PremioBomba(FabricaDeDefensa fab){
+	public PremioBomba(){
 		
-		f=fab;
 	}
 
 	public void aumentarBombas(){

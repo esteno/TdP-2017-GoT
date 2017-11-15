@@ -16,6 +16,12 @@ import disparos.Disparo;
 import enemigos.Enemigo;
 import gui.*;
 
+import premio.PremioBomba;
+import premio.PremioMina;
+import premio.PremioDanioDoble;
+import premio.PremioCampoProtector;
+import premio.PremioCuracion;;
+
 
 public class Juego
 {
@@ -36,6 +42,11 @@ public class Juego
 	private ControlDeOleadas controlDeOleadas;
 	private ControlDisparo controlDisparo;
 	private ControlDeDefensa controlDeDefensa;
+	private PremioBomba pb;
+	private PremioMina pm;
+	private PremioCampoProtector pc;
+	private PremioDanioDoble pd;
+	private PremioCuracion cu;
 	
 	//Objeto que mantiene los nieveles del juego
 	private Niveles niveles;
@@ -58,7 +69,8 @@ public class Juego
 		gui.oroActual(puntaje.getOro());
 		mapa = new Mapa(this, alto, ancho);
 		niveles = new Niveles();
-		
+		pb=new PremioBomba();
+		pm= new PremioMina();
 		parser = new Parser(mapa, alto, ancho);
 		
 		
@@ -191,5 +203,80 @@ public class Juego
 	}
 
 	
+	public void guardarBomba() {
+
+		pb.aumentarBombas();
+	}
 	
+	public void restarBomba() {
+		
+		pb.restarBomba();
+	}
+	
+	public boolean hayBombas() {
+		
+		return pb.hayBombas();
+	}
+	
+
+	public void guardarMina() {
+		
+		pm.aumentarMinas();
+	}
+	
+	public void restarMina() {
+		
+		pm.restarMina();
+	}
+	
+	public boolean hayMinas() {
+		
+		return pm.hayMinas();
+	}
+
+	public void guardarCampo() {
+		
+		pc.aumentarCampo();
+	}
+	
+	public void restarCampo() {
+		
+		pc.restarCampo();
+	}
+
+	public boolean hayCampos() {
+		
+		return pc.hayCampos();
+	}
+	
+	public void guardarDanio() {
+		
+		pd.aumentarDanio();
+	}
+	
+	public void restarDanio() {
+		
+		pd.restarDanio();
+	}
+
+	public boolean hayDanio() {
+		
+		return pd.hayDanio();
+	}
+
+	public void guardarCuracion() {
+		
+		cu.aumentarCuracion();
+	}
+	
+	public void restarCuracion() {
+		
+		cu.restarCuracion();
+	}
+
+	public boolean hayCuracion() {
+		
+		return cu.hayCuracion();
+	}
+
 }

@@ -51,9 +51,6 @@ public class Gui implements Runnable
 	private final int NIVELDEFENSA = 0;
 	private final int NIVELENEMIGO = 1;
 	private Puntaje p;
-	private PremioBomba pb;
-	private PremioMina pm;
-	
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	private CostosDeDefensa costosDeDefensa = CostosDeDefensa.getInstncia();
 	
@@ -70,6 +67,9 @@ public class Gui implements Runnable
 	private JButton botonBarricada;
 	private JButton botonFuegovalyrio;
 	private JButton botonMina;
+	private JButton botonCampo;
+	private JButton botonDanio;
+	private JButton botonCuracion;
 	private JButton botonYgritte;
 	private JButton botonMountain;
 	private JButton botonDragon; 
@@ -154,9 +154,6 @@ public class Gui implements Runnable
 		
 		frame.getContentPane().repaint();
 		
-		pb= new PremioBomba(fabricaDeDefensa);
-		pm=new PremioMina(fabricaDeDefensa);
-		
 		Fondo = new JLabel("fondo");
 		Fondo.setBounds(0, 0, 1000, 600);
 		Fondo.setIcon(new ImageIcon("res/imagenes/juego/fondo.png"));
@@ -193,8 +190,8 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				FabricaDeDefensa.getInstancia().construirBomba();
-				pb.restarBomba();	
-				if (!pb.hayBombas())
+				juego.restarBomba();	
+				if (!juego.hayBombas())
 					botonBomba.setEnabled(false);
 			}
 		});
@@ -209,14 +206,63 @@ public class Gui implements Runnable
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				FabricaDeDefensa.getInstancia().construirMina();
-				pm.restarMina();	
-				if (!pm.hayMinas())
+				juego.restarMina();	
+				if (!juego.hayMinas())
 					botonMina.setEnabled(false);
 			}
 		});
 		botonMina.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoMina.png"));
 		botonMina.setBounds(10, 11, 92, 59);
 		paneloObjetosPreciosos.add(botonMina);	
+		
+		botonCampo = new JButton("");
+		botonCampo.setEnabled(false);
+		botonCampo.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				FabricaDeDefensa.getInstancia().construirCampo();
+				juego.restarCampo();	
+				if (!juego.hayCampos())
+					botonCampo.setEnabled(false);
+			}
+		});
+		botonCampo.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoCampo.png"));
+		botonCampo.setBounds(10, 11, 92, 59);
+		paneloObjetosPreciosos.add(botonCampo);	
+		
+		botonDanio = new JButton("");
+		botonDanio.setEnabled(false);
+		botonDanio.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				FabricaDeDefensa.getInstancia().construirDanio();
+				juego.restarDanio();	
+				if (!juego.hayDanio())
+					botonDanio.setEnabled(false);
+			}
+		});
+		botonDanio.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoDanio.png"));
+		botonDanio.setBounds(10, 11, 92, 59);
+		paneloObjetosPreciosos.add(botonDanio);
+		
+		
+		botonCuracion = new JButton("");
+		botonCuracion.setEnabled(false);
+		botonCuracion.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				FabricaDeDefensa.getInstancia().construirCuracion();
+				juego.restarCuracion();	
+				if (!juego.hayCuracion())
+					botonCuracion.setEnabled(false);
+			}
+		});
+		botonCuracion.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoCuracion.png"));
+		botonCuracion.setBounds(10, 11, 92, 59);
+		paneloObjetosPreciosos.add(botonCuracion);
 		
 		botonBarricada = new JButton("");
 		botonBarricada.setEnabled(false);
@@ -369,10 +415,10 @@ public class Gui implements Runnable
 		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
 		
 		
-		for(int i = 0; i < ANCHO; i++) 
-		{
-			for (int j = 0; j < ALTO; j++) 
-			{
+		for(int i = 0; i < ANCHO; i++) {
+			
+			for (int j = 0; j < ALTO; j++) {
+				
 				ImageIcon imagen = graficos[i][j].getImagen();
 				int ancho = imagen.getIconWidth();
 				int alto = imagen.getIconHeight();
@@ -390,17 +436,12 @@ public class Gui implements Runnable
 		juego.crearMuro();
 	}
 	
-	public void puntaje(int puntaje)
-	{
+	public void puntaje(int puntaje){
+		
 		labelPuntaje.setText("Puntaje: "+puntaje);
-		if (pb.hayBombas())
-			botonBomba.setEnabled(true);
-		if (pm.hayMinas())
-			botonMina.setEnabled(true);
 	}
 
-	public void agregarObjetoMovil(int x, int y, GameObject obj) 
-	{
+	public void agregarObjetoMovil(int x, int y, GameObject obj) {
 		
 		JLabel labelEnemigo = new JLabel();
 		obj.getGrafico().setLabel(labelEnemigo);
@@ -410,8 +451,8 @@ public class Gui implements Runnable
 		repintar();
 	}
 	
-	public void moverEnemigoGrafico(ObjetoMovil o) 
-	{
+	public void moverEnemigoGrafico(ObjetoMovil o) {
+		
 		aAgregar.add(o);
 	}
 	
@@ -450,6 +491,230 @@ public class Gui implements Runnable
 		JLabel aEliminar = buscarLabel(x, y, panelEnemigos);
 		panelEnemigos.remove(aEliminar);
 		repintar();
+		double posibilidad=Math.random();
+		if ((posibilidad%2)==0){
+			double cual= Math.random();
+			if (cual<0.2){
+				JLabel LBomba = new JLabel();	
+				LBomba.setIcon(FabricaObjetoGrafico.getInstancia().construirGraficoBomba().getImagen());
+				LBomba.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
+				panelEnemigos.add(LBomba);
+				LBomba.addMouseListener(listenBomba());
+			}
+			else if (cual<0.4){
+				JLabel LMina = new JLabel();	
+				LMina.setIcon(FabricaObjetoGrafico.getInstancia().construirGraficoMina().getImagen());
+				LMina.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
+				panelEnemigos.add(LMina);
+				LMina.addMouseListener(listenMina());
+			}
+			else if (cual<0.6){
+				JLabel LCampo = new JLabel();	
+				LCampo.setIcon(FabricaObjetoGrafico.getInstancia().construirGraficoCampoProtector().getImagen());
+				LCampo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
+				panelEnemigos.add(LCampo);
+				LCampo.addMouseListener(listenCampo());
+			}
+			else if (cual<0.8){
+				JLabel LDanio = new JLabel();	
+				LDanio.setIcon(FabricaObjetoGrafico.getInstancia().construirGraficoDanio().getImagen());
+				LDanio.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
+				panelEnemigos.add(LDanio);
+				LDanio.addMouseListener(listenDanio());
+			}
+			else if (cual<1){
+				JLabel LCuracion = new JLabel();	
+				LCuracion.setIcon(FabricaObjetoGrafico.getInstancia().construirGraficoCuracion().getImagen());
+				LCuracion.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
+				panelEnemigos.add(LCuracion);
+				LCuracion.addMouseListener(listenCuracion());
+			}
+		}						
+	}
+		
+	public MouseListener listenBomba() {
+		return new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				juego.guardarBomba();
+				botonBomba.setEnabled(true);
+				repintar();
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+	}
+	
+	public MouseListener listenMina() {
+		return new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				juego.guardarMina();
+				botonMina.setEnabled(true);
+				repintar();
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+	}
+	
+	public MouseListener listenCampo() {
+		return new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				juego.guardarCampo();
+				botonCampo.setEnabled(true);
+				repintar();
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+	}
+
+	public MouseListener listenDanio() {
+		return new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				juego.guardarDanio();
+				botonDanio.setEnabled(true);
+				repintar();
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+	}
+		
+	public MouseListener listenCuracion() {
+		return new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				juego.guardarCuracion();
+				botonCuracion.setEnabled(true);
+				repintar();
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
 	}
 	
 	private JLabel buscarLabel(int x, int y, JPanel panel) {
