@@ -7,7 +7,8 @@ public class Salvaje extends Enemigo {
 		fuerzaImpacto = 1000;
 	    velocidad = contVelocidad = 1000;
 	    puntos=100;
-	    puntosVida=5;
+	    puntosVida=75;
+	    oro=50;
 	}
 
 }

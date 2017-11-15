@@ -7,8 +7,8 @@ public class Zombi extends Enemigo {
 		fuerzaImpacto = 1000;
 	    velocidad = contVelocidad = -4;
 	    puntos=100;
-	    puntosVida=5;
-	    
+	    puntosVida=25;
+	    oro=20;
 	}
 
 }
