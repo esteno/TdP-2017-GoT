@@ -67,6 +67,5 @@ public class Puntaje {
 		return oro;
 	}
 	
-	pu
 
 }
