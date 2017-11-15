@@ -408,9 +408,9 @@ public class Gui implements Runnable
 			aAgregar.clear();
 			
 			for(ObjetoMovil o : moviles) {
-				if(!o.moverGrafico()){
+				if(!o.getGrafico().moverGrafico(o.getVelocidad())){
 					aBorrar.add(o);
-					o.Lock(false);
+					o.getGrafico().Lock(false);
 				}
 				repintar();
 			}
