@@ -309,6 +309,7 @@ public class Gui implements Runnable
  					
  			}
  		});
+		botonYgritte.setIcon(new ImageIcon("res/imagenes/juego/botonYgritte.png"));
 		
 		// BOTON MOUNTAIN
 		botonMountain = new JButton("Mountain");
@@ -324,6 +325,7 @@ public class Gui implements Runnable
  					botonMountain.setEnabled(false);
  			}
  		});
+		botonMountain.setIcon(new ImageIcon("res/imagenes/juego/botonMountain.png"));
 		
 		// BOTON DRAGON
  		botonDragon = new JButton("Dragon");
