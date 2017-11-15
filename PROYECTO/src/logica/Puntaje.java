@@ -2,12 +2,13 @@ package logica;
 
 public class Puntaje {
 	
-	private int puntos;
-	private int oro;
+	private int puntos = 0;
+	private int oro = 0;
+	private int bombasDisponibles = 0;
+	private int minasDisponibles = 0;
+	private int barricadasDisponibles = 0;
 	
 	public Puntaje() {
-		puntos = 0;
-		oro = 0;
 	}
 	
 	public void sumarPuntaje(int p) {
@@ -22,12 +23,50 @@ public class Puntaje {
 		oro -= o;
 	}
 	
-	public int puntaje() {
+	public void agregarBomba() {
+		bombasDisponibles++;
+	}
+	
+	public void agregarMina() {
+		minasDisponibles++;
+	}
+	
+	public void agregarBarricadas() {
+		barricadasDisponibles++;
+	}
+	
+	public boolean hayBombas() {
+		return bombasDisponibles > 0;
+	}
+	
+	public boolean hayMinas() {
+		return minasDisponibles > 0;
+	}
+	
+	public boolean hayBarricadas() {
+		return barricadasDisponibles > 0;
+	}
+	
+	public void restarBomba() {
+		bombasDisponibles--;
+	}
+	
+	public void restarMina() {
+		minasDisponibles--;
+	}
+	
+	public void restarBarricada() {
+		barricadasDisponibles--;
+	}
+	
+	public int getPuntaje() {
 		return puntos;
 	}
 	
 	public int getOro() {
 		return oro;
 	}
+	
+	pu
 
 }

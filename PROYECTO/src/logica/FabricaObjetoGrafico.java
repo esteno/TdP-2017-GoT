@@ -136,7 +136,7 @@ public class FabricaObjetoGrafico
 	
 	public GameObjectGrafico construirGraficoDragon()
 	{
-		return new GameObjectGrafico("");
+		return new GameObjectGrafico("res/imagenes/defensa/dragon.png");
 	}
 	
 	

@@ -116,7 +116,7 @@ public class Mapa
 	public void eliminarObjetoMovil(int x, int y){
 		
 		matrizMovil[x][y]=null;
-		///juego.eliminarObjetoMovil(x, y);
+		//juego.eliminarObjetoMovil(x, y);
 	}
 	
 	public void agregarDefensa(Defensa defensa, int x, int y){

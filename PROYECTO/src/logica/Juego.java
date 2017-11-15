@@ -142,7 +142,7 @@ public class Juego
 	public void sumarPuntaje(int p) 
 	{
 		puntaje.sumarPuntaje(p);
-		gui.puntaje(puntaje.puntaje());
+		gui.puntaje(puntaje.getPuntaje());
 	}
 	
 	

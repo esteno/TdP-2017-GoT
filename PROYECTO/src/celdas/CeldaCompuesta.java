@@ -33,23 +33,11 @@ public class CeldaCompuesta extends Celda
 	    
 	    public CeldaCompuesta(Mapa map, int x, int y) {
 			super(map, x, y);
-			mapa=map;
-			this.x=x;
-			this.y=y;
 			c1=new Celda (map, x, y);
 			c2=new Celda (map, x, y+1);
 			z=y+1;
 		}
 	       
-	    
-	    
-	    public Celda celdaIzquierda(){
-	    	return mapa.celdaIzquierda(c1);
-	    }
-	    
-	    public Celda celdaDerecha() {
-	    	return mapa.celdaDerecha(c1);
-	    }
 	    
 	    
 	    //Mueve un enemigo de la posicion (xAnterior, yAnterior) a su nueva posicion (x,y).
