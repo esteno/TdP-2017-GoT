@@ -183,14 +183,13 @@ public class Gui implements Runnable
 		//-----------PANEL PREMIOS
 		panelPremios = new JPanel();
 		panelPremios.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelPremios.setBounds(353, 11, 302, 81);
+		panelPremios.setBounds(353, 11, 574, 81);
 		panelMapa.add(panelPremios);
 		panelPremios.setLayout(null);
 		
 		
 		
 		botonBomba = new JButton("");
-		botonBomba.setEnabled(false);
 		botonBomba.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
@@ -202,11 +201,10 @@ public class Gui implements Runnable
 			}
 		});
 		botonBomba.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoBomba.png"));
-		botonBomba.setBounds(172, 11, 92, 59);
+		botonBomba.setBounds(451, 11, 92, 59);
 		panelPremios.add(botonBomba);
 		
 		botonMina = new JButton("");
-		botonMina.setEnabled(false);
 		botonMina.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
@@ -218,11 +216,10 @@ public class Gui implements Runnable
 			}
 		});
 		botonMina.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoMina.png"));
-		botonMina.setBounds(10, 11, 92, 59);
+		botonMina.setBounds(349, 11, 92, 59);
 		panelPremios.add(botonMina);	
 		
 		botonCampo = new JButton("");
-		botonCampo.setEnabled(false);
 		botonCampo.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
@@ -234,11 +231,10 @@ public class Gui implements Runnable
 			}
 		});
 		botonCampo.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoCampo.png"));
-		botonCampo.setBounds(10, 11, 92, 59);
+		botonCampo.setBounds(222, 11, 92, 59);
 		panelPremios.add(botonCampo);	
 		
 		botonDanio = new JButton("");
-		botonDanio.setEnabled(false);
 		botonDanio.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
@@ -250,12 +246,11 @@ public class Gui implements Runnable
 			}
 		});
 		botonDanio.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoDanio.png"));
-		botonDanio.setBounds(10, 11, 92, 59);
+		botonDanio.setBounds(112, 11, 92, 59);
 		panelPremios.add(botonDanio);
 		
 		
 		botonCuracion = new JButton("");
-		botonCuracion.setEnabled(false);
 		botonCuracion.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
