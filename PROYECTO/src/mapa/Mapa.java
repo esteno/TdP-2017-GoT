@@ -62,7 +62,7 @@ public class Mapa
 	public Celda celdaDerecha(Celda celdaActual) 
 	{
 		Celda celdaDerecha = null;
-		if(celdaActual.getX() <= matrizCeldas.length-1)
+		if(celdaActual.getX() < matrizCeldas.length-1)
 		{
 			celdaDerecha = matrizCeldas[celdaActual.getX() + 1][celdaActual.getY()];
 		}
