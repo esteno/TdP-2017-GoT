@@ -252,11 +252,32 @@ public class Gui implements Runnable
 		botonYgritte = new JButton("Ygritte");
 		botonYgritte.setBounds(10, 0, 80, 80);
 		panelPersonajes.add(botonYgritte);
+		botonYgritte.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent arg0) 
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirYgritte(); 
+ 				p.restarOro(600);	
+ 				if (p.getOro()<600)
+ 					botonYgritte.setEnabled(false);
+ 					
+ 			}
+ 		});
 		
 		// BOTON MOUNTAIN
 		botonMountain = new JButton("Mountain");
 		botonMountain.setBounds(10, 91, 80, 80);
 		panelPersonajes.add(botonMountain);
+		botonMountain.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent e) 
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirMountain();
+ 				p.restarOro(500);	
+ 				if (p.getOro()<500)
+ 					botonMountain.setEnabled(false);
+ 			}
+ 		});
 		
 		// BOTON DRAGON
  		botonDragon = new JButton("Dragon");
@@ -279,12 +300,36 @@ public class Gui implements Runnable
  		botonInmaculado = new JButton("Inmaculado");
  		botonInmaculado.setBounds(10, 273, 80, 80);
  		panelPersonajes.add(botonInmaculado);
+ 		botonInmaculado.addActionListener(new ActionListener()
+ 		{
+ 			public void actionPerformed(ActionEvent e)
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirInmaculado();
+ 				p.restarOro(200);	
+ 				if (p.getOro()<200)
+ 					botonInmaculado.setEnabled(false);
+ 					
+ 			}
+ 		});
+ 		botonInmaculado.setIcon(new ImageIcon("res/imagenes/juego/botonInmaculado.png"));
  		
  		// BOTON GENDRY
  		botonGendry = new JButton("Gendry");
  		botonGendry.setBounds(10, 455, 80, 80);
  		panelPersonajes.add(botonGendry);
+ 		botonGendry.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent e) 
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirGendry();
+ 				p.restarOro(400);	
+ 				if (p.getOro()<400)
+ 					botonGendry.setEnabled(false);
+ 			}
+ 		});
+ 		botonGendry.setIcon(new ImageIcon("res/imagenes/juego/botonGendry.png"));
  		
+ 		// BOTON BRONN
  		botonBronn = new JButton("Bronn");
  		botonBronn.setBounds(10, 364, 80, 80);
  		panelPersonajes.add(botonBronn);
@@ -300,6 +345,14 @@ public class Gui implements Runnable
  		});
  		botonBronn.setIcon( new ImageIcon("res/imagenes/juego/botonBronn.png"));
  		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
  		fondo = new JLabel("New label");
  		fondo.setBounds(0, 0, 1000, 600);
  		fondo.setIcon(new ImageIcon("res/imagenes/juego/fondo.jpg"));
@@ -307,56 +360,8 @@ public class Gui implements Runnable
  		
  		
  		
- 		botonGendry.addActionListener(new ActionListener() 
- 		{
- 			public void actionPerformed(ActionEvent e) 
- 			{
- 				FabricaDeDefensa.getInstancia().construirGendry();
- 				p.restarOro(400);	
- 				if (p.getOro()<400)
- 					botonGendry.setEnabled(false);
- 			}
- 		});
- 		botonInmaculado.addActionListener(new ActionListener()
- 		{
- 			public void actionPerformed(ActionEvent e)
- 			{
- 				FabricaDeDefensa.getInstancia().construirInmaculado();
- 				p.restarOro(200);	
- 				if (p.getOro()<200)
- 					botonInmaculado.setEnabled(false);
- 					
- 			}
- 		});
- 		botonMountain.addActionListener(new ActionListener() 
- 		{
- 			public void actionPerformed(ActionEvent e) 
- 			{
- 				FabricaDeDefensa.getInstancia().construirMountain();
- 				p.restarOro(500);	
- 				if (p.getOro()<500)
- 					botonMountain.setEnabled(false);
- 			}
- 		});
- 		botonYgritte.addActionListener(new ActionListener() 
- 		{
- 			public void actionPerformed(ActionEvent arg0) 
- 			{
- 				FabricaDeDefensa.getInstancia().construirYgritte(); 
- 				p.restarOro(600);	
- 				if (p.getOro()<600)
- 					botonYgritte.setEnabled(false);
- 					
- 			}
- 		});
-		
+ 	
 
-		/**
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\monedas.gif"));
-		label.setBounds(37, 25, 70, 45);
-		panelMonedas.add(label);
-		**/
 		
 		//---------------
 		
