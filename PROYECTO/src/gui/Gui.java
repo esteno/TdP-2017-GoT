@@ -34,6 +34,7 @@ import java.awt.Component;
 import javax.swing.border.LineBorder;
 import java.awt.SystemColor;
 import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
 
 public class Gui implements Runnable
 {
@@ -65,9 +66,6 @@ public class Gui implements Runnable
 	private JPanel panelCeldas;
 	private JPanel panelDefensa;
 	private JPanel panelEnemigos;
-	private JPanel panelPersonajes;
-	
-	private JButton btnJorgito;
 	private JButton botonBomba;
 	private JButton botonBarricada;
 	private JButton botonFuegovalyrio;
@@ -86,6 +84,9 @@ public class Gui implements Runnable
 	private List<ObjetoMovil> moviles;
 	private List<ObjetoMovil> aBorrar;
 	private List<ObjetoMovil> aAgregar;
+	private JPanel panelPersonajes;
+	private JLabel Fondo;
+	private JLabel fondo;
 
 	/**
 	 * Launch the application.
@@ -108,9 +109,11 @@ public class Gui implements Runnable
 	 */
 	public Gui() 
 	{
+	
 		frame = new JFrame("NIGHT KING DEFENSE");
 		frame.setBounds(100, 100, 1000, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		initialize();
 		
@@ -154,6 +157,10 @@ public class Gui implements Runnable
 		pb= new PremioBomba(fabricaDeDefensa);
 		pm=new PremioMina(fabricaDeDefensa);
 		
+		Fondo = new JLabel("fondo");
+		Fondo.setBounds(0, 0, 1000, 600);
+		Fondo.setIcon(new ImageIcon("res/imagenes/juego/fondo.png"));
+		
 		
 		frame.getContentPane().add(panelMapa, BorderLayout.CENTER);
 		panelMapa.setLayout(null);
@@ -161,125 +168,13 @@ public class Gui implements Runnable
 		JPanel panelPuntaje = new JPanel();
 		panelPuntaje.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelPuntaje.setBackground(SystemColor.menu);
-		panelPuntaje.setBounds(146, 11, 92, 81);
+		panelPuntaje.setBounds(174, 11, 92, 81);
 		panelMapa.add(panelPuntaje);
 		panelPuntaje.setLayout(null);
 		
 		labelPuntaje = new JLabel("Puntaje: 0");
 		labelPuntaje.setBounds(10, 31, 64, 14);
 		panelPuntaje.add(labelPuntaje);
-		
-		panelPersonajes = new JPanel();
-		panelPersonajes.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelPersonajes.setBounds(10, 0, 128, 561);
-		panelMapa.add(panelPersonajes);
-		panelPersonajes.setLayout(null);
-		
-		// BOTON JORGITO
-		btnJorgito = new JButton("Jorgito");
-		btnJorgito.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				FabricaDeDefensa.getInstancia().construirJorgito(); 
-			}
-		});
-		btnJorgito.setBounds(10, 35, 83, 23);
-		panelPersonajes.add(btnJorgito);
-		
-		// BOTON YGRITTE
-		botonYgritte = new JButton("Ygritte");
-		botonYgritte.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				FabricaDeDefensa.getInstancia().construirYgritte(); 
-				p.restarOro(600);	
-				if (p.getOro()<600)
-					botonYgritte.setEnabled(false);
-					
-			}
-		});
-		botonYgritte.setBounds(13, 69, 80, 80);
-		panelPersonajes.add(botonYgritte);
-		
-		// BOTON MOUNTAIN
-		botonMountain = new JButton("Mountain");
-		botonMountain.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent e) 
-			{
-				FabricaDeDefensa.getInstancia().construirMountain();
-				p.restarOro(500);	
-				if (p.getOro()<500)
-					botonMountain.setEnabled(false);
-			}
-		});
-		botonMountain.setBounds(13, 149, 80, 80);
-		panelPersonajes.add(botonMountain);
-		
-		// BOTON DRAGON
- 		botonDragon = new JButton("Dragon");
-		botonDragon.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent e) 
-			{
-				FabricaDeDefensa.getInstancia().construirDragon();
-				p.restarOro(1000);	
-				if (p.getOro()<1000)
-					botonDragon.setEnabled(false);
-					
-			}
-		});
-		botonDragon.setBounds(13, 230, 80, 80);
-		botonDragon.setIcon( new ImageIcon("res/imagenes/juego/botonDragon.png"));
-		panelPersonajes.add(botonDragon);
-		
-		// BOTON INMACULADO
-		botonInmaculado = new JButton("Inmaculado");
-		botonInmaculado.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				FabricaDeDefensa.getInstancia().construirInmaculado();
-				p.restarOro(200);	
-				if (p.getOro()<200)
-					botonInmaculado.setEnabled(false);
-					
-			}
-		});
-		botonInmaculado.setBounds(13, 310, 80, 80);
-		panelPersonajes.add(botonInmaculado);
-		
-		// BOTON GENDRY
-		botonGendry = new JButton("Gendry");
-		botonGendry.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent e) 
-			{
-				FabricaDeDefensa.getInstancia().construirGendry();
-				p.restarOro(400);	
-				if (p.getOro()<400)
-					botonGendry.setEnabled(false);
-			}
-		});
-		botonGendry.setBounds(13, 390, 80, 80);
-		panelPersonajes.add(botonGendry);
-		
-		botonBronn = new JButton("Bronn");
-		botonBronn.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				FabricaDeDefensa.getInstancia().construirBronn();
-				p.restarOro(300);	
-				if (p.getOro()<300)
-					botonBomba.setEnabled(false);
-			}
-		});
-		botonBronn.setBounds(13, 470, 80, 80);
-		botonBronn.setIcon( new ImageIcon("res/imagenes/juego/botonBronn.png"));
-		panelPersonajes.add(botonBronn);
 		
 		
 		
@@ -325,13 +220,11 @@ public class Gui implements Runnable
 		
 		botonBarricada = new JButton("");
 		botonBarricada.setEnabled(false);
-		botonBarricada.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\iconoBarricada.png"));
 		botonBarricada.setBounds(106, 11, 89, 59);
 		paneloObjetosPreciosos.add(botonBarricada);
 		
 		botonFuegovalyrio = new JButton("");
 		botonFuegovalyrio.setEnabled(false);
-		botonFuegovalyrio.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\botonFuegoValyrio.png"));
 		botonFuegovalyrio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -341,7 +234,7 @@ public class Gui implements Runnable
 		
 		JPanel panelMonedas = new JPanel();
 		panelMonedas.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelMonedas.setBounds(229, 11, 92, 81);
+		panelMonedas.setBounds(260, 11, 92, 81);
 		panelMapa.add(panelMonedas);
 		panelMonedas.setLayout(null);
 		
@@ -349,6 +242,115 @@ public class Gui implements Runnable
 		lblMonedas.setBounds(10, 33, 72, 14);
 		panelMonedas.add(lblMonedas);
 		
+		panelPersonajes = new JPanel();
+		panelPersonajes.setBounds(10, 11, 102, 539);
+		panelMapa.add(panelPersonajes);
+		panelPersonajes.setBackground(null);
+		panelPersonajes.setLayout(null);
+		
+		// BOTON YGRITTE
+		botonYgritte = new JButton("Ygritte");
+		botonYgritte.setBounds(10, 0, 80, 80);
+		panelPersonajes.add(botonYgritte);
+		
+		// BOTON MOUNTAIN
+		botonMountain = new JButton("Mountain");
+		botonMountain.setBounds(10, 91, 80, 80);
+		panelPersonajes.add(botonMountain);
+		
+		// BOTON DRAGON
+ 		botonDragon = new JButton("Dragon");
+ 		botonDragon.setBounds(10, 182, 80, 80);
+ 		panelPersonajes.add(botonDragon);
+ 		botonDragon.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent e) 
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirDragon();
+ 				p.restarOro(1000);	
+ 				if (p.getOro()<1000)
+ 					botonDragon.setEnabled(false);
+ 					
+ 			}
+ 		});
+ 		botonDragon.setIcon( new ImageIcon("res/imagenes/juego/botonDragon.png"));
+ 		
+ 		// BOTON INMACULADO
+ 		botonInmaculado = new JButton("Inmaculado");
+ 		botonInmaculado.setBounds(10, 273, 80, 80);
+ 		panelPersonajes.add(botonInmaculado);
+ 		
+ 		// BOTON GENDRY
+ 		botonGendry = new JButton("Gendry");
+ 		botonGendry.setBounds(10, 455, 80, 80);
+ 		panelPersonajes.add(botonGendry);
+ 		
+ 		botonBronn = new JButton("Bronn");
+ 		botonBronn.setBounds(10, 364, 80, 80);
+ 		panelPersonajes.add(botonBronn);
+ 		botonBronn.addActionListener(new ActionListener()
+ 		{
+ 			public void actionPerformed(ActionEvent arg0) 
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirBronn();
+ 				p.restarOro(300);	
+ 				if (p.getOro()<300)
+ 					botonBomba.setEnabled(false);
+ 			}
+ 		});
+ 		botonBronn.setIcon( new ImageIcon("res/imagenes/juego/botonBronn.png"));
+ 		
+ 		fondo = new JLabel("New label");
+ 		fondo.setBounds(0, 0, 1000, 600);
+ 		fondo.setIcon(new ImageIcon("res/imagenes/juego/fondo.jpg"));
+ 		panelMapa.add(fondo);
+ 		
+ 		
+ 		
+ 		botonGendry.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent e) 
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirGendry();
+ 				p.restarOro(400);	
+ 				if (p.getOro()<400)
+ 					botonGendry.setEnabled(false);
+ 			}
+ 		});
+ 		botonInmaculado.addActionListener(new ActionListener()
+ 		{
+ 			public void actionPerformed(ActionEvent e)
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirInmaculado();
+ 				p.restarOro(200);	
+ 				if (p.getOro()<200)
+ 					botonInmaculado.setEnabled(false);
+ 					
+ 			}
+ 		});
+ 		botonMountain.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent e) 
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirMountain();
+ 				p.restarOro(500);	
+ 				if (p.getOro()<500)
+ 					botonMountain.setEnabled(false);
+ 			}
+ 		});
+ 		botonYgritte.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent arg0) 
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirYgritte(); 
+ 				p.restarOro(600);	
+ 				if (p.getOro()<600)
+ 					botonYgritte.setEnabled(false);
+ 					
+ 			}
+ 		});
+		
+
 		/**
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\monedas.gif"));
@@ -550,7 +552,7 @@ public class Gui implements Runnable
 
 	public void oroActual(int oro) {
 		lblMonedas.setText("Monedas: "+oro);
-		btnJorgito.setEnabled((oro < costosDeDefensa.costoJorgito()) ? false : true);
+		//btnJorgito.setEnabled((oro < costosDeDefensa.costoJorgito()) ? false : true);
 		
 		botonYgritte.setEnabled((oro < costosDeDefensa.costoYgritte()) ? false : true);
 		
