@@ -9,8 +9,6 @@ public abstract class Defensa extends GameObject
      //protected Nivel nivel;
      protected VisitorDefensa visitor = new VisitorDefensa(this);
      
-     //Cuanto cuesta crear esta defensa
-     protected int precio;
      
      //Valor que da el tiempo entre ataque y ataque
      protected int velocidadAtaque;

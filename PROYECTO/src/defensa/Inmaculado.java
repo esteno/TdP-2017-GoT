@@ -8,7 +8,7 @@ public class Inmaculado extends DefensaRango {
 		proximoAtaque = 0;
 		puntosVida = 290;
 		fuerzaImpacto = 45;
-		precio = 200;
+
 		grafico = fabricaGrafica.construirGraficoInmaculado();
 	}
 

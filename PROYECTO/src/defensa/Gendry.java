@@ -10,7 +10,7 @@ public class Gendry extends DefensaCuerpo
 		proximoAtaque = 0;
 		puntosVida = 250;
 		fuerzaImpacto = 55;
-		precio = 400;
+
 		grafico = fabricaGrafica.construirGraficoGendry();
 	}
 

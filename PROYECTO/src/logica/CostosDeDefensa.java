@@ -2,7 +2,13 @@ package logica;
 
 public class CostosDeDefensa {
 	
-	private final int COSTO = 500;
+	private final int COSTO_JORGITO = 500;
+	private final int COSTO_DRAGON = 1000;
+	private final int COSTO_GENDRY = 400;
+	private final int COSTO_INMACULADO = 200;
+	private final int COSTO_MOUNTAIN = 500;
+	private final int COSTO_YGRITTE = 600;
+	private final int COSTO_BRONN = 300;
 	
 	private static CostosDeDefensa instancia = null;
 	
@@ -16,31 +22,31 @@ public class CostosDeDefensa {
 	}
 	
 	public int costoJorgito() {
-		return COSTO;
+		return COSTO_JORGITO;
 	}
 	
 	public int costoDragon() {
-		return COSTO;
+		return COSTO_DRAGON;
 	}
 	
 	public int costoGendry() {
-		return COSTO;
+		return COSTO_GENDRY;
 	}
 	
 	public int costoInmaculado() {
-		return COSTO;
+		return COSTO_INMACULADO;
 	}
 	
 	public int costoMountain() {
-		return COSTO;
+		return COSTO_MOUNTAIN;
 	}
 	
 	public int costoYgritte() {
-		return COSTO;
+		return COSTO_YGRITTE;
 	}
 	
 	public int costoBronn() {
-		return COSTO;
+		return COSTO_BRONN;
 	}
 	
 
