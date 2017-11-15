@@ -81,8 +81,7 @@ public class ControlDeOleadas implements Runnable {
 				if(listaEnemigos.size() == 0 && cantOleadas != 0) {
 					System.out.println("nueva oleada");
 					Thread.sleep(2000);
-					aInsertar = 0;
-					cantOleadas--;
+					juego.sigOleada();
 				}
 				//Si no hay mas oleadas se cambia de nivel
 				if(cantOleadas == 0) {

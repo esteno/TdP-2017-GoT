@@ -81,11 +81,11 @@ public class Juego
 		nivelActual = niveles.getNivel(numNivel);
 		numNivel++;
 		mapa.cambiarMapa(parser.parsearNivel(nivelActual.getPath()));
-		generarOleada();
+		sigOleada();
 	}
 	
 	//Genera la oleada para el control
-	private void generarOleada() {
+	public void sigOleada() {
 		controlDeOleadas.setOleada(nivelActual.getOleada());
 	}
 	
@@ -189,5 +189,7 @@ public class Juego
 	{
 		return controlDeDefensa.getListaDefensa();
 	}
+
+	
 	
 }
