@@ -3,12 +3,12 @@ package logica;
 public class CostosDeDefensa {
 	
 	private final int COSTO_JORGITO = 500;
-	private final int COSTO_DRAGON = 1000;
-	private final int COSTO_GENDRY = 400;
-	private final int COSTO_INMACULADO = 200;
+	private final int COSTO_DRAGON = 1000; // ok 
+	private final int COSTO_GENDRY = 400; // ok
+	private final int COSTO_INMACULADO = 200; //ok
 	private final int COSTO_MOUNTAIN = 500;
 	private final int COSTO_YGRITTE = 600;
-	private final int COSTO_BRONN = 300;
+	private final int COSTO_BRONN = 300; //ok
 	
 	private static CostosDeDefensa instancia = null;
 	

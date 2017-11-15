@@ -10,7 +10,6 @@ public class FuegoValyrio extends Obstaculo
 
 	public FuegoValyrio()
 	{
-		precio = 30;
 	}
 	
 	public void aceptar(Visitor v)
