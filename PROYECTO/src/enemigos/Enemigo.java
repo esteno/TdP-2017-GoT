@@ -48,7 +48,7 @@ public abstract class Enemigo extends ObjetoMovil
 						celda = celdaNueva;
 						grafico.setBloqueado(true);
 						celda.moverEnemigo(xAnterior, yAnterior);
-						contVelocidad = velocidad;
+						contVelocidad = (int) Math.floor(velocidad*celda.getMultiVelocidad());
 					}
 					else {
 						//descuenta de contador

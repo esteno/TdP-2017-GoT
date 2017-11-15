@@ -23,6 +23,5 @@ public abstract class Defensa extends GameObject
      {
     	 v.visitarDefensa(this);
      }
-     
   
 }

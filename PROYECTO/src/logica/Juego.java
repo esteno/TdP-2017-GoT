@@ -55,6 +55,7 @@ public class Juego
 		this.ancho = ancho;
 		this.gui = gui;
 		puntaje = new Puntaje();
+		gui.oroActual(puntaje.getOro());
 		mapa = new Mapa(this, alto, ancho);
 		niveles = new Niveles();
 		
@@ -156,9 +157,10 @@ public class Juego
 	}
 
 	
-	public void sumarOro(int i) {
+	public void sumarOro(int oro) {
 		
-		puntaje.sumarOro(i);
+		puntaje.sumarOro(oro);
+		gui.oroActual(oro);
 	}
 	
 	

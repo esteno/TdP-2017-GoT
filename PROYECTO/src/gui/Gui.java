@@ -54,9 +54,11 @@ public class Gui implements Runnable
 	private PremioMina pm;
 	
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
+	private CostosDeDefensa costosDeDefensa = CostosDeDefensa.getInstncia();
 	
 	private JLabel labelPuntaje;
 	private boolean aEliminar=false;
+	
 	
 	private JLayeredPane panelMapa;
 	private JPanel panelControl;
@@ -64,11 +66,20 @@ public class Gui implements Runnable
 	private JPanel panelDefensa;
 	private JPanel panelEnemigos;
 	private JPanel panelPersonajes;
+	
 	private JButton btnJorgito;
 	private JButton botonBomba;
 	private JButton botonBarricada;
 	private JButton botonFuegovalyrio;
 	private JButton botonMina;
+	private JButton botonYgritte;
+	private JButton botonMountain;
+	private JButton botonDragon; 
+	private JButton botonInmaculado;
+	private JButton botonGendry;
+	private JButton botonBronn;
+	
+	private JLabel lblMonedas;
 	
 	
 	
@@ -139,31 +150,10 @@ public class Gui implements Runnable
 		panelMapa.add(panelEnemigos, NIVELENEMIGO);
 		
 		frame.getContentPane().repaint();
-		juego = new Juego(this, ALTO, ANCHO);
+		
 		pb= new PremioBomba(fabricaDeDefensa);
 		pm=new PremioMina(fabricaDeDefensa);
-		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
 		
-		
-		for(int i = 0; i < ANCHO; i++) 
-		{
-			for (int j = 0; j < ALTO; j++) 
-			{
-				ImageIcon imagen = graficos[i][j].getImagen();
-				int ancho = imagen.getIconWidth();
-				int alto = imagen.getIconHeight();
-				int x = i*ancho;
-				int y = j*alto;
-				JLabel label = new JLabel();
-				label.setBounds(x ,y,alto,ancho);
-				label.setIcon(imagen);
-				label.addMouseListener(getMouseListener());
-				panelCeldas.add(label);
-				
-			}
-		}
-		
-		juego.crearMuro();
 		
 		frame.getContentPane().add(panelMapa, BorderLayout.CENTER);
 		panelMapa.setLayout(null);
@@ -198,7 +188,7 @@ public class Gui implements Runnable
 		panelPersonajes.add(btnJorgito);
 		
 		// BOTON YGRITTE
-		JButton botonYgritte = new JButton("Ygritte");
+		botonYgritte = new JButton("Ygritte");
 		botonYgritte.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent arg0) 
@@ -214,7 +204,7 @@ public class Gui implements Runnable
 		panelPersonajes.add(botonYgritte);
 		
 		// BOTON MOUNTAIN
-		JButton botonMountain = new JButton("Mountain");
+		botonMountain = new JButton("Mountain");
 		botonMountain.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -229,7 +219,7 @@ public class Gui implements Runnable
 		panelPersonajes.add(botonMountain);
 		
 		// BOTON DRAGON
- 		JButton botonDragon = new JButton("Dragon");
+ 		botonDragon = new JButton("Dragon");
 		botonDragon.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -246,7 +236,7 @@ public class Gui implements Runnable
 		panelPersonajes.add(botonDragon);
 		
 		// BOTON INMACULADO
-		JButton botonInmaculado = new JButton("Inmaculado");
+		botonInmaculado = new JButton("Inmaculado");
 		botonInmaculado.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -262,7 +252,7 @@ public class Gui implements Runnable
 		panelPersonajes.add(botonInmaculado);
 		
 		// BOTON GENDRY
-		JButton botonGendry = new JButton("Gendry");
+		botonGendry = new JButton("Gendry");
 		botonGendry.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -276,7 +266,7 @@ public class Gui implements Runnable
 		botonGendry.setBounds(13, 390, 80, 80);
 		panelPersonajes.add(botonGendry);
 		
-		JButton botonBronn = new JButton("Bronn");
+		botonBronn = new JButton("Bronn");
 		botonBronn.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
@@ -355,16 +345,42 @@ public class Gui implements Runnable
 		panelMapa.add(panelMonedas);
 		panelMonedas.setLayout(null);
 		
-		JLabel lblMonedas = new JLabel("Monedas:  0");
+		lblMonedas = new JLabel("Monedas:  0");
 		lblMonedas.setBounds(10, 33, 72, 14);
 		panelMonedas.add(lblMonedas);
 		
+		/**
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon("C:\\CARPETAS_DE_ESCRITORIO\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\premios\\monedas.gif"));
 		label.setBounds(37, 25, 70, 45);
 		panelMonedas.add(label);
+		**/
+		
+		//---------------
+		
+		juego = new Juego(this, ALTO, ANCHO);
+		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
 		
 		
+		for(int i = 0; i < ANCHO; i++) 
+		{
+			for (int j = 0; j < ALTO; j++) 
+			{
+				ImageIcon imagen = graficos[i][j].getImagen();
+				int ancho = imagen.getIconWidth();
+				int alto = imagen.getIconHeight();
+				int x = i*ancho;
+				int y = j*alto;
+				JLabel label = new JLabel();
+				label.setBounds(x ,y,alto,ancho);
+				label.setIcon(imagen);
+				label.addMouseListener(getMouseListener());
+				panelCeldas.add(label);
+				
+			}
+		}
+		
+		juego.crearMuro();
 	}
 	
 	public void puntaje(int puntaje)
@@ -529,6 +545,24 @@ public class Gui implements Runnable
 			JOptionPane.showMessageDialog(null, "Gracias por jugar!");
 			System.exit(0);
 		}
+		
+	}
+
+	public void oroActual(int oro) {
+		lblMonedas.setText("Monedas: "+oro);
+		btnJorgito.setEnabled((oro < costosDeDefensa.costoJorgito()) ? false : true);
+		
+		botonYgritte.setEnabled((oro < costosDeDefensa.costoYgritte()) ? false : true);
+		
+		botonMountain.setEnabled((oro < costosDeDefensa.costoMountain()) ? false : true); 
+		
+		botonDragon.setEnabled((oro < costosDeDefensa.costoDragon()) ? false : true);
+		
+		botonInmaculado.setEnabled((oro < costosDeDefensa.costoInmaculado()) ? false : true);
+		
+		botonGendry.setEnabled((oro < costosDeDefensa.costoGendry()) ? false : true);
+		
+		botonBronn.setEnabled((oro < costosDeDefensa.costoBronn()) ? false : true);
 		
 	}
 }
