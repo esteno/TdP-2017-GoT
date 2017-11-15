@@ -42,30 +42,34 @@ public class Gui implements Runnable
 	private JFrame frame;
 	
 	private Juego juego;
+	
 	private final int ALTO = 8;
 	private final int ANCHO = 16;
 	private final int ALTO_IMG = 50; // antes 32
 	private final int ANCHO_IMG = 50; // antes 32
-	
 	private final int NIVELCELDA = 2;
 	private final int NIVELDEFENSA = 0;
 	private final int NIVELENEMIGO = 1;
+	
 	private Puntaje p;
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	private CostosDeDefensa costosDeDefensa = CostosDeDefensa.getInstncia();
 	
 	private JLabel labelPuntaje;
+	
 	private boolean aEliminar=false;
 	
 	
 	private JLayeredPane panelMapa;
-	private JPanel panelControl;
+	
+	private JPanel panelPersonajes;
 	private JPanel panelCeldas;
 	private JPanel panelDefensa;
 	private JPanel panelEnemigos;
+	private JPanel panelControl;
+	private JPanel panelPremios;
+	
 	private JButton botonBomba;
-	private JButton botonBarricada;
-	private JButton botonFuegovalyrio;
 	private JButton botonMina;
 	private JButton botonCampo;
 	private JButton botonDanio;
@@ -84,8 +88,7 @@ public class Gui implements Runnable
 	private List<ObjetoMovil> moviles;
 	private List<ObjetoMovil> aBorrar;
 	private List<ObjetoMovil> aAgregar;
-	private JPanel panelPersonajes;
-	private JLabel Fondo;
+
 	private JLabel fondo;
 
 	/**
@@ -153,36 +156,39 @@ public class Gui implements Runnable
 		panelMapa.add(panelEnemigos, NIVELENEMIGO);
 		
 		frame.getContentPane().repaint();
-		
-		Fondo = new JLabel("fondo");
-		Fondo.setBounds(0, 0, 1000, 600);
-		Fondo.setIcon(new ImageIcon("res/imagenes/juego/fondo.png"));
-		
-		
 		frame.getContentPane().add(panelMapa, BorderLayout.CENTER);
 		panelMapa.setLayout(null);
 		
-		JPanel panelPuntaje = new JPanel();
-		panelPuntaje.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelPuntaje.setBackground(SystemColor.menu);
-		panelPuntaje.setBounds(174, 11, 92, 81);
-		panelMapa.add(panelPuntaje);
-		panelPuntaje.setLayout(null);
-		
-		labelPuntaje = new JLabel("Puntaje: 0");
-		labelPuntaje.setBounds(10, 31, 64, 14);
-		panelPuntaje.add(labelPuntaje);
-		
-		
-		
-		JPanel paneloObjetosPreciosos = new JPanel();
-		paneloObjetosPreciosos.setBorder(new LineBorder(new Color(0, 0, 0)));
-		paneloObjetosPreciosos.setBounds(362, 11, 302, 81);
-		panelMapa.add(paneloObjetosPreciosos);
-		paneloObjetosPreciosos.setLayout(null);
 		
 		
 		p=new Puntaje();
+		
+		
+		//--------- PANEL CONTROL
+		
+		panelControl = new JPanel();
+		panelControl.setBounds(122, 21, 213, 48);
+		panelMapa.add(panelControl);
+		panelControl.setLayout(null);
+		
+		labelPuntaje = new JLabel("Puntaje: 0");
+		labelPuntaje.setBounds(10, 28, 70, 14);
+		panelControl.add(labelPuntaje);
+	
+
+		lblMonedas = new JLabel("Monedas:  0");
+		lblMonedas.setBounds(108, 28, 95, 14);
+		panelControl.add(lblMonedas);
+		
+		//-----------PANEL PREMIOS
+		panelPremios = new JPanel();
+		panelPremios.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelPremios.setBounds(353, 11, 302, 81);
+		panelMapa.add(panelPremios);
+		panelPremios.setLayout(null);
+		
+		
+		
 		botonBomba = new JButton("");
 		botonBomba.setEnabled(false);
 		botonBomba.addActionListener(new ActionListener()
@@ -196,8 +202,8 @@ public class Gui implements Runnable
 			}
 		});
 		botonBomba.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoBomba.png"));
-		botonBomba.setBounds(10, 11, 92, 59);
-		paneloObjetosPreciosos.add(botonBomba);
+		botonBomba.setBounds(172, 11, 92, 59);
+		panelPremios.add(botonBomba);
 		
 		botonMina = new JButton("");
 		botonMina.setEnabled(false);
@@ -213,7 +219,7 @@ public class Gui implements Runnable
 		});
 		botonMina.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoMina.png"));
 		botonMina.setBounds(10, 11, 92, 59);
-		paneloObjetosPreciosos.add(botonMina);	
+		panelPremios.add(botonMina);	
 		
 		botonCampo = new JButton("");
 		botonCampo.setEnabled(false);
@@ -229,7 +235,7 @@ public class Gui implements Runnable
 		});
 		botonCampo.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoCampo.png"));
 		botonCampo.setBounds(10, 11, 92, 59);
-		paneloObjetosPreciosos.add(botonCampo);	
+		panelPremios.add(botonCampo);	
 		
 		botonDanio = new JButton("");
 		botonDanio.setEnabled(false);
@@ -245,7 +251,7 @@ public class Gui implements Runnable
 		});
 		botonDanio.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoDanio.png"));
 		botonDanio.setBounds(10, 11, 92, 59);
-		paneloObjetosPreciosos.add(botonDanio);
+		panelPremios.add(botonDanio);
 		
 		
 		botonCuracion = new JButton("");
@@ -262,32 +268,15 @@ public class Gui implements Runnable
 		});
 		botonCuracion.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoCuracion.png"));
 		botonCuracion.setBounds(10, 11, 92, 59);
-		paneloObjetosPreciosos.add(botonCuracion);
+		panelPremios.add(botonCuracion);
 		
-		botonBarricada = new JButton("");
-		botonBarricada.setEnabled(false);
-		botonBarricada.setBounds(106, 11, 89, 59);
-		paneloObjetosPreciosos.add(botonBarricada);
+	
+
 		
-		botonFuegovalyrio = new JButton("");
-		botonFuegovalyrio.setEnabled(false);
-		botonFuegovalyrio.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		botonFuegovalyrio.setBounds(200, 11, 92, 59);
-		paneloObjetosPreciosos.add(botonFuegovalyrio);
 		
-		JPanel panelMonedas = new JPanel();
-		panelMonedas.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelMonedas.setBounds(260, 11, 92, 81);
-		panelMapa.add(panelMonedas);
-		panelMonedas.setLayout(null);
-		
-		lblMonedas = new JLabel("Monedas:  0");
-		lblMonedas.setBounds(10, 33, 72, 14);
-		panelMonedas.add(lblMonedas);
-		
+	
+		//----------------- PANEL PERSONAJE - SBOTONES PERSONAJES
+			
 		panelPersonajes = new JPanel();
 		panelPersonajes.setBounds(10, 11, 102, 539);
 		panelMapa.add(panelPersonajes);
@@ -398,11 +387,11 @@ public class Gui implements Runnable
  		
  		
  		
+ 		//-------------- FONDO DE JUEGO 
  		
  		
- 		
- 		fondo = new JLabel("New label");
- 		fondo.setBounds(0, 0, 1000, 600);
+ 		fondo = new JLabel("FONDO_JUEGO");
+ 		fondo.setBounds(10, 11, 1000, 600);
  		fondo.setIcon(new ImageIcon("res/imagenes/juego/fondo.jpg"));
  		panelMapa.add(fondo);
  		
