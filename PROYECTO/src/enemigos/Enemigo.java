@@ -17,12 +17,12 @@ public abstract class Enemigo extends ObjetoMovil
 	//Visitor que usa la clase
 	protected Visitor visitor;
 	protected int puntos; //puntos que devuelve al ser destruido
+	protected int oro;
 	
 	protected boolean atacando=false;
 	
 	public Enemigo() {
 		visitor = new VisitorEnemigo(this);
-		bloqueado=false;
 	}
 	
 	//La fuerza de ataque es la fuerza de impacto por el estado de ataque, redondeado a un entero.
@@ -35,7 +35,7 @@ public abstract class Enemigo extends ObjetoMovil
 	public void avanzar(){
 
 		if(!atacando)
-			if(!Lock(true)){
+			if(!grafico.Lock(true)){
 			//Si la celda es nula quiere decir que llego al borde izquierdo del mapa.
 			Celda celdaNueva = celda.celdaIzquierda();
 				if(celdaNueva != null) 	{
@@ -46,7 +46,7 @@ public abstract class Enemigo extends ObjetoMovil
 					//Si ya se puede mover y no hay nada en la celda adyacente se mueve
 					if(contVelocidad <= 0 && celdaNueva.objetoMovil() == null){	
 						celda = celdaNueva;
-						bloqueado=true;
+						grafico.setBloqueado(true);
 						celda.moverEnemigo(xAnterior, yAnterior);
 						contVelocidad = velocidad;
 					}
@@ -95,6 +95,11 @@ public abstract class Enemigo extends ObjetoMovil
 	public Visitor getVisitor()
 	{
 		return visitor;
+	}
+
+	public int getOro() {
+		
+		return oro;
 	}
 
 }

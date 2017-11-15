@@ -41,7 +41,6 @@ public abstract class GameObject
 	public abstract void aceptar(Visitor v);
 	
 	
-	
 	public Celda getCelda()
 	{ 
 		return celda;
@@ -52,14 +51,12 @@ public abstract class GameObject
 	{
 		return fuerzaImpacto;
 	}
-
 	
 	public int getPuntosVida()
 	{
 		return puntosVida;
 	}
 	
-
 	
 	public void recibirAtaque(int i)
 	{
@@ -76,5 +73,3 @@ public abstract class GameObject
 		this.destruir();
 	}
 }
-
-
