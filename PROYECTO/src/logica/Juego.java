@@ -156,6 +156,10 @@ public class Juego
 	}
 
 	
+	public void sumarOro(int i) {
+		
+		puntaje.sumarOro(i);
+	}
 	
 	
 	

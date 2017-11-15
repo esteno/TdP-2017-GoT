@@ -17,6 +17,7 @@ public abstract class Enemigo extends ObjetoMovil
 	//Visitor que usa la clase
 	protected Visitor visitor;
 	protected int puntos; //puntos que devuelve al ser destruido
+	protected int oro;
 	
 	protected boolean atacando=false;
 	
@@ -95,6 +96,11 @@ public abstract class Enemigo extends ObjetoMovil
 	public Visitor getVisitor()
 	{
 		return visitor;
+	}
+
+	public int getOro() {
+		
+		return oro;
 	}
 
 }
