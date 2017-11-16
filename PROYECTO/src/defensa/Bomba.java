@@ -16,4 +16,6 @@ public class Bomba extends Explosivo implements Temporal{
 		puntosVida=1;
 	}
 	
+	
+	
 }
