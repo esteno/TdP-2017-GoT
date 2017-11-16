@@ -3,7 +3,7 @@ package logica;
 import java.util.ArrayList;
 import java.util.List;
 
-import disparos.Disparo;
+import disparos.*;
 
 
 public class ControlDisparo implements Runnable {
@@ -25,12 +25,16 @@ public class ControlDisparo implements Runnable {
 		
 	}
 	
-	public void agregarDisparo(Disparo disparo, int x, int y) {
-		//Agrega un disparo nuevo
-		Disparo disparoNuevo = disparo;
+	public void agregarDisparoDefensa(DisparoDefensa disparo, int x, int y) {
 		
-		if(juego.agregarObjetoMovil(disparoNuevo, x, y)) 
-			listaInsercion.add(disparoNuevo);
+		if(juego.agregarDisparoDefensa(disparo, x, y)) 
+			listaInsercion.add(disparo);
+	}
+	
+	public void agregarDisparoEnemigo(DisparoEnemigo disparo, int x, int y) {
+		
+		if(juego.agregarDisparoEnemigo(disparo, x, y)) 
+			listaInsercion.add(disparo);
 	}
 	
 	public void run() {
