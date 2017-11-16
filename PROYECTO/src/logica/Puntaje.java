@@ -31,7 +31,7 @@ public class Puntaje {
 		minasDisponibles++;
 	}
 	
-	public void agregarBarricadas() {
+	public void agregarBarricada() {
 		barricadasDisponibles++;
 	}
 	

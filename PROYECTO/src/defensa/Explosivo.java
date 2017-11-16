@@ -11,17 +11,15 @@ public abstract class Explosivo extends Defensa{
 	
 	public void recibirAtaque(int i) {
 		
-		atacar();
+		destruir();
 	
 	}
 	
 	public void atacar() {
-		
-		destruir();
 	}
 	
 	public void destruir() {
-		
+		puntosVida = 0;
 		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
 		l=celda.adyacentes();
 		VisitorExplosivo v=new VisitorExplosivo(this);

@@ -193,7 +193,7 @@ public class FabricaObjetoGrafico {
 	
 	public GameObjectGrafico construirGraficoBomba() {
 		
-		return new GameObjectGrafico("res/imagenes/disparo/bomba.png");
+		return new GameObjectGrafico("res/imagenes/defensa/bomba.png");
 	}
 	
 	

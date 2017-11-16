@@ -176,15 +176,16 @@ public class Mapa
 		return matrizEstatica[x][y];
 	}
 	
-	public List<ObjetoMovil> adyacentes(Celda c) {
+	public List<ObjetoMovil> adyacentes(Celda celdaOriginal) {
 
-		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
-		for (int x=c.getX()-1; x<c.getX()+2; x++)
-			for (int y=c.getY()-1; y<c.getX()+2; y++)
-				if ((x<matrizMovil.length)&&(y<matrizMovil[0].length))			
+		List<ObjetoMovil> lista = new ArrayList<ObjetoMovil>();
+		
+		for (int x = celdaOriginal.getX()-1; x < celdaOriginal.getX()+2; x++)
+			for (int y=celdaOriginal.getY()-1; y<celdaOriginal.getY()+2; y++)
+				if ((x < matrizMovil.length && x >= 0) && (y <matrizMovil[0].length && y >= 0))			
 					if (matrizMovil[x][y]!=null)
-					                l.add(matrizMovil[x][y]);
-		return l;		
+						lista.add(matrizMovil[x][y]);
+		return lista;		
 	}
 
 	public Celda [][] getMatriz(){

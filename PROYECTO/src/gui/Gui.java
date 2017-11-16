@@ -47,9 +47,11 @@ public class Gui implements Runnable
 	private final int ANCHO = 16;
 	private final int ALTO_IMG = 50; // antes 32
 	private final int ANCHO_IMG = 50; // antes 32
-	private final int NIVELCELDA = 2;
-	private final int NIVELDEFENSA = 0;
-	private final int NIVELENEMIGO = 1;
+	private final int NIVELCELDA = 3;
+	private final int NIVELDEFENSA = 1;
+	private final int NIVELENEMIGO = 2;
+	private final int NIVELPREMIO = 0;
+	private boolean clickCampo = false;
 	
 	private Puntaje p;
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
@@ -66,6 +68,7 @@ public class Gui implements Runnable
 	private JPanel panelCeldas;
 	private JPanel panelDefensa;
 	private JPanel panelEnemigos;
+	private JPanel panelCeldaPremios;
 	private JPanel panelControl;
 	private JPanel panelPremios;
 	
@@ -155,6 +158,12 @@ public class Gui implements Runnable
 		panelEnemigos.setBackground(new Color(0,0,0,0));
 		panelMapa.add(panelEnemigos, NIVELENEMIGO);
 		
+		panelCeldaPremios = new JPanel();
+		panelCeldaPremios.setLayout(null);
+		panelCeldaPremios.setBounds(panelMapa.getBounds());
+		panelCeldaPremios.setBackground(new Color(0,0,0,0));
+		panelMapa.add(panelCeldaPremios, NIVELPREMIO);
+		
 		frame.getContentPane().repaint();
 		frame.getContentPane().add(panelMapa, BorderLayout.CENTER);
 		panelMapa.setLayout(null);
@@ -189,15 +198,17 @@ public class Gui implements Runnable
 		
 		
 		
-		botonBomba = new JButton("");
+		botonBomba = new JButton("Bomba");
+		botonBomba.setEnabled(false);
 		botonBomba.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				FabricaDeDefensa.getInstancia().construirBomba();
-				juego.restarBomba();	
-				if (!juego.hayBombas())
+				juego.restarBomba();
+				if(!juego.hayBombas()) {
 					botonBomba.setEnabled(false);
+				}
 			}
 		});
 		botonBomba.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoBomba.png"));
@@ -219,15 +230,12 @@ public class Gui implements Runnable
 		botonMina.setBounds(349, 11, 92, 59);
 		panelPremios.add(botonMina);	
 		
-		botonCampo = new JButton("");
+		botonCampo = new JButton("Campo");
 		botonCampo.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				FabricaDeDefensa.getInstancia().construirCampo();
-				juego.restarCampo();	
-				if (!juego.hayCampos())
-					botonCampo.setEnabled(false);
+				
 			}
 		});
 		botonCampo.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoCampo.png"));
@@ -391,7 +399,17 @@ public class Gui implements Runnable
  		panelMapa.add(fondo);
  		
  		
- 		
+ 		JButton botonPremioBomba = new JButton("Bomba");
+ 		botonPremioBomba.setBounds(50, 50, 50, 50);
+ 		botonPremioBomba.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				juego.agregarBomba();
+				botonBomba.setEnabled(true);
+				botonPremioBomba.getParent().remove(botonPremioBomba);
+			}
+ 		});
+ 		panelCeldaPremios.add(botonPremioBomba);
  	
 
 		
@@ -457,18 +475,21 @@ public class Gui implements Runnable
 			}
 			aAgregar.clear();
 			
+			for(ObjetoMovil o : aBorrar){
+				moviles.remove(o);
+			}
+			aBorrar.clear();
+			
 			for(ObjetoMovil o : moviles) {
 				if(!o.getGrafico().moverGrafico(o.getVelocidad())){
 					aBorrar.add(o);
 					o.getGrafico().Lock(false);
 				}
-				repintar();
+				
 			}
 			
-			for(ObjetoMovil o : aBorrar){
-				moviles.remove(o);
-			}
-			aBorrar.clear();
+			
+			repintar();
 		}
 	}
 	
@@ -477,233 +498,9 @@ public class Gui implements Runnable
 		JLabel aEliminar = buscarLabel(x, y, panelEnemigos);
 		panelEnemigos.remove(aEliminar);
 		repintar();
-		double posibilidad=Math.random();
-		if ((posibilidad%2)==0){
-			double cual= Math.random();
-			if (cual<0.2){
-				JLabel LBomba = new JLabel();	
-				LBomba.setIcon(FabricaObjetoGrafico.getInstancia().construirGraficoBomba().getImagen());
-				LBomba.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
-				panelEnemigos.add(LBomba);
-				LBomba.addMouseListener(listenBomba());
-			}
-			else if (cual<0.4){
-				JLabel LMina = new JLabel();	
-				LMina.setIcon(FabricaObjetoGrafico.getInstancia().construirGraficoMina().getImagen());
-				LMina.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
-				panelEnemigos.add(LMina);
-				LMina.addMouseListener(listenMina());
-			}
-			else if (cual<0.6){
-				JLabel LCampo = new JLabel();	
-				LCampo.setIcon(FabricaObjetoGrafico.getInstancia().construirGraficoCampoProtector().getImagen());
-				LCampo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
-				panelEnemigos.add(LCampo);
-				LCampo.addMouseListener(listenCampo());
-			}
-			else if (cual<0.8){
-				JLabel LDanio = new JLabel();	
-				LDanio.setIcon(FabricaObjetoGrafico.getInstancia().construirGraficoDanio().getImagen());
-				LDanio.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
-				panelEnemigos.add(LDanio);
-				LDanio.addMouseListener(listenDanio());
-			}
-			else if (cual<1){
-				JLabel LCuracion = new JLabel();	
-				LCuracion.setIcon(FabricaObjetoGrafico.getInstancia().construirGraficoCuracion().getImagen());
-				LCuracion.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
-				panelEnemigos.add(LCuracion);
-				LCuracion.addMouseListener(listenCuracion());
-			}
-		}						
 	}
 		
-	public MouseListener listenBomba() {
-		return new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				juego.guardarBomba();
-				botonBomba.setEnabled(true);
-				repintar();
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		};
-	}
-	
-	public MouseListener listenMina() {
-		return new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				juego.guardarMina();
-				botonMina.setEnabled(true);
-				repintar();
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		};
-	}
-	
-	public MouseListener listenCampo() {
-		return new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				juego.guardarCampo();
-				botonCampo.setEnabled(true);
-				repintar();
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		};
-	}
-
-	public MouseListener listenDanio() {
-		return new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				juego.guardarDanio();
-				botonDanio.setEnabled(true);
-				repintar();
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		};
-	}
-		
-	public MouseListener listenCuracion() {
-		return new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				juego.guardarCuracion();
-				botonCuracion.setEnabled(true);
-				repintar();
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		};
-	}
-	
-	private JLabel buscarLabel(int x, int y, JPanel panel) {
+		private JLabel buscarLabel(int x, int y, JPanel panel) {
 		Component[] arrComponents = panel.getComponents();
 		JLabel label = null;
 		boolean encontre = false;
@@ -718,7 +515,7 @@ public class Gui implements Runnable
 	}
 	
 	private void repintar() {
-		///panelMapa.validate();
+		//panelMapa.validate();
 		panelMapa.repaint();
 
 	}
