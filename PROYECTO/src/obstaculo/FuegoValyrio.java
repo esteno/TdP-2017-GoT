@@ -1,4 +1,4 @@
-package obstaculo;
+ackage obstaculo;
 
 import java.util.List;
 

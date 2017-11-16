@@ -5,7 +5,7 @@ import java.util.List;
 
 import ObjetoDeMapa.ObjetoDeMapa;
 import defensa.Defensa;
-import disparos.Disparo;
+import disparos.*;
 import logica.FabricaObjetoGrafico;
 import mapa.Mapa;
 import objetos.GameObject;
@@ -87,17 +87,6 @@ public class Celda
     {
     	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
     }
-
-    public void moverDisparoEnemigo(int xAnterior, int yAnterior)
-    {
-    	mapa.moverDisparoEnemigo(x, y, xAnterior, yAnterior);
-    }
-    
-    public void moverDisparoDefensa(int xAnterior, int yAnterior)
-    {
-    	mapa.moverDisparoDefensa(x, y, xAnterior, yAnterior);
-    }
-    
     
     //------ELIMINAR
     //Elemina un objeto movil del juego
@@ -105,21 +94,12 @@ public class Celda
     {
     	mapa.eliminarEnemigo(x, y);
     }
+
     
-    public void destruirDisparoDefensa() 
-    {
-    	mapa.eliminarDisparoDefensa(x, y);
-    }
-    
-    public void destruirDisparoEnemigo() 
-    {
-    	mapa.eliminarDisparoEnemigo(x, y);
-    }
-    
-    //Genera un nuevo disparo en esta celda
-    public void generarDisparo(Disparo disparo) {
-    	mapa.generarDisparo(disparo, x, y);
-    }
+	public void agregarDisparo(Disparo disparo) {
+		mapa.agregarDisparo(disparo, x, y);
+		
+	}
 
     //Devuelve el objeto estatico sobre esta celda.
 	public Defensa getEstatico() {
@@ -135,5 +115,13 @@ public class Celda
 	public Mapa getMapa() {
 		return mapa;
 	}
+
+
+
+	public void moverGrafico(ObjetoMovil objeto) {
+		mapa.moverGrafico(objeto);
+		
+	}
+
 
 }

@@ -1,7 +1,8 @@
 package disparos;
 
 import celdas.Celda;
-import colisiones.VisitorDisparo;
+import colisiones.Visitor;
+import colisiones.VisitorDisparoEnemigo;
 import defensa.Defensa;
 
 
@@ -29,28 +30,30 @@ public class DisparoEnemigo extends Disparo {
 			if(defensa!=null)
 			{	
 				//Le pasa el visitor, si es enemigo lo ataca, si es otro disparo no hace nada.
-				defensa.aceptar(new VisitorDisparo(this));
+				defensa.aceptar(new VisitorDisparoEnemigo(this));
 			} 
 			else 
 			{
-				//Guarda la posicion actual
-				int xAnterior = celda.getX();
-				int yAnterior = celda.getY();
-				
 				//Cambia de celda
 				celda = celdaIzquierda;
-
-				//Se mueve
-				celda.moverDisparoEnemigo(xAnterior, yAnterior);
-
 				//Decrementa el alcance
 				alcance--;
+				
+				celda.moverGrafico(this);
 			}
 		}
 		else
 		{
 			destruir();
 		}
+	}
+
+
+
+	@Override
+	public void aceptar(Visitor v) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

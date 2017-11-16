@@ -136,23 +136,11 @@ public class Juego
 		return puedoAgregar;
 	}
 	
-	
-	public boolean agregarDisparoDefensa(DisparoDefensa obj, int x, int y)
-	{
-		boolean puedoAgregar = mapa.agregarDisparoDefensa(obj, x, y);
-		if(puedoAgregar)
-			gui.agregarObjetoMovil(x, y, obj);
-		return puedoAgregar;
+	public void agregarDisparo(Disparo disparo, int x, int y) {
+		controlDisparo.agregarDisparo(disparo);
+		gui.agregarObjetoMovil(x, y, disparo);
+		
 	}
-	
-	public boolean agregarDisparoEnemigo(DisparoEnemigo obj, int x, int y)
-	{
-		boolean puedoAgregar = mapa.agregarDisparoEnemigo(obj, x, y);
-		if(puedoAgregar)
-			gui.agregarObjetoMovil(x, y, obj);
-		return puedoAgregar;
-	}
-	
 	
 	
 	//---------ELIMINAR
@@ -167,9 +155,9 @@ public class Juego
 
 	
 	
-	public void moverEnemigoGrafico(ObjetoMovil o)
+	public void moverGrafico(ObjetoMovil o)
 	{
-		gui.moverEnemigoGrafico(o);
+		gui.moverGrafico(o);
 	}
 	
 	//Eleimina graficamente un ObjetoMovil
@@ -188,11 +176,6 @@ public class Juego
 	
 	public int getAncho() {
 		return ancho - 1;
-	}
-	
-	//Genera un nuevo disparo en x,y
-	public void generarDisparo(Disparo disparo, int x, int y) {
-		controlDisparo.agregarDisparo(disparo, x, y);
 	}
 
 	
@@ -269,4 +252,6 @@ public class Juego
 	public boolean hayBarricadas() {
 		return puntaje.hayBarricadas();
 	}
+
+
 }

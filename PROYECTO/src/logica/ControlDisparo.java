@@ -25,16 +25,8 @@ public class ControlDisparo implements Runnable {
 		
 	}
 	
-	public void agregarDisparoDefensa(DisparoDefensa disparo, int x, int y) {
-		
-		if(juego.agregarDisparoDefensa(disparo, x, y)) 
-			listaInsercion.add(disparo);
-	}
-	
-	public void agregarDisparoEnemigo(DisparoEnemigo disparo, int x, int y) {
-		
-		if(juego.agregarDisparoEnemigo(disparo, x, y)) 
-			listaInsercion.add(disparo);
+	public void agregarDisparo(Disparo disparo) {
+		listaInsercion.add(disparo);
 	}
 	
 	public void run() {
@@ -54,6 +46,7 @@ public class ControlDisparo implements Runnable {
 				//Acciona todos los disparos actuales
 				for(Disparo disparo : listaDisparos) 
 				{
+					System.out.println("muevo disparo");
 					//Si el alcance es 0 se elimina 
 					if(disparo.getAlcance() <= 0) 
 						listaDescarte.add(disparo);

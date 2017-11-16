@@ -27,10 +27,6 @@ public class Mapa
 	
 	private Enemigo [][] matrizEnemigo;
 	
-	private DisparoDefensa [][] matrizDisparoDefensa;
-	
-	private DisparoEnemigo [][] matrizDisparoEnemigo;
-	
 	
 	
 	private Juego juego;
@@ -44,8 +40,6 @@ public class Mapa
 		matrizDeObjetoDeMapa = new ObjetoDeMapa[ancho][alto];
 		matrizDefensa = new Defensa[ancho][alto];
 		matrizEnemigo = new Enemigo[ancho][alto];
-		matrizDisparoEnemigo = new DisparoEnemigo [ancho][alto];
-		matrizDisparoDefensa = new DisparoDefensa[ancho][alto];	
 		this.juego = juego;	
 	}
 	
@@ -128,30 +122,9 @@ public class Mapa
 		return false;
 	}
 	
-	
-	public boolean agregarDisparoDefensa(DisparoDefensa obj, int x, int y)
-	{
-		boolean toReturn = false;
-		if(matrizDisparoDefensa[x][y] == null)
-		{
-			matrizDisparoDefensa[x][y] = obj;
-			obj.setCelda(matrizCeldas[x][y]);
-			toReturn = true;
-		}
-		return toReturn;
-	}
-	
-	
-	public boolean agregarDisparoEnemigo(DisparoEnemigo obj, int x, int y)
-	{
-		boolean toReturn = false;
-		if(matrizDisparoEnemigo[x][y] == null)
-		{
-			matrizDisparoEnemigo[x][y] = obj;
-			obj.setCelda(matrizCeldas[x][y]);
-			toReturn = true;
-		}
-		return toReturn;
+	public void agregarDisparo(Disparo disparo, int x, int y) {
+		disparo.setCelda(matrizCeldas[x][y]);
+		juego.agregarDisparo(disparo, x, y);
 	}
 	
 	
@@ -160,24 +133,9 @@ public class Mapa
 	{	
 		matrizEnemigo[x][y] = matrizEnemigo[xAnterior][yAnterior];
 		matrizEnemigo[xAnterior][yAnterior] = null;
-		juego.moverEnemigoGrafico(matrizEnemigo[x][y]);
+		moverGrafico(matrizEnemigo[x][y]);
 	}
 	
-	
-	public void moverDisparoDefensa(int x, int y, int xAnterior, int yAnterior) 
-	{	
-		matrizDisparoDefensa[x][y] = matrizDisparoDefensa[xAnterior][yAnterior];
-		matrizDisparoDefensa[xAnterior][yAnterior] = null;
-		juego.moverEnemigoGrafico(matrizDisparoDefensa[x][y]);
-	}
-	
-	
-	public void moverDisparoEnemigo(int x, int y, int xAnterior, int yAnterior) 
-	{	
-		matrizDisparoEnemigo[x][y] = matrizDisparoEnemigo[xAnterior][yAnterior];
-		matrizDisparoEnemigo[xAnterior][yAnterior] = null;
-		juego.moverEnemigoGrafico(matrizDisparoEnemigo[x][y]);
-	}
 
 	
 	// MOVER  ANTERIOR
@@ -216,18 +174,6 @@ public class Mapa
 		matrizEnemigo[x][y] = null;
 		juego.eliminarObjetoMovil(x, y);
 	}
-	
-	public  void eliminarDisparoDefensa(int x, int y)
-	{
-		matrizDisparoDefensa[x][y] = null;
-		juego.eliminarObjetoMovil(x, y);
-	}
-	
-	public  void eliminarDisparoEnemigo(int x, int y)
-	{
-		matrizDisparoEnemigo[x][y] = null;
-		juego.eliminarObjetoMovil(x, y);
-	}
 
 	//------------
 	public Juego getJuego(){
@@ -241,10 +187,7 @@ public class Mapa
 	}
 	
 	
-	public void generarDisparo(Disparo disparo, int x, int y) {
-		juego.generarDisparo(disparo, x, y);
-	}
-	
+
 	
 	public void crearMuro() {
 		for(int i = 0; i<matrizDefensa[0].length; i++) {
@@ -266,9 +209,9 @@ public class Mapa
 		
 		for (int x = celdaOriginal.getX()-1; x < celdaOriginal.getX()+2; x++)
 			for (int y=celdaOriginal.getY()-1; y<celdaOriginal.getY()+2; y++)
-				if ((x < matrizMovil.length && x >= 0) && (y <matrizMovil[0].length && y >= 0))			
-					if (matrizMovil[x][y]!=null)
-						lista.add(matrizMovil[x][y]);
+				if ((x < matrizEnemigo.length && x >= 0) && (y <matrizEnemigo[0].length && y >= 0))			
+					if (matrizEnemigo[x][y]!=null)
+						lista.add(matrizEnemigo[x][y]);
 		return lista;		
 	}
 
@@ -277,5 +220,16 @@ public class Mapa
 		
 		return matrizCeldas;
 	}
+
+
+
+	public void moverGrafico(ObjetoMovil objeto) {
+		juego.moverGrafico(objeto);
+		
+	}
+
+
+
+	
 
 }

@@ -30,29 +30,6 @@ public class VisitorEnemigo extends Visitor
     {
     	System.out.println("Un enemigo ha visitado un enemigo. No hay accion.");
     }
-	
-	@Override
-    public void visitarDisparo(Disparo d)
-    { 
-		// La resposabilidad de esta colision la tiene visitorDisparo
-    }
-
-
-	public void visitarFuegoValyrio(FuegoValyrio f) 
-	{
-		// enemigo al colisionar con fuego valyrio, muere inmediatamente.
-		
-	    miEnemigo.recibirAtaque(miEnemigo.getFuerzaImpacto()); 	
-	    f.destruir();
-	    miEnemigo.destruir();
-	}
-
-
-	@Override
-	public void visitarExplosivo(GameObject ex) {
-
-		ex.recibirAtaque(miEnemigo.getFuerzaImpacto());
-	}
 
 
 

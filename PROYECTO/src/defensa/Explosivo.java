@@ -22,14 +22,9 @@ public abstract class Explosivo extends Defensa{
 		puntosVida = 0;
 		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
 		l=celda.adyacentes();
-		VisitorExplosivo v=new VisitorExplosivo(this);
+		VisitorExplosivo v = new VisitorExplosivo(this);
 		for (ObjetoMovil o:l)
 			o.aceptar(v);	
 		celda.destruirEnemigo();
 	}
-
-	public void aceptar(Visitor v){
-		
-		v.visitarExplosivo(this);
-    }
 }

@@ -2,7 +2,6 @@ package disparos;
 import objetos.*;
 import celdas.Celda;
 import colisiones.Visitor;
-import colisiones.VisitorDisparo;
 
 public abstract class Disparo extends ObjetoMovil 
 {
@@ -18,13 +17,7 @@ public abstract class Disparo extends ObjetoMovil
 		fuerzaImpacto = (int) Math.floor(danio);
 		grafico = fabricaGrafica.construirGraficoDisparo();
 	}
-	
-	
-	
-	public void aceptar(Visitor v)
-	{
-		v.visitarDisparo(this);
-	}
+
 
 	
 	

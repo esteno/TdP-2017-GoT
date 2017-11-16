@@ -455,7 +455,7 @@ public class Gui implements Runnable
 		repintar();
 	}
 	
-	public void moverEnemigoGrafico(ObjetoMovil o) {
+	public void moverGrafico(ObjetoMovil o) {
 		
 		aAgregar.add(o);
 	}
