@@ -1,18 +1,11 @@
 package enemigos;
 
-public class EnemigoRango extends Enemigo
+import disparos.DisparoEnemigo;
+
+public abstract class EnemigoRango extends Enemigo
 {
 
-	public EnemigoRango() {
-		// TODO Auto-generated constructor stub
+	public void atacar() {
+		celda.agregarDisparo(new DisparoEnemigo(fuerzaImpacto));
 	}
-
-	@Override
-	public void avanzar() 
-	{
-		// TODO Auto-generated method stub
-
-		
-	}
-
 }

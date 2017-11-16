@@ -10,6 +10,7 @@ public class DisparoEnemigo extends Disparo {
 
 	public DisparoEnemigo(double danio) {
 		super(danio);
+		visitor = new VisitorDisparoEnemigo(this);
 		// TODO Auto-generated constructor stub
 	}
 
