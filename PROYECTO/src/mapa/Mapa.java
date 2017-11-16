@@ -217,9 +217,17 @@ public class Mapa
 		juego.eliminarObjetoMovil(x, y);
 	}
 	
+	public  void eliminarDisparoDefensa(int x, int y)
+	{
+		matrizDisparoDefensa[x][y] = null;
+		juego.eliminarObjetoMovil(x, y);
+	}
 	
-	
-	
+	public  void eliminarDisparoEnemigo(int x, int y)
+	{
+		matrizDisparoEnemigo[x][y] = null;
+		juego.eliminarObjetoMovil(x, y);
+	}
 
 	//------------
 	public Juego getJuego(){
@@ -227,9 +235,9 @@ public class Mapa
 		return juego;
 	}
 	
-	public ObjetoMovil getObjeto(Celda c){
+	public Enemigo getObjeto(Celda c){
 		
-		return matrizMovil[c.getX()][c.getY()];
+		return matrizEnemigo[c.getX()][c.getY()];
 	}
 	
 	
@@ -239,17 +247,18 @@ public class Mapa
 	
 	
 	public void crearMuro() {
-		for(int i = 0; i<matrizEstatica[0].length; i++) {
+		for(int i = 0; i<matrizDefensa[0].length; i++) {
 			Defensa muro = new Muro(juego);
-			matrizEstatica[0][i] = muro;
+			matrizDefensa[0][i] = muro;
 			juego.dibujarDefensa(0, i, muro);
 		}
 		
 	}
 
 	public Defensa getEstatico(int x, int y) {
-		return matrizEstatica[x][y];
+		return matrizDefensa[x][y];
 	}
+	
 	
 	public List<ObjetoMovil> adyacentes(Celda celdaOriginal) {
 
