@@ -40,7 +40,7 @@ public abstract class Enemigo extends ObjetoMovil
 		//Los puntos de vida se ponen en cero para poder ser removida de la lista de control
 		puntosVida=0;
 		grafico.destruir();
-		celda.destruirObjetoMovil();	
+		celda.destruirEnemigo();	
 	}
 	
 	public int getPuntos() {

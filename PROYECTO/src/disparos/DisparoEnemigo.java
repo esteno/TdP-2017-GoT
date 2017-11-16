@@ -41,7 +41,7 @@ public class DisparoEnemigo extends Disparo {
 				celda = celdaIzquierda;
 
 				//Se mueve
-				celda.moverObjetoMovil(xAnterior, yAnterior);
+				celda.moverDisparoEnemigo(xAnterior, yAnterior);
 
 				//Decrementa el alcance
 				alcance--;

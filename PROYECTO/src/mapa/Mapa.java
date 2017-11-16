@@ -272,6 +272,7 @@ public class Mapa
 		return lista;		
 	}
 
+	
 	public Celda [][] getMatriz(){
 		
 		return matrizCeldas;

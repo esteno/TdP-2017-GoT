@@ -88,12 +88,32 @@ public class Celda
     	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
     }
 
+    public void moverDisparoEnemigo(int xAnterior, int yAnterior)
+    {
+    	mapa.moverDisparoEnemigo(x, y, xAnterior, yAnterior);
+    }
+    
+    public void moverDisparoDefensa(int xAnterior, int yAnterior)
+    {
+    	mapa.moverDisparoDefensa(x, y, xAnterior, yAnterior);
+    }
+    
     
     //------ELIMINAR
     //Elemina un objeto movil del juego
-    public void destruirObjetoMovil() 
+    public void destruirEnemigo() 
     {
-    	mapa.eliminarObjetoMovil(x, y);
+    	mapa.eliminarEnemigo(x, y);
+    }
+    
+    public void destruirDisparoDefensa() 
+    {
+    	mapa.eliminarDisparoDefensa(x, y);
+    }
+    
+    public void destruirDisparoEnemigo() 
+    {
+    	mapa.eliminarDisparoEnemigo(x, y);
     }
     
     //Genera un nuevo disparo en esta celda

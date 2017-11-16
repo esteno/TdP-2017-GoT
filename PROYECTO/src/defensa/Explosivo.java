@@ -25,7 +25,7 @@ public abstract class Explosivo extends Defensa{
 		VisitorExplosivo v=new VisitorExplosivo(this);
 		for (ObjetoMovil o:l)
 			o.aceptar(v);	
-		celda.destruirObjetoMovil();
+		celda.destruirEnemigo();
 	}
 
 	public void aceptar(Visitor v){

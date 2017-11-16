@@ -125,6 +125,10 @@ public class Juego
 	}
 		
 	
+	
+	
+	
+	
 	//---------ELIMINAR
 	//Elimina una defensa de mapa
 	public void eliminarDefensa(int x,int y )

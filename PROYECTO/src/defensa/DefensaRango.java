@@ -1,6 +1,7 @@
 package defensa;
 
-import disparos.DisparoPersonaje;
+import disparos.DisparoDefensa;
+
 
 /**
  * Clase que modela el comportamiento de una defensa de rango.
@@ -16,7 +17,7 @@ public abstract class DefensaRango extends Personaje {
 	{
 		//Cuando la defensa de rango ataca crea un disparo en su posicion actual
 		if(proximoAtaque == 0) {
-			celda.generarDisparo(new DisparoPersonaje(fuerzaImpacto*estado.multiplicadorAtaque()));
+			celda.generarDisparo(new DisparoDefensa(fuerzaImpacto*estado.multiplicadorAtaque()));
 			proximoAtaque = velocidadAtaque;
 		}
 		//Si no decrementa el contador de proximo ataque.
