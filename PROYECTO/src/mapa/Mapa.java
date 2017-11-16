@@ -8,7 +8,7 @@ import celdas.Celda;
 import defensa.*;
 import disparos.Disparo;
 import disparos.DisparoEnemigo;
-import disparos.DisparoPersonaje;
+import disparos.DisparoDefensa;
 import enemigos.Enemigo;
 import logica.FabricaDeDefensa;
 import logica.Juego;
@@ -23,28 +23,33 @@ public class Mapa
 	private ObjetoDeMapa[][] matrizDeObjetoDeMapa;
 	
 	//Matriz que tiene todo lo que son defensas del jugador y obstaculos
-	private Defensa[][] matrizEstatica;
-	
-	//Matriz que contiene a los enemigos y los disparos de la defensa.
-	private ObjetoMovil[][] matrizMovil;
-	
+	private Defensa[][] matrizDefensa;
 	
 	private Enemigo [][] matrizEnemigo;
-	private DisparoPersonaje [][] matrizDisparoPersonaje;
+	
+	private DisparoDefensa [][] matrizDisparoDefensa;
+	
 	private DisparoEnemigo [][] matrizDisparoEnemigo;
+	
+	
 	
 	private Juego juego;
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	
 	
-	public Mapa(Juego juego, int alto, int ancho){
-		
+	
+	public Mapa(Juego juego, int alto, int ancho)
+	{
 		matrizCeldas = new Celda[ancho][alto];
 		matrizDeObjetoDeMapa = new ObjetoDeMapa[ancho][alto];
-		matrizEstatica = new Defensa[ancho][alto];
-		matrizMovil = new ObjetoMovil[ancho][alto];		
+		matrizDefensa = new Defensa[ancho][alto];
+		matrizEnemigo = new Enemigo[ancho][alto];
+		matrizDisparoEnemigo = new DisparoEnemigo [ancho][alto];
+		matrizDisparoDefensa = new DisparoDefensa[ancho][alto];	
 		this.juego = juego;	
 	}
+	
+	
 	
 	public void cambiarMapa(Celda[][] celdas) {
 		
@@ -88,11 +93,35 @@ public class Mapa
 		return toReturn;
 	}
 	
+	//-------AGREGAR
 	
-	public boolean agregarObjetoMovil(ObjetoMovil obj, int x, int y) {
+	//AGREGAR ANTERIOR OBJETOMOVIL
+	/*
+	public boolean agregarEnemigo(ObjetoMovil obj, int x, int y) {
 		
-		if(matrizMovil[x][y] == null) {
-			matrizMovil[x][y] = obj;
+		if(matrizObjetoMovil[x][y] == null) {
+			matrizObjetoMovil[x][y] = obj;
+			obj.setCelda(matrizCeldas[x][y]);
+			return true;
+		}
+		return false;
+	}
+	*/
+	
+	
+	
+	public void agregarDefensa(Defensa defensa, int x, int y){
+		
+		if(matrizDefensa[x][y] == null) {
+			matrizDefensa[x][y]= defensa;
+		}
+		defensa.setCelda(matrizCeldas[x][y]);
+	}
+	
+	public boolean agregarEnemigo(Enemigo obj, int x, int y) {
+		
+		if(matrizEnemigo[x][y] == null) {
+			matrizEnemigo[x][y] = obj;
 			obj.setCelda(matrizCeldas[x][y]);
 			return true;
 		}
@@ -100,53 +129,99 @@ public class Mapa
 	}
 	
 	
-	public void moverMovilIzquierda(Celda celda, ObjetoMovil movil) {
-		
-		matrizMovil[celda.getX() + 1][celda.getY()] = null;
-		matrizMovil[celda.getX()][celda.getY()] = movil;
+	public boolean agregarDisparoDefensa(DisparoDefensa obj, int x, int y)
+	{
+		boolean toReturn = false;
+		if(matrizDisparoDefensa[x][y] == null)
+		{
+			matrizDisparoDefensa[x][y] = obj;
+			obj.setCelda(matrizCeldas[x][y]);
+			toReturn = true;
+		}
+		return toReturn;
 	}
 	
-	//----- MOVER
-	public void moverObjetoMovil(int x, int y, int xAnterior, int yAnterior) {
-		
-		matrizMovil[x][y] = matrizMovil[xAnterior][yAnterior];
-		matrizMovil[xAnterior][yAnterior] = null;
-		juego.moverEnemigoGrafico(matrizMovil[x][y]);
+	
+	public boolean agregarDisparoEnemigo(DisparoEnemigo obj, int x, int y)
+	{
+		boolean toReturn = false;
+		if(matrizDisparoEnemigo[x][y] == null)
+		{
+			matrizDisparoEnemigo[x][y] = obj;
+			obj.setCelda(matrizCeldas[x][y]);
+			toReturn = true;
+		}
+		return toReturn;
 	}
- 
 	
-	public void moverEnemigo()
-	{}
 	
-	public void moverDisparoPersonaje()
-	{}
- 
-	public void moverDisparoEnemigo()
+	//------MOVER
+	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) 
+	{	
+		matrizEnemigo[x][y] = matrizEnemigo[xAnterior][yAnterior];
+		matrizEnemigo[xAnterior][yAnterior] = null;
+		juego.moverEnemigoGrafico(matrizEnemigo[x][y]);
+	}
+	
+	
+	public void moverDisparoDefensa(int x, int y, int xAnterior, int yAnterior) 
+	{	
+		matrizDisparoDefensa[x][y] = matrizDisparoDefensa[xAnterior][yAnterior];
+		matrizDisparoDefensa[xAnterior][yAnterior] = null;
+		juego.moverEnemigoGrafico(matrizDisparoDefensa[x][y]);
+	}
+	
+	
+	public void moverDisparoEnemigo(int x, int y, int xAnterior, int yAnterior) 
+	{	
+		matrizDisparoEnemigo[x][y] = matrizDisparoEnemigo[xAnterior][yAnterior];
+		matrizDisparoEnemigo[xAnterior][yAnterior] = null;
+		juego.moverEnemigoGrafico(matrizDisparoEnemigo[x][y]);
+	}
+
+	
+	// MOVER  ANTERIOR
+		/*
+		public void moverObjetoMovil(int x, int y, int xAnterior, int yAnterior) {
+			
+			matrizMovil[x][y] = matrizMovil[xAnterior][yAnterior];
+			matrizMovil[xAnterior][yAnterior] = null;
+			juego.moverEnemigoGrafico(matrizMovil[x][y]);
+		}
+		*/
+	
+	
+	
+	
+	
+	//----------ELIMINAR
+	/*
+	public void eliminarObjetoMovil(int x, int y)
 	{
 		
+		matrizMovil[x][y]=null;
+		juego.eliminarObjetoMovil(x, y);
 	}
+	*/
 	
-	
-	public Defensa eliminarEstatico(int x, int y){
-		Defensa defensa = matrizEstatica[x][y];
-		matrizEstatica[x][y]=null;
+	public Defensa eliminarDefensa(int x, int y){
+		Defensa defensa = matrizDefensa[x][y];
+		matrizDefensa[x][y]=null;
 		return defensa;
 	}
 	
-	public void eliminarObjetoMovil(int x, int y){
-		
-		matrizMovil[x][y]=null;
-		//juego.eliminarObjetoMovil(x, y);
+	
+	public  void eliminarEnemigo(int x, int y)
+	{
+		matrizEnemigo[x][y] = null;
+		juego.eliminarObjetoMovil(x, y);
 	}
 	
-	public void agregarDefensa(Defensa defensa, int x, int y){
-		
-		if(matrizEstatica[x][y] == null) {
-			matrizEstatica[x][y]= defensa;
-		}
-		defensa.setCelda(matrizCeldas[x][y]);
-	}
+	
+	
+	
 
+	//------------
 	public Juego getJuego(){
 		
 		return juego;

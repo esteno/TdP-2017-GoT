@@ -95,6 +95,9 @@ public class Juego
 		controlDeOleadas.setOleada(nivelActual.getOleada());
 	}
 	
+	
+	
+	//-----------AGREGAR
 	//Agrega la defensa guardada en la fabrica en la pos x,y
 	public void agregarDefensa(int x, int y)
 	{
@@ -110,23 +113,9 @@ public class Juego
 		mapa.agregarDefensa(def, x, y);
 		controlDeDefensa.agregarDefensa(def);
 	}
-	
-	
-	//Elimina una defensa de mapa
-	public void eliminarDefensa(int x,int y )
-	{
-	    Defensa defensa = mapa.eliminarEstatico(x,y);
-	    controlDeDefensa.removerDefensa(defensa);
-	}
-	
-	
-	//Retorna una matriz de celdas que representa el mapa
-	public GameObjectGrafico[][] getCeldasGraficas()
-	{
-		return mapa.getGraficos();
-	}
-	
+
 	//Agrega un objeto movil al mapa y graficamente si es posible
+		
 	public Boolean agregarObjetoMovil(ObjetoMovil obj, int x, int y) 
 	{
 		Boolean puedoAgregar = mapa.agregarObjetoMovil(obj, x, y);
@@ -134,8 +123,22 @@ public class Juego
 			gui.agregarObjetoMovil(x, y, obj);
 		return puedoAgregar;
 	}
+		
 	
-	public void moverEnemigoGrafico(ObjetoMovil o){
+	//---------ELIMINAR
+	//Elimina una defensa de mapa
+	public void eliminarDefensa(int x,int y )
+	{
+	    Defensa defensa = mapa.eliminarDefensa(x,y);
+	    controlDeDefensa.removerDefensa(defensa);
+	}
+	
+	
+
+	
+	
+	public void moverEnemigoGrafico(ObjetoMovil o)
+	{
 		gui.moverEnemigoGrafico(o);
 	}
 	
@@ -188,7 +191,11 @@ public class Juego
 		
 	}
 	
-	
+	//Retorna una matriz de celdas que representa el mapa
+	public GameObjectGrafico[][] getCeldasGraficas()
+	{
+		return mapa.getGraficos();
+	}
 	
 	// modificacion para Premios de tipo Magia Temporal
 	public List<Defensa> getDefensas()
@@ -222,7 +229,7 @@ public class Juego
 	}
 	
 	public void agregarBarricada() {
-		puntaje.agregarBarricadas();
+		puntaje.agregarBarricada();
 	}
 	
 	public void restarBarricada() {

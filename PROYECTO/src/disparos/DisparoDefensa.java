@@ -4,9 +4,9 @@ import celdas.Celda;
 import colisiones.VisitorDisparo;
 import objetos.ObjetoMovil;
 
-public class DisparoPersonaje extends Disparo {
+public class DisparoDefensa extends Disparo {
 
-	public DisparoPersonaje(double danio) {
+	public DisparoDefensa(double danio) {
 		super(danio);
 		// TODO Auto-generated constructor stub
 	}
