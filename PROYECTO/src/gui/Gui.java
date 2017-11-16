@@ -449,8 +449,9 @@ public class Gui implements Runnable
 		
 		JLabel labelEnemigo = new JLabel();
 		obj.getGrafico().setLabel(labelEnemigo);
+		ImageIcon icono = obj.getGrafico().getImagen();
 		labelEnemigo.setIcon(obj.getGrafico().getImagen());
-		labelEnemigo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,50,50);
+		labelEnemigo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,icono.getIconHeight(),icono.getIconWidth());
 		panelEnemigos.add(labelEnemigo);
 		repintar();
 	}
@@ -519,6 +520,48 @@ public class Gui implements Runnable
 		panelMapa.repaint();
 
 	}
+	public void dibujarDefensa(int x, int y, GameObject obj) {
+		JLabel labelCelda = buscarLabel(x, y, panelCeldas);
+		JLabel labelNuevo = new JLabel(obj.getGrafico().getImagen());
+		ImageIcon icono = obj.getGrafico().getImagen();
+		obj.getGrafico().setLabel(labelNuevo);
+		labelNuevo.setBounds(labelCelda.getX(), labelCelda.getY(), icono.getIconHeight(), icono.getIconWidth());
+		panelDefensa.add(labelNuevo);
+		repintar();
+	}
+
+	public void gameOver() {
+		int reply = JOptionPane.showConfirmDialog(frame, "Has perdido!\nQuieres jugar de nuevo?", "Game Over", JOptionPane.YES_NO_OPTION);
+		if (reply == JOptionPane.YES_OPTION) {
+			frame.getContentPane().removeAll();
+			frame.getContentPane().repaint();
+			
+			initialize();
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Gracias por jugar!");
+			System.exit(0);
+		}
+		
+	}
+
+	public void oroActual(int oro) {
+		lblMonedas.setText("Monedas: "+oro);
+		//btnJorgito.setEnabled((oro < costosDeDefensa.costoJorgito()) ? false : true);
+		
+		botonYgritte.setEnabled((oro < costosDeDefensa.costoYgritte()) ? false : true);
+		
+		botonMountain.setEnabled((oro < costosDeDefensa.costoMountain()) ? false : true); 
+		
+		botonDragon.setEnabled((oro < costosDeDefensa.costoDragon()) ? false : true);
+		
+		botonInmaculado.setEnabled((oro < costosDeDefensa.costoInmaculado()) ? false : true);
+		
+		botonGendry.setEnabled((oro < costosDeDefensa.costoGendry()) ? false : true);
+		
+		botonBronn.setEnabled((oro < costosDeDefensa.costoBronn()) ? false : true);
+		
+	}
 	
 	public MouseListener getMouseListener() {
 		return new MouseListener() {
@@ -579,45 +622,5 @@ public class Gui implements Runnable
 		};
 	}
 	
-	public void dibujarDefensa(int x, int y, GameObject obj) {
-		JLabel labelCelda = buscarLabel(x, y, panelCeldas);
-		JLabel labelNuevo = new JLabel(obj.getGrafico().getImagen());
-		obj.getGrafico().setLabel(labelNuevo);
-		labelNuevo.setBounds(labelCelda.getBounds());
-		panelDefensa.add(labelNuevo);
-		repintar();
-	}
-
-	public void gameOver() {
-		int reply = JOptionPane.showConfirmDialog(frame, "Has perdido!\nQuieres jugar de nuevo?", "Game Over", JOptionPane.YES_NO_OPTION);
-		if (reply == JOptionPane.YES_OPTION) {
-			frame.getContentPane().removeAll();
-			frame.getContentPane().repaint();
-			
-			initialize();
-		}
-		else {
-			JOptionPane.showMessageDialog(null, "Gracias por jugar!");
-			System.exit(0);
-		}
-		
-	}
-
-	public void oroActual(int oro) {
-		lblMonedas.setText("Monedas: "+oro);
-		//btnJorgito.setEnabled((oro < costosDeDefensa.costoJorgito()) ? false : true);
-		
-		botonYgritte.setEnabled((oro < costosDeDefensa.costoYgritte()) ? false : true);
-		
-		botonMountain.setEnabled((oro < costosDeDefensa.costoMountain()) ? false : true); 
-		
-		botonDragon.setEnabled((oro < costosDeDefensa.costoDragon()) ? false : true);
-		
-		botonInmaculado.setEnabled((oro < costosDeDefensa.costoInmaculado()) ? false : true);
-		
-		botonGendry.setEnabled((oro < costosDeDefensa.costoGendry()) ? false : true);
-		
-		botonBronn.setEnabled((oro < costosDeDefensa.costoBronn()) ? false : true);
-		
-	}
+	
 }
