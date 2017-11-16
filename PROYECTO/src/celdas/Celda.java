@@ -77,7 +77,7 @@ public class Celda
     }
     
     //Mueve un enemigo de la posicion (xAnterior, yAnterior) a su nueva posicion (x,y).
-    public void moverEnemigo(int xAnterior, int yAnterior) {
+    public void moverObjetoMovil(int xAnterior, int yAnterior) {
     	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
     }
     
@@ -93,7 +93,7 @@ public class Celda
     }
 
     //Devuelve el objeto estatico sobre esta celda.
-	public GameObject getEstatico() {
+	public Defensa getEstatico() {
 		return mapa.getEstatico(x, y);
 	}
 

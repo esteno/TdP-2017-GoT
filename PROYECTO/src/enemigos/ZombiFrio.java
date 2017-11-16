@@ -1,6 +1,6 @@
 package enemigos;
 
-public class ZombiFrio extends Enemigo {
+public class ZombiFrio extends EnemigoRango {
 	
 	public ZombiFrio(){
 		grafico = fabricaGrafica.construirZombiFrio();

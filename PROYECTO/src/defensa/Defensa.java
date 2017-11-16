@@ -16,10 +16,18 @@ public abstract class Defensa extends GameObject
      //Contador que se va decrementando, cuando llega a 0 la defensa ataca.
      protected int proximoAtaque;
 
+     //precio de costo
+     protected int precio;
+     
      
      public void aceptar(Visitor v)
      {
     	 v.visitarDefensa(this);
      }
   
+     
+ 	public int getPrecio()
+ 	{
+ 		return precio;
+ 	}
 }

@@ -7,6 +7,9 @@ import ObjetoDeMapa.ObjetoDeMapa;
 import celdas.Celda;
 import defensa.*;
 import disparos.Disparo;
+import disparos.DisparoEnemigo;
+import disparos.DisparoPersonaje;
+import enemigos.Enemigo;
 import logica.FabricaDeDefensa;
 import logica.Juego;
 import objetos.*;
@@ -24,6 +27,11 @@ public class Mapa
 	
 	//Matriz que contiene a los enemigos y los disparos de la defensa.
 	private ObjetoMovil[][] matrizMovil;
+	
+	
+	private Enemigo [][] matrizEnemigo;
+	private DisparoPersonaje [][] matrizDisparoPersonaje;
+	private DisparoEnemigo [][] matrizDisparoEnemigo;
 	
 	private Juego juego;
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
@@ -98,15 +106,27 @@ public class Mapa
 		matrizMovil[celda.getX()][celda.getY()] = movil;
 	}
 	
-	
-	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) {
+	//----- MOVER
+	public void moverObjetoMovil(int x, int y, int xAnterior, int yAnterior) {
 		
 		matrizMovil[x][y] = matrizMovil[xAnterior][yAnterior];
 		matrizMovil[xAnterior][yAnterior] = null;
 		juego.moverEnemigoGrafico(matrizMovil[x][y]);
 	}
  
+	
+	public void moverEnemigo()
+	{}
+	
+	public void moverDisparoPersonaje()
+	{}
  
+	public void moverDisparoEnemigo()
+	{
+		
+	}
+	
+	
 	public Defensa eliminarEstatico(int x, int y){
 		Defensa defensa = matrizEstatica[x][y];
 		matrizEstatica[x][y]=null;
@@ -152,7 +172,7 @@ public class Mapa
 		
 	}
 
-	public GameObject getEstatico(int x, int y) {
+	public Defensa getEstatico(int x, int y) {
 		return matrizEstatica[x][y];
 	}
 	

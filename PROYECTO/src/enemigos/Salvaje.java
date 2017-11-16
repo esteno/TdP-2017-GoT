@@ -1,6 +1,6 @@
 package enemigos;
 
-public class Salvaje extends Enemigo {
+public class Salvaje extends EnemigoCuerpo {
 	
 	public Salvaje(){
 		grafico = fabricaGrafica.construirSalvaje();

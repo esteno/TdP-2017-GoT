@@ -22,11 +22,7 @@ public class FabricaDeDefensa
 	}
 	
 	//PERSONAJES
-	public void construirJorgito() {
-		
-		defensaCreada = new Jorgito();
-	}
-	
+
 	
 	public void construirYgritte()
 	{

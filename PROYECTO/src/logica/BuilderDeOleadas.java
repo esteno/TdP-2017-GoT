@@ -31,16 +31,7 @@ public class BuilderDeOleadas {
 	
 	//Todos los metodos devuelven una lista con la cantidad pedida de un tipo particular de enemigo
 	
-	public List<Enemigo> generarEnemigoRojo(int cant, EstadoMultiplicador estado) {
-		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-		for(int i = 0; i < cant ; i++) {
-			Enemigo enemigo = new EnemigoRojo();
-			enemigo.setEstado(estado);
-			toReturn.add(enemigo);
-		}
-			
-		return toReturn;
-	}
+
 	
 	public List<Enemigo> generarZombi(int cant, EstadoMultiplicador estado) {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();

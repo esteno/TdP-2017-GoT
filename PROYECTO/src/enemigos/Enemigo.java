@@ -32,33 +32,9 @@ public abstract class Enemigo extends ObjetoMovil
 	}
 
 	
-	public void avanzar(){
-
-		if(!atacando)
-			if(!grafico.Lock(true)){
-			//Si la celda es nula quiere decir que llego al borde izquierdo del mapa.
-			Celda celdaNueva = celda.celdaIzquierda();
-				if(celdaNueva != null) 	{
-					//Guarda la posicion acutal
-					int xAnterior = celda.getX();
-					int yAnterior = celda.getY();
-					
-					//Si ya se puede mover y no hay nada en la celda adyacente se mueve
-					if(contVelocidad <= 0 && celdaNueva.objetoMovil() == null){	
-						celda = celdaNueva;
-						grafico.setBloqueado(true);
-						celda.moverEnemigo(xAnterior, yAnterior);
-						contVelocidad = (int) Math.floor(velocidad*celda.getMultiVelocidad());
-					}
-					else {
-						//descuenta de contador
-						contVelocidad -= 100*celda.getMultiVelocidad();
-					}
-				}
-				else 
-					destruir();
-			}
-	}
+	public abstract void avanzar();
+	
+ 
 	
 	public void destruir() 	{
 		//Los puntos de vida se ponen en cero para poder ser removida de la lista de control
@@ -86,6 +62,7 @@ public abstract class Enemigo extends ObjetoMovil
 		else atacando=false;
 	}
 
+	
 	public void setEstado(EstadoMultiplicador estado) {
 		this.estado = estado;
 		

@@ -33,4 +33,7 @@ public abstract class Personaje extends Defensa
 	{
 		aux = this.getPuntosVida();
 	}
+	
+	
+
 }
