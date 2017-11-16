@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
 import celdas.Celda;
 import defensa.*;
 import disparos.Disparo;
+import disparos.DisparoDefensa;
+import disparos.DisparoEnemigo;
 import enemigos.Enemigo;
 import gui.*;
 
@@ -115,7 +117,7 @@ public class Juego
 	}
 
 	//Agrega un objeto movil al mapa y graficamente si es posible
-		
+	/*	
 	public Boolean agregarObjetoMovil(ObjetoMovil obj, int x, int y) 
 	{
 		Boolean puedoAgregar = mapa.agregarObjetoMovil(obj, x, y);
@@ -123,9 +125,23 @@ public class Juego
 			gui.agregarObjetoMovil(x, y, obj);
 		return puedoAgregar;
 	}
+	*/
 		
+	public boolean agregarDisparoDefensa(DisparoDefensa obj, int x, int y)
+	{
+		boolean puedoAgregar = mapa.agregarDisparoDefensa(obj, x, y);
+		if(puedoAgregar)
+			gui.agregarObjetoMovil(x, y, obj);
+		return puedoAgregar;
+	}
 	
-	
+	public boolean agregarDisparoEnemigo(DisparoEnemigo obj, int x, int y)
+	{
+		boolean puedoAgregar = mapa.agregarDisparoEnemigo(obj, x, y);
+		if(puedoAgregar)
+			gui.agregarObjetoMovil(x, y, obj);
+		return puedoAgregar;
+	}
 	
 	
 	
