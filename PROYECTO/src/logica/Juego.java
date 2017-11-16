@@ -126,7 +126,17 @@ public class Juego
 		return puedoAgregar;
 	}
 	*/
-		
+	
+	
+	public boolean agregarEnemigo(Enemigo obj, int x, int y)
+	{
+		boolean puedoAgregar = mapa.agregarEnemigo(obj, x, y);
+		if(puedoAgregar)
+			gui.agregarObjetoMovil(x, y, obj);
+		return puedoAgregar;
+	}
+	
+	
 	public boolean agregarDisparoDefensa(DisparoDefensa obj, int x, int y)
 	{
 		boolean puedoAgregar = mapa.agregarDisparoDefensa(obj, x, y);

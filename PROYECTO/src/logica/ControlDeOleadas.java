@@ -61,7 +61,7 @@ public class ControlDeOleadas implements Runnable {
 					//Posicion de la columna donde se va a insertar
 					int rand = (int) Math.floor(Math.random() * (alto - 1));
 					//Devuelve si el enemigo fue agregado
-					Boolean agregue = juego.agregarObjetoMovil(enemigo, juego.getAncho(), rand);
+					Boolean agregue = juego.agregarEnemigo(enemigo, juego.getAncho(), rand);
 					if(agregue) {
 						listaEnemigos.add(enemigo);
 						
