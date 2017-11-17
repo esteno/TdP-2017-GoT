@@ -208,8 +208,6 @@ public class Gui implements Runnable
 				juego.restarBomba();
 				if(!juego.hayBombas()) {
 					botonBomba.setEnabled(false);
-					
-					.addMouseListener(listenBomba());
 				}
 			}
 		});
@@ -235,7 +233,7 @@ public class Gui implements Runnable
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				FabricaDeDefensa.getInstancia().construirDanio();
+				FabricaDeDefensa.getInstancia().construirBarricada();
 				juego.restarBarricada();	
 				if (!juego.hayBarricadas())
 					botonBarricada.setEnabled(false);

@@ -62,7 +62,7 @@ public abstract class Enemigo extends ObjetoMovil
 					int yAnterior = celda.getY();
 					
 					//Si ya se puede mover y no hay nada en la celda adyacente se mueve
-					if(contVelocidad <= 0 && celdaNueva.objetoMovil() == null){	
+					if(contVelocidad >= 0 && celdaNueva.objetoMovil() == null){	
 						celda = celdaNueva;
 						grafico.setBloqueado(true);
 						celda.moverEnemigo(xAnterior, yAnterior);
@@ -70,7 +70,7 @@ public abstract class Enemigo extends ObjetoMovil
 					}
 					else {
 						//descuenta de contador
-						contVelocidad -= 100*celda.getMultiVelocidad();
+						contVelocidad += celda.getMultiVelocidad();
 					}
 				}
 				else 

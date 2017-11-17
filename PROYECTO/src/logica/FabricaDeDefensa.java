@@ -64,4 +64,9 @@ public class FabricaDeDefensa
 		defensaCreada = null;
 	}
 
+	public void construirBarricada() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
