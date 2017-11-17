@@ -1,13 +1,14 @@
 package premio;
 
+import logica.Juego;
 
 public class PremioCuracion 
 {
-
 	private static int c=0;
-	public PremioCuracion() 
+	public PremioCuracion(Juego juego) 
 	{
-		// TODO Auto-generated constructor stub
+		juego.curar();
+	
 	}
 
 	public void aumentarCuracion() {

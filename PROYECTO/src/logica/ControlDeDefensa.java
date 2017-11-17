@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import defensa.Defensa;
+import estadoMultiplicador.EstadoMultiplicador;
 
 //
 public class ControlDeDefensa implements Runnable {
@@ -72,4 +73,16 @@ public class ControlDeDefensa implements Runnable {
 		return listaDefensa;
 	}
 
+	public void modificarEstado(EstadoMultiplicador estado) {
+
+		for (Defensa d:listaDefensa)
+			d.cambiarEstado(estado);
+	}
+
+	public void curar() {
+		
+		for (Defensa d: listaDefensa)
+			d.curacion();
+	}
+	
 }

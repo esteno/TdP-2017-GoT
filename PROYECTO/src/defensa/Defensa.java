@@ -3,6 +3,8 @@ package defensa;
 import objetos.GameObject;
 import nivel.*;
 import colisiones.*;
+import estadoMultiplicador.EstadoDefensaDefecto;
+import estadoMultiplicador.EstadoMultiplicador;
 
 public abstract class Defensa extends GameObject 
 {
@@ -18,6 +20,8 @@ public abstract class Defensa extends GameObject
      //precio de costo
      protected int precio;
      
+     protected EstadoMultiplicador estado = new EstadoDefensaDefecto();
+     
      
      public void aceptar(Visitor v)
      {
@@ -30,15 +34,12 @@ public abstract class Defensa extends GameObject
     	 puntosVida=i;
      }
      
-     
-     public int getAtaque() {
+     public void atacar() {
     	 
-    	 return fuerzaImpacto;
      }
      
-     public void setAtaque(int i) {
-    	 
-    	 fuerzaImpacto=i;
+     public void cambiarEstado(EstadoMultiplicador nuevoEstado) {
+     	estado = nuevoEstado;
      }
      
  	public int getPrecio()
@@ -57,5 +58,9 @@ public abstract class Defensa extends GameObject
 	public void destruir() {
 		grafico.destruir();
 		celda.destruirDefensa();
+	}
+	
+	public void curacion() {
+		
 	}
 }

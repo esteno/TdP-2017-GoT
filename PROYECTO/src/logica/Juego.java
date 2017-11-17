@@ -18,7 +18,8 @@ import disparos.DisparoDefensa;
 import disparos.DisparoEnemigo;
 import enemigos.Enemigo;
 import gui.*;
-import logica.Buff;
+import premio.Buff;
+import estadoMultiplicador.*;
 
 import premio.*;
 
@@ -287,14 +288,23 @@ public class Juego
 	}
 
 	public void curarDefensas() {
-		System.out.println("llamado a curar");
+		new PremioCuracion(this);
 		
 	}
 
 	public void danioDoble() {
-		System.out.println("danio doble");
+		new Buff(this);
 		
 	}
 
+	public void modificarDefensa(EstadoMultiplicador estado) {
+
+		controlDeDefensa.modificarEstado(estado);
+		
+	}
 	
+	public void curar() {
+	
+		controlDeDefensa.curar();
+	}
 }
