@@ -1,27 +1,29 @@
 package premio;
 
-public class PremioDanioDoble 
-{
+import logica.Juego;
+import logica.Temporal;
+import logica.Timer;
+import estadoMultiplicador.*;
 
-	private static int c=0;
-	public PremioDanioDoble() 
-	{
-		// TODO Auto-generated constructor stub
+public class PremioDanioDoble implements Temporal {
+
+	private EstadoDefensaDanioDoble danio;
+	private EstadoDefensaDefecto defecto;
+	private Juego juego;
+	
+	public PremioDanioDoble(Juego j) {
+		
+		juego=j;
+		danio=new EstadoDefensaDanioDoble();
+		j.modificarDefensa(danio);
+		new Timer(this, 10000);	
 	}
+	
+	@Override
+	public void accionarPorTiempo() {
 
-	public void aumentarDanio() {
-
-		c++;
+		defecto=new EstadoDefensaDefecto();
+		juego.modificarDefensa(defecto);
 	}
-
-	public void restarDanio() {
-
-		c--;
-	}
-
-	public boolean hayDanio() {
-
-		return c>0;
-	}
-
+	
 }

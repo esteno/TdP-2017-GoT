@@ -6,6 +6,7 @@ import java.util.List;
 import ObjetoDeMapa.ObjetoDeMapa;
 import defensa.Defensa;
 import disparos.*;
+import enemigos.Enemigo;
 import logica.FabricaObjetoGrafico;
 import mapa.Mapa;
 import objetos.GameObject;
@@ -71,18 +72,14 @@ public class Celda
     }
     
     //Devuelve el objeto movil que est� sobre esta celda
-    public ObjetoMovil objetoMovil() 
+    public Enemigo getEnemigo() 
     {
-    	return mapa.getObjeto(this);
+    	return mapa.getEnemigo(this);
     }
     
     //--------MOVER
     
     //Mueve un enemigo de la posicion (xAnterior, yAnterior) a su nueva posicion (x,y). ANTERIOR
-    public void moverObjetoMovil(int xAnterior, int yAnterior) {
-    	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
-    }
-    
     public void moverEnemigo(int xAnterior, int yAnterior)
     {
     	mapa.moverEnemigo(x, y, xAnterior, yAnterior);

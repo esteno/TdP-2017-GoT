@@ -18,7 +18,7 @@ import disparos.DisparoDefensa;
 import disparos.DisparoEnemigo;
 import enemigos.Enemigo;
 import gui.*;
-import premio.Buff;
+import premio.PremioDanioDoble;
 import estadoMultiplicador.*;
 
 import premio.*;
@@ -56,7 +56,7 @@ public class Juego
 	private Parser parser;
 	
 	
-	private Buff b;
+	private PremioDanioDoble b;
 	
 	
 	public Juego(Gui gui, int alto, int ancho) 
@@ -293,7 +293,7 @@ public class Juego
 	}
 
 	public void danioDoble() {
-		new Buff(this);
+		new PremioDanioDoble(this);
 		
 	}
 

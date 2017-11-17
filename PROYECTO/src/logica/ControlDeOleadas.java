@@ -42,13 +42,12 @@ public class ControlDeOleadas implements Runnable {
 	public void run() {
 		while(isRunning) {
 			try {
-				Thread.sleep(100);
+				Thread.sleep(1000);
 				
 				
 				
 				//Se inserta de a uno por vez si es posible por cada sleep
 				if(aInsertar < listaInsercion.size()) {
-					System.out.println("aInsertar "+aInsertar);
 					Enemigo enemigo = listaInsercion.get(aInsertar);
 					//Posicion de la columna donde se va a insertar
 					int rand = (int) Math.floor(Math.random() * (alto - 1));

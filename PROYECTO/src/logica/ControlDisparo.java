@@ -49,8 +49,10 @@ public class ControlDisparo implements Runnable {
 					//Si el alcance es 0 se elimina 
 					if(disparo.getAlcance() <= 0) 
 						listaDescarte.add(disparo);
-					else
+					else {
+						disparo.atacar();
 						disparo.avanzar();
+					}
 				}
 			}
 			catch (InterruptedException e) {

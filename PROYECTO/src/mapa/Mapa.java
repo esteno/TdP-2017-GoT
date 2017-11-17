@@ -138,6 +138,8 @@ public class Mapa
 	//------MOVER
 	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) 
 	{	
+		System.out.println(matrizEnemigo[xAnterior][yAnterior]);
+		
 		matrizEnemigo[x][y] = matrizEnemigo[xAnterior][yAnterior];
 		matrizEnemigo[xAnterior][yAnterior] = null;
 		moverGrafico(matrizEnemigo[x][y]);
@@ -188,7 +190,7 @@ public class Mapa
 		return juego;
 	}
 	
-	public Enemigo getObjeto(Celda c){
+	public Enemigo getEnemigo(Celda c){
 		
 		return matrizEnemigo[c.getX()][c.getY()];
 	}
@@ -226,13 +228,6 @@ public class Mapa
 						lista.add(matrizDefensa[x][y]);
 		return lista;		
 	}
-	
-	public Celda [][] getMatriz(){
-		
-		return matrizCeldas;
-	}
-
-
 
 	public void moverGrafico(ObjetoMovil objeto) {
 		juego.moverGrafico(objeto);

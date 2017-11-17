@@ -3,6 +3,7 @@ package disparos;
 import celdas.Celda;
 import colisiones.Visitor;
 import colisiones.VisitorDisparoDefensa;
+import enemigos.Enemigo;
 import objetos.ObjetoMovil;
 
 public class DisparoDefensa extends Disparo {
@@ -20,40 +21,43 @@ public class DisparoDefensa extends Disparo {
 	@Override
 	public void avanzar() 
 	{
-		if(contVelocidad == 0) {
-		
 		//Pide la celda a la que se va a mover
+		
+		if(contVelocidad == 0) {
 			Celda celdaNueva = celda.celdaDerecha();
+			System.out.println(celdaNueva);
 			//Si todavia tiene alcance y no llego al 
 			if( (alcance > 0) && (celdaNueva != null) ) 
-			{	
-				//Si hay otro objeto movil en esa celda
-				ObjetoMovil objetoMovil = celdaNueva.objetoMovil();
-				if(objetoMovil!=null)
-				{	
-					//Le pasa el visitor, si es enemigo lo ataca, si es otro disparo no hace nada.
-					objetoMovil.aceptar(new VisitorDisparoDefensa(this));
-				} 
-				else 
-				{
-					//Cambia de celda
-					celda = celdaNueva;
-
-					//Decrementa el alcance
-					alcance--;
-					
-					
-				}
+			{	 
+				//Cambia de celda
+				celda = celdaNueva;
+				//Decrementa el alcance
+				alcance--;
+				contVelocidad = velocidad;
 			}
 			else
 			{
 				destruir();
 			}
-			contVelocidad = velocidad;
+			
 		}
-		else
-			contVelocidad--;
+		contVelocidad--;
 		celda.moverGrafico(this);
+	}
+
+
+
+	@Override
+	public void atacar() {
+		//Si hay otro objeto movil en esa celda
+		System.out.println(celda);
+		Enemigo enemigo = celda.getEnemigo();
+		System.out.println(enemigo);
+		if(enemigo!=null)
+		{	
+			//Le pasa el visitor, si es enemigo lo ataca, si es otro disparo no hace nada.
+			enemigo.aceptar(visitor);
+		}
 	}
 
 

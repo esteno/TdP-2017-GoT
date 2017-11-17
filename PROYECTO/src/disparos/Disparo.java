@@ -12,7 +12,7 @@ public abstract class Disparo extends ObjetoMovil
 	
 	public Disparo(double danio) 
 	{
-		velocidad=8;
+		velocidad= 10;
 		alcance = 30;
 		fuerzaImpacto = (int) Math.floor(danio);
 		grafico = fabricaGrafica.construirGraficoDisparo();
@@ -36,11 +36,6 @@ public abstract class Disparo extends ObjetoMovil
 
 
 	
-	@Override
-	public void atacar() 
-	{
-		// TODO Auto-generated method stub
-	}
 	
 	
 	
