@@ -6,7 +6,7 @@ public class ObjetoLago extends ObjetoDeMapa {
 	
 	public ObjetoLago() {
 		grafico = FabricaObjetoGrafico.getInstancia().construirGraficoLago();
-		multiplicadorVelocidad = 0.5;
+		multiplicadorVelocidad = 1;
 	}
 
 }

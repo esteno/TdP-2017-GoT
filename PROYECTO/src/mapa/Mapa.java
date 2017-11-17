@@ -179,7 +179,7 @@ public class Mapa
 	public  void eliminarEnemigo(int x, int y)
 	{
 		matrizEnemigo[x][y] = null;
-		juego.eliminarObjetoMovil(x, y);
+		//juego.eliminarObjetoMovil(x, y);
 	}
 
 	//------------

@@ -5,7 +5,7 @@ import logica.FabricaObjetoGrafico;
 public class ObjetoComun extends ObjetoDeMapa {
 	
 	public ObjetoComun() {
-		multiplicadorVelocidad = 1.0;
+		multiplicadorVelocidad = 3;
 		grafico = FabricaObjetoGrafico.getInstancia().construirGraficoObjetoComun();
 	}
 

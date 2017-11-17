@@ -56,13 +56,13 @@ public abstract class Enemigo extends ObjetoMovil
 			if(!grafico.Lock(true)){
 			//Si la celda es nula quiere decir que llego al borde izquierdo del mapa.
 			Celda celdaNueva = celda.celdaIzquierda();
+			System.out.println("enemigo celdaIzquierda x "+celdaNueva.getX()+" y "+celdaNueva.getY());
 				if(celdaNueva != null) 	{
-					//Guarda la posicion acutal
-					int xAnterior = celda.getX();
-					int yAnterior = celda.getY();
-					
 					//Si ya se puede mover y no hay nada en la celda adyacente se mueve
 					if(contVelocidad >= 0 && celdaNueva.objetoMovil() == null){	
+						//Guarda la posicion acutal
+						int xAnterior = celda.getX();
+						int yAnterior = celda.getY();
 						celda = celdaNueva;
 						grafico.setBloqueado(true);
 						celda.moverEnemigo(xAnterior, yAnterior);

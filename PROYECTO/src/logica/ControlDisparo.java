@@ -32,7 +32,7 @@ public class ControlDisparo implements Runnable {
 	public void run() {
 		while(isRunning) {
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(100);
 				//Borra todos los disparos a descartar
 				for(Disparo descarte : listaDescarte) {
 					listaDisparos.remove(descarte);

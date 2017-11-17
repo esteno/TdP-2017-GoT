@@ -161,11 +161,13 @@ public class Juego
 		gui.moverGrafico(o);
 	}
 	
+	/**
 	//Eleimina graficamente un ObjetoMovil
 	public void eliminarObjetoMovil(int x, int y)
 	{
 		gui.eliminarMovil(x, y);
 	}
+	**/
 	
 	//Suma un puntaje
 	public void sumarPuntaje(int p) 
