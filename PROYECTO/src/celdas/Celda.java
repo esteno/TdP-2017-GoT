@@ -131,4 +131,11 @@ public class Celda
 	}
 
 
+
+	public void destruirDefensa() {
+		mapa.eliminarDefensa(x, y);
+		
+	}
+
+
 }

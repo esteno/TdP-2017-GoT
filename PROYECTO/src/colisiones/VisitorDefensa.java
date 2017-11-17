@@ -22,7 +22,7 @@ public class VisitorDefensa extends Visitor
 	     
 	     //metodos
 	     @Override
-	     public void visitarDefensa(GameObject d)
+	     public void visitarDefensa(Defensa d)
 	     { 
 	    	System.out.println("Un defensor ha visitado un defensor. No hay accion."); 
 	     }

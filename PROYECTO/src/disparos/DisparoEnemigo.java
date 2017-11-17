@@ -31,6 +31,7 @@ public class DisparoEnemigo extends Disparo {
 				Defensa defensa = celdaIzquierda.getEstatico();
 				if(defensa!=null)
 				{	
+					System.out.println("Disapro enemigo atacar defensa");
 					//Le pasa el visitor, si es enemigo lo ataca, si es otro disparo no hace nada.
 					defensa.aceptar(new VisitorDisparoEnemigo(this));
 				} 

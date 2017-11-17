@@ -2,6 +2,7 @@ package colisiones;
 
 import enemigos.Enemigo;
 import objetos.*;
+import defensa.Defensa;
 import disparos.*;
 import obstaculo.*;
 
@@ -20,7 +21,7 @@ public class VisitorEnemigo extends Visitor
 	
 	//metodos
 	@Override
-	public void visitarDefensa(GameObject d)
+	public void visitarDefensa(Defensa d)
     { 
 		d.recibirAtaque(miEnemigo.getFuerzaImpacto()); //de miEnemigo;
 	}

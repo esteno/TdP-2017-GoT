@@ -38,11 +38,6 @@ public abstract class GameObject
 	}
 	
 	
-	public void destruir()
-	{
-		grafico=null;
-	}
-	
 	
 	public abstract void aceptar(Visitor v);
 	
@@ -64,13 +59,6 @@ public abstract class GameObject
 	}
 	
 	
-	public void recibirAtaque(int i)
-	{
-		puntosVida=-i;
-		if(puntosVida < 0) {
-			destruir();
-		}
-	}
-	
+
 	public abstract void atacar();
 }
