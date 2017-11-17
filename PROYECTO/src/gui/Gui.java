@@ -189,6 +189,8 @@ public class Gui implements Runnable
 		lblMonedas.setBounds(108, 28, 95, 14);
 		panelControl.add(lblMonedas);
 		
+		
+		
 		//-----------PANEL PREMIOS
 		panelPremios = new JPanel();
 		panelPremios.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -209,13 +211,16 @@ public class Gui implements Runnable
 				if(!juego.hayBombas()) {
 					botonBomba.setEnabled(false);
 					
-					.addMouseListener(listenBomba());
+					botonBomba.addMouseListener(listenBomba());
 				}
 			}
 		});
 		botonBomba.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoBomba.png"));
 		botonBomba.setBounds(451, 11, 92, 59);
 		panelPremios.add(botonBomba);
+		
+		
+		
 		
 		
 		botonCampo = new JButton("Campo");
@@ -230,12 +235,15 @@ public class Gui implements Runnable
 		botonCampo.setBounds(222, 11, 92, 59);
 		panelPremios.add(botonCampo);	
 		
+		
+		
+		
 		botonBarricada = new JButton("Barricada");
 		botonBarricada.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				FabricaDeDefensa.getInstancia().construirDanio();
+				//FabricaDeDefensa.getInstancia().construirDanio();
 				juego.restarBarricada();	
 				if (!juego.hayBarricadas())
 					botonBarricada.setEnabled(false);
