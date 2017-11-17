@@ -53,9 +53,8 @@ public class Gui implements Runnable
 	private final int NIVELPREMIO = 0;
 	private boolean clickCampo = false;
 	
-	private Puntaje p;
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
-	private CostosDeDefensa costosDeDefensa = CostosDeDefensa.getInstncia();
+	private CostosDeDefensa costosDeDefensa = CostosDeDefensa.getInstancia();
 	
 	private JLabel labelPuntaje;
 	
@@ -177,9 +176,6 @@ public class Gui implements Runnable
 		
 		
 		
-		p=new Puntaje();
-		
-		
 		//--------- PANEL CONTROL
 		
 		panelControl = new JPanel();
@@ -280,9 +276,7 @@ public class Gui implements Runnable
  			public void actionPerformed(ActionEvent arg0) 
  			{
  				FabricaDeDefensa.getInstancia().construirYgritte(); 
- 				p.restarOro(600);	
- 				if (p.getOro()<600)
- 					botonYgritte.setEnabled(false);
+ 				juego.restarOro(costosDeDefensa.costoYgritte());	
  					
  			}
  		});
@@ -297,9 +291,7 @@ public class Gui implements Runnable
  			public void actionPerformed(ActionEvent e) 
  			{
  				FabricaDeDefensa.getInstancia().construirMountain();
- 				p.restarOro(500);	
- 				if (p.getOro()<500)
- 					botonMountain.setEnabled(false);
+ 				juego.restarOro(costosDeDefensa.costoMountain());
  			}
  		});
 		botonMountain.setIcon(new ImageIcon("res/imagenes/juego/botonMountain.png"));
@@ -313,9 +305,7 @@ public class Gui implements Runnable
  			public void actionPerformed(ActionEvent e) 
  			{
  				FabricaDeDefensa.getInstancia().construirDragon();
- 				p.restarOro(1000);	
- 				if (p.getOro()<1000)
- 					botonDragon.setEnabled(false);
+ 				juego.restarOro(costosDeDefensa.costoDragon());
  					
  			}
  		});
@@ -330,9 +320,7 @@ public class Gui implements Runnable
  			public void actionPerformed(ActionEvent e)
  			{
  				FabricaDeDefensa.getInstancia().construirInmaculado();
- 				p.restarOro(200);	
- 				if (p.getOro()<200)
- 					botonInmaculado.setEnabled(false);
+ 				juego.restarOro(costosDeDefensa.costoInmaculado());
  					
  			}
  		});
@@ -347,9 +335,7 @@ public class Gui implements Runnable
  			public void actionPerformed(ActionEvent e) 
  			{
  				FabricaDeDefensa.getInstancia().construirGendry();
- 				p.restarOro(400);	
- 				if (p.getOro()<400)
- 					botonGendry.setEnabled(false);
+ 				juego.restarOro(costosDeDefensa.costoGendry());
  			}
  		});
  		botonGendry.setIcon(new ImageIcon("res/imagenes/juego/botonGendry.png"));
@@ -363,9 +349,7 @@ public class Gui implements Runnable
  			public void actionPerformed(ActionEvent arg0) 
  			{
  				FabricaDeDefensa.getInstancia().construirBronn();
- 				p.restarOro(300);	
- 				if (p.getOro()<300)
- 					botonBronn.setEnabled(false);
+ 				juego.restarOro(costosDeDefensa.costoBronn());
  			}
  		});
  		botonBronn.setIcon( new ImageIcon("res/imagenes/juego/botonBronn.png"));
@@ -387,7 +371,7 @@ public class Gui implements Runnable
  		//============== BOTONES PREMIOS
  		
  		
- 		botonPremioBomba = new JButton("Bomba");
+ 		botonPremioBomba = new JButton("B");
  		botonPremioBomba.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -397,7 +381,7 @@ public class Gui implements Runnable
 			}
  		});
  		
- 		botonPremioBarricada = new JButton("Barr");
+ 		botonPremioBarricada = new JButton("BA");
  		botonPremioBarricada.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				juego.agregarBarricada();
@@ -406,7 +390,7 @@ public class Gui implements Runnable
  			}
  		});
  		
- 		botonPremioOro = new JButton("Oro");
+ 		botonPremioOro = new JButton("O");
  		botonPremioOro.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				juego.sumarOro(1000);
@@ -414,7 +398,7 @@ public class Gui implements Runnable
  			}
  		});
  		
- 		botonPremioCuracion = new JButton("+++");
+ 		botonPremioCuracion = new JButton("+");
  		botonPremioCuracion.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				juego.curarDefensas();
@@ -430,7 +414,7 @@ public class Gui implements Runnable
  			}
  		});
  		
- 		botonPremioCampoProtector = new JButton("CPro");
+ 		botonPremioCampoProtector = new JButton("CP");
  		botonPremioCampoProtector.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				
@@ -575,7 +559,7 @@ public class Gui implements Runnable
 	}
 
 	public void oroActual(int oro) {
-		lblMonedas.setText("Monedas: "+oro);
+		lblMonedas.setText("Oro: "+oro);
 		//btnJorgito.setEnabled((oro < costosDeDefensa.costoJorgito()) ? false : true);
 		
 		botonYgritte.setEnabled((oro < costosDeDefensa.costoYgritte()) ? false : true);

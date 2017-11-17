@@ -16,7 +16,7 @@ public abstract class DefensaCuerpo extends Personaje
 	{
 		// Pide la siguiente Celda, y a esa celda le solicita el objeto movil si es que tiene.
 		Celda celdaDerecha = this.celda.celdaDerecha();
-		ObjetoMovil objetoMovil = celdaDerecha.objetoMovil();
+		ObjetoMovil objetoMovil = celdaDerecha.getEnemigo();
 		
 		// si hay objeto movil, lo visita.
 		if(objetoMovil != null)

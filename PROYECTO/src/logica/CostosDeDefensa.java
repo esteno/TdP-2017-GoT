@@ -2,7 +2,6 @@ package logica;
 
 public class CostosDeDefensa {
 	
-	private final int COSTO_JORGITO = 500;
 	private final int COSTO_DRAGON = 1000; // ok 
 	private final int COSTO_GENDRY = 400; // ok
 	private final int COSTO_INMACULADO = 200; //ok
@@ -14,15 +13,11 @@ public class CostosDeDefensa {
 	
 	private CostosDeDefensa() {}
 	
-	public static CostosDeDefensa getInstncia() {
+	public static CostosDeDefensa getInstancia() {
 		if(instancia == null) {
 			instancia = new CostosDeDefensa();
 		}
 		return instancia;
-	}
-	
-	public int costoJorgito() {
-		return COSTO_JORGITO;
 	}
 	
 	public int costoDragon() {
