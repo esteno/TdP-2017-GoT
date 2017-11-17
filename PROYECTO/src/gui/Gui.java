@@ -461,6 +461,8 @@ public class Gui implements Runnable
 		aAgregar.add(o);
 	}
 	
+	
+	
 	public void run(){
 		boolean estado=true;
 		while(estado){

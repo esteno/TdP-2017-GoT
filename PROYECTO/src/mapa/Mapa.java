@@ -58,13 +58,16 @@ public class Mapa
 		}	
 	}
 	
-	public Celda celdaIzquierda(Celda celdaActual) {
-		
-		Celda celdaArriba = null;
+	
+	public Celda celdaIzquierda(Celda celdaActual) 
+	{	
+		Celda celdaIzquierda = null;
 		if(celdaActual.getX() != 0)
-			celdaArriba = matrizCeldas[celdaActual.getX() - 1][celdaActual.getY()];
-		return celdaArriba;
+			celdaIzquierda = matrizCeldas[celdaActual.getX() - 1][celdaActual.getY()];
+		return celdaIzquierda;
 	}
+	
+	
 	
 	public Celda celdaDerecha(Celda celdaActual) 
 	{
@@ -75,6 +78,8 @@ public class Mapa
 		}
 		return celdaDerecha;
 	}
+	
+	
 	
 	public GameObjectGrafico[][] getGraficos() {
 		
