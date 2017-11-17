@@ -218,5 +218,33 @@ public class FabricaObjetoGrafico {
 
 		return new GameObjectGrafico("res/imagenes/juego/botonCuracion.png");
 	}
+
+
+
+	public GameObjectGrafico construirGraficoBarricada() {
+		// TODO Auto-generated method stub
+		return new GameObjectGrafico("res/imagenes/obstaculos/barricada.png");
+	}
+
+
+
+	public GameObjectGrafico construirGraficoFuegoValyrio() {
+		// TODO Auto-generated method stub
+		return new GameObjectGrafico("res/imagenes/obstaculos/fuegoValyrio.gif");
+	}
+
+
+
+	public GameObjectGrafico construirGraficoRoca() {
+		// TODO Auto-generated method stub
+		return new GameObjectGrafico("res/imagenes/obstaculos/roca.png");
+	}
+
+
+
+	public GameObjectGrafico construirGraficoTrinchera() {
+		// TODO Auto-generated method stub
+		return null;
+	}
  	
 }

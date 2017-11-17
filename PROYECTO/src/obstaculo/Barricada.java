@@ -8,6 +8,16 @@ import defensa.Defensa;
 public class Barricada extends Obstaculo
 {
 
+	public Barricada()
+	{
+		precio = 100;
+		velocidadAtaque = 0;
+		proximoAtaque = 0;
+		puntosVida = 200;
+		fuerzaImpacto = 0;
 
+		grafico = fabricaGrafica.construirGraficoBarricada();
+		
+	}
 
 }

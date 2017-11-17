@@ -11,6 +11,8 @@ public abstract class Obstaculo extends Defensa implements Runnable
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	
 	public void run() 
 	{}
 
