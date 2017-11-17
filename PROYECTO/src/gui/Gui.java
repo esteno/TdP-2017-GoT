@@ -209,7 +209,7 @@ public class Gui implements Runnable
 				if(!juego.hayBombas()) {
 					botonBomba.setEnabled(false);
 					
-					.addMouseListener(getMouseListener());
+					.addMouseListener(listenBomba());
 				}
 			}
 		});
