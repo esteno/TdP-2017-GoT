@@ -244,7 +244,7 @@ public class FabricaObjetoGrafico {
 
 	public GameObjectGrafico construirGraficoTrinchera() {
 		// TODO Auto-generated method stub
-		return null;
+		return new GameObjectGrafico("res/imagenes/obstaculos/trinchera.png");
 	}
  	
 }
