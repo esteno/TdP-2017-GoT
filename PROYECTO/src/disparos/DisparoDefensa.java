@@ -9,6 +9,7 @@ public class DisparoDefensa extends Disparo {
 
 	public DisparoDefensa(double danio) {
 		super(danio);
+		velocidad = 8;
 		visitor = new VisitorDisparoDefensa(this);
 		// TODO Auto-generated constructor stub
 	}

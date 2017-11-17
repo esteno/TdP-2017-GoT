@@ -6,6 +6,12 @@ public abstract class EnemigoRango extends Enemigo
 {
 
 	public void atacar() {
-		celda.agregarDisparo(new DisparoEnemigo(fuerzaImpacto));
+		if(proximoAtaque == 0) {
+			celda.agregarDisparo(new DisparoEnemigo(fuerzaImpacto));
+			proximoAtaque = velocidadAtaque;
+		}
+		else {
+			proximoAtaque--;
+		}
 	}
 }

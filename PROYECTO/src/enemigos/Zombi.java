@@ -9,6 +9,7 @@ public class Zombi extends EnemigoRango {
 	    puntos=100;
 	    puntosVida=25;
 	    oro=20;
+	    velocidadAtaque = 4;
 	}
 
 }

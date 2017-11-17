@@ -18,6 +18,12 @@ public abstract class GameObject
 	protected boolean isRunning = true;
 	protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
 	protected int fuerzaImpacto; // cuanta vida consume al atacar
+	
+	//Valor que da el tiempo entre ataque y ataque
+    protected int velocidadAtaque;
+    
+    //Contador que se va decrementando, cuando llega a 0 la gameObject ataca.
+    protected int proximoAtaque = 0;
 
 	
 	//metodos

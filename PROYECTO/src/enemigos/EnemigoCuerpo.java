@@ -7,14 +7,20 @@ public abstract class EnemigoCuerpo extends Enemigo
 {
 
 	public void atacar() {
-		Celda celdaIzq = celda.celdaIzquierda();
-		GameObject defensa = celdaIzq.getEstatico();
-		if(defensa != null) {
-			visitor.visitarDefensa(defensa);
-			atacando=true;
-			System.out.println("Atacaaaa");
+		if(proximoAtaque == 0 ) {
+			Celda celdaIzq = celda.celdaIzquierda();
+			GameObject defensa = celdaIzq.getEstatico();
+			if(defensa != null) {
+				visitor.visitarDefensa(defensa);
+				atacando=true;
+				System.out.println("Atacaaaa");
+			}
+			else atacando=false;
+			proximoAtaque = velocidadAtaque;
 		}
-		else atacando=false;
+		else {
+			proximoAtaque--;
+		}
 	}
 	
 
