@@ -83,6 +83,13 @@ public class Gui implements Runnable
 	private JButton botonBronn;
 	private JButton botonEnMapa;
 	
+	private JButton botonPremioBomba;
+	private JButton botonPremioBarricada;
+	private JButton botonPremioOro;
+	private JButton botonPremioCuracion;
+	private JButton botonPremioDanioDoble;
+	private JButton botonPremioCampoProtector;
+	
 	
 	private JLabel lblMonedas;
 	
@@ -210,11 +217,6 @@ public class Gui implements Runnable
 				juego.restarBomba();
 				if(!juego.hayBombas()) {
 					botonBomba.setEnabled(false);
-<<<<<<< HEAD
-					
-					botonBomba.addMouseListener(listenBomba());
-=======
->>>>>>> 0f0f0085c9e0e4314adb451b7c066ca14907421f
 				}
 			}
 		});
@@ -246,11 +248,7 @@ public class Gui implements Runnable
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
-<<<<<<< HEAD
-				//FabricaDeDefensa.getInstancia().construirDanio();
-=======
 				FabricaDeDefensa.getInstancia().construirBarricada();
->>>>>>> 0f0f0085c9e0e4314adb451b7c066ca14907421f
 				juego.restarBarricada();	
 				if (!juego.hayBarricadas())
 					botonBarricada.setEnabled(false);
@@ -367,7 +365,7 @@ public class Gui implements Runnable
  				FabricaDeDefensa.getInstancia().construirBronn();
  				p.restarOro(300);	
  				if (p.getOro()<300)
- 					botonBomba.setEnabled(false);
+ 					botonBronn.setEnabled(false);
  			}
  		});
  		botonBronn.setIcon( new ImageIcon("res/imagenes/juego/botonBronn.png"));
@@ -386,17 +384,58 @@ public class Gui implements Runnable
  		panelMapa.add(fondo);
  		
  		
- 		JButton botonPremioBomba = new JButton("Bomba");
- 		botonPremioBomba.setBounds(50, 50, 50, 50);
+ 		//============== BOTONES PREMIOS
+ 		
+ 		
+ 		botonPremioBomba = new JButton("Bomba");
  		botonPremioBomba.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				juego.agregarBomba();
 				botonBomba.setEnabled(true);
-				botonPremioBomba.getParent().remove(botonPremioBomba);
+				panelCeldaPremios.remove(botonPremioBomba);
 			}
  		});
- 		panelCeldaPremios.add(botonPremioBomba);
+ 		
+ 		botonPremioBarricada = new JButton("Barr");
+ 		botonPremioBarricada.addActionListener(new ActionListener() {
+ 			public void actionPerformed(ActionEvent arg0) {
+ 				juego.agregarBarricada();
+ 				botonBarricada.setEnabled(true);
+ 				panelCeldaPremios.remove(botonPremioBarricada);
+ 			}
+ 		});
+ 		
+ 		botonPremioOro = new JButton("Oro");
+ 		botonPremioOro.addActionListener(new ActionListener() {
+ 			public void actionPerformed(ActionEvent arg0) {
+ 				juego.sumarOro(1000);
+ 				panelCeldaPremios.remove(botonPremioOro);
+ 			}
+ 		});
+ 		
+ 		botonPremioCuracion = new JButton("+++");
+ 		botonPremioCuracion.addActionListener(new ActionListener() {
+ 			public void actionPerformed(ActionEvent arg0) {
+ 				juego.curarDefensas();
+ 				panelCeldaPremios.remove(botonPremioCuracion);
+ 			}
+ 		});
+ 		
+ 		botonPremioDanioDoble = new JButton("DD");
+ 		botonPremioDanioDoble.addActionListener(new ActionListener() {
+ 			public void actionPerformed(ActionEvent arg0) {
+ 				juego.danioDoble();
+ 				panelCeldaPremios.remove(botonPremioDanioDoble);
+ 			}
+ 		});
+ 		
+ 		botonPremioCampoProtector = new JButton("CPro");
+ 		botonPremioCampoProtector.addActionListener(new ActionListener() {
+ 			public void actionPerformed(ActionEvent arg0) {
+ 				
+ 			}
+ 		});
  	
 
 		
@@ -611,7 +650,7 @@ public class Gui implements Runnable
 		};
 	}
 	
-	
+	/**
 	public void activarBoton(int x, int y) {
 
 		botonEnMapa= new JButton("Premio");
@@ -628,6 +667,7 @@ public class Gui implements Runnable
 		});
 		
 	}
+	**/
 	
 	public void habilitarBomba() {
 		botonBomba.setEnabled(true);
@@ -674,9 +714,39 @@ public class Gui implements Runnable
 			};
 			}
 
-	
-	
-	public void habilitarBarricada() {
-		botonBarricada.setEnabled(true);
+
+
+	public void agregarPremioBomba(int x, int y) {
+		botonPremioBomba.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
+		panelCeldaPremios.add(botonPremioBomba);
 	}
+
+	public void agregarPremioBarricada(int x, int y) {
+		botonPremioBarricada.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
+		panelCeldaPremios.add(botonPremioCuracion);
+	}
+	
+	public void agregarPremioCuracion(int x, int y) {
+		botonPremioCuracion.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
+		panelCeldaPremios.add(botonPremioCuracion);
+		
+	}
+
+	public void agregarPremioOro(int x, int y) {
+		botonPremioOro.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
+		panelCeldaPremios.add(botonPremioOro);
+		
+	}
+
+	public void agregarPremioDanioDoble(int x, int y) {
+		botonPremioDanioDoble.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
+		panelCeldaPremios.add(botonPremioDanioDoble);
+	}
+
+	public void agregarPremioCampoProtector(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }

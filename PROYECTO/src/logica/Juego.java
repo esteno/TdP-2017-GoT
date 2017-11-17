@@ -49,6 +49,8 @@ public class Juego
 	//Nivel actual
 	private Nivel nivelActual;
 	
+	private Premios premios;
+	
 	//Objeto que transforma un archivo de texto en una matriz de celdas
 	private Parser parser;
 	
@@ -66,6 +68,7 @@ public class Juego
 		mapa = new Mapa(this, alto, ancho);
 		niveles = new Niveles();
 		parser = new Parser(mapa, alto, ancho);
+		premios = new Premios(this);
 		
 		
 		
@@ -243,48 +246,9 @@ public class Juego
 	public boolean hayBarricadas() {
 		return puntaje.hayBarricadas();
 	}
-
-
-	public void activarBoton(int x, int y) {
-		
-		gui.activarBoton(x,y);		
-	}
 	
-	public void crearPremio() {
-		
-		Random r= new Random();
-		int cual= r.nextInt(7)+1;
-		switch (cual) {
-			case 1: {
-				agregarBomba();
-				if (!hayBombas())
-					gui.habilitarBomba();
-				break;
-				}
-			case 2: {
-				agregarBarricada();
-				if (!hayBarricadas())
-				gui.habilitarBarricada();
-				break;
-				}
-			case 3: {
-				sumarOro(100);
-				break;
-				}
-			case 4: {
-				for(Defensa d:getDefensas())
-					d.setVida(d.getVidaMaxima());
-				break;
-				}
-			case 5: {
-				for(Defensa d:getDefensas())
-					b=new Buff(d);
-				break;
-			}
-			case 6: {
-				
-			}
-		}
+	public void crearPremio(int x, int y) {
+		premios.crearPremio(x, y);
 	}
 
 	public void detonarBomba(int x, int y) {
@@ -294,4 +258,45 @@ public class Juego
 		
 		
 	}
+
+	public void agregarPremioBomba(int x, int y) {
+		gui.agregarPremioBomba(x, y);
+		
+	}
+
+	public void agregarPremioBarricada(int x, int y) {
+		gui.agregarPremioBarricada(x, y);
+		
+	}
+
+	public void agregarPremioOro(int x, int y) {
+		gui.agregarPremioOro(x, y);
+		
+	}
+
+	public void agregarPremioCuracion(int x, int y) {
+		gui.agregarPremioCuracion(x, y);
+		
+	}
+
+	public void agregarPremioDanioDoble(int x, int y) {
+		gui.agregarPremioDanioDoble(x, y);
+		
+	}
+	public void agregarPremioCampoProtector(int x, int y) {
+		gui.agregarPremioCampoProtector(x, y);
+		
+	}
+
+	public void curarDefensas() {
+		System.out.println("llamado a curar");
+		
+	}
+
+	public void danioDoble() {
+		System.out.println("danio doble");
+		
+	}
+
+	
 }
