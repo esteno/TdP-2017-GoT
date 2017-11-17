@@ -73,9 +73,4 @@ public abstract class GameObject
 	}
 	
 	public abstract void atacar();
-
-	public void accionarPorTiempo() {
-
-		this.destruir();
-	}
 }

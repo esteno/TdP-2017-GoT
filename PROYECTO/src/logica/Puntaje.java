@@ -5,7 +5,6 @@ public class Puntaje {
 	private int puntos = 0;
 	private int oro = 10000;
 	private int bombasDisponibles = 0;
-	private int minasDisponibles = 0;
 	private int barricadasDisponibles = 0;
 	
 	public Puntaje() {
@@ -26,11 +25,7 @@ public class Puntaje {
 	public void agregarBomba() {
 		bombasDisponibles++;
 	}
-	
-	public void agregarMina() {
-		minasDisponibles++;
-	}
-	
+
 	public void agregarBarricada() {
 		barricadasDisponibles++;
 	}
