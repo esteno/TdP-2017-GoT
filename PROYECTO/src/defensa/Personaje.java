@@ -13,7 +13,9 @@ public abstract class Personaje extends Defensa
 
     protected EstadoMultiplicador estado = new EstadoDefensaDefecto();
     
-    
+    public void cambiarEstado(EstadoMultiplicador nuevoEstado) {
+    	estado = nuevoEstado;
+    }
 	
 	
 	public void curacion()
