@@ -1,6 +1,5 @@
 package logica;
 
-import objetos.GameObject;
 
 public class Timer implements Runnable{
 

@@ -58,13 +58,21 @@ public class Mapa
 		}	
 	}
 	
+<<<<<<< HEAD
 	public Celda celdaIzquierda(Celda celdaActual) {
 		
+=======
+	
+	public Celda celdaIzquierda(Celda celdaActual) 
+	{	
+>>>>>>> 8ee3672bb4dbc7d8ddb74a6adfebdc5d5dc7946f
 		Celda celdaIzquierda = null;
 		if(celdaActual.getX() != 0)
 			celdaIzquierda = matrizCeldas[celdaActual.getX() - 1][celdaActual.getY()];
 		return celdaIzquierda;
 	}
+	
+	
 	
 	public Celda celdaDerecha(Celda celdaActual) 
 	{
@@ -75,6 +83,8 @@ public class Mapa
 		}
 		return celdaDerecha;
 	}
+	
+	
 	
 	public GameObjectGrafico[][] getGraficos() {
 		
@@ -203,7 +213,7 @@ public class Mapa
 	}
 	
 	
-	public List<ObjetoMovil> adyacentes(Celda celdaOriginal) {
+	public List<ObjetoMovil> adyEnemigos(Celda celdaOriginal) {
 
 		List<ObjetoMovil> lista = new ArrayList<ObjetoMovil>();
 		
@@ -215,6 +225,18 @@ public class Mapa
 		return lista;		
 	}
 
+	
+	public List<Defensa> adyDefensa(Celda celdaOriginal) {
+
+		List<Defensa> lista = new ArrayList<Defensa>();
+		
+		for (int x = celdaOriginal.getX()-1; x < celdaOriginal.getX()+2; x++)
+			for (int y=celdaOriginal.getY()-1; y<celdaOriginal.getY()+2; y++)
+				if ((x < matrizDefensa.length && x >= 0) && (y <matrizDefensa[0].length && y >= 0))			
+					if (matrizDefensa[x][y]!=null)
+						lista.add(matrizDefensa[x][y]);
+		return lista;		
+	}
 	
 	public Celda [][] getMatriz(){
 		

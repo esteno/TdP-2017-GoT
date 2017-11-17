@@ -5,7 +5,6 @@ import defensa.Defensa;
 import disparos.*;
 import enemigos.Enemigo;
 import defensa.Bomba;
-import defensa.Mina;
 import objetos.*;
 import obstaculo.FuegoValyrio;
 
