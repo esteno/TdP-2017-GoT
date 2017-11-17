@@ -57,11 +57,17 @@ public class Mapa
 			}
 		}	
 	}
+<<<<<<< HEAD
 	
 
 	public Celda celdaIzquierda(Celda celdaActual) 
 	{	
 
+=======
+
+	public Celda celdaIzquierda(Celda celdaActual) 
+	{	
+>>>>>>> 0f0f0085c9e0e4314adb451b7c066ca14907421f
 		Celda celdaIzquierda = null;
 		if(celdaActual.getX() != 0)
 			celdaIzquierda = matrizCeldas[celdaActual.getX() - 1][celdaActual.getY()];

@@ -210,8 +210,11 @@ public class Gui implements Runnable
 				juego.restarBomba();
 				if(!juego.hayBombas()) {
 					botonBomba.setEnabled(false);
+<<<<<<< HEAD
 					
 					botonBomba.addMouseListener(listenBomba());
+=======
+>>>>>>> 0f0f0085c9e0e4314adb451b7c066ca14907421f
 				}
 			}
 		});
@@ -243,7 +246,11 @@ public class Gui implements Runnable
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
+<<<<<<< HEAD
 				//FabricaDeDefensa.getInstancia().construirDanio();
+=======
+				FabricaDeDefensa.getInstancia().construirBarricada();
+>>>>>>> 0f0f0085c9e0e4314adb451b7c066ca14907421f
 				juego.restarBarricada();	
 				if (!juego.hayBarricadas())
 					botonBarricada.setEnabled(false);
