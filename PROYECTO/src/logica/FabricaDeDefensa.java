@@ -1,6 +1,8 @@
 package logica;
 
 import defensa.*;
+import obstaculo.*;
+
 
 public class FabricaDeDefensa 
 {
@@ -21,7 +23,7 @@ public class FabricaDeDefensa
 		return instancia;
 	}
 	
-	//PERSONAJES
+	// ----------------PERSONAJES
 
 	
 	public void construirYgritte()
@@ -55,18 +57,41 @@ public class FabricaDeDefensa
 		defensaCreada = new Bronn();
 	}
 	
+	
+	// ---------- OBSTACULOS
+	
+	public void construirBarricada() {
+		// TODO Auto-generated method stub
+		defensaCreada = new Barricada();
+	}
+
+	public void construirMuro()
+	{
+		defensaCreada = new Muro();
+	}
+	
+	
+	public void construirTrinchera()
+	{
+		defensaCreada = new Trinchera();
+	}
+	
+	public void construirRoca()
+	{
+		defensaCreada = new Roca();
+	}
+	
+	
+	// -------------
+	
 	public Defensa getDefensa() 
 	{
 		return defensaCreada;
 	}
 	
+	
 	public void reset() {
 		defensaCreada = null;
-	}
-
-	public void construirBarricada() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
