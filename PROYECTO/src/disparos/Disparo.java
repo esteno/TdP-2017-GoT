@@ -49,11 +49,7 @@ public abstract class Disparo extends ObjetoMovil
 	}
 
 
-	@Override
-	public Visitor getVisitor() {
-		// TODO Auto-generated method stub
-		return visitor;
-	}
+
 
 
 

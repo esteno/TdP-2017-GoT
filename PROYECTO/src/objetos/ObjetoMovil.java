@@ -17,6 +17,6 @@ public abstract class ObjetoMovil extends GameObject
 		return velocidad;
 	}
 	
-	public abstract Visitor getVisitor();
+	
 	
 }

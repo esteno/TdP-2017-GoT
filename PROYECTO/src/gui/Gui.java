@@ -483,7 +483,6 @@ public class Gui implements Runnable
 	}
 	
 	public void moverGrafico(ObjetoMovil o) {
-		
 		aAgregar.add(o);
 	}
 	
@@ -499,7 +498,8 @@ public class Gui implements Runnable
 				e.printStackTrace();
 			}
 			
-			for(ObjetoMovil o : aAgregar){
+			for(ObjetoMovil o : aAgregar)
+			{
 				moviles.add(o);
 			}
 			aAgregar.clear();
