@@ -197,11 +197,7 @@ public class Juego
 	}
 
 
-	public void crearMuro() {
-		mapa.crearMuro();
-		
-	}
-	
+
 	public void gameOver() {
 		gui.gameOver();
 		

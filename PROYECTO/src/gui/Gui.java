@@ -463,7 +463,7 @@ public class Gui implements Runnable
 			}
 		}
 		
-		juego.crearMuro();
+		
 	}
 	
 	public void puntaje(int puntaje){

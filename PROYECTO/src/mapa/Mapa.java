@@ -195,15 +195,7 @@ public class Mapa
 	
 	
 
-	
-	public void crearMuro() {
-		for(int i = 0; i<matrizDefensa[0].length; i++) {
-			Defensa muro = new Muro(juego);
-			matrizDefensa[0][i] = muro;
-			juego.dibujarDefensa(0, i, muro);
-		}
-		
-	}
+
 
 	public Defensa getEstatico(int x, int y) {
 		return matrizDefensa[x][y];
