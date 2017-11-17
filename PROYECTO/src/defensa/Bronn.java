@@ -10,7 +10,6 @@ public class Bronn extends DefensaRango
 		velocidadAtaque = 5;
 		proximoAtaque = 0;
 		puntosVida = 260;
-		vidaMaxima=260;
 		fuerzaImpacto = 45;
 		alcance = 0;
 		grafico = fabricaGrafica.construirGraficoBronn();

@@ -27,6 +27,7 @@ public class ControlDeDefensa implements Runnable {
 	}
 	
 	public void agregarDefensa(Defensa defensa) {
+		System.out.println("CDD agregarDefensa");
 		listaInsercion.add(defensa);
 	}
 	
@@ -44,16 +45,19 @@ public class ControlDeDefensa implements Runnable {
 				}
 				listaDescarte.clear();
 				//Se agrega toda la defensa nueva
-				for(Defensa descarte : listaInsercion) {
-					listaDefensa.add(descarte);
+				for(Defensa insertar : listaInsercion) {
+					System.out.println("CDD foreach insercion");
+					listaDefensa.add(insertar);
 				}
-				listaDescarte.clear();
+				listaInsercion.clear();
 				for(Defensa defensa : listaDefensa) {
+					System.out.println("CDD foreach getPuntosVida "+defensa.getPuntosVida());
 					//Si la defensa fue destruida se pone para descartar
 					if(defensa.getPuntosVida() <= 0) {
 						listaDescarte.add(defensa);
 					}
 					else {
+						System.out.println("control atacar");
 						defensa.atacar();
 					}
 				}

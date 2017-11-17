@@ -104,7 +104,7 @@ public class Juego
 	//Agrega la defensa guardada en la fabrica en la pos x,y
 	public void agregarDefensa(int x, int y)
 	{
-		
+		System.out.println("agregarDefensa");
 		mapa.agregarDefensa(FabricaDeDefensa.getInstancia().getDefensa(), x, y);
 		controlDeDefensa.agregarDefensa(FabricaDeDefensa.getInstancia().getDefensa());
 		FabricaDeDefensa.getInstancia().reset();

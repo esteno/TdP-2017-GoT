@@ -46,7 +46,6 @@ public class ControlDisparo implements Runnable {
 				//Acciona todos los disparos actuales
 				for(Disparo disparo : listaDisparos) 
 				{
-					System.out.println("muevo disparo");
 					//Si el alcance es 0 se elimina 
 					if(disparo.getAlcance() <= 0) 
 						listaDescarte.add(disparo);

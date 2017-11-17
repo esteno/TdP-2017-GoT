@@ -10,7 +10,6 @@ public class Ygritte extends DefensaRango
 		velocidadAtaque = 4;
 		proximoAtaque = 0;
 		puntosVida = 250;
-		vidaMaxima=250;
 		fuerzaImpacto = 40;
 		alcance = 0;
 		grafico = fabricaGrafica.construirGraficoYgritte();
