@@ -73,16 +73,16 @@ public class Gui implements Runnable
 	private JPanel panelPremios;
 	
 	private JButton botonBomba;
-	private JButton botonMina;
 	private JButton botonCampo;
-	private JButton botonDanio;
-	private JButton botonCuracion;
+	private JButton botonBarricada;
 	private JButton botonYgritte;
 	private JButton botonMountain;
 	private JButton botonDragon; 
 	private JButton botonInmaculado;
 	private JButton botonGendry;
 	private JButton botonBronn;
+	private JButton botonEnMapa;
+	
 	
 	private JLabel lblMonedas;
 	
@@ -204,10 +204,12 @@ public class Gui implements Runnable
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				FabricaDeDefensa.getInstancia().construirBomba();
+				//FabricaDeDefensa.getInstancia().construirBomba();
 				juego.restarBomba();
 				if(!juego.hayBombas()) {
 					botonBomba.setEnabled(false);
+					
+					.addMouseListener(listenBomba());
 				}
 			}
 		});
@@ -215,20 +217,6 @@ public class Gui implements Runnable
 		botonBomba.setBounds(451, 11, 92, 59);
 		panelPremios.add(botonBomba);
 		
-		botonMina = new JButton("");
-		botonMina.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				FabricaDeDefensa.getInstancia().construirMina();
-				juego.restarMina();	
-				if (!juego.hayMinas())
-					botonMina.setEnabled(false);
-			}
-		});
-		botonMina.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoMina.png"));
-		botonMina.setBounds(349, 11, 92, 59);
-		panelPremios.add(botonMina);	
 		
 		botonCampo = new JButton("Campo");
 		botonCampo.addActionListener(new ActionListener()
@@ -242,36 +230,20 @@ public class Gui implements Runnable
 		botonCampo.setBounds(222, 11, 92, 59);
 		panelPremios.add(botonCampo);	
 		
-		botonDanio = new JButton("");
-		botonDanio.addActionListener(new ActionListener()
+		botonBarricada = new JButton("Barricada");
+		botonBarricada.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				FabricaDeDefensa.getInstancia().construirDanio();
-				juego.restarDanio();	
-				if (!juego.hayDanio())
-					botonDanio.setEnabled(false);
+				juego.restarBarricada();	
+				if (!juego.hayBarricadas())
+					botonBarricada.setEnabled(false);
 			}
 		});
-		botonDanio.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoDanio.png"));
-		botonDanio.setBounds(112, 11, 92, 59);
-		panelPremios.add(botonDanio);
-		
-		
-		botonCuracion = new JButton("");
-		botonCuracion.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				FabricaDeDefensa.getInstancia().construirCuracion();
-				juego.restarCuracion();	
-				if (!juego.hayCuracion())
-					botonCuracion.setEnabled(false);
-			}
-		});
-		botonCuracion.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoCuracion.png"));
-		botonCuracion.setBounds(10, 11, 92, 59);
-		panelPremios.add(botonCuracion);
+		botonBarricada.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoBarricada.png"));
+		botonBarricada.setBounds(112, 11, 92, 59);
+		panelPremios.add(botonBarricada);
 		
 	
 
@@ -625,4 +597,71 @@ public class Gui implements Runnable
 	}
 	
 	
+	public void activarBoton(int x, int y) {
+
+		botonEnMapa= new JButton("Premio");
+		botonEnMapa.setBounds(50,50,50,50);	
+		botonEnMapa.setEnabled(true);
+		panelMapa.add(botonEnMapa);
+		botonEnMapa.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				juego.crearPremio();
+				botonEnMapa.getParent().remove(botonEnMapa);
+			}
+		});
+		
+	}
+	
+	public void habilitarBomba() {
+		botonBomba.setEnabled(true);
+	}
+	
+	public MouseListener listenBomba() {
+		return new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JLabel labelCelda = (JLabel) e.getComponent();
+				labelCelda.setIcon ( new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoBomba.png"));
+				panelMapa.add(labelCelda);
+				int x= labelCelda.getBounds().x / ANCHO_IMG;
+				int y= labelCelda.getBounds().y / ALTO_IMG;
+				juego.detonarBomba(x,y);
+				repintar();
+				}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+	
+			};
+			}
+
+	
+	
+	public void habilitarBarricada() {
+		botonBarricada.setEnabled(true);
+	}
 }

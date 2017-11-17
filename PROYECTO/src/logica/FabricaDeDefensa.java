@@ -63,34 +63,5 @@ public class FabricaDeDefensa
 	public void reset() {
 		defensaCreada = null;
 	}
-	
-	// OBSTACULOS
-	public void construirBomba() {
-
-		defensaCreada=new Bomba();	
-	}
-	
-	public void construirMina() {
-
-		defensaCreada=new Mina();
-	}
-
-	public void construirCampo() {
-		
-		defensaCreada=new Mina();
-		
-	}
-
-	public void construirDanio() {
-		
-		defensaCreada=new Mina();
-		
-	}
-	
-	public void construirCuracion() {
-		
-		defensaCreada=new Mina();
-		
-	}
 
 }

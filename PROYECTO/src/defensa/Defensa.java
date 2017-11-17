@@ -9,7 +9,8 @@ public abstract class Defensa extends GameObject
      //protected Nivel nivel;
      protected VisitorDefensa visitor = new VisitorDefensa(this);
      
-     
+     protected int puntosVida;
+     protected int vidaMaxima;
      //Valor que da el tiempo entre ataque y ataque
      protected int velocidadAtaque;
      
@@ -25,6 +26,26 @@ public abstract class Defensa extends GameObject
     	 v.visitarDefensa(this);
      }
   
+     
+     public void setVida(int i) {
+    	 
+    	 puntosVida=i;
+     }
+     
+     public int getVidaMaxima() {
+    	 
+    	 return vidaMaxima;
+     }
+     
+     public int getAtaque() {
+    	 
+    	 return fuerzaImpacto;
+     }
+     
+     public void setAtaque(int i) {
+    	 
+    	 fuerzaImpacto=i;
+     }
      
  	public int getPrecio()
  	{
