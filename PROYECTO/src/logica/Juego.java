@@ -7,6 +7,7 @@ import objetos.*;
 
 import java.awt.image.BufferedImage;
 import java.util.List;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 
@@ -17,10 +18,9 @@ import disparos.DisparoDefensa;
 import disparos.DisparoEnemigo;
 import enemigos.Enemigo;
 import gui.*;
+import logica.Buff;
 
-import premio.PremioDanioDoble;
-import premio.PremioCampoProtector;
-import premio.PremioCuracion;;
+import premio.*;
 
 
 public class Juego
@@ -42,10 +42,6 @@ public class Juego
 	private ControlDeOleadas controlDeOleadas;
 	private ControlDisparo controlDisparo;
 	private ControlDeDefensa controlDeDefensa;
-	private PremioCampoProtector pc;
-	private PremioDanioDoble pd;
-	private PremioCuracion cu;
-	
 	//Objeto que mantiene los nieveles del juego
 	private Niveles niveles;
 	//Numero de nivel actual
@@ -56,6 +52,8 @@ public class Juego
 	//Objeto que transforma un archivo de texto en una matriz de celdas
 	private Parser parser;
 	
+	
+	private Buff b;
 	
 	
 	public Juego(Gui gui, int alto, int ancho) 
@@ -229,16 +227,9 @@ public class Juego
 		return puntaje.hayBombas();
 	}
 	
-	public void agregarMina() {
-		puntaje.agregarMina();
-	}
 	
-	public void restarMina() {
-		puntaje.restarMina();
-	}
-	
-	public boolean hayMinas() {
-		return puntaje.hayMinas();
+	public boolean hayBarricada() {
+		return puntaje.hayBarricadas();
 	}
 	
 	public void agregarBarricada() {
@@ -254,4 +245,53 @@ public class Juego
 	}
 
 
+	public void activarBoton(int x, int y) {
+		
+		gui.activarBoton(x,y);		
+	}
+	
+	public void crearPremio() {
+		
+		Random r= new Random();
+		int cual= r.nextInt(7)+1;
+		switch (cual) {
+			case 1: {
+				agregarBomba();
+				if (!hayBombas())
+					gui.habilitarBomba();
+				break;
+				}
+			case 2: {
+				agregarBarricada();
+				if (!hayBarricadas())
+				gui.habilitarBarricada();
+				break;
+				}
+			case 3: {
+				sumarOro(100);
+				break;
+				}
+			case 4: {
+				for(Defensa d:getDefensas())
+					d.setVida(d.getVidaMaxima());
+				break;
+				}
+			case 5: {
+				for(Defensa d:getDefensas())
+					b=new Buff(d);
+				break;
+			}
+			case 6: {
+				
+			}
+		}
+	}
+
+	public void detonarBomba(int x, int y) {
+
+		restarBomba();
+		Bomba b=new Bomba(x,y,mapa);
+		
+		
+	}
 }

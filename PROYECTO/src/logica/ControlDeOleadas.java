@@ -67,6 +67,9 @@ public class ControlDeOleadas implements Runnable {
 					listaEnemigos.remove(descarte);
 					juego.sumarPuntaje(descarte.getPuntos());
 					juego.sumarOro(descarte.getOro());
+					double posibilidad=Math.random();
+					if ((posibilidad%2)==0)
+						juego.activarBoton(descarte.getCelda().getX(),descarte.getCelda().getY());
 				}
 				listaDescarte.clear();
 				

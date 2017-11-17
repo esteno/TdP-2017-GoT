@@ -39,9 +39,6 @@ public class Puntaje {
 		return bombasDisponibles > 0;
 	}
 	
-	public boolean hayMinas() {
-		return minasDisponibles > 0;
-	}
 	
 	public boolean hayBarricadas() {
 		return barricadasDisponibles > 0;
@@ -49,10 +46,6 @@ public class Puntaje {
 	
 	public void restarBomba() {
 		bombasDisponibles--;
-	}
-	
-	public void restarMina() {
-		minasDisponibles--;
 	}
 	
 	public void restarBarricada() {

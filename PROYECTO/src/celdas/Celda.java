@@ -106,17 +106,24 @@ public class Celda
 		return mapa.getEstatico(x, y);
 	}
 
-	public List<ObjetoMovil> adyacentes() {
+	public List<ObjetoMovil> adyEnemigos() {
 		
 		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
-		l=mapa.adyacentes(this);
+		l=mapa.adyEnemigos(this);
 		return l;
 	}
+	
+	public List<Defensa> adyDefensa() {
+		
+		List<Defensa> l=new ArrayList<Defensa>();
+		l=mapa.adyDefensa(this);
+		return l;
+	}
+
+
 	public Mapa getMapa() {
 		return mapa;
 	}
-
-
 
 	public void moverGrafico(ObjetoMovil objeto) {
 		mapa.moverGrafico(objeto);
