@@ -1,8 +1,8 @@
-ackage obstaculo;
+package obstaculo;
 
 import java.util.List;
 
-import colisiones.Visitor;
+
 import defensa.Defensa;
 
 public class FuegoValyrio extends Obstaculo
@@ -12,10 +12,5 @@ public class FuegoValyrio extends Obstaculo
 	{
 	}
 	
-	public void aceptar(Visitor v)
-	{
-		v.visitarFuegoValyrio(this);
-	}
-
 
 }
