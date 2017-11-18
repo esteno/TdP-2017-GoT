@@ -427,7 +427,7 @@ public class Gui implements Runnable
 		
 		//---------------
 		
-		juego = new Juego(this, ALTO, ANCHO);
+		//juego = new Juego(this, ALTO, ANCHO);
 		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
 		
 		
@@ -462,7 +462,7 @@ public class Gui implements Runnable
 		JLabel labelEnemigo = new JLabel();
 		obj.getGrafico().setLabel(labelEnemigo);
 		ImageIcon icono = obj.getGrafico().getImagen();
-		labelEnemi11go.setIcon(obj.getGrafico().getImagen());
+		labelEnemigo.setIcon(obj.getGrafico().getImagen());
 		labelEnemigo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,icono.getIconHeight(),icono.getIconWidth());
 		panelEnemigos.add(labelEnemigo);
 		repintar();

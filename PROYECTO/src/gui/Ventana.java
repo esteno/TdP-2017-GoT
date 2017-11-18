@@ -58,7 +58,7 @@ private JFrame frame;
 	
 	private Puntaje p;
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
-	private CostosDeDefensa costosDeDefensa = CostosDeDefensa.getInstncia();
+	private CostosDeDefensa costosDeDefensa = CostosDeDefensa.getInstancia();
 	
 	private JLabel labelPuntaje;
 	
