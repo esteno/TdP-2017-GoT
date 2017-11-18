@@ -13,14 +13,14 @@ public class PremioCampoProtector implements Temporal	{
 	private CampoProtector campo;
 	private static int c=0;
 	
-	public PremioCampoProtector(Personaje personaje) {
-		campo = new CampoProtector(this, personaje);
-		Celda celda = personaje.getCelda();
+	public PremioCampoProtector(Defensa d) {
+		campo = new CampoProtector(this, d);
+		Celda celda = d.getCelda();
 		campo.setCelda(celda);
 		juego.eliminarDefensa(celda.getX(), celda.getY());
 		juego.agregarDefensa(campo, celda.getX(), celda.getY());
 		new Timer(this, 5000);
-		
+		System.out.println("ENTRO A CAMPO PROTECTOR");
 	}
 	
 	public void accionarPorTiempo() {
