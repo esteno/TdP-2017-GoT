@@ -4,17 +4,17 @@ import premio.PremioCampoProtector;
 
 public class CampoProtector extends Defensa {
 	
-	private Personaje personaje;
+	private Defensa personaje;
 	private PremioCampoProtector control;
 	
-	public CampoProtector(PremioCampoProtector ctrl, Personaje p) {
+	public CampoProtector(PremioCampoProtector ctrl, Defensa d) {
 		puntosVida = 1000;
 		control = ctrl;
-		personaje = p;
+		personaje = d;
 		grafico = fabricaGrafica.construirGraficoCampoProtector();
 	}
 	
-	public Personaje getPersonaje() {
+	public Defensa getPersonaje() {
 		return personaje;
 	}
 	

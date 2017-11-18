@@ -186,10 +186,14 @@ public class Juego
 	public void sumarOro(int oro) {
 		
 		puntaje.sumarOro(oro);
-		gui.oroActual(oro);
+		gui.oroActual(puntaje.getOro());
 	}
 	
-	
+	public void restarOro(int oro) {
+		puntaje.restarOro(oro);
+		gui.oroActual(puntaje.getOro());
+		
+	}
 	
 	//Dibuja una defense en x,y
 	public void dibujarDefensa(int x, int y, GameObject obj) {
@@ -307,4 +311,14 @@ public class Juego
 	
 		controlDeDefensa.curar();
 	}
+
+	public boolean crearCampo(int x, int y) {
+
+		Defensa d=mapa.getEstatico(x, y);
+		if(d!=null)
+			new PremioCampoProtector(d);
+		return (d!=null);
+	}
+
+	
 }
