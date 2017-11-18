@@ -92,7 +92,7 @@ public class Gui implements Runnable
 	
 	private JLabel lblMonedas;
 	
-	
+	private boolean seUso=false;
 	
 	private List<ObjetoMovil> moviles;
 	private List<ObjetoMovil> aBorrar;
@@ -123,7 +123,7 @@ public class Gui implements Runnable
 	{
 	
 		frame = new JFrame("NIGHT KING DEFENSE");
-		frame.setBounds(100, 100, 1000, 600);
+		frame.setBounds(0, 0, 1000, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
@@ -220,16 +220,17 @@ public class Gui implements Runnable
 		botonBomba.setBounds(451, 11, 92, 59);
 		panelPremios.add(botonBomba);
 		
-		
+
 		
 		
 		
 		botonCampo = new JButton("Campo");
+		botonCampo.setEnabled(false);
 		botonCampo.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				
+				seUso=true;
 			}
 		});
 		botonCampo.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoCampo.png"));
@@ -240,6 +241,7 @@ public class Gui implements Runnable
 		
 		
 		botonBarricada = new JButton("Barricada");
+		botonBarricada.setEnabled(false);
 		botonBarricada.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
@@ -584,14 +586,14 @@ public class Gui implements Runnable
 				JLabel labelCelda = (JLabel) e.getComponent();
 				int x= labelCelda.getBounds().x / ANCHO_IMG;
 				int y= labelCelda.getBounds().y / ALTO_IMG;
-				if(aEliminar)
+				if(seUso)
 				{
 					
-					JLabel remover = buscarLabel(x, y, panelDefensa);
-					if(remover!=null){
-						juego.eliminarDefensa(x, y);
+					boolean funciono=juego.crearCampo(x,y);
+					if (funciono) {
+						botonCampo.setEnabled(false);
+						seUso=false;
 					}
-					aEliminar=false;
 				}
 				else {
 					Defensa defensa = fabricaDeDefensa.getDefensa();

@@ -312,5 +312,13 @@ public class Juego
 		controlDeDefensa.curar();
 	}
 
+	public boolean crearCampo(int x, int y) {
+
+		Defensa d=mapa.getEstatico(x, y);
+		if(d!=null)
+			new PremioCampoProtector(d);
+		return (d!=null);
+	}
+
 	
 }
