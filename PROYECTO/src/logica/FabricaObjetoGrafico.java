@@ -166,7 +166,7 @@ public class FabricaObjetoGrafico {
 	//DEFENSA
 	
 	public GameObjectGrafico construirGraficoMuro() {
-		return new GameObjectGrafico("res/imagenes/defensa/muro.png");
+		return new GameObjectGrafico("res/imagenes/obstaculos/muro.png");
 	}
 	
 	
