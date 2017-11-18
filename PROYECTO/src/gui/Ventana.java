@@ -60,10 +60,8 @@ private JFrame frame;
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	private CostosDeDefensa costosDeDefensa = CostosDeDefensa.getInstancia();
 	
-	private JLabel labelPuntaje;
-	
 	private boolean aEliminar=false;
-	
+	private boolean seUso=false;
 	private JButton botonPremioBomba;
 	private JButton botonPremioBarricada;
 	private JButton botonPremioOro;
@@ -162,7 +160,6 @@ private JFrame frame;
 		panelPersonajes.setOpaque(false);
 		panelPersonajes.setBounds(0, 0, 100, 562);
 		frame.getContentPane().add(panelPersonajes);
-		FlowLayout fl_panelPersonajes = new FlowLayout(FlowLayout.CENTER, 5, 5);
 		panelPersonajes.setLayout(null);
 		
 		botonYgritte = new JButton("");
@@ -197,14 +194,42 @@ private JFrame frame;
 		
 		botonBarricada = new JButton("Barricada\r\n\r\n\r\n");
 		botonBarricada.setBounds(400, 11, 90, 80);
+		botonBarricada.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				FabricaDeDefensa.getInstancia().construirBarricada();
+				juego.restarBarricada();	
+				if (!juego.hayBarricadas())
+					botonBarricada.setEnabled(false);
+			}
+		});
 		frame.getContentPane().add(botonBarricada);
 		
 		botonCampo = new JButton("Campo");
 		botonCampo.setBounds(500, 11, 90, 80);
+		botonCampo.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				seUso=true;
+			}
+		});
 		frame.getContentPane().add(botonCampo);
 		
 		botonBomba = new JButton("Bomba");
 		botonBomba.setBounds(600, 11, 89, 78);
+		botonBomba.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				//FabricaDeDefensa.getInstancia().construirBomba();
+				juego.restarBomba();
+				if(!juego.hayBombas()) {
+					botonBomba.setEnabled(false);
+				}
+			}
+		});
 		frame.getContentPane().add(botonBomba);
 		
 		lblPuntaje = new JLabel("Puntaje: 0");
@@ -357,7 +382,7 @@ private JFrame frame;
 	
 	public void puntaje(int puntaje){
 		
-		labelPuntaje.setText("Puntaje: "+puntaje);
+		lblPuntaje.setText("Puntaje: "+puntaje);
 	}
 	
 	public void agregarObjetoMovil(int x, int y, GameObject obj) {
