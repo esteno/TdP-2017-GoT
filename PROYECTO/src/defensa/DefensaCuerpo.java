@@ -1,6 +1,7 @@
 package defensa;
 
 import celdas.Celda;
+import enemigos.Enemigo;
 import objetos.ObjetoMovil;
 
 /**
@@ -16,12 +17,12 @@ public abstract class DefensaCuerpo extends Personaje
 	{
 		// Pide la siguiente Celda, y a esa celda le solicita el objeto movil si es que tiene.
 		Celda celdaDerecha = this.celda.celdaDerecha();
-		ObjetoMovil objetoMovil = celdaDerecha.getEnemigo();
+		Enemigo enemigo = celdaDerecha.getEnemigo();
 		
 		// si hay objeto movil, lo visita.
-		if(objetoMovil != null)
+		if(enemigo != null)
 		{
-			objetoMovil.aceptar(visitor);
+			enemigo.aceptar(visitor);
 		}
 	}
 	

@@ -1,9 +1,5 @@
 package objetos;
 
-import javax.swing.JLabel;
-
-import colisiones.Visitor;
-
 public abstract class ObjetoMovil extends GameObject
 {
 	
