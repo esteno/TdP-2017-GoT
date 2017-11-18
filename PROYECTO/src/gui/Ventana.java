@@ -137,7 +137,7 @@ private JFrame frame;
 		aAgregar= new LinkedList<ObjetoMovil>();
 		
 		panelMapa = new JLayeredPane();
-		panelMapa.setBounds(200, 150, 800, 400);
+		panelMapa.setBounds(180, 150, 800, 400);
 		frame.getContentPane().add(panelMapa);
 				
 		panelDefensa = new JPanel();
@@ -216,86 +216,86 @@ private JFrame frame;
 		});
 		botonBarricada.setIcon(new ImageIcon("res/imagenes/obstaculos/barricada.png"));
 		frame.getContentPane().add(botonBarricada);
-		/*
+		
+		lblMonedas_1 = new JLabel("Monedas: 0");
+		lblMonedas_1.setBounds(110, 11, 139, 31);
+		frame.getContentPane().add(lblMonedas_1);
+		lblMonedas_1.setOpaque(true);
+		lblMonedas_1.setFont(new Font("Century", Font.PLAIN, 17));
+		
+		lblPuntaje = new JLabel("Puntaje: 0");
+		lblPuntaje.setBounds(110, 53, 139, 31);
+		frame.getContentPane().add(lblPuntaje);
+		lblPuntaje.setForeground(Color.BLACK);
+		lblPuntaje.setBorder(null);
+		lblPuntaje.setOpaque(true);
+		lblPuntaje.setFont(new Font("Century", Font.PLAIN, 17));
+		
+		botonBomba = new JButton("");
+		botonBomba.setBounds(803, 6, 80, 80);
+		botonBomba.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				//FabricaDeDefensa.getInstancia().construirBomba();
+				juego.restarBomba();
+				if(!juego.hayBombas()) {
+					botonBomba.setEnabled(false);
+				}
+			}
+		});
+	    botonBomba.setIcon(new ImageIcon("res/imagenes/premios/iconoBomba.png"));
+		frame.getContentPane().add(botonBomba);
+		
+		botonCampo = new JButton("Campo");
+		botonCampo.setBounds(894, 4, 80, 80);
+		frame.getContentPane().add(botonCampo);
+		
+		JButton botonMuro = new JButton("");
+		botonMuro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				FabricaDeDefensa.getInstancia().construirMuro();
+			}
+		});
+		botonMuro.setBounds(353, 6, 80, 80);
+		botonMuro.setIcon(new ImageIcon("res/imagenes/obstaculos/muro.png"));
+		frame.getContentPane().add(botonMuro);
+		
+		botonRoca = new JButton("");
+		botonRoca.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FabricaDeDefensa.getInstancia().construirRoca();
+			}
+		});
+		botonRoca.setBounds(444, 6, 80, 80);
+		botonRoca.setIcon(new ImageIcon("res/imagenes/obstaculos/roca.png"));
+		frame.getContentPane().add(botonRoca);
+		
+		botonTrinchera = new JButton("");
+		botonTrinchera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				FabricaDeDefensa.getInstancia().construirTrinchera();
+			}
+		});
+		botonTrinchera.setBounds(534, 6, 80, 80);
+		botonTrinchera.setIcon(new ImageIcon("res/imagenes/obstaculos/trinchera.png"));
+		frame.getContentPane().add(botonTrinchera);
+		
+		
+		botonCampo.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				seUso=true;
+			}
+		});
+		
 		JLabel labelFondo = new JLabel("");
 		labelFondo.setIcon(new ImageIcon("res/imagenes/juego/fondo.jpg"));
 		labelFondo.setBounds(0, 0, 1000, 562);
 		frame.getContentPane().add(labelFondo);
-		*/	
-			lblMonedas_1 = new JLabel("Monedas: 0");
-			lblMonedas_1.setBounds(110, 11, 139, 31);
-			frame.getContentPane().add(lblMonedas_1);
-			lblMonedas_1.setOpaque(true);
-			lblMonedas_1.setFont(new Font("Century", Font.PLAIN, 17));
-			
-			lblPuntaje = new JLabel("Puntaje: 0");
-			lblPuntaje.setBounds(110, 53, 139, 31);
-			frame.getContentPane().add(lblPuntaje);
-			lblPuntaje.setForeground(Color.BLACK);
-			lblPuntaje.setBorder(null);
-			lblPuntaje.setOpaque(true);
-			lblPuntaje.setFont(new Font("Century", Font.PLAIN, 17));
-			
-			botonBomba = new JButton("");
-			botonBomba.setBounds(803, 6, 80, 80);
-			botonBomba.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent arg0) 
-				{
-					//FabricaDeDefensa.getInstancia().construirBomba();
-					juego.restarBomba();
-					if(!juego.hayBombas()) {
-						botonBomba.setEnabled(false);
-					}
-				}
-			});
-		    botonBomba.setIcon(new ImageIcon("res/imagenes/premios/iconoBomba.png"));
-			frame.getContentPane().add(botonBomba);
-			
-			botonCampo = new JButton("Campo");
-			botonCampo.setBounds(894, 4, 80, 80);
-			frame.getContentPane().add(botonCampo);
-			
-			JButton botonMuro = new JButton("");
-			botonMuro.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					FabricaDeDefensa.getInstancia().construirMuro();
-				}
-			});
-			botonMuro.setBounds(353, 6, 80, 80);
-			botonMuro.setIcon(new ImageIcon("res/imagenes/obstaculos/muro.png"));
-			frame.getContentPane().add(botonMuro);
-			
-			botonRoca = new JButton("");
-			botonRoca.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					FabricaDeDefensa.getInstancia().construirRoca();
-				}
-			});
-			botonRoca.setBounds(444, 6, 80, 80);
-			botonRoca.setIcon(new ImageIcon("res/imagenes/obstaculos/roca.png"));
-			frame.getContentPane().add(botonRoca);
-			
-			botonTrinchera = new JButton("");
-			botonTrinchera.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) 
-				{
-					FabricaDeDefensa.getInstancia().construirTrinchera();
-				}
-			});
-			botonTrinchera.setBounds(534, 6, 80, 80);
-			botonTrinchera.setIcon(new ImageIcon("res/imagenes/obstaculos/trinchera.png"));
-			frame.getContentPane().add(botonTrinchera);
-			
-			
-			botonCampo.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent arg0) 
-				{
-					seUso=true;
-				}
-			});
-			
+		
 		///--- ACCIONES DE LOS BOTONES ----
 		botonYgritte.addActionListener(new ActionListener() 
  		{
