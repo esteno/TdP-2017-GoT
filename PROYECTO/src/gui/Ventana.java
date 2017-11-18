@@ -1,27 +1,32 @@
 package gui;
 
 import java.awt.EventQueue;
-import java.awt.GridBagConstraints;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Vector;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import logica.CostosDeDefensa;
+import logica.FabricaDeDefensa;
+import logica.Juego;
+import logica.Puntaje;
+
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.ImageIcon;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import javax.swing.JTextField;
+
+import javax.swing.JOptionPane;
 import defensa.Defensa;
 import enemigos.Enemigo;
 import logica.*;
@@ -34,12 +39,10 @@ import java.awt.Component;
 import javax.swing.border.LineBorder;
 import java.awt.SystemColor;
 import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
 
-public class Gui implements Runnable
-{
+public class Ventana implements Runnable{
 
-	private JFrame frame;
+private JFrame frame;
 	
 	private Juego juego;
 	
@@ -61,28 +64,6 @@ public class Gui implements Runnable
 	
 	private boolean aEliminar=false;
 	
-	
-	private JLayeredPane panelMapa;
-	
-	private JPanel panelPersonajes;
-	private JPanel panelCeldas;
-	private JPanel panelDefensa;
-	private JPanel panelEnemigos;
-	private JPanel panelCeldaPremios;
-	private JPanel panelControl;
-	private JPanel panelPremios;
-	
-	private JButton botonBomba;
-	private JButton botonCampo;
-	private JButton botonBarricada;
-	private JButton botonYgritte;
-	private JButton botonMountain;
-	private JButton botonDragon; 
-	private JButton botonInmaculado;
-	private JButton botonGendry;
-	private JButton botonBronn;
-	private JButton botonEnMapa;
-	
 	private JButton botonPremioBomba;
 	private JButton botonPremioBarricada;
 	private JButton botonPremioOro;
@@ -90,16 +71,27 @@ public class Gui implements Runnable
 	private JButton botonPremioDanioDoble;
 	private JButton botonPremioCampoProtector;
 	
-	
-	private JLabel lblMonedas;
-	
-	
-	
 	private List<ObjetoMovil> moviles;
 	private List<ObjetoMovil> aBorrar;
 	private List<ObjetoMovil> aAgregar;
 
-	private JLabel fondo;
+	private JTextField txtMonedas;
+	private JLayeredPane panelMapa;
+	private JPanel panelEnemigos;
+	private JPanel panelCeldas;
+	private JPanel panelDefensa;
+	private JPanel panelCeldaPremios;
+	private JPanel panelPersonajes;
+	private JButton botonYgritte;
+	private JButton botonMountain;
+	private JButton botonDragon;
+	private JButton botonInmaculado;
+	private JButton botonBronn;
+	private JButton botonGendry;
+	private JButton botonBarricada;
+	private JButton botonCampo;
+	private JButton botonBomba;
+	private JLabel lblPuntaje;
 
 	/**
 	 * Launch the application.
@@ -108,7 +100,7 @@ public class Gui implements Runnable
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Gui window = new Gui();
+					Ventana window = new Ventana();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -120,274 +112,121 @@ public class Gui implements Runnable
 	/**
 	 * Create the application.
 	 */
-	public Gui() 
-	{
-	
-		frame = new JFrame("NIGHT KING DEFENSE");
-		frame.setBounds(100, 100, 1000, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+	public Ventana() {
 		initialize();
-		
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() 
-	{
+	private void initialize() {
+		frame = new JFrame("NIGHT KING DEFENSE");
+		frame.setBounds(new Rectangle(0, 0, 1000, 600));
+		frame.getContentPane().setBounds(new Rectangle(0, 0, 1000, 600));
+		frame.setBounds(100, 100, 1000, 600);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
 		moviles= new LinkedList<ObjetoMovil>();
 		aBorrar= new LinkedList<ObjetoMovil>();
 		aAgregar= new LinkedList<ObjetoMovil>();
+		
 		panelMapa = new JLayeredPane();
-		panelMapa.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelMapa.setBounds(0,0,ANCHO*ANCHO_IMG,ALTO*ALTO_IMG);
-		panelMapa.setLocation(200,100);
-		panelMapa.setBackground(Color.GRAY);
-		
-		
-		panelCeldas = new JPanel();
-		panelCeldas.setLayout(null);
-		panelCeldas.setBounds(panelMapa.getBounds());
-		panelCeldas.setBackground(new Color(0,0,0,0));
-		panelMapa.add(panelCeldas, NIVELCELDA);
-		
+		panelMapa.setBounds(200, 100, 800, 400);
+		frame.getContentPane().add(panelMapa);
+				
 		panelDefensa = new JPanel();
-		panelDefensa.setLayout(null);
-		panelDefensa.setBounds(panelMapa.getBounds());
-		panelDefensa.setBackground(new Color(0,0,0,0));
-		panelMapa.add(panelDefensa, NIVELDEFENSA);
+		panelDefensa.setOpaque(false);
+		panelDefensa.setBounds(0, 0, 800, 400);
+		panelMapa.add(panelDefensa);
 		
 		panelEnemigos = new JPanel();
-		panelEnemigos.setLayout(null);
-		panelEnemigos.setBounds(panelMapa.getBounds());
-		panelEnemigos.setBackground(new Color(0,0,0,0));
-		panelMapa.add(panelEnemigos, NIVELENEMIGO);
+		panelEnemigos.setOpaque(false);
+		panelEnemigos.setBounds(0, 0, 800, 400);
+		panelMapa.add(panelEnemigos);
 		
 		panelCeldaPremios = new JPanel();
-		panelCeldaPremios.setLayout(null);
-		panelCeldaPremios.setBounds(panelMapa.getBounds());
-		panelCeldaPremios.setBackground(new Color(0,0,0,0));
-		panelMapa.add(panelCeldaPremios, NIVELPREMIO);
+		panelCeldaPremios.setOpaque(false);
+		panelCeldaPremios.setBounds(0, 0, 800, 400);
+		panelMapa.add(panelCeldaPremios);
 		
-		frame.getContentPane().repaint();
-		frame.getContentPane().add(panelMapa, BorderLayout.CENTER);
-		panelMapa.setLayout(null);
+		panelCeldas = new JPanel();
+		panelCeldas.setOpaque(false);
+		panelCeldas.setBounds(0, 0, 800, 400);
+		panelMapa.add(panelCeldas);
 		
+		panelPersonajes = new JPanel();
+		panelPersonajes.setOpaque(false);
+		panelPersonajes.setBounds(0, 0, 100, 562);
+		frame.getContentPane().add(panelPersonajes);
+		FlowLayout fl_panelPersonajes = new FlowLayout(FlowLayout.CENTER, 5, 5);
+		panelPersonajes.setLayout(fl_panelPersonajes);
 		
+		botonYgritte = new JButton("");
+		botonYgritte.setBounds(new Rectangle(0, 0, 100, 100));
+		botonYgritte.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\botonYgritte.png"));
+		panelPersonajes.add(botonYgritte);
 		
-		p=new Puntaje();
+		botonMountain = new JButton("");
+		botonYgritte.setBounds(new Rectangle(0, 100, 100, 100));
+		botonMountain.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\botonMountain.png"));
+		panelPersonajes.add(botonMountain);
 		
+		botonDragon = new JButton("");
+		botonDragon.setBounds(new Rectangle(0, 200, 100, 100));
+		botonDragon.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\botonDragon.png"));
+		panelPersonajes.add(botonDragon);
 		
-		//--------- PANEL CONTROL
+		botonInmaculado = new JButton("");
+		botonInmaculado.setBounds(new Rectangle(0, 300, 100, 100));
+		botonInmaculado.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\botonInmaculado.png"));
+		panelPersonajes.add(botonInmaculado);
 		
-		panelControl = new JPanel();
-		panelControl.setBounds(122, 21, 213, 48);
-		panelMapa.add(panelControl);
-		panelControl.setLayout(null);
+		botonBronn = new JButton("");
+		botonBronn.setBounds(new Rectangle(0, 400, 100, 100));
+		botonBronn.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\botonBronn.png"));
+		panelPersonajes.add(botonBronn);
 		
-		labelPuntaje = new JLabel("Puntaje: 0");
-		labelPuntaje.setBounds(10, 28, 70, 14);
-		panelControl.add(labelPuntaje);
-	
-
-		lblMonedas = new JLabel("Monedas:  0");
-		lblMonedas.setBounds(108, 28, 95, 14);
-		panelControl.add(lblMonedas);
+		botonGendry = new JButton("");
+		botonGendry.setBounds(new Rectangle(0, 500, 100, 100));
+		botonGendry.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\botonGendry.png"));
+		panelPersonajes.add(botonGendry);
 		
-		
-		
-		//-----------PANEL PREMIOS
-		panelPremios = new JPanel();
-		panelPremios.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelPremios.setBounds(353, 11, 574, 81);
-		panelMapa.add(panelPremios);
-		panelPremios.setLayout(null);
-		
-		
-		
-		botonBomba = new JButton("Bomba");
-		botonBomba.setEnabled(false);
-		botonBomba.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				//FabricaDeDefensa.getInstancia().construirBomba();
-				juego.restarBomba();
-				if(!juego.hayBombas()) {
-					botonBomba.setEnabled(false);
-				}
-			}
-		});
-		botonBomba.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoBomba.png"));
-		botonBomba.setBounds(451, 11, 92, 59);
-		panelPremios.add(botonBomba);
-		
-		
-		
-		
+		botonBarricada = new JButton("Barricada\r\n\r\n\r\n");
+		botonBarricada.setBounds(400, 11, 90, 80);
+		frame.getContentPane().add(botonBarricada);
 		
 		botonCampo = new JButton("Campo");
-		botonCampo.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				
-			}
-		});
-		botonCampo.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoCampo.png"));
-		botonCampo.setBounds(222, 11, 92, 59);
-		panelPremios.add(botonCampo);	
+		botonCampo.setBounds(500, 11, 90, 80);
+		frame.getContentPane().add(botonCampo);
 		
+		botonBomba = new JButton("Bomba");
+		botonBomba.setBounds(600, 11, 89, 78);
+		frame.getContentPane().add(botonBomba);
 		
+		lblPuntaje = new JLabel("Puntaje: ");
+		lblPuntaje.setBorder(null);
+		lblPuntaje.setOpaque(true);
+		lblPuntaje.setFont(new Font("Century", Font.PLAIN, 17));
+		lblPuntaje.setBounds(128, 11, 139, 31);
+		frame.getContentPane().add(lblPuntaje);
 		
+		txtMonedas = new JTextField();
+		txtMonedas.setBorder(null);
+		txtMonedas.setFont(new Font("Century", Font.PLAIN, 17));
+		txtMonedas.setText("Monedas:");
+		txtMonedas.setBounds(128, 54, 139, 35);
+		frame.getContentPane().add(txtMonedas);
+		txtMonedas.setColumns(10);
 		
-		botonBarricada = new JButton("Barricada");
-		botonBarricada.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				FabricaDeDefensa.getInstancia().construirBarricada();
-				juego.restarBarricada();	
-				if (!juego.hayBarricadas())
-					botonBarricada.setEnabled(false);
-			}
-		});
-		botonBarricada.setIcon(new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoBarricada.png"));
-		botonBarricada.setBounds(112, 11, 92, 59);
-		panelPremios.add(botonBarricada);
+		JLabel labelFondo = new JLabel("");
+		labelFondo.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\fondo.jpg"));
+		labelFondo.setBounds(0, 0, 1000, 562);
+		frame.getContentPane().add(labelFondo);
 		
-	
 
-		
-		
-	
-		//----------------- PANEL PERSONAJE - SBOTONES PERSONAJES
-			
-		panelPersonajes = new JPanel();
-		panelPersonajes.setBounds(10, 11, 102, 539);
-		panelMapa.add(panelPersonajes);
-		panelPersonajes.setBackground(null);
-		panelPersonajes.setLayout(null);
-		
-		// BOTON YGRITTE
-		botonYgritte = new JButton("Ygritte");
-		botonYgritte.setBounds(10, 0, 80, 80);
-		panelPersonajes.add(botonYgritte);
-		botonYgritte.addActionListener(new ActionListener() 
- 		{
- 			public void actionPerformed(ActionEvent arg0) 
- 			{
- 				FabricaDeDefensa.getInstancia().construirYgritte(); 
- 				p.restarOro(600);	
- 				if (p.getOro()<600)
- 					botonYgritte.setEnabled(false);
- 					
- 			}
- 		});
-		botonYgritte.setIcon(new ImageIcon("res/imagenes/juego/botonYgritte.png"));
-		
-		// BOTON MOUNTAIN
-		botonMountain = new JButton("Mountain");
-		botonMountain.setBounds(10, 91, 80, 80);
-		panelPersonajes.add(botonMountain);
-		botonMountain.addActionListener(new ActionListener() 
- 		{
- 			public void actionPerformed(ActionEvent e) 
- 			{
- 				FabricaDeDefensa.getInstancia().construirMountain();
- 				p.restarOro(500);	
- 				if (p.getOro()<500)
- 					botonMountain.setEnabled(false);
- 			}
- 		});
-		botonMountain.setIcon(new ImageIcon("res/imagenes/juego/botonMountain.png"));
-		
-		// BOTON DRAGON
- 		botonDragon = new JButton("Dragon");
- 		botonDragon.setBounds(10, 182, 80, 80);
- 		panelPersonajes.add(botonDragon);
- 		botonDragon.addActionListener(new ActionListener() 
- 		{
- 			public void actionPerformed(ActionEvent e) 
- 			{
- 				FabricaDeDefensa.getInstancia().construirDragon();
- 				p.restarOro(1000);	
- 				if (p.getOro()<1000)
- 					botonDragon.setEnabled(false);
- 					
- 			}
- 		});
- 		botonDragon.setIcon( new ImageIcon("res/imagenes/juego/botonDragon.png"));
- 		
- 		// BOTON INMACULADO
- 		botonInmaculado = new JButton("Inmaculado");
- 		botonInmaculado.setBounds(10, 273, 80, 80);
- 		panelPersonajes.add(botonInmaculado);
- 		botonInmaculado.addActionListener(new ActionListener()
- 		{
- 			public void actionPerformed(ActionEvent e)
- 			{
- 				FabricaDeDefensa.getInstancia().construirInmaculado();
- 				p.restarOro(200);	
- 				if (p.getOro()<200)
- 					botonInmaculado.setEnabled(false);
- 					
- 			}
- 		});
- 		botonInmaculado.setIcon(new ImageIcon("res/imagenes/juego/botonInmaculado.png"));
- 		
- 		// BOTON GENDRY
- 		botonGendry = new JButton("Gendry");
- 		botonGendry.setBounds(10, 455, 80, 80);
- 		panelPersonajes.add(botonGendry);
- 		botonGendry.addActionListener(new ActionListener() 
- 		{
- 			public void actionPerformed(ActionEvent e) 
- 			{
- 				FabricaDeDefensa.getInstancia().construirGendry();
- 				p.restarOro(400);	
- 				if (p.getOro()<400)
- 					botonGendry.setEnabled(false);
- 			}
- 		});
- 		botonGendry.setIcon(new ImageIcon("res/imagenes/juego/botonGendry.png"));
- 		
- 		// BOTON BRONN
- 		botonBronn = new JButton("Bronn");
- 		botonBronn.setBounds(10, 364, 80, 80);
- 		panelPersonajes.add(botonBronn);
- 		botonBronn.addActionListener(new ActionListener()
- 		{
- 			public void actionPerformed(ActionEvent arg0) 
- 			{
- 				FabricaDeDefensa.getInstancia().construirBronn();
- 				p.restarOro(300);	
- 				if (p.getOro()<300)
- 					botonBronn.setEnabled(false);
- 			}
- 		});
- 		botonBronn.setIcon( new ImageIcon("res/imagenes/juego/botonBronn.png"));
- 		
- 		
- 		
- 		
- 		
- 		
- 		//-------------- FONDO DE JUEGO 
- 		
- 		
- 		fondo = new JLabel("FONDO_JUEGO");
- 		fondo.setBounds(10, 11, 1000, 600);
- 		fondo.setIcon(new ImageIcon("res/imagenes/juego/fondo.jpg"));
- 		panelMapa.add(fondo);
- 		
- 		
- 		//============== BOTONES PREMIOS
- 		
- 		
- 		botonPremioBomba = new JButton("Bomba");
+		///-----------BOTONES PREMIOS
+		botonPremioBomba = new JButton("Bomba");
  		botonPremioBomba.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -436,19 +275,14 @@ public class Gui implements Runnable
  				
  			}
  		});
- 	
+		
 
-		
-		//---------------
-		
+		///---------------
 		juego = new Juego(this, ALTO, ANCHO);
 		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
 		
-		
 		for(int i = 0; i < ANCHO; i++) {
-			
 			for (int j = 0; j < ALTO; j++) {
-				
 				ImageIcon imagen = graficos[i][j].getImagen();
 				int ancho = imagen.getIconWidth();
 				int alto = imagen.getIconHeight();
@@ -459,35 +293,30 @@ public class Gui implements Runnable
 				label.setIcon(imagen);
 				label.addMouseListener(getMouseListener());
 				panelCeldas.add(label);
-				
 			}
-		}
-		
-		
+		}		
 	}
 	
 	public void puntaje(int puntaje){
 		
 		labelPuntaje.setText("Puntaje: "+puntaje);
 	}
-
+	
 	public void agregarObjetoMovil(int x, int y, GameObject obj) {
 		
 		JLabel labelEnemigo = new JLabel();
 		obj.getGrafico().setLabel(labelEnemigo);
 		ImageIcon icono = obj.getGrafico().getImagen();
-		labelEnemi11go.setIcon(obj.getGrafico().getImagen());
+		labelEnemigo.setIcon(obj.getGrafico().getImagen());
 		labelEnemigo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,icono.getIconHeight(),icono.getIconWidth());
 		panelEnemigos.add(labelEnemigo);
 		repintar();
 	}
-	
+
 	public void moverGrafico(ObjetoMovil o) {
 		aAgregar.add(o);
 	}
-	
-	
-	
+
 	public void run(){
 		boolean estado=true;
 		while(estado){
@@ -498,8 +327,7 @@ public class Gui implements Runnable
 				e.printStackTrace();
 			}
 			
-			for(ObjetoMovil o : aAgregar)
-			{
+			for(ObjetoMovil o : aAgregar){
 				moviles.add(o);
 			}
 			aAgregar.clear();
@@ -514,23 +342,17 @@ public class Gui implements Runnable
 					aBorrar.add(o);
 					o.getGrafico().Lock(false);
 				}
-				
 			}
-			
-			
 			repintar();
 		}
 	}
-	/**
-	public void eliminarMovil(int x, int y) {
-		System.out.println("GUI Quiero eliminar en x "+x+" y "+y);
-		JLabel aEliminar = buscarLabel(x, y, panelEnemigos);
-		panelEnemigos.remove(aEliminar);
-		repintar();
+	
+	private void repintar() {
+		panelMapa.repaint();
+
 	}
-	**/
-		
-		private JLabel buscarLabel(int x, int y, JPanel panel) {
+	
+	private JLabel buscarLabel(int x, int y, JPanel panel) {
 		Component[] arrComponents = panel.getComponents();
 		JLabel label = null;
 		boolean encontre = false;
@@ -544,11 +366,6 @@ public class Gui implements Runnable
 		return label;
 	}
 	
-	private void repintar() {
-		//panelMapa.validate();
-		panelMapa.repaint();
-
-	}
 	public void dibujarDefensa(int x, int y, GameObject obj) {
 		JLabel labelCelda = buscarLabel(x, y, panelCeldas);
 		JLabel labelNuevo = new JLabel(obj.getGrafico().getImagen());
@@ -558,7 +375,7 @@ public class Gui implements Runnable
 		panelDefensa.add(labelNuevo);
 		repintar();
 	}
-
+	
 	public void gameOver() {
 		int reply = JOptionPane.showConfirmDialog(frame, "Has perdido!\nQuieres jugar de nuevo?", "Game Over", JOptionPane.YES_NO_OPTION);
 		if (reply == JOptionPane.YES_OPTION) {
@@ -571,11 +388,10 @@ public class Gui implements Runnable
 			JOptionPane.showMessageDialog(null, "Gracias por jugar!");
 			System.exit(0);
 		}
-		
 	}
-
+	
 	public void oroActual(int oro) {
-		lblMonedas.setText("Monedas: "+oro);
+		txtMonedas.setText("Monedas: "+oro);
 		//btnJorgito.setEnabled((oro < costosDeDefensa.costoJorgito()) ? false : true);
 		
 		botonYgritte.setEnabled((oro < costosDeDefensa.costoYgritte()) ? false : true);
@@ -591,6 +407,7 @@ public class Gui implements Runnable
 		botonBronn.setEnabled((oro < costosDeDefensa.costoBronn()) ? false : true);
 		
 	}
+	
 	
 	public MouseListener getMouseListener() {
 		return new MouseListener() {
@@ -650,25 +467,6 @@ public class Gui implements Runnable
 			
 		};
 	}
-	
-	/**
-	public void activarBoton(int x, int y) {
-
-		botonEnMapa= new JButton("Premio");
-		botonEnMapa.setBounds(50,50,50,50);	
-		botonEnMapa.setEnabled(true);
-		panelMapa.add(botonEnMapa);
-		botonEnMapa.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent e) 
-			{
-				juego.crearPremio();
-				botonEnMapa.getParent().remove(botonEnMapa);
-			}
-		});
-		
-	}
-	**/
 	
 	public void habilitarBomba() {
 		botonBomba.setEnabled(true);
@@ -748,6 +546,4 @@ public class Gui implements Runnable
 		// TODO Auto-generated method stub
 		
 	}
-
-	
 }

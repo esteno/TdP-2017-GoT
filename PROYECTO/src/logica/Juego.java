@@ -37,7 +37,7 @@ public class Juego
 	private int ancho;
 	
 	//GUI
-	private Gui gui;
+	private Ventana gui;
 	
 	//Instancia de controles
 	private ControlDeOleadas controlDeOleadas;
@@ -59,13 +59,13 @@ public class Juego
 	private PremioDanioDoble b;
 	
 	
-	public Juego(Gui gui, int alto, int ancho) 
+	public Juego(Ventana ventana, int alto, int ancho) 
 	{
 		this.alto = alto;
 		this.ancho = ancho;
-		this.gui = gui;
+		this.gui = ventana;
 		puntaje = new Puntaje();
-		gui.oroActual(puntaje.getOro());
+		ventana.oroActual(puntaje.getOro());
 		mapa = new Mapa(this, alto, ancho);
 		niveles = new Niveles();
 		parser = new Parser(mapa, alto, ancho);
@@ -83,7 +83,7 @@ public class Juego
 		new Thread(controlDeOleadas).start();
 		new Thread(controlDisparo).start();
 		new Thread(controlDeDefensa).start();
-		new Thread(gui).start();
+		new Thread(ventana).start();
 	}
 	
 	//Siguiente nivel basado en numNivel
