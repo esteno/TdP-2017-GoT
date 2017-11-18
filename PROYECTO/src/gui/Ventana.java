@@ -58,7 +58,7 @@ private JFrame frame;
 	
 	private Puntaje p;
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
-	private CostosDeDefensa costosDeDefensa = CostosDeDefensa.getInstncia();
+	private CostosDeDefensa costosDeDefensa = CostosDeDefensa.getInstancia();
 	
 	private JLabel labelPuntaje;
 	
@@ -74,8 +74,6 @@ private JFrame frame;
 	private List<ObjetoMovil> moviles;
 	private List<ObjetoMovil> aBorrar;
 	private List<ObjetoMovil> aAgregar;
-
-	private JTextField txtMonedas;
 	private JLayeredPane panelMapa;
 	private JPanel panelEnemigos;
 	private JPanel panelCeldas;
@@ -92,6 +90,7 @@ private JFrame frame;
 	private JButton botonCampo;
 	private JButton botonBomba;
 	private JLabel lblPuntaje;
+	private JLabel lblMonedas;
 
 	/**
 	 * Launch the application.
@@ -138,21 +137,25 @@ private JFrame frame;
 		panelDefensa = new JPanel();
 		panelDefensa.setOpaque(false);
 		panelDefensa.setBounds(0, 0, 800, 400);
+		panelDefensa.setLayout(null);
 		panelMapa.add(panelDefensa);
 		
 		panelEnemigos = new JPanel();
 		panelEnemigos.setOpaque(false);
 		panelEnemigos.setBounds(0, 0, 800, 400);
+		panelEnemigos.setLayout(null);
 		panelMapa.add(panelEnemigos);
 		
 		panelCeldaPremios = new JPanel();
 		panelCeldaPremios.setOpaque(false);
 		panelCeldaPremios.setBounds(0, 0, 800, 400);
+		panelCeldaPremios.setLayout(null);
 		panelMapa.add(panelCeldaPremios);
 		
 		panelCeldas = new JPanel();
 		panelCeldas.setOpaque(false);
 		panelCeldas.setBounds(0, 0, 800, 400);
+		panelCeldas.setLayout(null);
 		panelMapa.add(panelCeldas);
 		
 		panelPersonajes = new JPanel();
@@ -160,35 +163,35 @@ private JFrame frame;
 		panelPersonajes.setBounds(0, 0, 100, 562);
 		frame.getContentPane().add(panelPersonajes);
 		FlowLayout fl_panelPersonajes = new FlowLayout(FlowLayout.CENTER, 5, 5);
-		panelPersonajes.setLayout(fl_panelPersonajes);
+		panelPersonajes.setLayout(null);
 		
 		botonYgritte = new JButton("");
-		botonYgritte.setBounds(new Rectangle(0, 0, 100, 100));
+		botonYgritte.setBounds(0, 0, 100, 93);
 		botonYgritte.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\botonYgritte.png"));
 		panelPersonajes.add(botonYgritte);
 		
 		botonMountain = new JButton("");
-		botonYgritte.setBounds(new Rectangle(0, 100, 100, 100));
+		botonMountain.setBounds(0, 93, 100, 93);
 		botonMountain.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\botonMountain.png"));
 		panelPersonajes.add(botonMountain);
 		
 		botonDragon = new JButton("");
-		botonDragon.setBounds(new Rectangle(0, 200, 100, 100));
+		botonDragon.setBounds(0, 186, 100, 96);
 		botonDragon.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\botonDragon.png"));
 		panelPersonajes.add(botonDragon);
 		
 		botonInmaculado = new JButton("");
-		botonInmaculado.setBounds(new Rectangle(0, 300, 100, 100));
+		botonInmaculado.setBounds(0, 279, 100, 94);
 		botonInmaculado.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\botonInmaculado.png"));
 		panelPersonajes.add(botonInmaculado);
 		
 		botonBronn = new JButton("");
-		botonBronn.setBounds(new Rectangle(0, 400, 100, 100));
+		botonBronn.setBounds(0, 373, 100, 94);
 		botonBronn.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\botonBronn.png"));
 		panelPersonajes.add(botonBronn);
 		
 		botonGendry = new JButton("");
-		botonGendry.setBounds(new Rectangle(0, 500, 100, 100));
+		botonGendry.setBounds(0, 468, 100, 94);
 		botonGendry.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\botonGendry.png"));
 		panelPersonajes.add(botonGendry);
 		
@@ -204,27 +207,82 @@ private JFrame frame;
 		botonBomba.setBounds(600, 11, 89, 78);
 		frame.getContentPane().add(botonBomba);
 		
-		lblPuntaje = new JLabel("Puntaje: ");
+		lblPuntaje = new JLabel("Puntaje: 0");
 		lblPuntaje.setBorder(null);
 		lblPuntaje.setOpaque(true);
 		lblPuntaje.setFont(new Font("Century", Font.PLAIN, 17));
 		lblPuntaje.setBounds(128, 11, 139, 31);
 		frame.getContentPane().add(lblPuntaje);
 		
-		txtMonedas = new JTextField();
-		txtMonedas.setBorder(null);
-		txtMonedas.setFont(new Font("Century", Font.PLAIN, 17));
-		txtMonedas.setText("Monedas:");
-		txtMonedas.setBounds(128, 54, 139, 35);
-		frame.getContentPane().add(txtMonedas);
-		txtMonedas.setColumns(10);
+		lblMonedas = new JLabel("Monedas: 0");
+		lblMonedas.setOpaque(true);
+		lblMonedas.setFont(new Font("Century", Font.PLAIN, 17));
+		lblMonedas.setBounds(127, 53, 139, 31);
+		frame.getContentPane().add(lblMonedas);
 		
 		JLabel labelFondo = new JLabel("");
 		labelFondo.setIcon(new ImageIcon("C:\\Users\\Juan\\Documents\\GitHub\\TdP-2017-GoT\\PROYECTO\\res\\imagenes\\juego\\fondo.jpg"));
 		labelFondo.setBounds(0, 0, 1000, 562);
 		frame.getContentPane().add(labelFondo);
 		
-
+		///--- ACCIONES DE LOS BOTONES ----
+		botonYgritte.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent arg0) 
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirYgritte(); 
+ 				juego.restarOro(costosDeDefensa.costoYgritte());	
+ 					
+ 			}
+ 		});
+		
+		botonMountain.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent e) 
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirMountain();
+ 				juego.restarOro(costosDeDefensa.costoMountain());
+ 			}
+ 		});
+		
+		botonDragon.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent e) 
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirDragon();
+ 				juego.restarOro(costosDeDefensa.costoDragon());
+ 					
+ 			}
+ 		});
+		
+ 		botonInmaculado.addActionListener(new ActionListener()
+ 		{
+ 			public void actionPerformed(ActionEvent e)
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirInmaculado();
+ 				juego.restarOro(costosDeDefensa.costoInmaculado());
+ 					
+ 			}
+ 		});
+		
+ 		botonGendry.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent e) 
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirGendry();
+ 				juego.restarOro(costosDeDefensa.costoGendry());
+ 			}
+ 		});
+ 		
+ 		botonBronn.addActionListener(new ActionListener()
+ 		{
+ 			public void actionPerformed(ActionEvent arg0) 
+ 			{
+ 				FabricaDeDefensa.getInstancia().construirBronn();
+ 				juego.restarOro(costosDeDefensa.costoBronn());
+ 			}
+ 		});
+		
 		///-----------BOTONES PREMIOS
 		botonPremioBomba = new JButton("Bomba");
  		botonPremioBomba.addActionListener(new ActionListener() {
@@ -391,7 +449,7 @@ private JFrame frame;
 	}
 	
 	public void oroActual(int oro) {
-		txtMonedas.setText("Monedas: "+oro);
+		lblMonedas.setText("Monedas: "+oro);
 		//btnJorgito.setEnabled((oro < costosDeDefensa.costoJorgito()) ? false : true);
 		
 		botonYgritte.setEnabled((oro < costosDeDefensa.costoYgritte()) ? false : true);
