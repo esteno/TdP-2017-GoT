@@ -559,12 +559,12 @@ private JFrame frame;
 					Defensa defensa = fabricaDeDefensa.getDefensa();
 					if(defensa != null) 
 					{
-						juego.agregarDefensa(x,y);
 						ImageIcon imagen = defensa.getGrafico().getImagen();
 						JLabel labelNuevo = new JLabel(imagen);
 						defensa.getGrafico().setLabel(labelNuevo);
-						labelNuevo.setBounds(labelCelda.getBounds());
+						labelNuevo.setBounds(labelCelda.getBounds().x,labelCelda.getBounds().y,imagen.getIconWidth(),imagen.getIconHeight());
 						panelDefensa.add(labelNuevo);
+						juego.agregarDefensa(x,y);
 						repintar();
 					 }
 				   }

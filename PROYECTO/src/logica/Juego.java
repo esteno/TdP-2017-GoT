@@ -105,7 +105,6 @@ public class Juego
 	//Agrega la defensa guardada en la fabrica en la pos x,y
 	public void agregarDefensa(int x, int y)
 	{
-		System.out.println("agregarDefensa");
 		mapa.agregarDefensa(FabricaDeDefensa.getInstancia().getDefensa(), x, y);
 		controlDeDefensa.agregarDefensa(FabricaDeDefensa.getInstancia().getDefensa());
 		FabricaDeDefensa.getInstancia().reset();
@@ -118,18 +117,6 @@ public class Juego
 		controlDeDefensa.agregarDefensa(def);
 	}
 
-	//Agrega un objeto movil al mapa y graficamente si es posible
-	/*	
-	public Boolean agregarObjetoMovil(ObjetoMovil obj, int x, int y) 
-	{
-		Boolean puedoAgregar = mapa.agregarObjetoMovil(obj, x, y);
-		if(puedoAgregar)
-			gui.agregarObjetoMovil(x, y, obj);
-		return puedoAgregar;
-	}
-	*/
-	
-	
 	public boolean agregarEnemigo(Enemigo obj, int x, int y)
 	{
 		boolean puedoAgregar = mapa.agregarEnemigo(obj, x, y);

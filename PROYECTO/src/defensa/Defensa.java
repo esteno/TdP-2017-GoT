@@ -2,6 +2,7 @@ package defensa;
 
 import objetos.GameObject;
 import nivel.*;
+import celdas.Celda;
 import colisiones.*;
 import estadoMultiplicador.EstadoDefensaDefecto;
 import estadoMultiplicador.EstadoMultiplicador;
@@ -63,4 +64,6 @@ public abstract class Defensa extends GameObject
 	public void curacion() {
 		
 	}
+	
+	public void setCelda2(Celda c){}
 }

@@ -58,9 +58,6 @@ public class Mapa
 		}	
 	}
 
-	
-
-
 	public Celda celdaIzquierda(Celda celdaActual) 
 	{	
 		Celda celdaIzquierda = null;
@@ -68,8 +65,6 @@ public class Mapa
 			celdaIzquierda = matrizCeldas[celdaActual.getX() - 1][celdaActual.getY()];
 		return celdaIzquierda;
 	}
-	
-	
 	
 	public Celda celdaDerecha(Celda celdaActual) 
 	{
@@ -81,8 +76,6 @@ public class Mapa
 		return celdaDerecha;
 	}
 	
-	
-	
 	public GameObjectGrafico[][] getGraficos() {
 		
 		GameObjectGrafico[][] toReturn = new GameObjectGrafico[matrizCeldas.length][matrizCeldas[0].length];
@@ -93,23 +86,6 @@ public class Mapa
 		}
 		return toReturn;
 	}
-	
-	//-------AGREGAR
-	
-	//AGREGAR ANTERIOR OBJETOMOVIL
-	/*
-	public boolean agregarEnemigo(ObjetoMovil obj, int x, int y) {
-		
-		if(matrizObjetoMovil[x][y] == null) {
-			matrizObjetoMovil[x][y] = obj;
-			obj.setCelda(matrizCeldas[x][y]);
-			return true;
-		}
-		return false;
-	}
-	*/
-	
-	
 	
 	public void agregarDefensa(Defensa defensa, int x, int y){
 		
@@ -138,39 +114,12 @@ public class Mapa
 	//------MOVER
 	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) 
 	{	
-		System.out.println(matrizEnemigo[xAnterior][yAnterior]);
 		if (x==0)
 			juego.gameOver();
 		matrizEnemigo[x][y] = matrizEnemigo[xAnterior][yAnterior];
 		matrizEnemigo[xAnterior][yAnterior] = null;
 		moverGrafico(matrizEnemigo[x][y]);
 	}
-	
-
-	
-	// MOVER  ANTERIOR
-		/*
-		public void moverObjetoMovil(int x, int y, int xAnterior, int yAnterior) {
-			
-			matrizMovil[x][y] = matrizMovil[xAnterior][yAnterior];
-			matrizMovil[xAnterior][yAnterior] = null;
-			juego.moverEnemigoGrafico(matrizMovil[x][y]);
-		}
-		*/
-	
-	
-	
-	
-	
-	//----------ELIMINAR
-	/*
-	public void eliminarObjetoMovil(int x, int y)
-	{
-		
-		matrizMovil[x][y]=null;
-		juego.eliminarObjetoMovil(x, y);
-	}
-	*/
 	
 	public Defensa eliminarDefensa(int x, int y){
 		Defensa defensa = matrizDefensa[x][y];
@@ -182,10 +131,8 @@ public class Mapa
 	public  void eliminarEnemigo(int x, int y)
 	{
 		matrizEnemigo[x][y] = null;
-		//juego.eliminarObjetoMovil(x, y);
 	}
 
-	//------------
 	public Juego getJuego(){
 		
 		return juego;
@@ -196,10 +143,6 @@ public class Mapa
 		return matrizEnemigo[c.getX()][c.getY()];
 	}
 	
-	
-
-
-
 	public Defensa getEstatico(int x, int y) {
 		return matrizDefensa[x][y];
 	}
@@ -234,9 +177,12 @@ public class Mapa
 		juego.moverGrafico(objeto);
 		
 	}
-
-
-
 	
+	public void setDoble(Defensa d, int x, int y){
+		if(matrizDefensa[x][y] == null) {
+			matrizDefensa[x][y]= d;
+		}
+		d.setCelda2(matrizCeldas[x][y]);
+	}
 
 }

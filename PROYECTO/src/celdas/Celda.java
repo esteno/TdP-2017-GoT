@@ -36,8 +36,6 @@ public class Celda
     	this.y=y;
     }
     
-   
-    
     //metodos
     public int getX()
     {return x; }
@@ -127,11 +125,13 @@ public class Celda
 		
 	}
 
-
-
 	public void destruirDefensa() {
 		mapa.eliminarDefensa(x, y);
 		
+	}
+	
+	public void setDoble(Defensa d, int x, int y){
+		mapa.setDoble(d,x,y);
 	}
 
 
