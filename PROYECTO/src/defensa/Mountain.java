@@ -6,10 +6,9 @@ public class Mountain extends DefensaCuerpo
 	public Mountain() 
 	{
 		// TODO Auto-generated constructor stub
-		precio = 500;
-		velocidadAtaque = 4;
+		velocidadAtaque = 2;
 		proximoAtaque = 0;
-		puntosVida = 350;
+		puntosVida = 500;
 		fuerzaImpacto = 70;
 
 		grafico = fabricaGrafica.construirGraficoMountain();

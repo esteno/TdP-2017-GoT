@@ -6,12 +6,10 @@ public class Bronn extends DefensaRango
 	public Bronn() 
 	{
 		// TODO Auto-generated constructor stub
-		precio = 300;
-		velocidadAtaque = 5;
+		velocidadAtaque = 4;
 		proximoAtaque = 0;
-		puntosVida = 260;
+		puntosVida = 300;
 		fuerzaImpacto = 45;
-		alcance = 0;
 		grafico = fabricaGrafica.construirGraficoBronn();
 	}
 

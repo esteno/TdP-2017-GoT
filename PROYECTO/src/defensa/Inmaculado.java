@@ -4,10 +4,9 @@ public class Inmaculado extends DefensaRango {
 
 	public Inmaculado() 
 	{
-		precio = 200;
-		velocidadAtaque = 4;
+		velocidadAtaque = 7;
 		proximoAtaque = 0;
-		puntosVida = 290;
+		puntosVida = 200;
 		fuerzaImpacto = 45;
 
 		grafico = fabricaGrafica.construirGraficoInmaculado();
