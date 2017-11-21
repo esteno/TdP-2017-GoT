@@ -3,7 +3,9 @@ package enemigos;
 public class Dragon extends EnemigoRango
 {
 
-	public Dragon(String path) {
+	public Dragon() 
+	{
+		// recibia un String path
 		// TODO Auto-generated constructor stub
 	}
 

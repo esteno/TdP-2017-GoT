@@ -47,7 +47,7 @@ public class BuilderDeOleadas {
 	}
 
 	
-	public List<Enemigo> generearEnemigos(int cant, EstadoMultiplicador estado)
+	public List<Enemigo> generarEnemigos(int cant, EstadoMultiplicador estado)
 	{
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		
@@ -62,51 +62,43 @@ public class BuilderDeOleadas {
 			{
 			  case 1: // dragon
 			        {
-			        	//Enemigo enemigo = new Dragon());
-						//enemigo.setEstado(estado);
-						//toReturn.add(enemigo);
+			        	Enemigo enemigo = new Dragon();
+						enemigo.setEstado(estado);
+						toReturn.add(enemigo);
 			        }
 			  case 2: // gigante
 			  		{
-			  			//Enemigo enemigo = new Gigante();
-						//enemigo.setEstado(estado);
-						//toReturn.add(enemigo);
+			  			Enemigo enemigo = new Gigante();
+						enemigo.setEstado(estado);
+						toReturn.add(enemigo);
 			  		}
 			
 			  case 3: // oso salvaje
-		  		{
-		  			Enemigo enemigo = new OsoSalvaje();
-					enemigo.setEstado(estado);
-					toReturn.add(enemigo);
-		  		}
+		  		 	{
+		  		 		Enemigo enemigo = new OsoSalvaje();
+		  		 		enemigo.setEstado(estado);
+		  		 		toReturn.add(enemigo);
+		  		 	}
 			  case 4: // salvaje
-		  		{
-		  			Enemigo enemigo = new Salvaje();
-					enemigo.setEstado(estado);
-					toReturn.add(enemigo);
-		  		}
+		  			{
+			  			Enemigo enemigo = new Salvaje();
+						enemigo.setEstado(estado);
+						toReturn.add(enemigo);
+		  			}
 			  case 5: // zombi
-		  		{
-		  			Enemigo enemigo = new Zombi();
-					enemigo.setEstado(estado);
-					toReturn.add(enemigo);
-		  		}
+		  			{
+		  				Enemigo enemigo = new Zombi();
+		  				enemigo.setEstado(estado);
+		  				toReturn.add(enemigo);
+		  			}
 			  case 6: //zombi frio
-		  		{
-		  			Enemigo enemigo = new ZombiFrio();
-					enemigo.setEstado(estado);
-					toReturn.add(enemigo);
-		  		}
-		
-			
-			
+		  			{
+		  				Enemigo enemigo = new ZombiFrio();
+		  				enemigo.setEstado(estado);
+		  				toReturn.add(enemigo);
+		  			}
 			}
-
 		}
-			
-		
-		
-		
 		return toReturn;
 	}
 	

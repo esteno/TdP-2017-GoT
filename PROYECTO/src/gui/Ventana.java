@@ -171,38 +171,38 @@ private JFrame frame;
 		frame.getContentPane().add(panelPersonajes);
 		panelPersonajes.setLayout(null);
 		
-		botonYgritte = new JButton("");
+		botonYgritte = new JButton("ygritte");
 		botonYgritte.setBounds(0, 0, 100, 93);
 		botonYgritte.setIcon(new ImageIcon("res/imagenes/juego/botonYgritte.png"));
 		panelPersonajes.add(botonYgritte);
 		
-		botonMountain = new JButton("");
+		botonMountain = new JButton("mount");
 		botonMountain.setBounds(0, 93, 100, 93);
 		botonMountain.setIcon(new ImageIcon("res/imagenes/juego/botonMountain.png"));
 		panelPersonajes.add(botonMountain);
 		
-		botonDragon = new JButton("");
+		botonDragon = new JButton("dragon");
 		botonDragon.setBounds(0, 186, 100, 96);
 		botonDragon.setIcon(new ImageIcon("res/imagenes/juego/botonDragon.png"));
 		panelPersonajes.add(botonDragon);
 		
-		botonInmaculado = new JButton("");
+		botonInmaculado = new JButton("inmac");
 		botonInmaculado.setBounds(0, 279, 100, 94);
 		botonInmaculado.setIcon(new ImageIcon("res/imagenes/juego/botonInmaculado.png"));
 		panelPersonajes.add(botonInmaculado);
 		
-		botonBronn = new JButton("");
+		botonBronn = new JButton("bronn");
 		botonBronn.setBounds(0, 373, 100, 94);
 		botonBronn.setIcon(new ImageIcon("res/imagenes/juego/botonBronn.png"));
 		panelPersonajes.add(botonBronn);
 		
-		botonGendry = new JButton("");
+		botonGendry = new JButton("gendry");
 		botonGendry.setBounds(0, 468, 100, 94);
 		botonGendry.setIcon(new ImageIcon("res/imagenes/juego/botonGendry.png"));
 		panelPersonajes.add(botonGendry);
 		
 		
-		botonBarricada = new JButton("");
+		botonBarricada = new JButton("barricada");
 		botonBarricada.setBounds(262, 6, 80, 80);
 		botonBarricada.addActionListener(new ActionListener()
 		{
@@ -231,7 +231,8 @@ private JFrame frame;
 		lblPuntaje.setOpaque(true);
 		lblPuntaje.setFont(new Font("Century", Font.PLAIN, 17));
 		
-		botonBomba = new JButton("");
+		botonBomba = new JButton("bomba");
+		botonBomba.setEnabled(false);
 		botonBomba.setBounds(803, 6, 80, 80);
 		botonBomba.addActionListener(new ActionListener()
 		{
@@ -248,10 +249,11 @@ private JFrame frame;
 		frame.getContentPane().add(botonBomba);
 		
 		botonCampo = new JButton("Campo");
+		botonCampo.setEnabled(false);
 		botonCampo.setBounds(894, 4, 80, 80);
 		frame.getContentPane().add(botonCampo);
 		
-		JButton botonMuro = new JButton("");
+		JButton botonMuro = new JButton("muro");
 		botonMuro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FabricaDeDefensa.getInstancia().construirMuro();
@@ -261,7 +263,7 @@ private JFrame frame;
 		botonMuro.setIcon(new ImageIcon("res/imagenes/obstaculos/muro.png"));
 		frame.getContentPane().add(botonMuro);
 		
-		botonRoca = new JButton("");
+		botonRoca = new JButton("roca");
 		botonRoca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FabricaDeDefensa.getInstancia().construirRoca();
@@ -271,7 +273,7 @@ private JFrame frame;
 		botonRoca.setIcon(new ImageIcon("res/imagenes/obstaculos/roca.png"));
 		frame.getContentPane().add(botonRoca);
 		
-		botonTrinchera = new JButton("");
+		botonTrinchera = new JButton("trinchera");
 		botonTrinchera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -292,6 +294,8 @@ private JFrame frame;
 		});
 		
 		JLabel labelFondo = new JLabel("");
+		labelFondo.setBackground(Color.ORANGE);
+		labelFondo.setForeground(Color.ORANGE);
 		labelFondo.setIcon(new ImageIcon("res/imagenes/juego/fondo.jpg"));
 		labelFondo.setBounds(0, 0, 1000, 562);
 		frame.getContentPane().add(labelFondo);

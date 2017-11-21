@@ -53,9 +53,9 @@ public class ControlDeOleadas implements Runnable {
 					int rand = (int) Math.floor(Math.random() * (alto - 1));
 					//Devuelve si el enemigo fue agregado
 					Boolean agregue = juego.agregarEnemigo(enemigo, juego.getAncho(), rand);
-					if(agregue) {
+					if(agregue) 
+					{
 						listaEnemigos.add(enemigo);
-						
 						aInsertar++;
 					}
 					System.out.println("agregue "+agregue);
