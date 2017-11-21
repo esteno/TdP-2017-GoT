@@ -26,10 +26,8 @@ public class Nivel1 extends Nivel
 
 		BuilderDeOleadas builder = BuilderDeOleadas.getInstancia();
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-<<<<<<< HEAD
 		toReturn.addAll(builder.generarZombie(5, estado));
 		System.out.println("Oledadas de Nivel 1");
-=======
 		switch(contOleada)
 		{
 			case 0: {   // primer oleada
@@ -62,7 +60,6 @@ public class Nivel1 extends Nivel
 						break;
 					}
 		}	
->>>>>>> 10c1a51ee64680fb33399096f321ed8ee4ab97df
 		return toReturn;
 	}
 

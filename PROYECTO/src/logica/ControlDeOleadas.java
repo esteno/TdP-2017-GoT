@@ -23,6 +23,8 @@ public class ControlDeOleadas implements Runnable {
 	private int cantOleadas = 3;
 	//Variable de control de insercion.
 	private int aInsertar;
+	private int insert = 0;
+	private int contInsertar = 10;
 	
 	public ControlDeOleadas(Juego juego, int a) {
 		this.juego = juego;
@@ -47,7 +49,7 @@ public class ControlDeOleadas implements Runnable {
 				
 				
 				//Se inserta de a uno por vez si es posible por cada sleep
-				if(aInsertar < listaInsercion.size()) {
+				if(insert == 0 && aInsertar < listaInsercion.size()) {
 					Enemigo enemigo = listaInsercion.get(aInsertar);
 					//Posicion de la columna donde se va a insertar
 					int rand = (int) Math.floor(Math.random() * (alto - 1));
@@ -58,7 +60,11 @@ public class ControlDeOleadas implements Runnable {
 						listaEnemigos.add(enemigo);
 						aInsertar++;
 					}
+					insert = contInsertar;
 					System.out.println("agregue "+agregue);
+				}
+				else {
+					insert--;
 				}
 				
 				//Enemigos a borrar
