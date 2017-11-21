@@ -147,7 +147,7 @@ public class FabricaObjetoGrafico {
 	
 	public GameObjectGrafico construirGraficoMountain(){
 		
-		return new GameObjectGrafico("res/imagenes/defensa/mountainataca.gif");
+		return new GameObjectGrafico("res/imagenes/defensa/mountainAtaca2.gif");
 	}
 	
 	
