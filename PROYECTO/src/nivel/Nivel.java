@@ -11,6 +11,7 @@ public abstract class Nivel
 	//atributos
 	protected String path;
 	protected EstadoMultiplicador estado;
+	protected int contOleada = 0;
 	
 	// metodos
 
