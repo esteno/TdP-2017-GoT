@@ -33,81 +33,82 @@ public class BuilderDeOleadas {
 	
 
 	
-	public List<Enemigo> generarZombi(int cant, EstadoMultiplicador estado) 
+	public List<Enemigo> generarZombie(int cant, EstadoMultiplicador estado) 
 	{
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		for(int i = 0; i < cant ; i++) 
 		{
-			Enemigo enemigo = new Zombi();
+			Enemigo enemigo = new Zombie();
 			enemigo.setEstado(estado);
 			toReturn.add(enemigo);
 		}
-			
 		return toReturn;
 	}
 
 	
-	public List<Enemigo> generarEnemigos(int cant, EstadoMultiplicador estado)
+	
+	public List<Enemigo> generarZombieFrio(int cant, EstadoMultiplicador estado) 
 	{
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-		
-		int aleatorio;
-		
-		
 		for(int i = 0; i < cant ; i++) 
 		{
-			aleatorio = (int) (Math.random() *6 ) + 1; 
-			
-			switch(aleatorio)
-			{
-			  case 1: // dragon
-			        {
-			        	Enemigo enemigo = new Dragon();
-						enemigo.setEstado(estado);
-						toReturn.add(enemigo);
-						break;
-			        }
-			  case 2: // gigante
-			  		{
-			  			Enemigo enemigo = new Gigante();
-						enemigo.setEstado(estado);
-						toReturn.add(enemigo);
-						break;
-			  		}
-			
-			  case 3: // oso salvaje
-		  		 	{
-		  		 		Enemigo enemigo = new OsoSalvaje();
-		  		 		enemigo.setEstado(estado);
-		  		 		toReturn.add(enemigo);
-		  		 		break;
-		  		 	}
-			  case 4: // salvaje
-		  			{
-			  			Enemigo enemigo = new Salvaje();
-						enemigo.setEstado(estado);
-						toReturn.add(enemigo);
-						break;
-		  			}
-			  case 5: // zombi
-		  			{
-		  				Enemigo enemigo = new Zombi();
-		  				enemigo.setEstado(estado);
-		  				toReturn.add(enemigo);
-		  				break;
-		  			}
-			  case 6: //zombi frio
-		  			{
-		  				Enemigo enemigo = new ZombiFrio();
-		  				enemigo.setEstado(estado);
-		  				toReturn.add(enemigo);
-		  				break;
-		  			}
-			}
+			Enemigo enemigo = new ZombieFrio();
+			enemigo.setEstado(estado);
+			toReturn.add(enemigo);
 		}
 		return toReturn;
 	}
 	
 	
-
+	public List<Enemigo> generarSalvaje(int cant, EstadoMultiplicador estado) 
+	{
+		List<Enemigo> toReturn = new ArrayList<Enemigo>();
+		for(int i = 0; i < cant ; i++) 
+		{
+			Enemigo enemigo = new Salvaje();
+			enemigo.setEstado(estado);
+			toReturn.add(enemigo);
+		}
+		return toReturn;
+	}
+	
+	
+	public List<Enemigo> generarDragon(int cant, EstadoMultiplicador estado) 
+	{
+		List<Enemigo> toReturn = new ArrayList<Enemigo>();
+		for(int i = 0; i < cant ; i++) 
+		{
+			Enemigo enemigo = new Dragon();
+			enemigo.setEstado(estado);
+			toReturn.add(enemigo);
+		}
+		return toReturn;
+	}
+	
+	
+	public List<Enemigo> generarGigante(int cant, EstadoMultiplicador estado) 
+	{
+		List<Enemigo> toReturn = new ArrayList<Enemigo>();
+		for(int i = 0; i < cant ; i++) 
+		{
+			Enemigo enemigo = new Gigante();
+			enemigo.setEstado(estado);
+			toReturn.add(enemigo);
+		}
+		return toReturn;
+	}
+	
+	
+	public List<Enemigo> generarOsoSalvaje(int cant, EstadoMultiplicador estado) 
+	{
+		List<Enemigo> toReturn = new ArrayList<Enemigo>();
+		for(int i = 0; i < cant ; i++) 
+		{
+			Enemigo enemigo = new OsoSalvaje();
+			enemigo.setEstado(estado);
+			toReturn.add(enemigo);
+		}
+		return toReturn;
+	}
+	
 }

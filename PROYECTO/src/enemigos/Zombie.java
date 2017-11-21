@@ -1,8 +1,8 @@
 package enemigos;
 
-public class Zombi extends EnemigoCuerpo {
+public class Zombie extends EnemigoCuerpo {
 	
-	public Zombi(){
+	public Zombie(){
 		grafico = fabricaGrafica.construirGraficoZombi();
 		fuerzaImpacto = 1000;
 	    velocidad = contVelocidad = -10;

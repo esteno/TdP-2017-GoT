@@ -1,8 +1,8 @@
 package enemigos;
 
-public class ZombiFrio extends EnemigoRango {
+public class ZombieFrio extends EnemigoRango {
 	
-	public ZombiFrio(){
+	public ZombieFrio(){
 		grafico = fabricaGrafica.construirZombiFrio();
 		fuerzaImpacto = 1000;
 	    velocidad = contVelocidad = 1000;

@@ -16,12 +16,13 @@ public class Nivel2 extends Nivel
 	}
 	
 	@Override
-	public List<Enemigo> getOleada() {
+	public List<Enemigo> getOleada()
+	{
 		BuilderDeOleadas builder = BuilderDeOleadas.getInstancia();
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-		toReturn.addAll(builder.generarZombi(10, estado));
-		//toReturn.addAll(builder.generarEnemigos(10, estado));
+		toReturn.addAll(builder.generarZombie(10, estado));
 		System.out.println("Oledadas de Nivel 2");
 		return toReturn;
 	}
+	
 }
