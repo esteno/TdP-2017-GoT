@@ -25,6 +25,7 @@ import javax.swing.ImageIcon;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.Insets;
 
 import javax.swing.JTextField;
 
@@ -360,6 +361,7 @@ private JFrame frame;
 		
 		///-----------BOTONES PREMIOS
 		botonPremioBomba = new JButton("Bomba");
+		botonPremioBomba.setMargin(new Insets(0, 0, 0, 0));
  		botonPremioBomba.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -370,6 +372,7 @@ private JFrame frame;
  		});
  		
  		botonPremioBarricada = new JButton("Barr");
+ 		botonPremioBarricada.setMargin(new Insets(0, 0, 0, 0));
  		botonPremioBarricada.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				juego.agregarBarricada();
@@ -379,6 +382,7 @@ private JFrame frame;
  		});
  		
  		botonPremioOro = new JButton("Oro");
+ 		botonPremioOro.setMargin(new Insets(0, 0, 0, 0));
  		botonPremioOro.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				juego.sumarOro(1000);
@@ -387,6 +391,7 @@ private JFrame frame;
  		});
  		
  		botonPremioCuracion = new JButton("+++");
+ 		botonPremioCuracion.setMargin(new Insets(0, 0, 0, 0));
  		botonPremioCuracion.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				juego.curarDefensas();
@@ -395,6 +400,7 @@ private JFrame frame;
  		});
  		
  		botonPremioDanioDoble = new JButton("DD");
+ 		botonPremioDanioDoble.setMargin(new Insets(0, 0, 0, 0));
  		botonPremioDanioDoble.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				juego.danioDoble();
@@ -403,6 +409,7 @@ private JFrame frame;
  		});
  		
  		botonPremioCampoProtector = new JButton("CPro");
+ 		botonPremioCampoProtector.setMargin(new Insets(0, 0, 0, 0));
  		botonPremioCampoProtector.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				

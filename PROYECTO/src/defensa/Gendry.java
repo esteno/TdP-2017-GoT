@@ -6,8 +6,7 @@ public class Gendry extends DefensaCuerpo
 	public Gendry()
 	{
 		// TODO Auto-generated constructor stub
-		precio = 400;
-		velocidadAtaque = 4;
+		velocidadAtaque = 3;
 		proximoAtaque = 0;
 		puntosVida = 250;
 		fuerzaImpacto = 55;

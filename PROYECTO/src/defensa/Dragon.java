@@ -10,7 +10,6 @@ public class Dragon extends DefensaCuerpo {
 
 	public Dragon() 
 	{	
-		precio = 1000;
 		velocidadAtaque = 8;
 		proximoAtaque = 0;
 		puntosVida = 400;
