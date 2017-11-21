@@ -26,6 +26,7 @@ public class ControlDisparo implements Runnable {
 	}
 	
 	public void agregarDisparo(Disparo disparo) {
+		System.out.println("agregue disparo");
 		listaInsercion.add(disparo);
 	}
 	

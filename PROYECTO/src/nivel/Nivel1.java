@@ -33,11 +33,14 @@ public class Nivel1 extends Nivel
 			case 0: {   // primer oleada
 						toReturn.addAll(builder.generarZombie(3, estado));
 						toReturn.addAll(builder.generarZombieFrio(3, estado));
+						/*
 						toReturn.addAll(builder.generarOsoSalvaje(2, estado));
 						toReturn.addAll(builder.generarSalvaje(1, estado));
 						toReturn.addAll(builder.generarGigante(1, estado));
 						toReturn.addAll(builder.generarDragon(1, estado));
+						*/
 						break;
+						
 					}
 			case 1:		// segunda oleada
 					{
