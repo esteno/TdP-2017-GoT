@@ -65,12 +65,14 @@ public class BuilderDeOleadas {
 			        	Enemigo enemigo = new Dragon();
 						enemigo.setEstado(estado);
 						toReturn.add(enemigo);
+						break;
 			        }
 			  case 2: // gigante
 			  		{
 			  			Enemigo enemigo = new Gigante();
 						enemigo.setEstado(estado);
 						toReturn.add(enemigo);
+						break;
 			  		}
 			
 			  case 3: // oso salvaje
@@ -78,24 +80,28 @@ public class BuilderDeOleadas {
 		  		 		Enemigo enemigo = new OsoSalvaje();
 		  		 		enemigo.setEstado(estado);
 		  		 		toReturn.add(enemigo);
+		  		 		break;
 		  		 	}
 			  case 4: // salvaje
 		  			{
 			  			Enemigo enemigo = new Salvaje();
 						enemigo.setEstado(estado);
 						toReturn.add(enemigo);
+						break;
 		  			}
 			  case 5: // zombi
 		  			{
 		  				Enemigo enemigo = new Zombi();
 		  				enemigo.setEstado(estado);
 		  				toReturn.add(enemigo);
+		  				break;
 		  			}
 			  case 6: //zombi frio
 		  			{
 		  				Enemigo enemigo = new ZombiFrio();
 		  				enemigo.setEstado(estado);
 		  				toReturn.add(enemigo);
+		  				break;
 		  			}
 			}
 		}
