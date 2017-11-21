@@ -32,6 +32,7 @@ public class DisparoEnemigo extends Disparo {
 				//Decrementa el alcance
 				alcance--;
 				contVelocidad = velocidad;
+				celda.moverGrafico(this);
 			}
 			else
 			{
@@ -41,7 +42,7 @@ public class DisparoEnemigo extends Disparo {
 		}
 		contVelocidad++;
 		
-		celda.moverGrafico(this);
+		
 	}
 
 	public void atacar() {

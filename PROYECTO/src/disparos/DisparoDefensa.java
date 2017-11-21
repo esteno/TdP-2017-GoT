@@ -25,7 +25,6 @@ public class DisparoDefensa extends Disparo {
 		
 		if(contVelocidad == 0) {
 			Celda celdaNueva = celda.celdaDerecha();
-			System.out.println(celdaNueva);
 			//Si todavia tiene alcance y no llego al 
 			if( (alcance > 0) && (celdaNueva != null) ) 
 			{	 
@@ -34,6 +33,7 @@ public class DisparoDefensa extends Disparo {
 				//Decrementa el alcance
 				alcance--;
 				contVelocidad = velocidad;
+				celda.moverGrafico(this);
 			}
 			else
 			{
@@ -42,7 +42,7 @@ public class DisparoDefensa extends Disparo {
 			
 		}
 		contVelocidad--;
-		celda.moverGrafico(this);
+		
 	}
 
 
@@ -50,9 +50,7 @@ public class DisparoDefensa extends Disparo {
 	@Override
 	public void atacar() {
 		//Si hay otro objeto movil en esa celda
-		System.out.println(celda);
 		Enemigo enemigo = celda.getEnemigo();
-		System.out.println(enemigo);
 		if(enemigo!=null)
 		{	
 			//Le pasa el visitor, si es enemigo lo ataca, si es otro disparo no hace nada.

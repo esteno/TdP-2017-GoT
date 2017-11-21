@@ -23,12 +23,7 @@ public class Nivel1 extends Nivel
 	{
 		BuilderDeOleadas builder = BuilderDeOleadas.getInstancia();
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-<<<<<<< HEAD
 		toReturn.addAll(builder.generarZombie(5, estado));
-=======
-		toReturn.addAll(builder.generarZombi(1, estado));
-		//toReturn.addAll(builder.generarEnemigos( 5, estado));
->>>>>>> a99e4a95b6feb361d763922404f95c9ca600be53
 		System.out.println("Oledadas de Nivel 1");
 		return toReturn;
 	}
