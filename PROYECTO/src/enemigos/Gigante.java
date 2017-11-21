@@ -3,7 +3,9 @@ package enemigos;
 public class Gigante extends EnemigoCuerpo
 {
 
-	public Gigante(String path) {
+	public Gigante() 
+	{
+		// recibia un String path
 		// TODO Auto-generated constructor stub
 	}
 

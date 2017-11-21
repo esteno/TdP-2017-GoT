@@ -39,31 +39,40 @@ public class ControlDeOleadas implements Runnable {
 		aInsertar = 0;
 	}
 	
-	public void run() {
-		while(isRunning) {
-			try {
+	public void run()
+	{
+		while(isRunning) 
+		{
+			try 
+			{
 				Thread.sleep(1000);
 				
-				
-				
 				//Se inserta de a uno por vez si es posible por cada sleep
-				if(aInsertar < listaInsercion.size()) {
+				if(aInsertar < listaInsercion.size()) 
+				{
 					Enemigo enemigo = listaInsercion.get(aInsertar);
+					
 					//Posicion de la columna donde se va a insertar
 					int rand = (int) Math.floor(Math.random() * (alto - 1));
+					
 					//Devuelve si el enemigo fue agregado
 					Boolean agregue = juego.agregarEnemigo(enemigo, juego.getAncho(), rand);
-					if(agregue) {
+					
+					if(agregue) 
+					{
 						listaEnemigos.add(enemigo);
-						
 						aInsertar++;
-					}
-					System.out.println("agregue "+agregue);
+    				}
+					
+				    System.out.println("Se agrego un enemigo a la oleada:  "+agregue);
 				}
 				
 				//Enemigos a borrar
-				for(Enemigo descarte : listaDescarte) {
+				for(Enemigo descarte : listaDescarte) 
+				{
 					listaEnemigos.remove(descarte);
+					System.out.println("Se elimino un enemigo de la oleada. ");
+					
 					juego.sumarPuntaje(descarte.getPuntos());
 					juego.sumarOro(descarte.getOro());
 					juego.crearPremio(descarte.getCelda().getX(),descarte.getCelda().getY());
@@ -71,28 +80,35 @@ public class ControlDeOleadas implements Runnable {
 				listaDescarte.clear();
 				
 				//Enemigos a mover
-				for(Enemigo enemigo : listaEnemigos) {
-					if(enemigo.getPuntosVida() <= 0) {
+				for(Enemigo enemigo : listaEnemigos)
+				{
+					if(enemigo.getPuntosVida() <= 0) 
+					{
 						listaDescarte.add(enemigo);
 					}
-					else {
+					else 
+					{
 						enemigo.atacar();
 						enemigo.avanzar();
 					}
 				}
 				
 				//Si no hay mas enemigos y aun hay oleadas, se crea una nueva
-				if(listaEnemigos.size() == 0 && cantOleadas != 0) {
+				if(listaEnemigos.size() == 0 && cantOleadas != 0)
+				{
 					System.out.println("nueva oleada");
 					Thread.sleep(2000);
 					juego.sigOleada();
 				}
+				
 				//Si no hay mas oleadas se cambia de nivel
-				if(cantOleadas == 0) {
+				if(cantOleadas == 0) 
+				{
 					juego.sigNivel();
 				}
 			}
-			catch (InterruptedException e) {
+			catch (InterruptedException e) 
+			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
