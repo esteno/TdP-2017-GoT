@@ -7,6 +7,7 @@ public class Gigante extends EnemigoCuerpo
 	{
 		// recibia un String path
 	 	// TODO Auto-generated constructor stub
+		
 	}
 
 }
