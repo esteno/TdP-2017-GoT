@@ -50,7 +50,7 @@ public abstract class Defensa extends GameObject
  	
 	public void recibirAtaque(int i)
 	{
-		puntosVida=-i;
+		puntosVida -= i;
 		if(puntosVida < 0) {
 			destruir();
 		}

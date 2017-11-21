@@ -42,7 +42,7 @@ public class ControlDeOleadas implements Runnable {
 	public void run() {
 		while(isRunning) {
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(100);
 				
 				
 				

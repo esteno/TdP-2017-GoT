@@ -3,19 +3,13 @@ package obstaculo;
 import colisiones.*;
 import defensa.Defensa;
 
-public abstract class Obstaculo extends Defensa implements Runnable 
+public abstract class Obstaculo extends Defensa
 {
 
 	public Obstaculo() 
 	{
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
-	public void run() 
-	{}
-
 	
 
 	public void atacar() 

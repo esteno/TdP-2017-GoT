@@ -87,7 +87,7 @@ public abstract class Enemigo extends ObjetoMovil
 	
 	public void recibirAtaque(int i)
 	{
-		puntosVida=-i;
+		puntosVida -= i;
 		if(puntosVida < 0) {
 			destruir();
 		}

@@ -13,7 +13,7 @@ public class Barricada extends Obstaculo
 		precio = 100;
 		velocidadAtaque = 0;
 		proximoAtaque = 0;
-		puntosVida = 150;
+		puntosVida = 1500;
 		fuerzaImpacto = 0;
 
 		grafico = fabricaGrafica.construirGraficoBarricada();
