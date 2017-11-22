@@ -146,7 +146,7 @@ public class Juego
 	
 	public void moverGrafico(ObjetoMovil o)
 	{
-		gui.moverGrafico(o);
+		gui.moverGrafico(o,false);
 	}
 	
 	/**

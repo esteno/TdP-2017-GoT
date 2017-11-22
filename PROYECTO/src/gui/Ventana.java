@@ -453,8 +453,15 @@ private JFrame frame;
 		repintar();
 	}
 
-	public void moverGrafico(ObjetoMovil o) {
-		aAgregar.add(o);
+	public synchronized void moverGrafico(ObjetoMovil o, boolean b) {
+		if(b){
+			for(ObjetoMovil obj : aAgregar){
+				moviles.add(obj);
+			}
+			aAgregar.clear();
+		}
+		else
+			aAgregar.add(o);
 	}
 
 	public void run(){
@@ -467,10 +474,7 @@ private JFrame frame;
 				e.printStackTrace();
 			}
 			
-			for(ObjetoMovil o : aAgregar){
-				moviles.add(o);
-			}
-			aAgregar.clear();
+			moverGrafico(null,true);
 			
 			for(ObjetoMovil o : aBorrar){
 				moviles.remove(o);
