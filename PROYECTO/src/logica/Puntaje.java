@@ -34,7 +34,6 @@ public class Puntaje {
 		return bombasDisponibles > 0;
 	}
 	
-	
 	public boolean hayBarricadas() {
 		return barricadasDisponibles > 0;
 	}
@@ -54,6 +53,4 @@ public class Puntaje {
 	public int getOro() {
 		return oro;
 	}
-	
-
 }

@@ -18,13 +18,9 @@ public class VisitorDisparoEnemigo extends Visitor {
 		System.out.println("atacar defensa");
 		d.recibirAtaque(miDisparo.getFuerzaImpacto());
 		miDisparo.destruir();
-
 	}
 
 	@Override
 	public void visitarEnemigo(Enemigo e) {
-		// TODO Auto-generated method stub
-
 	}
-
 }

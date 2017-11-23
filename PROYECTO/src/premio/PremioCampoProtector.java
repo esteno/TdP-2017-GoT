@@ -20,7 +20,6 @@ public class PremioCampoProtector implements Temporal	{
 		juego.eliminarDefensa(celda.getX(), celda.getY());
 		juego.agregarDefensa(campo, celda.getX(), celda.getY());
 		new Timer(this, 5000);
-		System.out.println("ENTRO A CAMPO PROTECTOR");
 	}
 	
 	public void accionarPorTiempo() {
@@ -31,21 +30,17 @@ public class PremioCampoProtector implements Temporal	{
 		Celda celda = campo.getCelda();
 		juego.eliminarDefensa(celda.getX(), celda.getY());
 		juego.agregarDefensa(personaje, celda.getX(), celda.getY());
-		
 	}
 
 	public void aumentarCampo() {
-		 
 		c++;
 	}
 
 	public void restarCampo() {
-
 		c--;
 	}
 
 	public boolean hayCampos() {
-		
 		return c>0;
 	}
 

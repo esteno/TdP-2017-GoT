@@ -7,8 +7,7 @@ import enemigos.Enemigo;
 import estadoMultiplicador.EstadoEnemigoNivel1;
 import logica.BuilderDeOleadas;
 
-public class Nivel2 extends Nivel
-{
+public class Nivel2 extends Nivel{
 
 	public Nivel2() {
 		path = "res/niveles/nivel2.txt";
@@ -16,13 +15,13 @@ public class Nivel2 extends Nivel
 	}
 	
 	@Override
-	public List<Enemigo> getOleada()
-	{
+	public List<Enemigo> getOleada(){
 		BuilderDeOleadas builder = BuilderDeOleadas.getInstancia();
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		switch(contOleada)
 		{
-			case 0: {   // primer oleada
+			case 0: 
+					{   // primer oleada
 						toReturn.addAll(builder.generarZombie(3, estado));
 						toReturn.addAll(builder.generarZombieFrio(3, estado));
 						toReturn.addAll(builder.generarOsoSalvaje(2, estado));
@@ -54,5 +53,4 @@ public class Nivel2 extends Nivel
 		}	
 		return toReturn;
 	}
-	
 }

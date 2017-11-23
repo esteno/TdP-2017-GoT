@@ -11,15 +11,14 @@ import objetos.ObjetoMovil;
 /**
  * Fabrica de oleadas de enemigos
  * @author Comision 15
- *
  */
 public class BuilderDeOleadas {
 	
 	//Atributo estatico para el singleton
 	private static BuilderDeOleadas instancia = null;
 	
-	
 	private BuilderDeOleadas() {
+		
 	}
 
 	public static BuilderDeOleadas getInstancia() {
@@ -30,14 +29,10 @@ public class BuilderDeOleadas {
 	}
 	
 	//Todos los metodos devuelven una lista con la cantidad pedida de un tipo particular de enemigo
-	
 
-	
-	public List<Enemigo> generarZombie(int cant, EstadoMultiplicador estado) 
-	{
+	public List<Enemigo> generarZombie(int cant, EstadoMultiplicador estado) {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-		for(int i = 0; i < cant ; i++) 
-		{
+		for(int i = 0; i < cant ; i++) {
 			Enemigo enemigo = new Zombie();
 			enemigo.setEstado(estado);
 			toReturn.add(enemigo);
@@ -45,10 +40,7 @@ public class BuilderDeOleadas {
 		return toReturn;
 	}
 
-	
-	
-	public List<Enemigo> generarZombieFrio(int cant, EstadoMultiplicador estado) 
-	{
+	public List<Enemigo> generarZombieFrio(int cant, EstadoMultiplicador estado) {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		for(int i = 0; i < cant ; i++) 
 		{
@@ -59,9 +51,7 @@ public class BuilderDeOleadas {
 		return toReturn;
 	}
 	
-	
-	public List<Enemigo> generarSalvaje(int cant, EstadoMultiplicador estado) 
-	{
+	public List<Enemigo> generarSalvaje(int cant, EstadoMultiplicador estado) {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		for(int i = 0; i < cant ; i++) 
 		{
@@ -73,8 +63,7 @@ public class BuilderDeOleadas {
 	}
 	
 	
-	public List<Enemigo> generarDragon(int cant, EstadoMultiplicador estado) 
-	{
+	public List<Enemigo> generarDragon(int cant, EstadoMultiplicador estado) {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		for(int i = 0; i < cant ; i++) 
 		{
@@ -86,8 +75,7 @@ public class BuilderDeOleadas {
 	}
 	
 	
-	public List<Enemigo> generarGigante(int cant, EstadoMultiplicador estado) 
-	{
+	public List<Enemigo> generarGigante(int cant, EstadoMultiplicador estado) {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		for(int i = 0; i < cant ; i++) 
 		{
@@ -98,9 +86,7 @@ public class BuilderDeOleadas {
 		return toReturn;
 	}
 	
-	
-	public List<Enemigo> generarOsoSalvaje(int cant, EstadoMultiplicador estado) 
-	{
+	public List<Enemigo> generarOsoSalvaje(int cant, EstadoMultiplicador estado) {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		for(int i = 0; i < cant ; i++) 
 		{

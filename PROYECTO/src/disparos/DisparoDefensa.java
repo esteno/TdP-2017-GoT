@@ -10,19 +10,12 @@ public class DisparoDefensa extends Disparo {
 
 	public DisparoDefensa(double danio) {
 		super(danio);
-		System.out.println("creado disparo defensa");
 		velocidad = 4;
 		visitor = new VisitorDisparoDefensa(this);
-		// TODO Auto-generated constructor stub
 	}
 
-
-
-	@Override
-	public void avanzar() 
-	{
+	public void avanzar() {
 		//Pide la celda a la que se va a mover
-		
 		if(contVelocidad == 0) {
 			Celda celdaNueva = celda.celdaDerecha();
 			//Si todavia tiene alcance y no llego al 
@@ -36,34 +29,23 @@ public class DisparoDefensa extends Disparo {
 				celda.moverGrafico(this);
 			}
 			else
-			{
 				destruir();
-			}
-			
 		}
 		contVelocidad--;
-		
 	}
-
-
 
 	@Override
 	public void atacar() {
 		//Si hay otro objeto movil en esa celda
 		Enemigo enemigo = celda.getEnemigo();
 		if(enemigo!=null)
-		{	
 			//Le pasa el visitor, si es enemigo lo ataca, si es otro disparo no hace nada.
 			enemigo.aceptar(visitor);
-		}
 	}
 
 
 
 	@Override
 	public void aceptar(Visitor v) {
-		// TODO Auto-generated method stub
-		
 	}
-
 }

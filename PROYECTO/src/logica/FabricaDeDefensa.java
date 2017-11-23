@@ -3,18 +3,14 @@ package logica;
 import defensa.*;
 import obstaculo.*;
 
-
-public class FabricaDeDefensa 
-{
+public class FabricaDeDefensa {
 	//Instancia de la fabrica para el singleton
 	private static FabricaDeDefensa instancia = null;
 	
 	//Ultimo producto creado
 	private Defensa defensaCreada = null;
 	
-	private FabricaDeDefensa() 
-	{
-		
+	private FabricaDeDefensa() {
 	}
 	
 	public static FabricaDeDefensa getInstancia() {
@@ -24,68 +20,49 @@ public class FabricaDeDefensa
 	}
 	
 	// ----------------PERSONAJES
-
-	
-	public void construirYgritte()
-	{
+	public void construirYgritte(){
 		defensaCreada = new Ygritte();
 	}
 	
-	public void construirMountain()
-	{
+	public void construirMountain(){
 		defensaCreada = new Mountain();
 	}
 	
-	public void construirDragon()
-	{
+	public void construirDragon(){
 		defensaCreada = new Dragon();
 	}
 	
-	public void construirInmaculado()
-	{
+	public void construirInmaculado(){
 		defensaCreada = new Inmaculado();
 	}
 	
-	public void construirGendry()
-	{
+	public void construirGendry(){
 		defensaCreada = new Gendry();
 	}
 	
-	
-	public void construirBronn()
-	{
+	public void construirBronn(){
 		defensaCreada = new Bronn();
 	}
 	
-	
 	// ---------- OBSTACULOS
-	
 	public void construirBarricada() {
-		// TODO Auto-generated method stub
 		defensaCreada = new Barricada();
 	}
 
-	public void construirMuro()
-	{
+	public void construirMuro(){
 		defensaCreada = new Muro();
 	}
 	
-	
-	public void construirTrinchera()
-	{
+	public void construirTrinchera(){
 		defensaCreada = new Trinchera();
 	}
 	
-	public void construirRoca()
-	{
+	public void construirRoca(){
 		defensaCreada = new Roca();
 	}
 	
-	
 	// -------------
-	
-	public Defensa getDefensa() 
-	{
+	public Defensa getDefensa() {
 		return defensaCreada;
 	}
 	
@@ -93,5 +70,4 @@ public class FabricaDeDefensa
 	public void reset() {
 		defensaCreada = null;
 	}
-
 }

@@ -10,21 +10,19 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 
-public class GameObjectGrafico 
-{
+public class GameObjectGrafico {
+	
 	protected JLabel label;
 	protected ImageIcon imagen;
 	protected boolean bloqueado;
-
 	
-	public GameObjectGrafico(String path) 
-	{
+	public GameObjectGrafico(String path) {
 		bloqueado=false;
 	    try {
 			imagen = new ImageIcon(new URL("file:"+path));
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
-		}// ImageIO.read(new File(path));
+		}
 	}
 	
 	public void setLabel(JLabel l) {
@@ -34,9 +32,7 @@ public class GameObjectGrafico
 		return label;
 	}
 	
-	
-	public ImageIcon getImagen() 
-	{
+	public ImageIcon getImagen() {
 		return imagen;
 	}
 	

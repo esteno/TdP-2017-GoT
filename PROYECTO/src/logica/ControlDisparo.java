@@ -22,7 +22,6 @@ public class ControlDisparo implements Runnable {
 		listaInsercion = new ArrayList<Disparo>();
 		listaDisparos = new ArrayList<Disparo>();
 		listaDescarte = new ArrayList<Disparo>();
-		
 	}
 	
 	public void agregarDisparo(Disparo disparo) {
@@ -44,8 +43,7 @@ public class ControlDisparo implements Runnable {
 				}
 				listaInsercion.clear();
 				//Acciona todos los disparos actuales
-				for(Disparo disparo : listaDisparos) 
-				{
+				for(Disparo disparo : listaDisparos) {
 					//Si el alcance es 0 se elimina 
 					if(disparo.getAlcance() <= 0) 
 						listaDescarte.add(disparo);
@@ -56,12 +54,8 @@ public class ControlDisparo implements Runnable {
 				}
 			}
 			catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		}
 	}
-
-
 }

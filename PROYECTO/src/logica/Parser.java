@@ -21,7 +21,6 @@ public class Parser
 		this.mapa = mapa;
 		this.alto = alto;
 		this.ancho = ancho;
-		
 	}
 	
 	public Celda[][] parsearNivel(String path) {
@@ -30,10 +29,7 @@ public class Parser
 		Celda celda = null;
 		try {
             FileReader fileReader = new FileReader(path);
-
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            
-            
             String linea = null;
             
     		for(int i = 0; i < alto; i++) {
@@ -54,9 +50,7 @@ public class Parser
     				arregloCeldas[j][i] = celda;
     			}
     		}
-            
             bufferedReader.close();   
-            
         }
         catch(FileNotFoundException e) {
             System.out.println("No se encuentra el archivo en la ubicacion "+path);                
@@ -66,5 +60,4 @@ public class Parser
         }
 		return arregloCeldas;
 	}
-
 }

@@ -27,15 +27,10 @@ public class Mapa
 	
 	private Enemigo [][] matrizEnemigo;
 	
-	
-	
 	private Juego juego;
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	
-	
-	
-	public Mapa(Juego juego, int alto, int ancho)
-	{
+	public Mapa(Juego juego, int alto, int ancho){
 		matrizCeldas = new Celda[ancho][alto];
 		matrizDeObjetoDeMapa = new ObjetoDeMapa[ancho][alto];
 		matrizDefensa = new Defensa[ancho][alto];
@@ -43,10 +38,7 @@ public class Mapa
 		this.juego = juego;	
 	}
 	
-	
-	
 	public void cambiarMapa(Celda[][] celdas) {
-		
 		matrizCeldas = celdas;
 		for(int i = 0; i < matrizCeldas.length; i++) {
 			for(int j = 0; j < matrizCeldas[0].length; j++) {
@@ -58,26 +50,22 @@ public class Mapa
 		}	
 	}
 
-	public Celda celdaIzquierda(Celda celdaActual) 
-	{	
+	public Celda celdaIzquierda(Celda celdaActual){	
 		Celda celdaIzquierda = null;
 		if(celdaActual.getX() != 0)
 			celdaIzquierda = matrizCeldas[celdaActual.getX() - 1][celdaActual.getY()];
 		return celdaIzquierda;
 	}
 	
-	public Celda celdaDerecha(Celda celdaActual) 
-	{
+	public Celda celdaDerecha(Celda celdaActual) {
 		Celda celdaDerecha = null;
-		if(celdaActual.getX() < matrizCeldas.length-1)
-		{
+		if(celdaActual.getX() < matrizCeldas.length-1){
 			celdaDerecha = matrizCeldas[celdaActual.getX() + 1][celdaActual.getY()];
 		}
 		return celdaDerecha;
 	}
 	
 	public GameObjectGrafico[][] getGraficos() {
-		
 		GameObjectGrafico[][] toReturn = new GameObjectGrafico[matrizCeldas.length][matrizCeldas[0].length];
 		for(int i = 0; i < matrizCeldas.length; i++) {
 			for (int j = 0; j < matrizCeldas[0].length; j++) {
@@ -88,7 +76,6 @@ public class Mapa
 	}
 	
 	public void agregarDefensa(Defensa defensa, int x, int y){
-		
 		if(matrizDefensa[x][y] == null) {
 			matrizDefensa[x][y]= defensa;
 		}
@@ -96,7 +83,6 @@ public class Mapa
 	}
 	
 	public boolean agregarEnemigo(Enemigo obj, int x, int y) {
-		
 		if(matrizEnemigo[x][y] == null) {
 			matrizEnemigo[x][y] = obj;
 			obj.setCelda(matrizCeldas[x][y]);
@@ -110,10 +96,8 @@ public class Mapa
 		juego.agregarDisparo(disparo, x, y);
 	}
 	
-	
 	//------MOVER
-	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) 
-	{	
+	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) {	
 		if (x==0)
 			juego.gameOver();
 		matrizEnemigo[x][y] = matrizEnemigo[xAnterior][yAnterior];
@@ -127,19 +111,15 @@ public class Mapa
 		return defensa;
 	}
 	
-	
-	public  void eliminarEnemigo(int x, int y)
-	{
+	public  void eliminarEnemigo(int x, int y){
 		matrizEnemigo[x][y] = null;
 	}
 
 	public Juego getJuego(){
-		
 		return juego;
 	}
 	
 	public Enemigo getEnemigo(Celda c){
-		
 		return matrizEnemigo[c.getX()][c.getY()];
 	}
 	
@@ -147,11 +127,8 @@ public class Mapa
 		return matrizDefensa[x][y];
 	}
 	
-	
 	public List<ObjetoMovil> adyEnemigos(Celda celdaOriginal) {
-
 		List<ObjetoMovil> lista = new ArrayList<ObjetoMovil>();
-		
 		for (int x = celdaOriginal.getX()-1; x < celdaOriginal.getX()+2; x++)
 			for (int y=celdaOriginal.getY()-1; y<celdaOriginal.getY()+2; y++)
 				if ((x < matrizEnemigo.length && x >= 0) && (y <matrizEnemigo[0].length && y >= 0))			
@@ -160,11 +137,8 @@ public class Mapa
 		return lista;		
 	}
 
-	
 	public List<Defensa> adyDefensa(Celda celdaOriginal) {
-
 		List<Defensa> lista = new ArrayList<Defensa>();
-		
 		for (int x = celdaOriginal.getX()-1; x < celdaOriginal.getX()+2; x++)
 			for (int y=celdaOriginal.getY()-1; y<celdaOriginal.getY()+2; y++)
 				if ((x < matrizDefensa.length && x >= 0) && (y <matrizDefensa[0].length && y >= 0))			
@@ -175,7 +149,6 @@ public class Mapa
 
 	public void moverGrafico(ObjetoMovil objeto) {
 		juego.moverGrafico(objeto);
-		
 	}
 	
 	public void setDoble(Defensa d, int x, int y){
@@ -184,5 +157,4 @@ public class Mapa
 		}
 		d.setCelda2(matrizCeldas[x][y]);
 	}
-
 }

@@ -45,8 +45,7 @@ import javax.swing.SwingConstants;
 
 public class Ventana implements Runnable{
 
-private JFrame frame;
-	
+	private JFrame frame;
 	private Juego juego;
 	
 	private final int ALTO = 8;
@@ -94,7 +93,6 @@ private JFrame frame;
 	private JButton botonCampo;
 	private JButton botonBomba;
 	private JLabel lblPuntaje;
-	private JLabel lblMonedas;
 	private JLabel lblMonedas_1;
 	private JButton botonRoca;
 	private JButton botonTrinchera;
@@ -239,7 +237,6 @@ private JFrame frame;
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				//FabricaDeDefensa.getInstancia().construirBomba();
 				juego.restarBomba();
 				if(!juego.hayBombas()) {
 					botonBomba.setEnabled(false);
@@ -276,8 +273,7 @@ private JFrame frame;
 		
 		botonTrinchera = new JButton("trinchera");
 		botonTrinchera.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) 
-			{
+			public void actionPerformed(ActionEvent e) {
 				FabricaDeDefensa.getInstancia().construirTrinchera();
 			}
 		});
@@ -286,10 +282,8 @@ private JFrame frame;
 		frame.getContentPane().add(botonTrinchera);
 		
 		
-		botonCampo.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0) 
-			{
+		botonCampo.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
 				seUso=true;
 			}
 		});
@@ -302,58 +296,43 @@ private JFrame frame;
 		frame.getContentPane().add(labelFondo);
 		
 		///--- ACCIONES DE LOS BOTONES ----
-		botonYgritte.addActionListener(new ActionListener() 
- 		{
- 			public void actionPerformed(ActionEvent arg0) 
- 			{
+		botonYgritte.addActionListener(new ActionListener() {
+ 			public void actionPerformed(ActionEvent arg0) {
  				FabricaDeDefensa.getInstancia().construirYgritte(); 
  				juego.restarOro(costosDeDefensa.costoYgritte());	
- 					
  			}
  		});
 		
-		botonMountain.addActionListener(new ActionListener() 
- 		{
- 			public void actionPerformed(ActionEvent e) 
- 			{
+		botonMountain.addActionListener(new ActionListener() {
+ 			public void actionPerformed(ActionEvent e) {
  				FabricaDeDefensa.getInstancia().construirMountain();
  				juego.restarOro(costosDeDefensa.costoMountain());
  			}
  		});
 		
-		botonDragon.addActionListener(new ActionListener() 
- 		{
- 			public void actionPerformed(ActionEvent e) 
- 			{
+		botonDragon.addActionListener(new ActionListener() {
+ 			public void actionPerformed(ActionEvent e) {
  				FabricaDeDefensa.getInstancia().construirDragon();
  				juego.restarOro(costosDeDefensa.costoDragon());
- 					
  			}
  		});
 		
- 		botonInmaculado.addActionListener(new ActionListener()
- 		{
- 			public void actionPerformed(ActionEvent e)
- 			{
+ 		botonInmaculado.addActionListener(new ActionListener(){
+ 			public void actionPerformed(ActionEvent e){
  				FabricaDeDefensa.getInstancia().construirInmaculado();
  				juego.restarOro(costosDeDefensa.costoInmaculado());
- 					
  			}
  		});
 		
- 		botonGendry.addActionListener(new ActionListener() 
- 		{
- 			public void actionPerformed(ActionEvent e) 
- 			{
+ 		botonGendry.addActionListener(new ActionListener() {
+ 			public void actionPerformed(ActionEvent e) {
  				FabricaDeDefensa.getInstancia().construirGendry();
  				juego.restarOro(costosDeDefensa.costoGendry());
  			}
  		});
  		
- 		botonBronn.addActionListener(new ActionListener()
- 		{
- 			public void actionPerformed(ActionEvent arg0) 
- 			{
+ 		botonBronn.addActionListener(new ActionListener() {
+ 			public void actionPerformed(ActionEvent arg0) {
  				FabricaDeDefensa.getInstancia().construirBronn();
  				juego.restarOro(costosDeDefensa.costoBronn());
  			}
@@ -416,7 +395,6 @@ private JFrame frame;
  			}
  		});
 		
-
 		///---------------
 		juego = new Juego(this, ALTO, ANCHO);
 		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
@@ -438,12 +416,10 @@ private JFrame frame;
 	}
 	
 	public void puntaje(int puntaje){
-		
 		lblPuntaje.setText("Puntaje: "+puntaje);
 	}
 	
 	public void agregarObjetoMovil(int x, int y, GameObject obj) {
-		
 		JLabel labelEnemigo = new JLabel();
 		obj.getGrafico().setLabel(labelEnemigo);
 		ImageIcon icono = obj.getGrafico().getImagen();
@@ -470,7 +446,6 @@ private JFrame frame;
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -493,7 +468,6 @@ private JFrame frame;
 	
 	private void repintar() {
 		panelMapa.repaint();
-
 	}
 	
 	private JLabel buscarLabel(int x, int y, JPanel panel) {
@@ -525,7 +499,6 @@ private JFrame frame;
 		if (reply == JOptionPane.YES_OPTION) {
 			frame.getContentPane().removeAll();
 			frame.getContentPane().repaint();
-			
 			initialize();
 		}
 		else {
@@ -535,27 +508,18 @@ private JFrame frame;
 	}
 	
 	public void oroActual(int oro) {
-		lblMonedas_1.setText("Monedas: "+oro);
-		//btnJorgito.setEnabled((oro < costosDeDefensa.costoJorgito()) ? false : true);
-		
+		lblMonedas_1.setText("Monedas: "+oro);		
 		botonYgritte.setEnabled((oro < costosDeDefensa.costoYgritte()) ? false : true);
-		
 		botonMountain.setEnabled((oro < costosDeDefensa.costoMountain()) ? false : true); 
-		
 		botonDragon.setEnabled((oro < costosDeDefensa.costoDragon()) ? false : true);
-		
 		botonInmaculado.setEnabled((oro < costosDeDefensa.costoInmaculado()) ? false : true);
-		
 		botonGendry.setEnabled((oro < costosDeDefensa.costoGendry()) ? false : true);
-		
 		botonBronn.setEnabled((oro < costosDeDefensa.costoBronn()) ? false : true);
-		
 	}
 	
 	
 	public MouseListener getMouseListener() {
 		return new MouseListener() {
-
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				JLabel labelCelda = (JLabel) e.getComponent();
@@ -565,15 +529,14 @@ private JFrame frame;
 				{
 					
 					JLabel remover = buscarLabel(x, y, panelDefensa);
-					if(remover!=null){
+					if(remover!=null)
 						juego.eliminarDefensa(x, y);
-					}
+					
 					aEliminar=false;
 				}
 				else {
 					Defensa defensa = fabricaDeDefensa.getDefensa();
-					if(defensa != null) 
-					{
+					if(defensa != null) {
 						ImageIcon imagen = defensa.getGrafico().getImagen();
 						JLabel labelNuevo = new JLabel(imagen);
 						defensa.getGrafico().setLabel(labelNuevo);
@@ -587,28 +550,19 @@ private JFrame frame;
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
 			}
-			
 		};
 	}
 	
@@ -632,32 +586,22 @@ private JFrame frame;
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
 			}
 	
-			};
-			}
-
-
+		};
+	}
 
 	public void agregarPremioBomba(int x, int y) {
 		botonPremioBomba.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
@@ -672,7 +616,6 @@ private JFrame frame;
 	public void agregarPremioCuracion(int x, int y) {
 		botonPremioCuracion.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
 		panelCeldaPremios.add(botonPremioCuracion);
-		
 	}
 
 	public void agregarPremioOro(int x, int y) {
@@ -687,7 +630,5 @@ private JFrame frame;
 	}
 
 	public void agregarPremioCampoProtector(int x, int y) {
-		// TODO Auto-generated method stub
-		
 	}
 }

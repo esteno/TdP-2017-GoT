@@ -12,7 +12,6 @@ public class PremioDanioDoble implements Temporal {
 	private Juego juego;
 	
 	public PremioDanioDoble(Juego j) {
-		
 		juego=j;
 		danio=new EstadoDefensaDanioDoble();
 		j.modificarDefensa(danio);
@@ -21,7 +20,6 @@ public class PremioDanioDoble implements Temporal {
 	
 	@Override
 	public void accionarPorTiempo() {
-
 		defecto=new EstadoDefensaDefecto();
 		juego.modificarDefensa(defecto);
 	}

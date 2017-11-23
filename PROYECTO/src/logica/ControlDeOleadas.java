@@ -30,7 +30,6 @@ public class ControlDeOleadas implements Runnable {
 		listaInsercion = new ArrayList<Enemigo>();
 		listaEnemigos = new ArrayList<Enemigo>();
 		listaDescarte = new ArrayList<Enemigo>();
-		
 	}
 	
 	//Oleada Nueva
@@ -44,8 +43,6 @@ public class ControlDeOleadas implements Runnable {
 			try {
 				Thread.sleep(100);
 				
-				
-				
 				//Se inserta de a uno por vez si es posible por cada sleep
 				if(aInsertar < listaInsercion.size()) {
 					Enemigo enemigo = listaInsercion.get(aInsertar);
@@ -53,12 +50,10 @@ public class ControlDeOleadas implements Runnable {
 					int rand = (int) Math.floor(Math.random() * (alto - 1));
 					//Devuelve si el enemigo fue agregado
 					Boolean agregue = juego.agregarEnemigo(enemigo, juego.getAncho(), rand);
-					if(agregue) 
-					{
+					if(agregue) {
 						listaEnemigos.add(enemigo);
 						aInsertar++;
 					}
-					System.out.println("agregue "+agregue);
 				}
 				
 				//Enemigos a borrar
@@ -72,9 +67,8 @@ public class ControlDeOleadas implements Runnable {
 				
 				//Enemigos a mover
 				for(Enemigo enemigo : listaEnemigos) {
-					if(enemigo.getPuntosVida() <= 0) {
+					if(enemigo.getPuntosVida() <= 0) 
 						listaDescarte.add(enemigo);
-					}
 					else {
 						enemigo.atacar();
 						enemigo.avanzar();
@@ -83,7 +77,6 @@ public class ControlDeOleadas implements Runnable {
 				
 				//Si no hay mas enemigos y aun hay oleadas, se crea una nueva
 				if(listaEnemigos.size() == 0 && cantOleadas != 0) {
-					System.out.println("nueva oleada");
 					Thread.sleep(2000);
 					juego.sigOleada();
 				}
@@ -93,11 +86,8 @@ public class ControlDeOleadas implements Runnable {
 				}
 			}
 			catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		}
 	}
-
 }

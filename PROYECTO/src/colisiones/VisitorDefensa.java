@@ -24,7 +24,7 @@ public class VisitorDefensa extends Visitor
 	     @Override
 	     public void visitarDefensa(Defensa d)
 	     { 
-	    	System.out.println("Un defensor ha visitado un defensor. No hay accion."); 
+	    	///Un defensor ha visitado un defensor. No hay accion 
 	     }
 	 	 
 	     

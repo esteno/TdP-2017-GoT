@@ -1,12 +1,7 @@
 package enemigos;
 
-public class Dragon extends EnemigoRango
-{
+public class Dragon extends EnemigoRango {
+	public Dragon() {
 
-	public Dragon() 
-	{
-		// recibia un String path
-		// TODO Auto-generated constructor stub
 	}
-
 }

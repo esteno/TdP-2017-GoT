@@ -22,12 +22,10 @@ public class CampoProtector extends Defensa {
 	@Override
 	public void atacar() {
 		personaje.atacar();
-
 	}
 	
 	public void destruir() {
 		control.destruir();
 	}
-	
 	
 }

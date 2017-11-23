@@ -33,7 +33,5 @@ public class Premios {
 			case 5:
 				juego.agregarPremioCampoProtector(x, y);
 		}
-				
 	}
-
 }

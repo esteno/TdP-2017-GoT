@@ -8,9 +8,7 @@ import colisiones.*;
 import celdas.Celda;
 import logica.FabricaObjetoGrafico;
 
-public abstract class GameObject
-{
-
+public abstract class GameObject{
 	//atributos
 	protected GameObjectGrafico grafico;
 	protected Celda celda;
@@ -24,41 +22,30 @@ public abstract class GameObject
     
     //Contador que se va decrementando, cuando llega a 0 la gameObject ataca.
     protected int proximoAtaque = 0;
-
 	
 	//metodos
-	public GameObjectGrafico getGrafico()
-	{
+	public GameObjectGrafico getGrafico(){
 		return grafico;
 	}
 	
-	public void setCelda(Celda celdaNueva)
-	{
+	public void setCelda(Celda celdaNueva){
 		celda = celdaNueva;
 	}
 	
-	
-	
 	public abstract void aceptar(Visitor v);
 	
+	public abstract void atacar();
 	
-	public Celda getCelda()
-	{ 
+	public Celda getCelda(){ 
 		return celda;
 	}
 	
-	
-	public int getFuerzaImpacto()
-	{
+	public int getFuerzaImpacto(){
 		return fuerzaImpacto;
 	}
 	
-	public int getPuntosVida()
-	{
+	public int getPuntosVida(){
 		return puntosVida;
 	}
-	
-	
 
-	public abstract void atacar();
 }

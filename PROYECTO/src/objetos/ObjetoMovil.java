@@ -12,7 +12,5 @@ public abstract class ObjetoMovil extends GameObject
 	public int getVelocidad(){
 		return velocidad;
 	}
-	
-	
-	
+
 }

@@ -102,19 +102,16 @@ public class Celda
 	}
 
 	public List<ObjetoMovil> adyEnemigos() {
-		
 		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
 		l=mapa.adyEnemigos(this);
 		return l;
 	}
 	
 	public List<Defensa> adyDefensa() {
-		
 		List<Defensa> l=new ArrayList<Defensa>();
 		l=mapa.adyDefensa(this);
 		return l;
 	}
-
 
 	public Mapa getMapa() {
 		return mapa;
@@ -122,17 +119,13 @@ public class Celda
 
 	public void moverGrafico(ObjetoMovil objeto) {
 		mapa.moverGrafico(objeto);
-		
 	}
 
 	public void destruirDefensa() {
 		mapa.eliminarDefensa(x, y);
-		
 	}
 	
 	public void setDoble(Defensa d, int x, int y){
 		mapa.setDoble(d,x,y);
 	}
-
-
 }

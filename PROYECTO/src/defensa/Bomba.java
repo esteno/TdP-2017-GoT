@@ -18,14 +18,12 @@ public class Bomba implements Temporal{
 	private int y;
 	private Celda celda;
 	
-	public Bomba(int a, int b,Mapa p) {	
-		
+	public Bomba(int a, int b,Mapa p){
 		x=a;
 		y=b;
 		celda= new Celda(p,x,y);
 		timer  = new Timer(this, 3000);
 	}
-	
 	
 	public void accionarPorTiempo() {
 		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
@@ -39,9 +37,7 @@ public class Bomba implements Temporal{
 			def.aceptar(v);
 	}
 
-	public int getFuerzaImpacto() {
-
+	public int getFuerzaImpacto(){
 		return fuerzaImpacto;
 	}
-	
 }

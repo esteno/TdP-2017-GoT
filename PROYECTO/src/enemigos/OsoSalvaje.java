@@ -1,10 +1,8 @@
 package enemigos;
 
-public class OsoSalvaje extends EnemigoCuerpo
-{
+public class OsoSalvaje extends EnemigoCuerpo {
 
-	public OsoSalvaje()
-	{
+	public OsoSalvaje(){
 		grafico = fabricaGrafica.construirOsoSalvaje();
 		fuerzaImpacto = 1000;
 	    velocidad = contVelocidad = -30;

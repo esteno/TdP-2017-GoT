@@ -30,7 +30,6 @@ public class Juego
 	private Puntaje puntaje;
 	//Objeto que mantiene el mapa
 	private Mapa mapa;
-	
 	//Alto del juego
 	private int alto;
 	//Ancho del juego
@@ -55,12 +54,9 @@ public class Juego
 	//Objeto que transforma un archivo de texto en una matriz de celdas
 	private Parser parser;
 	
-	
 	private PremioDanioDoble b;
 	
-	
-	public Juego(Ventana ventana, int alto, int ancho) 
-	{
+	public Juego(Ventana ventana, int alto, int ancho) {
 		this.alto = alto;
 		this.ancho = ancho;
 		this.gui = ventana;
@@ -70,8 +66,6 @@ public class Juego
 		niveles = new Niveles();
 		parser = new Parser(mapa, alto, ancho);
 		premios = new Premios(this);
-		
-		
 		
 		controlDeOleadas = new ControlDeOleadas(this, alto);
 		controlDisparo = new ControlDisparo(this);
@@ -99,26 +93,20 @@ public class Juego
 		controlDeOleadas.setOleada(nivelActual.getOleada());
 	}
 	
-	
-	
 	//-----------AGREGAR
 	//Agrega la defensa guardada en la fabrica en la pos x,y
-	public void agregarDefensa(int x, int y)
-	{
+	public void agregarDefensa(int x, int y){
 		mapa.agregarDefensa(FabricaDeDefensa.getInstancia().getDefensa(), x, y);
 		controlDeDefensa.agregarDefensa(FabricaDeDefensa.getInstancia().getDefensa());
 		FabricaDeDefensa.getInstancia().reset();
 	}
 	
-	public void agregarDefensa(Defensa def, int x, int y)
-	{
-		
+	public void agregarDefensa(Defensa def, int x, int y){
 		mapa.agregarDefensa(def, x, y);
 		controlDeDefensa.agregarDefensa(def);
 	}
 
-	public boolean agregarEnemigo(Enemigo obj, int x, int y)
-	{
+	public boolean agregarEnemigo(Enemigo obj, int x, int y){
 		boolean puedoAgregar = mapa.agregarEnemigo(obj, x, y);
 		if(puedoAgregar)
 			gui.agregarObjetoMovil(x, y, obj);
@@ -128,50 +116,30 @@ public class Juego
 	public void agregarDisparo(Disparo disparo, int x, int y) {
 		controlDisparo.agregarDisparo(disparo);
 		gui.agregarObjetoMovil(x, y, disparo);
-		
 	}
-	
 	
 	//---------ELIMINAR
 	//Elimina una defensa de mapa
-	public void eliminarDefensa(int x,int y )
-	{
+	public void eliminarDefensa(int x,int y ){
 	    Defensa defensa = mapa.eliminarDefensa(x,y);
 	    controlDeDefensa.removerDefensa(defensa);
 	}
 	
-	
-
-	
-	
-	public void moverGrafico(ObjetoMovil o)
-	{
+	public void moverGrafico(ObjetoMovil o){
 		gui.moverGrafico(o,false);
 	}
 	
-	/**
-	//Eleimina graficamente un ObjetoMovil
-	public void eliminarObjetoMovil(int x, int y)
-	{
-		gui.eliminarMovil(x, y);
-	}
-	**/
-	
 	//Suma un puntaje
-	public void sumarPuntaje(int p) 
-	{
+	public void sumarPuntaje(int p) {
 		puntaje.sumarPuntaje(p);
 		gui.puntaje(puntaje.getPuntaje());
 	}
-	
 	
 	public int getAncho() {
 		return ancho - 1;
 	}
 
-	
 	public void sumarOro(int oro) {
-		
 		puntaje.sumarOro(oro);
 		gui.oroActual(puntaje.getOro());
 	}
@@ -185,25 +153,19 @@ public class Juego
 	//Dibuja una defense en x,y
 	public void dibujarDefensa(int x, int y, GameObject obj) {
 		gui.dibujarDefensa(x, y, obj);
-		
 	}
-
-
 
 	public void gameOver() {
 		gui.gameOver();
-		
 	}
 	
 	//Retorna una matriz de celdas que representa el mapa
-	public GameObjectGrafico[][] getCeldasGraficas()
-	{
+	public GameObjectGrafico[][] getCeldasGraficas(){
 		return mapa.getGraficos();
 	}
 	
 	// modificacion para Premios de tipo Magia Temporal
-	public List<Defensa> getDefensas()
-	{
+	public List<Defensa> getDefensas(){
 		return controlDeDefensa.getListaDefensa();
 	}
 	
@@ -219,7 +181,6 @@ public class Juego
 	public boolean hayBombas() {
 		return puntaje.hayBombas();
 	}
-	
 	
 	public boolean hayBarricada() {
 		return puntaje.hayBarricadas();
@@ -242,70 +203,53 @@ public class Juego
 	}
 
 	public void detonarBomba(int x, int y) {
-
 		restarBomba();
 		Bomba b=new Bomba(x,y,mapa);
-		
-		
 	}
 
 	public void agregarPremioBomba(int x, int y) {
 		gui.agregarPremioBomba(x, y);
-		
 	}
 
 	public void agregarPremioBarricada(int x, int y) {
 		gui.agregarPremioBarricada(x, y);
-		
 	}
 
 	public void agregarPremioOro(int x, int y) {
 		gui.agregarPremioOro(x, y);
-		
 	}
 
 	public void agregarPremioCuracion(int x, int y) {
 		gui.agregarPremioCuracion(x, y);
-		
 	}
 
 	public void agregarPremioDanioDoble(int x, int y) {
 		gui.agregarPremioDanioDoble(x, y);
-		
 	}
 	public void agregarPremioCampoProtector(int x, int y) {
 		gui.agregarPremioCampoProtector(x, y);
-		
 	}
 
 	public void curarDefensas() {
 		new PremioCuracion(this);
-		
 	}
 
 	public void danioDoble() {
 		new PremioDanioDoble(this);
-		
 	}
 
 	public void modificarDefensa(EstadoMultiplicador estado) {
-
 		controlDeDefensa.modificarEstado(estado);
-		
 	}
 	
 	public void curar() {
-	
 		controlDeDefensa.curar();
 	}
 
 	public boolean crearCampo(int x, int y) {
-
 		Defensa d=mapa.getEstatico(x, y);
 		if(d!=null)
 			new PremioCampoProtector(d);
 		return (d!=null);
 	}
-
-	
 }

@@ -11,30 +11,19 @@ public class VisitorEnemigo extends Visitor
 {
 	protected Enemigo miEnemigo;
 	
-	
 	//constructor
-	public VisitorEnemigo(Enemigo g)
-	{
+	public VisitorEnemigo(Enemigo g){
 		miEnemigo=g;
 	}
-	
-	
+
 	//metodos
 	@Override
-	public void visitarDefensa(Defensa d)
-    { 
-		d.recibirAtaque(miEnemigo.getFuerzaImpacto()); //de miEnemigo;
-		System.out.println("Yo enemigo recibi una defensa.");
+	public void visitarDefensa(Defensa d){
+		d.recibirAtaque(miEnemigo.getFuerzaImpacto());
 	}
 	
 	@Override
-    public void visitarEnemigo(Enemigo e)
-    {
-    	System.out.println("Un enemigo ha visitado un enemigo. No hay accion.");
+    public void visitarEnemigo(Enemigo e){
+    	///Un enemigo ha visitado un enemigo. No hay accion
     }
-
-
-
-
-	
 }

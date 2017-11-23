@@ -23,37 +23,28 @@ public abstract class Defensa extends GameObject
      
      protected EstadoMultiplicador estado = new EstadoDefensaDefecto();
      
-     
-     public void aceptar(Visitor v)
-     {
+     public void aceptar(Visitor v){
     	 v.visitarDefensa(this);
-     }
+    }
   
-     
      public void setVida(int i) {
-    	 
     	 puntosVida=i;
      }
      
-     public void atacar() {
-    	 
-     }
+     public abstract void atacar();
      
      public void cambiarEstado(EstadoMultiplicador nuevoEstado) {
      	estado = nuevoEstado;
      }
      
- 	public int getPrecio()
- 	{
+ 	public int getPrecio(){
  		return precio;
  	}
  	
-	public void recibirAtaque(int i)
-	{
+	public void recibirAtaque(int i){
 		puntosVida -= i;
-		if(puntosVida < 0) {
+		if(puntosVida < 0) 
 			destruir();
-		}
 	}
 	
 	public void destruir() {
@@ -62,7 +53,6 @@ public abstract class Defensa extends GameObject
 	}
 	
 	public void curacion() {
-		
 	}
 	
 	public void setCelda2(Celda c){}

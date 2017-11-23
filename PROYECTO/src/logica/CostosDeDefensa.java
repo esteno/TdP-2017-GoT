@@ -43,6 +43,4 @@ public class CostosDeDefensa {
 	public int costoBronn() {
 		return COSTO_BRONN;
 	}
-	
-
 }

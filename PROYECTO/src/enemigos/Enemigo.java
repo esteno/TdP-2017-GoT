@@ -7,8 +7,7 @@ import estadoMultiplicador.EstadoMultiplicador;
 import objetos.GameObject;
 import objetos.ObjetoMovil;
 
-public abstract class Enemigo extends ObjetoMovil
-{
+public abstract class Enemigo extends ObjetoMovil{
 	
 	//atributos
 	//Estado que multiplica la vida y el ataque
@@ -18,7 +17,6 @@ public abstract class Enemigo extends ObjetoMovil
 	protected Visitor visitor;
 	protected int puntos; //puntos que devuelve al ser destruido
 	protected int oro;
-	
 	protected boolean atacando=false;
 	
 	public Enemigo() {
@@ -26,12 +24,9 @@ public abstract class Enemigo extends ObjetoMovil
 	}
 	
 	//La fuerza de ataque es la fuerza de impacto por el estado de ataque, redondeado a un entero.
-	public int getFuerzaImpacto()
-	{
+	public int getFuerzaImpacto(){
 		return (int) Math.floor(fuerzaImpacto*estado.multiplicadorAtaque());
 	}
-	
- 
 	
 	public void destruir() 	{
 		//Los puntos de vida se ponen en cero para poder ser removida de la lista de control
@@ -47,11 +42,9 @@ public abstract class Enemigo extends ObjetoMovil
 	public void aceptar(Visitor v){
 		v.visitarEnemigo(this);
 	}
+	
 	@Override
-	public void avanzar() 
-	{
-		// TODO Auto-generated method stub
-
+	public void avanzar() {
 		if(!atacando)
 			if(!grafico.Lock(true)){
 			//Si la celda es nula quiere decir que llego al borde izquierdo del mapa.
@@ -67,42 +60,30 @@ public abstract class Enemigo extends ObjetoMovil
 						celda.moverEnemigo(xAnterior, yAnterior);
 						contVelocidad = (int) Math.floor(velocidad*celda.getMultiVelocidad());
 					}
-					else {
+					else
 						//descuenta de contador
 						contVelocidad += celda.getMultiVelocidad();
-					}
 				}
 				else 
 					destruir();
 			}
 	}
 	
-	
-
-	
 	public void setEstado(EstadoMultiplicador estado) {
 		this.estado = estado;
-		
 	}
 	
-	public void recibirAtaque(int i)
-	{
+	public void recibirAtaque(int i){
 		puntosVida -= i;
-		if(puntosVida < 0) {
+		if(puntosVida < 0)
 			destruir();
-		}
 	}
 	
-	
-	
-	public Visitor getVisitor()
-	{
+	public Visitor getVisitor(){
 		return visitor;
 	}
 
 	public int getOro() {
-		
 		return oro;
 	}
-
 }

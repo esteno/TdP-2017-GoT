@@ -1,7 +1,6 @@
 package obstaculo;
 
-public class Muro extends Obstaculo
-{
+public class Muro extends Obstaculo{
 
 	public Muro()
 	{	
@@ -10,7 +9,6 @@ public class Muro extends Obstaculo
 		proximoAtaque = 0;
 		puntosVida = 110;
 		fuerzaImpacto = 0;
-
 		grafico = fabricaGrafica.construirGraficoMuro();
 	}
 }
