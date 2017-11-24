@@ -34,7 +34,9 @@ public abstract class Defensa extends GameObject
      public abstract void atacar();
      
      public void cambiarEstado(EstadoMultiplicador nuevoEstado) {
-     	estado = nuevoEstado;
+    	 System.out.println("cambio de estado anterior "+estado.multiplicadorAtaque());
+    	 estado = nuevoEstado;
+    	 System.out.println("cambio de estado nuevo "+estado.multiplicadorAtaque()+"\n-----");
      }
      
  	public int getPrecio(){
