@@ -49,6 +49,8 @@ public class Juego
 	//Nivel actual
 	private Nivel nivelActual;
 	
+	private boolean bombaCreada;
+	
 	private Premios premios;
 	
 	//Objeto que transforma un archivo de texto en una matriz de celdas
@@ -175,6 +177,7 @@ public class Juego
 	}
 	
 	public void restarBomba() {
+		bombaCreada=true;
 		puntaje.restarBomba();
 	}
 	
@@ -203,8 +206,13 @@ public class Juego
 	}
 
 	public void detonarBomba(int x, int y) {
-		restarBomba();
-		Bomba b=new Bomba(x,y,mapa);
+		bombaCreada=false;
+		new Bomba(x,y,mapa);
+	}
+	
+	public boolean seCreoBomba() {
+		return bombaCreada;
+		
 	}
 
 	public void agregarPremioBomba(int x, int y) {

@@ -534,7 +534,16 @@ public class Ventana implements Runnable{
 					
 					aEliminar=false;
 				}
-				else {
+				else if (juego.seCreoBomba()) {
+					ImageIcon img=new ImageIcon ("res/imagenes/premios/iconoBomba.png");
+					JLabel nuevo=new JLabel(img);
+					nuevo.setBounds(labelCelda.getBounds().x,labelCelda.getBounds().y,img.getIconWidth(),img.getIconHeight());
+					panelEnemigos.add(nuevo);
+					System.out.println("va a explotar la bomba");
+					juego.detonarBomba(x,y);
+					System.out.println("boom");					
+				}
+				else{
 					Defensa defensa = fabricaDeDefensa.getDefensa();
 					if(defensa != null) {
 						ImageIcon imagen = defensa.getGrafico().getImagen();
@@ -566,42 +575,7 @@ public class Ventana implements Runnable{
 		};
 	}
 	
-	public void habilitarBomba() {
-		botonBomba.setEnabled(true);
-	}
-	
-	public MouseListener listenBomba() {
-		return new MouseListener() {
 
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				JLabel labelCelda = (JLabel) e.getComponent();
-				labelCelda.setIcon ( new ImageIcon("/res/imagenes/premios/objetosPreciosos/iconoBomba.png"));
-				panelMapa.add(labelCelda);
-				int x= labelCelda.getBounds().x / ANCHO_IMG;
-				int y= labelCelda.getBounds().y / ALTO_IMG;
-				juego.detonarBomba(x,y);
-				repintar();
-				}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-			}
-	
-		};
-	}
 
 	public void agregarPremioBomba(int x, int y) {
 		botonPremioBomba.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);

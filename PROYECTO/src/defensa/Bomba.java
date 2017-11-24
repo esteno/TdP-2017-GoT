@@ -28,7 +28,7 @@ public class Bomba implements Temporal{
 	public void accionarPorTiempo() {
 		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
 		List<Defensa> d=new ArrayList<Defensa>();
-		l=celda.adyEnemigos();
+		l= celda.adyEnemigos();
 		VisitorBomba v = new VisitorBomba(this);
 		for (ObjetoMovil o:l)
 			o.aceptar(v);	
