@@ -1,6 +1,6 @@
 package defensa;
 
-public class Inmaculado extends DefensaRango {
+public class Inmaculado extends DefensaCuerpo {
 
 	public Inmaculado() {
 		velocidadAtaque = 7;

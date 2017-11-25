@@ -8,8 +8,8 @@ import objetos.ObjetoMovil;
 
 public class DisparoDefensa extends Disparo {
 
-	public DisparoDefensa(double danio) {
-		super(danio);
+	public DisparoDefensa(String path, double danio) {
+		super(path,danio);
 		velocidad = 4;
 		visitor = new VisitorDisparoDefensa(this);
 	}

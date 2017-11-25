@@ -8,5 +8,6 @@ public class Ygritte extends DefensaRango {
 		puntosVida = puntosVidaInicio = 250;
 		fuerzaImpacto = fuerzaImpactoInicio = 30;
 		grafico = fabricaGrafica.construirGraficoYgritte();
+		pathDisparo="flecha.png";
 	}
 }

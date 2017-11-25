@@ -9,5 +9,6 @@ public class Bronn extends DefensaRango
 		puntosVida = 300;
 		fuerzaImpacto = 45;
 		grafico = fabricaGrafica.construirGraficoBronn();
+		pathDisparo = "flecha2.png";
 	}
 }

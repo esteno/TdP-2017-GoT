@@ -130,8 +130,8 @@ public class FabricaObjetoGrafico {
 
 	//DISPARO
 	
-	public GameObjectGrafico construirGraficoDisparo() {
-		return new GameObjectGrafico("res/imagenes/disparo/disparo.png");
+	public GameObjectGrafico construirGraficoDisparo(String path) {
+		return new GameObjectGrafico("res/imagenes/disparo/"+path);
 	}
 
 	public GameObjectGrafico construirGraficoMina() {

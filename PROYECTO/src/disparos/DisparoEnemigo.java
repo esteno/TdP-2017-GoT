@@ -8,8 +8,8 @@ import defensa.Defensa;
 
 public class DisparoEnemigo extends Disparo {
 
-	public DisparoEnemigo(double danio) {
-		super(danio);
+	public DisparoEnemigo(String path,double danio) {
+		super(path,danio);
 		velocidad = -8;
 		visitor = new VisitorDisparoEnemigo(this);
 	}
