@@ -382,6 +382,7 @@ public class Ventana implements Runnable{
  		botonPremioDanioDoble.setMargin(new Insets(0, 0, 0, 0));
  		botonPremioDanioDoble.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
+ 				System.out.println("GUI DD");
  				juego.danioDoble();
  				panelCeldaPremios.remove(botonPremioDanioDoble);
  			}

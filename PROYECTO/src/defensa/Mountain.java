@@ -11,8 +11,8 @@ public class Mountain extends DefensaCuerpo {
 	public Mountain() {
 		velocidadAtaque = 2;
 		proximoAtaque = 0;
-		puntosVida = 500;
-		fuerzaImpacto = 70;
+		puntosVida = puntosVidaInicio = 500;
+		fuerzaImpacto = fuerzaImpactoInicio = 70;
 		grafico = fabricaGrafica.construirGraficoMountain();
 	}
 

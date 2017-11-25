@@ -66,8 +66,10 @@ public class ControlDeDefensa implements Runnable {
 	}
 
 	public void modificarEstado(EstadoMultiplicador estado) {
-		for (Defensa d:listaDefensa)
+		for (Defensa d:listaDefensa) {
+			System.out.println("cambiar estado "+d);
 			d.cambiarEstado(estado);
+		}
 	}
 
 	public void curar() {

@@ -243,10 +243,12 @@ public class Juego
 	}
 
 	public void danioDoble() {
+		System.out.println("Juego DD");
 		new PremioDanioDoble(this);
 	}
 
 	public void modificarDefensa(EstadoMultiplicador estado) {
+		System.out.println("juego modificarDefensa");
 		controlDeDefensa.modificarEstado(estado);
 	}
 	
