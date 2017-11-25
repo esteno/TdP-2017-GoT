@@ -19,6 +19,10 @@ public abstract class Enemigo extends ObjetoMovil{
 	protected int oro;
 	protected boolean atacando=false;
 	
+	protected Celda celda2;
+	 
+	 
+	
 	public Enemigo() {
 		visitor = new VisitorEnemigo(this);
 	}
@@ -85,5 +89,10 @@ public abstract class Enemigo extends ObjetoMovil{
 
 	public int getOro() {
 		return oro;
+	}
+
+	public void setCelda2(Celda c) {
+		// TODO Auto-generated method stub
+			 celda2 = c;
 	}
 }

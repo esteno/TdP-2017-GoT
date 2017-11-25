@@ -7,6 +7,7 @@ import ObjetoDeMapa.ObjetoDeMapa;
 import defensa.Defensa;
 import disparos.*;
 import enemigos.Enemigo;
+import enemigos.Gigante;
 import logica.FabricaObjetoGrafico;
 import mapa.Mapa;
 import objetos.GameObject;
@@ -128,4 +129,11 @@ public class Celda
 	public void setDoble(Defensa d, int x, int y){
 		mapa.setDoble(d,x,y);
 	}
+
+	public void setDoble(Enemigo e, int x2, int y2) {
+		// TODO Auto-generated method stub
+		mapa.setDoble(e,x,y);
+	}
+	
+	
 }

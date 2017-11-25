@@ -10,6 +10,7 @@ import disparos.Disparo;
 import disparos.DisparoEnemigo;
 import disparos.DisparoDefensa;
 import enemigos.Enemigo;
+import enemigos.Gigante;
 import logica.FabricaDeDefensa;
 import logica.Juego;
 import objetos.*;
@@ -89,6 +90,18 @@ public class Mapa
 		d.setCelda2(matrizCeldas[x][y]);
 	}
 	
+	
+	
+	public void setDoble(Enemigo e , int x, int y)
+	{
+		// TODO Auto-generated method stub
+		if (matrizEnemigo[x][y] == null)
+		{
+			matrizEnemigo[x][x] = e;
+		}
+		e.setCelda2(matrizCeldas[x][y]);
+	}
+	
 	public boolean agregarEnemigo(Enemigo obj, int x, int y) {
 		if(matrizEnemigo[x][y] == null) {
 			matrizEnemigo[x][y] = obj;
@@ -161,5 +174,7 @@ public class Mapa
 	public void moverGrafico(ObjetoMovil objeto) {
 		juego.moverGrafico(objeto);
 	}
+
+	
 
 }
