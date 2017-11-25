@@ -3,8 +3,11 @@ package defensa;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JLabel;
+
 import celdas.Celda;
 import colisiones.VisitorBomba;
+import logica.Juego;
 import logica.Temporal;
 import logica.Timer;
 import objetos.ObjetoMovil;
@@ -17,11 +20,15 @@ public class Bomba implements Temporal{
 	private int x;
 	private int y;
 	private Celda celda;
+	private JLabel label;
+	private Juego j;
 	
-	public Bomba(int a, int b,Mapa p){
+	public Bomba(int a, int b,Mapa p, Juego juego, JLabel nuevo){
 		x=a;
 		y=b;
 		celda= new Celda(p,x,y);
+		label=nuevo;
+		j=juego;
 		timer  = new Timer(this, 3000);
 	}
 	
@@ -35,6 +42,7 @@ public class Bomba implements Temporal{
 		d= celda.adyDefensa();
 		for (Defensa def:d)
 			def.aceptar(v);
+		j.eliminarBomba(label);
 	}
 
 	public int getFuerzaImpacto(){

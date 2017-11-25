@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 import celdas.Celda;
 import defensa.*;
@@ -205,9 +206,13 @@ public class Juego
 		premios.crearPremio(x, y);
 	}
 
-	public void detonarBomba(int x, int y) {
+	public void detonarBomba(int x, int y,JLabel nuevo){
 		bombaCreada=false;
-		new Bomba(x,y,mapa);
+		new Bomba(x,y,mapa,this,nuevo);
+	}
+	
+	public void eliminarBomba(JLabel label) {
+		gui.eliminarLabel(label);
 	}
 	
 	public boolean seCreoBomba() {
@@ -262,4 +267,5 @@ public class Juego
 			new PremioCampoProtector(d);
 		return (d!=null);
 	}
+
 }

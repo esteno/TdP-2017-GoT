@@ -541,8 +541,8 @@ public class Ventana implements Runnable{
 					nuevo.setBounds(labelCelda.getBounds().x,labelCelda.getBounds().y,img.getIconWidth(),img.getIconHeight());
 					panelEnemigos.add(nuevo);
 					System.out.println("va a explotar la bomba");
-					juego.detonarBomba(x,y);
-					System.out.println("boom");					
+					juego.detonarBomba(x,y,nuevo);
+					System.out.println("boom");
 				}
 				else{
 					Defensa defensa = fabricaDeDefensa.getDefensa();
@@ -576,7 +576,10 @@ public class Ventana implements Runnable{
 		};
 	}
 	
-
+	public void eliminarLabel(JLabel label) {
+		
+		panelEnemigos.remove(label);
+	}
 
 	public void agregarPremioBomba(int x, int y) {
 		botonPremioBomba.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
