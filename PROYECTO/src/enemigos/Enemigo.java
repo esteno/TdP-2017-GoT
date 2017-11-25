@@ -55,18 +55,36 @@ public abstract class Enemigo extends ObjetoMovil{
 			Celda celdaNueva = celda.celdaIzquierda();
 				if(celdaNueva != null) 	{
 					//Si ya se puede mover y no hay nada en la celda adyacente se mueve
-					if(contVelocidad >= 0 && celdaNueva.getEnemigo() == null){
-						//Guarda la posicion acutal
-						int xAnterior = celda.getX();
-						int yAnterior = celda.getY();
-						celda = celdaNueva;
-						grafico.setBloqueado(true);
-						celda.moverEnemigo(xAnterior, yAnterior);
-						contVelocidad = (int) Math.floor(velocidad*celda.getMultiVelocidad());
-					}
-					else
-						//descuenta de contador
-						contVelocidad += celda.getMultiVelocidad();
+					if(celda2==null){
+						if(contVelocidad >= 0 && celdaNueva.getEnemigo() == null){
+							//Guarda la posicion acutal
+							int xAnterior = celda.getX();
+							int yAnterior = celda.getY();
+							celda = celdaNueva;
+							grafico.setBloqueado(true);
+							celda.moverEnemigo(xAnterior, yAnterior);
+							contVelocidad = (int) Math.floor(velocidad*celda.getMultiVelocidad());
+						}
+						else
+							//descuenta de contador
+							contVelocidad += celda.getMultiVelocidad();
+						}
+					else{
+						Celda celdaNueva2 = celda2.celdaIzquierda();
+						if(contVelocidad >= 0 && celdaNueva.getEnemigo() == null && celdaNueva2.getEnemigo() == null){
+							//Guarda la posicion acutal
+							int xAnterior = celda.getX();
+							int yAnterior = celda.getY();
+							celda = celdaNueva;
+							celda2 = celdaNueva2;
+							grafico.setBloqueado(true);
+							celda.moverEnemigo(xAnterior, yAnterior);
+							contVelocidad = (int) Math.floor(velocidad*celda.getMultiVelocidad());
+						}
+						else
+							//descuenta de contador
+							contVelocidad += celda.getMultiVelocidad();
+						}
 				}
 				else 
 					destruir();

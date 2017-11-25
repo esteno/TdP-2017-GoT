@@ -124,6 +124,10 @@ public class Mapa
 		matrizEnemigo[xAnterior][yAnterior] = null;
 		moverGrafico(matrizEnemigo[x][y]);
 	}
+	public void moverEnemigoDoble(int x, int y, int xAnterior, int yAnterior) {	
+		matrizEnemigo[x][y] = matrizEnemigo[xAnterior][yAnterior];
+		matrizEnemigo[xAnterior][yAnterior] = null;
+	}
 	
 	public Defensa eliminarDefensa(int x, int y){
 		Defensa defensa = matrizDefensa[x][y];

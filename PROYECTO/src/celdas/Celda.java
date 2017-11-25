@@ -83,6 +83,10 @@ public class Celda
     {
     	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
     }
+    public void moverEnemigoDoble(int xAnterior, int yAnterior)
+    {
+    	mapa.moverEnemigo(x, y, xAnterior, yAnterior);
+    }
     
     //------ELIMINAR
     //Elemina un objeto movil del juego

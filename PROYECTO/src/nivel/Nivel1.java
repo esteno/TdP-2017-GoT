@@ -28,7 +28,7 @@ public class Nivel1 extends Nivel{
 		toReturn.addAll(builder.generarZombieFrio(3, estado));
 		toReturn.addAll(builder.generarOsoSalvaje(2, estado));
 		toReturn.addAll(builder.generarSalvaje(1, estado));
-		toReturn.addAll(builder.generarGigante(1, estado));
+		toReturn.addAll(builder.generarGigante(3, estado));
 		toReturn.addAll(builder.generarDragon(1, estado));
 		return toReturn;
 	}

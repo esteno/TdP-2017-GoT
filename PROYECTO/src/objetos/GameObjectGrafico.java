@@ -53,7 +53,7 @@ public class GameObjectGrafico {
 			toret=false;
 			bloqueado=false;
 		}
-		label.setBounds(x, label.getBounds().y, 50, 50);
+		label.setBounds(x, label.getBounds().y, label.getBounds().width, label.getBounds().height);
 		return toret;
 	}
 	
