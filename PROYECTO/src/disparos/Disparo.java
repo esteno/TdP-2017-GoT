@@ -8,11 +8,11 @@ public abstract class Disparo extends ObjetoMovil {
 	protected int alcance;
 	protected Visitor visitor;
 	
-	public Disparo(String path,double danio) {
+	public Disparo(GameObjectGrafico graf,double danio) {
 		velocidad= 10;
 		alcance = 30;
 		fuerzaImpacto = (int) Math.floor(danio);
-		grafico = fabricaGrafica.construirGraficoDisparo(path);
+		grafico = graf;
 	}
 
 	public abstract void avanzar();

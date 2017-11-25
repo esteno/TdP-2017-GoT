@@ -136,12 +136,20 @@ public class FabricaObjetoGrafico {
 
 	//DISPARO
 	
-	public GameObjectGrafico construirGraficoDisparo(String path) {
-		return new GameObjectGrafico("res/imagenes/disparo/"+path);
+	public GameObjectGrafico construirGraficoDisparoYgritte() {
+		return new GameObjectGrafico("res/imagenes/disparo/flecha.png");
 	}
-
-	public GameObjectGrafico construirGraficoMina() {
-		return new GameObjectGrafico("res/imagenes/disparo/mina.png");
+	
+	public GameObjectGrafico construirGraficoDisparoBronn() {
+		return new GameObjectGrafico("res/imagenes/disparo/flecha2.png");
+	}
+	
+	public GameObjectGrafico construirGraficoDisparoZombieFrio() {
+		return new GameObjectGrafico("res/imagenes/disparo/disparoEnemigo.gif");
+	}
+	
+	public GameObjectGrafico construirGraficoDisparoDragon() {
+		return new GameObjectGrafico("res/imagenes/disparo/disparodragon.gif");
 	}
 	
 	public GameObjectGrafico construirGraficoBomba() {

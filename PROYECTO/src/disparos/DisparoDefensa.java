@@ -4,12 +4,13 @@ import celdas.Celda;
 import colisiones.Visitor;
 import colisiones.VisitorDisparoDefensa;
 import enemigos.Enemigo;
+import objetos.GameObjectGrafico;
 import objetos.ObjetoMovil;
 
 public class DisparoDefensa extends Disparo {
 
-	public DisparoDefensa(String path, double danio) {
-		super(path,danio);
+	public DisparoDefensa(GameObjectGrafico graf, double danio) {
+		super(graf,danio);
 		velocidad = 4;
 		visitor = new VisitorDisparoDefensa(this);
 	}

@@ -1,5 +1,7 @@
 package defensa;
 
+import objetos.GameObjectGrafico;
+
 public class Bronn extends DefensaRango 
 {
 
@@ -9,6 +11,10 @@ public class Bronn extends DefensaRango
 		puntosVida = 300;
 		fuerzaImpacto = 45;
 		grafico = fabricaGrafica.construirGraficoBronn();
-		pathDisparo = "flecha2.png";
+	}
+
+	@Override
+	protected GameObjectGrafico getGraficoDisparo() {
+		return fabricaGrafica.construirGraficoDisparoBronn();
 	}
 }

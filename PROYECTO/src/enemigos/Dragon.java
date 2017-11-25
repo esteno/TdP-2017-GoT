@@ -1,5 +1,7 @@
 package enemigos;
 
+import objetos.GameObjectGrafico;
+
 public class Dragon extends EnemigoRango {
 	public Dragon() {
 		grafico = fabricaGrafica.construirDragon();
@@ -10,6 +12,12 @@ public class Dragon extends EnemigoRango {
 	    oro=20;
 	    velocidadAtaque = 10;
 	    proximoAtaque = 0;
-	    pathDisparo="disparodragon.gif";
 	}
+
+	@Override
+	protected GameObjectGrafico getGraficoDisparo() {
+		return fabricaGrafica.construirGraficoDisparoDragon();
+	}
+	
+
 }

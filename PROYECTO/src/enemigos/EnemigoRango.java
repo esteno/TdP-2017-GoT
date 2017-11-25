@@ -1,16 +1,18 @@
 package enemigos;
 
 import disparos.DisparoEnemigo;
+import objetos.GameObjectGrafico;
 
 public abstract class EnemigoRango extends Enemigo{
 
-	protected String pathDisparo;
 	public void atacar() {
 		if(proximoAtaque == 0) {
-			celda.agregarDisparo(new DisparoEnemigo(pathDisparo,fuerzaImpacto));
+			celda.agregarDisparo(new DisparoEnemigo(getGraficoDisparo(),fuerzaImpacto));
 			proximoAtaque = velocidadAtaque;
 		}
 		else 
 			proximoAtaque--;
 	}
+	
+	protected abstract GameObjectGrafico getGraficoDisparo();
 }

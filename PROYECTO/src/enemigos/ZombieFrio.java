@@ -1,5 +1,7 @@
 package enemigos;
 
+import objetos.GameObjectGrafico;
+
 public class ZombieFrio extends EnemigoRango {
 	
 	public ZombieFrio(){
@@ -11,7 +13,11 @@ public class ZombieFrio extends EnemigoRango {
 	    oro=30;
 	    velocidadAtaque = 100;
 	    proximoAtaque = 0;
-	    pathDisparo="disparoEnemigo.gif";
+	}
+
+	@Override
+	protected GameObjectGrafico getGraficoDisparo() {
+		return fabricaGrafica.construirGraficoDisparoZombieFrio();
 	}
 
 }
