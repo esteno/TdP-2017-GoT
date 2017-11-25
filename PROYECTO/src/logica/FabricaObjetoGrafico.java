@@ -50,7 +50,7 @@ public class FabricaObjetoGrafico {
 		return new GameObjectGrafico("res/imagenes/enemigo/e1camina.gif");
 	}
 	public GameObjectGrafico construirDragon() {
-		return new GameObjectGrafico("res/imagenes/enemigo/dragoncamina.gif");
+		return new GameObjectGrafico("res/imagenes/enemigo/dragonecamina.gif");
 	}
 	public GameObjectGrafico construirGigante() {
 		return new GameObjectGrafico("res/imagenes/enemigo/thenncamina.gif");

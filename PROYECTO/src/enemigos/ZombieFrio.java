@@ -11,6 +11,7 @@ public class ZombieFrio extends EnemigoRango {
 	    oro=30;
 	    velocidadAtaque = 100;
 	    proximoAtaque = 0;
+	    pathDisparo="disparoEnemigo.gif";
 	}
 
 }
