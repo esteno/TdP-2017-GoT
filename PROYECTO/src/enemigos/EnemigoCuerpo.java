@@ -17,6 +17,15 @@ public abstract class EnemigoCuerpo extends Enemigo {
 			else
 				atacando=false;
 			
+			if(celda2!=null){
+				Celda celdaIzq2 = celda2.celdaIzquierda();
+				Defensa defensa2 = celdaIzq2.getEstatico();
+				if(defensa2 != null)
+				{
+					defensa2.aceptar(visitor);
+				}
+			}
+			
 			proximoAtaque = velocidadAtaque;
 		}
 		else {

@@ -24,7 +24,7 @@ public class Mountain extends DefensaCuerpo {
 		else{
 			celda.setDoble(this,x, y-1);
 			JLabel label=grafico.getLabel();
-			label.setBounds(x*50, (y-1)*50, 100, 100);
+			label.setBounds(x*50, (y-1)*50, 50, 100);
 
 		}
 	}

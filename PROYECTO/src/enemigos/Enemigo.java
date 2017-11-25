@@ -55,7 +55,7 @@ public abstract class Enemigo extends ObjetoMovil{
 			Celda celdaNueva = celda.celdaIzquierda();
 				if(celdaNueva != null) 	{
 					//Si ya se puede mover y no hay nada en la celda adyacente se mueve
-					if(contVelocidad >= 0 && celdaNueva.getEnemigo() == null){	
+					if(contVelocidad >= 0 && celdaNueva.getEnemigo() == null){
 						//Guarda la posicion acutal
 						int xAnterior = celda.getX();
 						int yAnterior = celda.getY();

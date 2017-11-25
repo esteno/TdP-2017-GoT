@@ -425,7 +425,7 @@ public class Ventana implements Runnable{
 		obj.getGrafico().setLabel(labelEnemigo);
 		ImageIcon icono = obj.getGrafico().getImagen();
 		labelEnemigo.setIcon(obj.getGrafico().getImagen());
-		labelEnemigo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,icono.getIconHeight(),icono.getIconWidth());
+		labelEnemigo.setBounds(x*ANCHO_IMG, y*ALTO_IMG,icono.getIconWidth(),icono.getIconHeight());
 		panelEnemigos.add(labelEnemigo);
 		repintar();
 	}

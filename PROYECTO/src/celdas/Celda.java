@@ -131,7 +131,6 @@ public class Celda
 	}
 
 	public void setDoble(Enemigo e, int x2, int y2) {
-		// TODO Auto-generated method stub
 		mapa.setDoble(e,x,y);
 	}
 	

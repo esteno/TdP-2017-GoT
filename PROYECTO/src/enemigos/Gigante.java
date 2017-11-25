@@ -4,16 +4,13 @@ import javax.swing.JLabel;
 
 import celdas.Celda;
 
-public class Gigante extends EnemigoCuerpo
-{
+public class Gigante extends EnemigoCuerpo{
 
-	
-		public Gigante() 
-		{
+		public Gigante() {
 			proximoAtaque = 0;
 			puntosVida = 500;
 			fuerzaImpacto = 70;
-			//grafico = fabricaGrafica.construirGraficoGigante();
+			grafico = fabricaGrafica.construirGigante();
 			fuerzaImpacto = 1000;
 		    velocidad = contVelocidad = -30;
 		    puntos=100;
@@ -31,7 +28,7 @@ public class Gigante extends EnemigoCuerpo
 			else{
 				celda.setDoble(this,x, y-1);
 				JLabel label=grafico.getLabel();
-				label.setBounds(x*50, (y-1)*50, 100, 100);
+				label.setBounds(x*50, (y-1)*50, 50, 100);
 
 			}
 		}
