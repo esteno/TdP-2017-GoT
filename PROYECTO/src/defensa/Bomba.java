@@ -16,7 +16,6 @@ import mapa.Mapa;
 public class Bomba implements Temporal{
 
 	Timer timer;
-	public int fuerzaImpacto=90;
 	private int x;
 	private int y;
 	private Celda celda;
@@ -45,7 +44,4 @@ public class Bomba implements Temporal{
 		j.eliminarBomba(label);
 	}
 
-	public int getFuerzaImpacto(){
-		return fuerzaImpacto;
-	}
 }
