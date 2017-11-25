@@ -20,5 +20,13 @@ public abstract class DefensaCuerpo extends Personaje {
 		{
 			enemigo.aceptar(visitor);
 		}
+		if(celda2!=null){
+			Celda celdaDerecha2 = celda2.celdaDerecha();
+			Enemigo enemigo2 = celdaDerecha2.getEnemigo();
+			if(enemigo2 != null)
+			{
+				enemigo2.aceptar(visitor);
+			}
+		}
 	}
 }

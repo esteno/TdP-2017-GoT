@@ -82,6 +82,13 @@ public class Mapa
 		defensa.setCelda(matrizCeldas[x][y]);
 	}
 	
+	public void setDoble(Defensa d, int x, int y){
+		if(matrizDefensa[x][y] == null) {
+			matrizDefensa[x][y]= d;
+		}
+		d.setCelda2(matrizCeldas[x][y]);
+	}
+	
 	public boolean agregarEnemigo(Enemigo obj, int x, int y) {
 		if(matrizEnemigo[x][y] == null) {
 			matrizEnemigo[x][y] = obj;
@@ -108,6 +115,10 @@ public class Mapa
 	public Defensa eliminarDefensa(int x, int y){
 		Defensa defensa = matrizDefensa[x][y];
 		matrizDefensa[x][y]=null;
+		Celda aux=defensa.getDoble();
+		if(aux!=null){
+			matrizDefensa[aux.getX()][aux.getY()]=null;
+		}
 		return defensa;
 	}
 	
@@ -150,11 +161,5 @@ public class Mapa
 	public void moverGrafico(ObjetoMovil objeto) {
 		juego.moverGrafico(objeto);
 	}
-	
-	public void setDoble(Defensa d, int x, int y){
-		if(matrizDefensa[x][y] == null) {
-			matrizDefensa[x][y]= d;
-		}
-		d.setCelda2(matrizCeldas[x][y]);
-	}
+
 }

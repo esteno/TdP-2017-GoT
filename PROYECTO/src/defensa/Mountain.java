@@ -5,8 +5,6 @@ import javax.swing.JLabel;
 import celdas.Celda;
 
 public class Mountain extends DefensaCuerpo {
-
-	private Celda celda2;
 	
 	public Mountain() {
 		velocidadAtaque = 2;
@@ -27,9 +25,7 @@ public class Mountain extends DefensaCuerpo {
 			celda.setDoble(this,x, y-1);
 			JLabel label=grafico.getLabel();
 			label.setBounds(x*50, (y-1)*50, 100, 100);
+
 		}
-	}
-	public void setCelda2(Celda c){
-		celda2=c;
 	}
 }

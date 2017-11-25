@@ -23,8 +23,11 @@ public abstract class Defensa extends GameObject
      
      protected EstadoMultiplicador estado = new EstadoDefensaDefecto();
      
+     protected Celda celda2;
+     
      public void aceptar(Visitor v){
     	 v.visitarDefensa(this);
+    	 celda2=null;
     }
   
      public void setVida(int i) {
@@ -57,5 +60,11 @@ public abstract class Defensa extends GameObject
 	public void curacion() {
 	}
 	
-	public void setCelda2(Celda c){}
+	public void setCelda2(Celda c){
+		celda2=c;
+	}
+	
+	public Celda getDoble(){
+		return celda2;
+	}
 }
