@@ -271,6 +271,5 @@ public class Juego
 		return (d!=null);
 	}
 
-	
 
 }

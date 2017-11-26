@@ -97,6 +97,27 @@ public class Ventana implements Runnable{
 	private JLabel lblMonedas_1;
 	private JButton botonRoca;
 	private JButton botonTrinchera;
+	
+	
+	private final String imagenMonedaOro = "res/imagenes/premios/monedas.gif";
+	private final String imagenCampoProtector = "res/imagenes/premios/escudoUp.gif";
+	private final String imagenBomba = "res/imagenes/premios/iconoBomba.png";
+	private final String imagenCuracion = "res/imagenes/premios/vida.gif";
+	
+	private final String imagenBotonYgritte = "res/imagenes/juego/botonYgritte.png";
+	private final String imagenBotonBronn = "res/imagenes/juego/botonBronn.png";
+	private final String imagenBotonMountain = "res/imagenes/juego/botonMountain.png" ;
+	private final String imagenBotonDragon = "res/imagenes/juego/botonDragon.png";
+	private final String imagenBotonGendry = "res/imagenes/juego/botonGendry.png";
+	private final String imagenBotonInmaculado = "res/imagenes/juego/botonInmaculado.png";
+	
+	
+	//private final String imagenBotonBarricada = ;
+	
+	
+	
+	
+	
 
 	/**
 	 * Launch the application.
@@ -173,34 +194,35 @@ public class Ventana implements Runnable{
 		
 		botonYgritte = new JButton("ygritte");
 		botonYgritte.setBounds(0, 0, 100, 93);
-		botonYgritte.setIcon(new ImageIcon("res/imagenes/juego/botonYgritte.png"));
+		botonYgritte.setIcon(new ImageIcon(imagenBotonYgritte));
 		panelPersonajes.add(botonYgritte);
 		
 		botonMountain = new JButton("mount");
 		botonMountain.setBounds(0, 93, 100, 93);
-		botonMountain.setIcon(new ImageIcon("res/imagenes/juego/botonMountain.png"));
+		botonMountain.setIcon(new ImageIcon(imagenBotonMountain));
 		panelPersonajes.add(botonMountain);
 		
 		botonDragon = new JButton("dragon");
 		botonDragon.setBounds(0, 186, 100, 96);
-		botonDragon.setIcon(new ImageIcon("res/imagenes/juego/botonDragon.png"));
+		botonDragon.setIcon(new ImageIcon(imagenBotonDragon));
 		panelPersonajes.add(botonDragon);
 		
 		botonInmaculado = new JButton("inmac");
 		botonInmaculado.setBounds(0, 279, 100, 94);
-		botonInmaculado.setIcon(new ImageIcon("res/imagenes/juego/botonInmaculado.png"));
+		botonInmaculado.setIcon(new ImageIcon(imagenBotonInmaculado));
 		panelPersonajes.add(botonInmaculado);
 		
 		botonBronn = new JButton("bronn");
 		botonBronn.setBounds(0, 373, 100, 94);
-		botonBronn.setIcon(new ImageIcon("res/imagenes/juego/botonBronn.png"));
+		botonBronn.setIcon(new ImageIcon(imagenBotonBronn));
 		panelPersonajes.add(botonBronn);
 		
 		botonGendry = new JButton("gendry");
 		botonGendry.setBounds(0, 468, 100, 94);
-		botonGendry.setIcon(new ImageIcon("res/imagenes/juego/botonGendry.png"));
+		botonGendry.setIcon(new ImageIcon(imagenBotonGendry));
 		panelPersonajes.add(botonGendry);
 		
+		// ------------------------
 		
 		botonBarricada = new JButton("barricada");
 		botonBarricada.setBounds(262, 6, 80, 80);
@@ -376,7 +398,7 @@ public class Ventana implements Runnable{
  		
  		botonPremioCuracion = new JButton("");
  		botonPremioCuracion.setMargin(new Insets(0, 0, 0, 0));
- 		botonPremioCuracion.setIcon(new ImageIcon("res/imagenes/premios/vida.gif"));
+ 		botonPremioCuracion.setIcon(new ImageIcon());
 		botonPremioCuracion.setOpaque(false);
  		botonPremioCuracion.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
@@ -397,7 +419,7 @@ public class Ventana implements Runnable{
  		
  		botonPremioCampoProtector = new JButton("");
  		botonPremioCampoProtector.setMargin(new Insets(0, 0, 0, 0));
- 		botonPremioCampoProtector.setIcon(new ImageIcon("res/imagenes/premios/escudoUp.gif"));
+ 		botonPremioCampoProtector.setIcon(new ImageIcon(imagenCampoProtector));
  		botonPremioCampoProtector.setOpaque(false);
  		botonPremioCampoProtector.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
@@ -552,15 +574,11 @@ public class Ventana implements Runnable{
 				int y= labelCelda.getBounds().y / ALTO_IMG;
 				if(campoProtector)
 				{
-					
-					JLabel remover = buscarLabel(x, y, panelDefensa);
-					if(remover!=null)
-						juego.eliminarDefensa(x, y);
-					
-					aEliminar=false;
+					juego.crearCampo(x, y);
+
 				}
 				else if (seCreoBomba) {
-					ImageIcon img=new ImageIcon ("res/imagenes/premios/iconoBomba.png");
+					ImageIcon img=new ImageIcon ();
 					JLabel nuevo=new JLabel(img);
 					nuevo.setBounds(labelCelda.getBounds().x,labelCelda.getBounds().y,img.getIconWidth(),img.getIconHeight());
 					panelCeldaPremios.add(nuevo);
@@ -623,6 +641,7 @@ public class Ventana implements Runnable{
 
 	public void agregarPremioOro(int x, int y) {
 		botonPremioOro.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
+		botonPremioOro.setIcon(new ImageIcon(imagenMonedaOro));
 		panelCeldaPremios.add(botonPremioOro);
 		
 	}
