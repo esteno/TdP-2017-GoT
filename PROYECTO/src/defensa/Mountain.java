@@ -12,6 +12,7 @@ public class Mountain extends DefensaCuerpo {
 		puntosVida = puntosVidaInicio = 500;
 		fuerzaImpacto = fuerzaImpactoInicio = 70;
 		grafico = fabricaGrafica.construirGraficoMountain();
+		alto = 2;
 	}
 
 	public void setCelda(Celda celdaNueva){

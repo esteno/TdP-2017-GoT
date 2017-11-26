@@ -12,6 +12,7 @@ public class Dragon extends EnemigoRango {
 	    oro=20;
 	    velocidadAtaque = 10;
 	    proximoAtaque = 0;
+	    alto = 2;
 	}
 
 	@Override

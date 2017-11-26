@@ -22,26 +22,16 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.Insets;
 
-import javax.swing.JTextField;
 
 import javax.swing.JOptionPane;
 import defensa.Defensa;
-import enemigos.Enemigo;
-import logica.*;
 import objetos.*;
-import premio.*;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
-import javax.swing.border.LineBorder;
-import java.awt.SystemColor;
-import javax.swing.SwingConstants;
 
 public class Ventana implements Runnable{
 
@@ -52,13 +42,8 @@ public class Ventana implements Runnable{
 	private final int ANCHO = 16;
 	private final int ALTO_IMG = 50; // antes 32
 	private final int ANCHO_IMG = 50; // antes 32
-	private final int NIVELCELDA = 3;
-	private final int NIVELDEFENSA = 1;
-	private final int NIVELENEMIGO = 2;
-	private final int NIVELPREMIO = 0;
 	private boolean clickCampo = false;
 	
-	private Puntaje p;
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	private CostosDeDefensa costosDeDefensa = CostosDeDefensa.getInstancia();
 	
@@ -522,7 +507,7 @@ public class Ventana implements Runnable{
 		JLabel labelNuevo = new JLabel(obj.getGrafico().getImagen());
 		ImageIcon icono = obj.getGrafico().getImagen();
 		obj.getGrafico().setLabel(labelNuevo);
-		labelNuevo.setBounds(labelCelda.getX(), labelCelda.getY(), icono.getIconHeight(), icono.getIconWidth());
+		labelNuevo.setBounds(labelCelda.getX(), labelCelda.getY(), icono.getIconWidth(), icono.getIconHeight());
 		panelDefensa.add(labelNuevo);
 		repintar();
 	}
@@ -578,7 +563,7 @@ public class Ventana implements Runnable{
 					campoProtector = false;
 				}
 				else if (seCreoBomba) {
-					ImageIcon img=new ImageIcon ();
+					ImageIcon img=new ImageIcon();
 					JLabel nuevo=new JLabel(img);
 					nuevo.setBounds(labelCelda.getBounds().x,labelCelda.getBounds().y,img.getIconWidth(),img.getIconHeight());
 					panelCeldaPremios.add(nuevo);
@@ -590,13 +575,7 @@ public class Ventana implements Runnable{
 				else{
 					Defensa defensa = fabricaDeDefensa.getDefensa();
 					if(defensa != null) {
-						ImageIcon imagen = defensa.getGrafico().getImagen();
-						JLabel labelNuevo = new JLabel(imagen);
-						defensa.getGrafico().setLabel(labelNuevo);
-						labelNuevo.setBounds(labelCelda.getBounds().x,labelCelda.getBounds().y,imagen.getIconWidth(),imagen.getIconHeight());
-						panelDefensa.add(labelNuevo);
 						juego.agregarDefensa(x,y);
-						repintar();
 					 }
 				   }
 			}
