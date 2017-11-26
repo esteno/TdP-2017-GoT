@@ -575,7 +575,7 @@ public class Ventana implements Runnable{
 				if(campoProtector)
 				{
 					juego.crearCampo(x, y);
-
+					campoProtector = false;
 				}
 				else if (seCreoBomba) {
 					ImageIcon img=new ImageIcon ();
