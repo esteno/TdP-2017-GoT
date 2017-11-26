@@ -57,6 +57,7 @@ public class Ventana implements Runnable{
 	private JButton botonPremioCuracion;
 	private JButton botonPremioDanioDoble;
 	private JButton botonPremioCampoProtector;
+    private JButton	botonPremioBarricada;
 	
 	private List<ObjetoMovil> moviles;
 	private List<ObjetoMovil> aBorrar;
@@ -655,5 +656,11 @@ public class Ventana implements Runnable{
 	public void agregarPremioCampoProtector(int x, int y) {
 		botonPremioCampoProtector.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
 		panelCeldaPremios.add(botonPremioCampoProtector);
+	}
+
+	public void agregarPremioBarricada(int x, int y) 
+	{
+		botonPremioBarricada.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
+		panelCeldaPremios.add(botonPremioBarricada);
 	}
 }
