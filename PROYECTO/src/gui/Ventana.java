@@ -581,11 +581,15 @@ public class Ventana implements Runnable{
 				JLabel labelCelda = (JLabel) e.getComponent();
 				int x= labelCelda.getBounds().x / ANCHO_IMG;
 				int y= labelCelda.getBounds().y / ALTO_IMG;
-				if(campoProtector)
-				{
-					juego.crearCampo(x, y);
-					System.out.println("Se aplico campo protector sobre x: "+x+ " y: "+y);
+				if(campoProtector){
+					
+					ImageIcon img=new ImageIcon ("res/imagenes/premios/escudoUp.gif");
+					JLabel nuevo=new JLabel(img);
+					nuevo.setBounds(labelCelda.getBounds().x,labelCelda.getBounds().y,img.getIconWidth(),img.getIconHeight());
+					panelCeldaPremios.add(nuevo);
+					juego.crearCampo(x, y,nuevo);
 					campoProtector = false;
+					
 				}
 				else if (seCreoBomba) {
 					ImageIcon img=new ImageIcon();

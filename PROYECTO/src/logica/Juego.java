@@ -263,10 +263,10 @@ public class Juego
 		controlDeDefensa.curar();
 	}
 
-	public boolean crearCampo(int x, int y) {
+	public boolean crearCampo(int x, int y, JLabel label) {
 		Defensa d=mapa.getEstatico(x, y);
 		if(d!=null)
-			new PremioCampoProtector(d);
+			new PremioCampoProtector(d,this,label);
 		return (d!=null);
 	}
 
