@@ -374,8 +374,10 @@ public class Ventana implements Runnable{
  			}
  		});
  		
- 		botonPremioCuracion = new JButton("+++");
+ 		botonPremioCuracion = new JButton("");
  		botonPremioCuracion.setMargin(new Insets(0, 0, 0, 0));
+ 		botonPremioCuracion.setIcon(new ImageIcon("res/imagenes/premios/vida.gif"));
+		botonPremioCuracion.setOpaque(false);
  		botonPremioCuracion.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				juego.curarDefensas();
