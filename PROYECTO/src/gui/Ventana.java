@@ -598,10 +598,7 @@ public class Ventana implements Runnable{
 				int y= labelCelda.getBounds().y / ALTO_IMG;
 				if(campoProtector){
 					
-					ImageIcon img=new ImageIcon ("res/imagenes/premios/escudoUp.gif");
-					JLabel nuevo=new JLabel(img);
-					nuevo.setBounds(labelCelda.getBounds().x,labelCelda.getBounds().y,img.getIconWidth(),img.getIconHeight());
-					panelCeldaPremios.add(nuevo);
+					JLabel nuevo=new JLabel();
 					juego.crearCampo(x, y,nuevo);
 					campoProtector = false;
 					
@@ -642,11 +639,20 @@ public class Ventana implements Runnable{
 		};
 	}
 	
-	public void eliminarLabelPremio(JLabel label) {
+	public void setCampoGrafico (JLabel label, int x, int y) {
+		System.out.println("se ejecuto el setear grafico de campo");
+		ImageIcon img=new ImageIcon ("res/imagenes/premios/escudoUp.gif");
+		label=new JLabel(img);
+		label.setBounds(ANCHO_IMG*x,ALTO_IMG*y,img.getIconWidth(),img.getIconHeight());
+		panelCeldaPremios.add(label);
 		
+	}
+	
+	public void eliminarLabelPremio(JLabel label) {
+		System.out.println("entre a eliminar del panel");
+		System.out.println(label==null);
 		panelCeldaPremios.remove(label);
 	}
-
 	
 	//--------------------------
 	
