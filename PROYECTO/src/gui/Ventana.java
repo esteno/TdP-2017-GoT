@@ -257,6 +257,9 @@ public class Ventana implements Runnable{
 		
 	
 		// --------------------- botones obstaculos
+		
+		botonBarricada = new JButton("barric");
+		botonBarricada.setBounds(263, 6, 80, 80);
 		botonBarricada.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
@@ -304,6 +307,7 @@ public class Ventana implements Runnable{
 		botonCampo.setIcon(new ImageIcon(imagenBotonCampo));
 		frame.getContentPane().add(botonCampo);
 		
+		
 		botonMuro = new JButton("muro");
 		botonMuro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -313,6 +317,7 @@ public class Ventana implements Runnable{
 		botonMuro.setBounds(353, 6, 80, 80);
 		botonMuro.setIcon(new ImageIcon(imagenBotonMuro));
 		frame.getContentPane().add(botonMuro);
+		
 		
 		botonRoca = new JButton("roca");
 		botonRoca.addActionListener(new ActionListener() {
