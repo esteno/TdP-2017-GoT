@@ -3,8 +3,9 @@ package defensa;
 import javax.swing.JLabel;
 
 import celdas.Celda;
+import objetos.GameObjectGrafico;
 
-public class Dragon extends DefensaCuerpo
+public class Dragon extends DefensaRango
 {
 	public Dragon() {
 		velocidadAtaque = 8;
@@ -12,6 +13,10 @@ public class Dragon extends DefensaCuerpo
 		puntosVida = puntosVidaInicio = 400;
 		fuerzaImpacto = fuerzaImpactoInicio = 100;
 		grafico = fabricaGrafica.construirGraficoDragon();
-		///pathDisparo="disparodragon.gif";
+	}
+
+
+	protected GameObjectGrafico getGraficoDisparo() {
+		return fabricaGrafica.construirDisparoDragonDef();
 	}
 }

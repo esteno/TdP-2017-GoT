@@ -155,6 +155,9 @@ public class FabricaObjetoGrafico {
 	public GameObjectGrafico construirGraficoBomba() {
 		return new GameObjectGrafico("res/imagenes/defensa/bomba.png");
 	}
+	public GameObjectGrafico construirDisparoDragonDef(){
+		return new GameObjectGrafico("res/imagenes/disparo/fuego.gif");
+	}
 	
 	// LABELS BOTONES
 	public GameObjectGrafico botonBronn(){

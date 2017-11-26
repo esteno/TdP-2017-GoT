@@ -632,6 +632,6 @@ public class Ventana implements Runnable{
 
 	public void agregarPremioCampoProtector(int x, int y) {
 		botonPremioCampoProtector.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
-		botonPremioCampoProtector.add(botonPremioCampoProtector);
+		panelCeldaPremios.add(botonPremioCampoProtector);
 	}
 }
