@@ -7,8 +7,10 @@ import defensa.Defensa;
 
 public class Barricada extends Obstaculo{
 	
-	public Barricada(){
-		precio = 100;
+	public Barricada()
+	{
+		// este obstaculo es un premio, por lo cual es el unico que no se puede comprar
+		precio = 0;
 		velocidadAtaque = 0;
 		proximoAtaque = 0;
 		puntosVida = 1500;
