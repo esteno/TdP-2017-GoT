@@ -265,8 +265,10 @@ public class Juego
 
 	public boolean crearCampo(int x, int y, JLabel label) {
 		Defensa d=mapa.getEstatico(x, y);
-		if(d!=null)
+		if(d!=null) {
+			gui.setCampoGrafico(label,x,y);
 			new PremioCampoProtector(d,this,label);
+		}
 		return (d!=null);
 	}
 
