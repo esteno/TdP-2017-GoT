@@ -281,7 +281,7 @@ public class Ventana implements Runnable{
 		frame.getContentPane().add(botonBomba);
 		
 		
-		botonCampo = new JButton();
+		botonCampo = new JButton("");
 		botonCampo.setHorizontalAlignment(SwingConstants.LEADING);
 		botonCampo.setEnabled(false);
 		botonCampo.setBounds(824, 75, 60, 60);
@@ -385,6 +385,18 @@ public class Ventana implements Runnable{
  		
  		
 		// ----------- BOTONES PREMIOS - aparecen en el mapa
+ 		
+ 		botonPremioBarricada = new JButton();
+ 		botonPremioBarricada.setMargin(new Insets(0, 0, 0, 0));
+ 		botonPremioBarricada.addActionListener(new ActionListener() {
+ 			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				juego.agregarBarricada();
+				botonBarricada.setEnabled(true);
+				panelCeldaPremios.remove(botonPremioBarricada);
+			}
+ 		});
+ 		
 		botonPremioBomba = new JButton("Bomba");
 		botonPremioBomba.setMargin(new Insets(0, 0, 0, 0));
  		botonPremioBomba.addActionListener(new ActionListener() {
@@ -396,18 +408,6 @@ public class Ventana implements Runnable{
 			}
  		});
  	
- 		
- 		botonPremioBarricada = new JButton();
- 		botonPremioBarricada.setMargin(new Insets(0, 0, 0, 0));
- 		botonPremioBomba.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				juego.agregarBarricada();
-				botonBarricada.setEnabled(true);
-				panelCeldaPremios.remove(botonPremioBarricada);
-			}
- 		});
- 		
  		
  		botonPremioOro = new JButton("");
  		botonPremioOro.setMargin(new Insets(0, 0, 0, 0));
