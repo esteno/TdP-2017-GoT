@@ -32,6 +32,7 @@ import objetos.*;
 
 import java.awt.Color;
 import java.awt.Component;
+import javax.swing.SwingConstants;
 
 public class Ventana implements Runnable{
 
@@ -113,7 +114,7 @@ public class Ventana implements Runnable{
 	
 	
 	
-	public final String imagenBotonBarricada = "res/imagenes/obstaculos/barricada.png";
+	public final String imagenBotonBarricada = "res/imagenes/premios/botonBarricada.png";
 	public final String imagenBotonMuro = "res/imagenes/obstaculos/muro.png" ;
 	public final String imagenBotonRoca = "res/imagenes/obstaculos/roca.png";
 	public final String imagenBotonTrinchera = "res/imagenes/obstaculos/trinchera.png";
@@ -244,7 +245,7 @@ public class Ventana implements Runnable{
 	
 		// --------------------- premios
 		
-		botonBarricada = new JButton("barric");
+		botonBarricada = new JButton("");
 		botonBarricada.setBounds(714, 4, 80, 80);
 		botonBarricada.addActionListener(new ActionListener()
 		{
@@ -261,9 +262,9 @@ public class Ventana implements Runnable{
 		
 		
 		
-		botonBomba = new JButton("bomba");
+		botonBomba = new JButton("");
 		botonBomba.setEnabled(false);
-		botonBomba.setBounds(804, 4, 80, 80);
+		botonBomba.setBounds(824, 4, 60, 60);
 		botonBomba.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
@@ -279,9 +280,10 @@ public class Ventana implements Runnable{
 		frame.getContentPane().add(botonBomba);
 		
 		
-		botonCampo = new JButton("Campo");
+		botonCampo = new JButton("");
+		botonCampo.setHorizontalAlignment(SwingConstants.LEADING);
 		botonCampo.setEnabled(false);
-		botonCampo.setBounds(894, 4, 80, 80);
+		botonCampo.setBounds(894, 4, 60, 60);
 		botonCampo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -381,7 +383,7 @@ public class Ventana implements Runnable{
 		
  		
  		
-		// -----------BOTONES PREMIOS - aparecen en el mapa
+		// ----------- BOTONES PREMIOS - aparecen en el mapa
 		botonPremioBomba = new JButton("Bomba");
 		botonPremioBomba.setMargin(new Insets(0, 0, 0, 0));
  		botonPremioBomba.addActionListener(new ActionListener() {
