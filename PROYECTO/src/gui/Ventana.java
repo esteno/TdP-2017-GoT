@@ -242,10 +242,10 @@ public class Ventana implements Runnable{
 		lblPuntaje.setFont(new Font("Century", Font.PLAIN, 17));
 		
 	
-		// --------------------- botones obstaculos
+		// --------------------- premios
 		
 		botonBarricada = new JButton("barric");
-		botonBarricada.setBounds(263, 6, 80, 80);
+		botonBarricada.setBounds(714, 4, 80, 80);
 		botonBarricada.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
@@ -263,7 +263,7 @@ public class Ventana implements Runnable{
 		
 		botonBomba = new JButton("bomba");
 		botonBomba.setEnabled(false);
-		botonBomba.setBounds(803, 6, 80, 80);
+		botonBomba.setBounds(804, 4, 80, 80);
 		botonBomba.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
@@ -294,13 +294,14 @@ public class Ventana implements Runnable{
 		frame.getContentPane().add(botonCampo);
 		
 		
+		// ------------------- obstaculos
 		botonMuro = new JButton("muro");
 		botonMuro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FabricaDeDefensa.getInstancia().construirMuro();
 			}
 		});
-		botonMuro.setBounds(353, 6, 80, 80);
+		botonMuro.setBounds(256, 4, 80, 80);
 		botonMuro.setIcon(new ImageIcon(imagenBotonMuro));
 		frame.getContentPane().add(botonMuro);
 		
@@ -311,7 +312,7 @@ public class Ventana implements Runnable{
 				FabricaDeDefensa.getInstancia().construirRoca();
 			}
 		});
-		botonRoca.setBounds(444, 6, 80, 80);
+		botonRoca.setBounds(346, 4, 80, 80);
 		botonRoca.setIcon(new ImageIcon(imagenBotonRoca));
 		frame.getContentPane().add(botonRoca);
 		
@@ -321,7 +322,7 @@ public class Ventana implements Runnable{
 				FabricaDeDefensa.getInstancia().construirTrinchera();
 			}
 		});
-		botonTrinchera.setBounds(534, 6, 80, 80);
+		botonTrinchera.setBounds(436, 4, 80, 80);
 		botonTrinchera.setIcon(new ImageIcon(imagenBotonTrinchera));
 		frame.getContentPane().add(botonTrinchera);
 		
@@ -380,7 +381,7 @@ public class Ventana implements Runnable{
 		
  		
  		
-		// -----------BOTONES PREMIOS
+		// -----------BOTONES PREMIOS - aparecen en el mapa
 		botonPremioBomba = new JButton("Bomba");
 		botonPremioBomba.setMargin(new Insets(0, 0, 0, 0));
  		botonPremioBomba.addActionListener(new ActionListener() {
