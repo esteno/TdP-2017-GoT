@@ -59,8 +59,10 @@ public class GameObjectGrafico {
 	
 	public void destruir() {
 		Container padre = label.getParent();
-		padre.remove(label);
-		padre.validate();
-		padre.repaint();
+		if(padre!=null){
+			padre.remove(label);
+			padre.validate();
+			padre.repaint();	
+		}
 	}
 }
