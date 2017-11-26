@@ -15,7 +15,6 @@ public class VisitorDisparoEnemigo extends Visitor {
 
 	@Override
 	public void visitarDefensa(Defensa d) {
-		System.out.println("atacar defensa");
 		d.recibirAtaque(miDisparo.getFuerzaImpacto());
 		miDisparo.destruir();
 	}

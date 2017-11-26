@@ -135,7 +135,7 @@ public class Celda
 	}
 
 	public void setDoble(Enemigo e, int x2, int y2) {
-		mapa.setDoble(e,x,y);
+		mapa.setDoble(e,x2,y2);
 	}
 	
 	

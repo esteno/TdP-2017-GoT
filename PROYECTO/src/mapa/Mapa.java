@@ -90,15 +90,9 @@ public class Mapa
 		d.setCelda2(matrizCeldas[x][y]);
 	}
 	
-	
-	
-	public void setDoble(Enemigo e , int x, int y)
-	{
-		// TODO Auto-generated method stub
+	public void setDoble(Enemigo e , int x, int y){
 		if (matrizEnemigo[x][y] == null)
-		{
-			matrizEnemigo[x][x] = e;
-		}
+			matrizEnemigo[x][y] = e;
 		e.setCelda2(matrizCeldas[x][y]);
 	}
 	
@@ -118,11 +112,11 @@ public class Mapa
 	
 	//------MOVER
 	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) {	
-		if (x==0)
-			juego.gameOver();
 		matrizEnemigo[x][y] = matrizEnemigo[xAnterior][yAnterior];
 		matrizEnemigo[xAnterior][yAnterior] = null;
 		moverGrafico(matrizEnemigo[x][y]);
+		if (x==0)
+			juego.gameOver();
 	}
 	public void moverEnemigoDoble(int x, int y, int xAnterior, int yAnterior) {	
 		matrizEnemigo[x][y] = matrizEnemigo[xAnterior][yAnterior];
@@ -178,7 +172,5 @@ public class Mapa
 	public void moverGrafico(ObjetoMovil objeto) {
 		juego.moverGrafico(objeto);
 	}
-
-	
 
 }
