@@ -17,6 +17,10 @@ public abstract class GameObject{
 	protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
 	protected int fuerzaImpacto; // cuanta vida consume al atacar
 	
+	//Alto y ancho del objeto (en celdas)
+	protected int alto = 1;
+	protected int ancho = 1;
+	
 	//Valor que da el tiempo entre ataque y ataque
     protected int velocidadAtaque;
     
@@ -46,6 +50,14 @@ public abstract class GameObject{
 	
 	public int getPuntosVida(){
 		return puntosVida;
+	}
+	
+	public int getAlto() {
+		return alto;
+	}
+	
+	public int getAncho() {
+		return ancho;
 	}
 
 }
