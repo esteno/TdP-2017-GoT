@@ -4,17 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ObjetoDeMapa.ObjetoDeMapa;
-import celdas.Celda;
+import celdas.*;
 import defensa.*;
 import disparos.Disparo;
-import disparos.DisparoEnemigo;
-import disparos.DisparoDefensa;
 import enemigos.Enemigo;
-import enemigos.Gigante;
 import logica.FabricaDeDefensa;
 import logica.Juego;
 import objetos.*;
-import premio.*;
 
 public class Mapa 
 { 
@@ -76,11 +72,33 @@ public class Mapa
 		return toReturn;
 	}
 	
-	public void agregarDefensa(Defensa defensa, int x, int y){
-		if(matrizDefensa[x][y] == null) {
-			matrizDefensa[x][y]= defensa;
+	public boolean agregarDefensa(Defensa defensa, int x, int y){
+		Boolean pudeAgregar = false;
+		if(defensa.getAlto() == 1 && defensa.getAncho() == 1) {
+			if(matrizDefensa[x][y] == null) {
+				matrizDefensa[x][y]= defensa;
+			}
+			defensa.setCelda(matrizCeldas[x][y]);
+			pudeAgregar = true;
 		}
-		defensa.setCelda(matrizCeldas[x][y]);
+		else {
+			if((defensa.getAlto()+y < matrizCeldas[0].length) && (defensa.getAncho()+x < matrizCeldas.length)) {
+				CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
+				for(int i = x; i < defensa.getAncho()+x ; i++) {
+					for(int j = y; j < defensa.getAlto()+y ; j++) {
+						System.out.println("agregue celda en "+i+" "+j);
+						celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
+					}
+				}
+				defensa.setCelda(celdaCompuesta);
+				pudeAgregar = true;
+			}
+			
+			
+			
+		}
+		
+		return pudeAgregar;
 	}
 	
 	public void setDoble(Defensa d, int x, int y){

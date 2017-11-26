@@ -5,18 +5,12 @@ import nivel.Nivel;
 import nivel.Niveles;
 import objetos.*;
 
-import java.awt.image.BufferedImage;
 import java.util.List;
-import java.util.Random;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import celdas.Celda;
 import defensa.*;
 import disparos.Disparo;
-import disparos.DisparoDefensa;
-import disparos.DisparoEnemigo;
 import enemigos.Enemigo;
 import gui.*;
 import premio.PremioDanioDoble;
@@ -103,9 +97,14 @@ public class Juego
 	//-----------AGREGAR
 	//Agrega la defensa guardada en la fabrica en la pos x,y
 	public void agregarDefensa(int x, int y){
-		mapa.agregarDefensa(FabricaDeDefensa.getInstancia().getDefensa(), x, y);
-		controlDeDefensa.agregarDefensa(FabricaDeDefensa.getInstancia().getDefensa());
-		FabricaDeDefensa.getInstancia().reset();
+		
+		Boolean pudeAgregar = mapa.agregarDefensa(FabricaDeDefensa.getInstancia().getDefensa(), x, y);
+		if(pudeAgregar) {
+			Defensa defensa = FabricaDeDefensa.getInstancia().getDefensa();
+			controlDeDefensa.agregarDefensa(defensa);
+			FabricaDeDefensa.getInstancia().reset();
+			gui.dibujarDefensa(x, y, defensa);
+		}
 	}
 	
 	public void agregarDefensa(Defensa def, int x, int y){
