@@ -18,30 +18,32 @@ public class Bomba implements Temporal{
 	Timer timer;
 	private int x;
 	private int y;
-	private Celda celda;
+	private Mapa mapa;
 	private JLabel label;
 	private Juego j;
 	
-	public Bomba(int a, int b,Mapa p, Juego juego, JLabel nuevo){
+	public Bomba(int a, int b,Mapa mapa, Juego juego, JLabel nuevo){
 		x=a;
 		y=b;
-		celda= new Celda(p,x,y);
 		label=nuevo;
+		this.mapa = mapa;
 		j=juego;
 		timer  = new Timer(this, 3000);
 	}
 	
 	public void accionarPorTiempo() {
-		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
-		List<Defensa> d=new ArrayList<Defensa>();
-		l= celda.adyEnemigos();
-		VisitorBomba v = new VisitorBomba(this);
-		for (ObjetoMovil o:l)
-			o.aceptar(v);	
-		d= celda.adyDefensa();
-		for (Defensa def:d)
-			def.aceptar(v);
-		j.eliminarBomba(label);
+		List<ObjetoMovil> listaEnemigos = new ArrayList<ObjetoMovil>();
+		List<Defensa> listaDefensa = new ArrayList<Defensa>();
+		
+		listaEnemigos = mapa.adyEnemigos(x, y);
+		VisitorBomba visitor = new VisitorBomba(this);
+		for (ObjetoMovil o:listaEnemigos)
+			o.aceptar(visitor);	
+		
+		listaDefensa = mapa .adyDefensa(x, y);
+		for (Defensa def: listaDefensa)
+			def.aceptar(visitor);
+		j.eliminarLabelPremio(label);
 	}
 
 }

@@ -205,14 +205,14 @@ public class Juego
 	public void crearPremio(int x, int y) {
 		premios.crearPremio(x, y);
 	}
-
-	public void detonarBomba(int x, int y,JLabel nuevo){
-		bombaCreada=false;
+	
+	public void crearBomba(int x, int y, JLabel nuevo) {
 		new Bomba(x,y,mapa,this,nuevo);
+		
 	}
 	
-	public void eliminarBomba(JLabel label) {
-		gui.eliminarLabel(label);
+	public void eliminarLabelPremio(JLabel label) {
+		gui.eliminarLabelPremio(label);
 	}
 	
 	public boolean seCreoBomba() {
@@ -267,5 +267,7 @@ public class Juego
 			new PremioCampoProtector(d);
 		return (d!=null);
 	}
+
+	
 
 }

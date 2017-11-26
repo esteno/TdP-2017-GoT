@@ -155,23 +155,23 @@ public class Mapa
 		return matrizDefensa[x][y];
 	}
 	
-	public List<ObjetoMovil> adyEnemigos(Celda celdaOriginal) {
+	public List<ObjetoMovil> adyEnemigos(int x, int y) {
 		List<ObjetoMovil> lista = new ArrayList<ObjetoMovil>();
-		for (int x = celdaOriginal.getX()-1; x < celdaOriginal.getX()+2; x++)
-			for (int y=celdaOriginal.getY()-1; y<celdaOriginal.getY()+2; y++)
-				if ((x < matrizEnemigo.length && x >= 0) && (y <matrizEnemigo[0].length && y >= 0))			
-					if (matrizEnemigo[x][y]!=null)
-						lista.add(matrizEnemigo[x][y]);
+		for (int xBuscar = x-1; xBuscar < x+2; xBuscar++)
+			for (int yBuscar = y-1; yBuscar < y+2; yBuscar++)
+				if ((xBuscar < matrizEnemigo.length && xBuscar >= 0) && (yBuscar <matrizEnemigo[0].length && yBuscar >= 0))			
+					if (matrizEnemigo[xBuscar][yBuscar]!=null)
+						lista.add(matrizEnemigo[xBuscar][yBuscar]);
 		return lista;		
 	}
 
-	public List<Defensa> adyDefensa(Celda celdaOriginal) {
+	public List<Defensa> adyDefensa(int x, int y) {
 		List<Defensa> lista = new ArrayList<Defensa>();
-		for (int x = celdaOriginal.getX()-1; x < celdaOriginal.getX()+2; x++)
-			for (int y=celdaOriginal.getY()-1; y<celdaOriginal.getY()+2; y++)
-				if ((x < matrizDefensa.length && x >= 0) && (y <matrizDefensa[0].length && y >= 0))			
-					if (matrizDefensa[x][y]!=null)
-						lista.add(matrizDefensa[x][y]);
+		for (int xBuscar = x-1; xBuscar < x+2; xBuscar++)
+			for (int yBuscar=y-1; yBuscar<y+2; yBuscar++)
+				if ((xBuscar < matrizDefensa.length && xBuscar >= 0) && (yBuscar <matrizDefensa[0].length && yBuscar >= 0))			
+					if (matrizDefensa[xBuscar][yBuscar]!=null)
+						lista.add(matrizDefensa[xBuscar][yBuscar]);
 		return lista;		
 	}
 
