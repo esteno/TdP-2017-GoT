@@ -27,7 +27,6 @@ public abstract class Defensa extends GameObject
      
      public void aceptar(Visitor v){
     	 v.visitarDefensa(this);
-    	 celda2=null;
     }
   
      public void setVida(int i) {

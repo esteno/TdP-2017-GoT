@@ -44,8 +44,6 @@ public class DisparoDefensa extends Disparo {
 			enemigo.aceptar(visitor);
 	}
 
-
-
 	@Override
 	public void aceptar(Visitor v) {
 	}
