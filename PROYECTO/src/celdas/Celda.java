@@ -108,13 +108,13 @@ public class Celda
 
 	public List<ObjetoMovil> adyEnemigos() {
 		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
-		l=mapa.adyEnemigos(this);
+		l=mapa.adyEnemigos(this.getX(), this.getY());
 		return l;
 	}
 	
 	public List<Defensa> adyDefensa() {
 		List<Defensa> l=new ArrayList<Defensa>();
-		l=mapa.adyDefensa(this);
+		l=mapa.adyDefensa(this.getX(), this.getY());
 		return l;
 	}
 
