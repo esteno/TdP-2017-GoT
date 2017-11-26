@@ -512,6 +512,20 @@ public class Ventana implements Runnable{
 		}
 	}
 	
+	
+	public void ganar(){
+		int reply = JOptionPane.showConfirmDialog(frame, "Has ganado!\nQuieres jugar de nuevo?", "Ganaste el juego!", JOptionPane.YES_NO_OPTION);
+		if (reply == JOptionPane.YES_OPTION) {
+			frame.getContentPane().removeAll();
+			frame.getContentPane().repaint();
+			initialize();
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Gracias por jugar!");
+			System.exit(0);
+		}
+	}
+	
 	public void oroActual(int oro) {
 		lblMonedas_1.setText("Monedas: "+oro);		
 		botonYgritte.setEnabled((oro < costosDeDefensa.costoYgritte()) ? false : true);

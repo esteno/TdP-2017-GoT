@@ -86,9 +86,13 @@ public class Juego
 	//Siguiente nivel basado en numNivel
 	public void sigNivel() {
 		nivelActual = niveles.getNivel(numNivel);
-		numNivel++;
-		mapa.cambiarMapa(parser.parsearNivel(nivelActual.getPath()));
-		sigOleada();
+		if (numNivel==4)
+			gui.ganar();
+		else {
+			numNivel++;
+			mapa.cambiarMapa(parser.parsearNivel(nivelActual.getPath()));
+			sigOleada();
+		}
 	}
 	
 	//Genera la oleada para el control
