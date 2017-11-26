@@ -226,10 +226,6 @@ public class Juego
 		gui.agregarPremioBomba(x, y);
 	}
 
-	public void agregarPremioBarricada(int x, int y) {
-		gui.agregarPremioBarricada(x, y);
-	}
-
 	public void agregarPremioOro(int x, int y) {
 		gui.agregarPremioOro(x, y);
 	}
