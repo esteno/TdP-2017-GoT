@@ -173,7 +173,6 @@ public class Juego
 	}
 	
 	public void agregarBomba() {
-		System.out.println("agregue bomba");
 		puntaje.agregarBomba();
 	}
 	

@@ -541,14 +541,11 @@ public class Ventana implements Runnable{
 				}
 				else if (seCreoBomba) {
 					ImageIcon img=new ImageIcon ("res/imagenes/premios/iconoBomba.png");
-					
 					JLabel nuevo=new JLabel(img);
 					nuevo.setBounds(labelCelda.getBounds().x,labelCelda.getBounds().y,img.getIconWidth(),img.getIconHeight());
 					panelCeldaPremios.add(nuevo);
 					juego.crearBomba(x,y,nuevo);
-					System.out.println("va a explotar la bomba");
 
-					System.out.println("boom");
 				}
 				else{
 					Defensa defensa = fabricaDeDefensa.getDefensa();

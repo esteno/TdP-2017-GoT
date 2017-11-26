@@ -11,7 +11,6 @@ public class PremioDanioDoble implements Temporal {
 	
 	public PremioDanioDoble(Juego j) {
 		juego = j;
-		System.out.println("PremioDanioDoble");
 		juego.modificarDefensa(new EstadoDefensaDanioDoble());
 		new Timer(this, 10000);	
 	}

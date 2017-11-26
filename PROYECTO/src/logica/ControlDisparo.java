@@ -48,8 +48,8 @@ public class ControlDisparo implements Runnable {
 					if(disparo.getAlcance() <= 0) 
 						listaDescarte.add(disparo);
 					else {
-						disparo.atacar();
 						disparo.avanzar();
+						disparo.atacar();
 					}
 				}
 			}

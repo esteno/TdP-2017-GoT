@@ -25,7 +25,6 @@ public class Parser
 	
 	public Celda[][] parsearNivel(String path) {
 		Celda[][] arregloCeldas = new Celda[ancho][alto];
-		System.out.println("ancho "+ancho+" alto "+alto);
 		Celda celda = null;
 		try {
             FileReader fileReader = new FileReader(path);
