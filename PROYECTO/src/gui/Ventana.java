@@ -109,18 +109,17 @@ public class Ventana implements Runnable{
 	
 	
 
-	public final String imagenBotonBomba = "res/imagenes/premios/iconoBomba.png";
-	public final String imagenBotonCampo = "res/imagenes/premios/gemaverde.png";
-	
-	
-	
-	public final String imagenBotonBarricada = "res/imagenes/premios/botonBarricada.png";
 	public final String imagenBotonMuro = "res/imagenes/obstaculos/muro.png" ;
 	public final String imagenBotonRoca = "res/imagenes/obstaculos/roca.png";
 	public final String imagenBotonTrinchera = "res/imagenes/obstaculos/trinchera.png";
+	 
 	
+	public final String imagenBotonBomba = "res/imagenes/premios/iconoBomba.png";
+	public final String imagenBotonCampo = "res/imagenes/premios/gemaverde.png";
+	public final String imagenBotonBarricada = "res/imagenes/premios/botonBarricada.png";
 	
-	
+	private final String imagenBotonPremioBarricada = "res/imagenes/obstaculos/barricada.png";
+	private final String imagenBotonPremioOro = "res/imagenes/premios/monedas.gif";
 	
 
 	/**
@@ -388,6 +387,7 @@ public class Ventana implements Runnable{
  		
  		botonPremioBarricada = new JButton();
  		botonPremioBarricada.setMargin(new Insets(0, 0, 0, 0));
+		botonPremioBarricada.setIcon(new ImageIcon(imagenBotonPremioBarricada));
  		botonPremioBarricada.addActionListener(new ActionListener() {
  			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -396,6 +396,9 @@ public class Ventana implements Runnable{
 				panelCeldaPremios.remove(botonPremioBarricada);
 			}
  		});
+ 
+ 		
+ 		
  		
 		botonPremioBomba = new JButton("Bomba");
 		botonPremioBomba.setMargin(new Insets(0, 0, 0, 0));
@@ -411,7 +414,7 @@ public class Ventana implements Runnable{
  		
  		botonPremioOro = new JButton("");
  		botonPremioOro.setMargin(new Insets(0, 0, 0, 0));
-		botonPremioOro.setIcon(new ImageIcon("res/imagenes/premios/monedas.gif"));
+		botonPremioOro.setIcon(new ImageIcon(imagenBotonPremioOro));
 		botonPremioOro.setOpaque(false);
  		botonPremioOro.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
