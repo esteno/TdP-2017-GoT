@@ -545,6 +545,8 @@ public class Ventana implements Runnable{
 					nuevo.setBounds(labelCelda.getBounds().x,labelCelda.getBounds().y,img.getIconWidth(),img.getIconHeight());
 					panelCeldaPremios.add(nuevo);
 					juego.crearBomba(x,y,nuevo);
+					if (!juego.hayBombas())
+						seCreoBomba=false;
 
 				}
 				else{
