@@ -86,7 +86,7 @@ public class Juego
 	//Siguiente nivel basado en numNivel
 	public void sigNivel() {
 		nivelActual = niveles.getNivel(numNivel);
-		if (numNivel==4)
+		if (nivelActual == null)
 			gui.ganar();
 		else {
 			numNivel++;
