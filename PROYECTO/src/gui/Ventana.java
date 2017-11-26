@@ -363,8 +363,10 @@ public class Ventana implements Runnable{
  			}
  		});
  		
- 		botonPremioOro = new JButton("Oro");
+ 		botonPremioOro = new JButton("");
  		botonPremioOro.setMargin(new Insets(0, 0, 0, 0));
+		botonPremioOro.setIcon(new ImageIcon("res/imagenes/premios/monedas.gif"));
+		botonPremioOro.setOpaque(false);
  		botonPremioOro.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				juego.sumarOro(1000);
@@ -391,8 +393,10 @@ public class Ventana implements Runnable{
  			}
  		});
  		
- 		botonPremioCampoProtector = new JButton("CPro");
+ 		botonPremioCampoProtector = new JButton("");
  		botonPremioCampoProtector.setMargin(new Insets(0, 0, 0, 0));
+ 		botonPremioCampoProtector.setIcon(new ImageIcon("res/imagenes/premios/escudoUp.gif"));
+ 		botonPremioCampoProtector.setOpaque(false);
  		botonPremioCampoProtector.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				botonCampo.setEnabled(true);
@@ -627,5 +631,7 @@ public class Ventana implements Runnable{
 	}
 
 	public void agregarPremioCampoProtector(int x, int y) {
+		botonPremioCampoProtector.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
+		botonPremioCampoProtector.add(botonPremioCampoProtector);
 	}
 }
