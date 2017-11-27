@@ -18,18 +18,20 @@ public class CampoProtectorEnemigo extends Enemigo {
 		fuerzaImpacto = 0;
 	    velocidad = contVelocidad =e.getVelocidad();
 	    puntos=0;
-	    puntosVida=e.getPuntosVida()/2;
+	    puntosVida = e.getPuntosVida()/2;
 	    oro=0;
+	    grafico = e.getGrafico();
 	    velocidadAtaque = 10;
 	    proximoAtaque = 0;
 	    juego=j;
+	    juego.eliminarEnemigo(e);
+	    juego.insertarEnemigo(this);
 	    System.out.println(enemigo.getGrafico().getLabel()==null);
 	    enemigo.getGrafico().getLabel().setBorder(new MatteBorder(2, 2, 2, 2, Color.BLUE));
 	}
 	@Override
 	public void atacar() {
-		// TODO Auto-generated method stub
-		
+		enemigo.atacar();
 	}
 	
 	public GameObjectGrafico getGrafico() {
@@ -41,10 +43,12 @@ public class CampoProtectorEnemigo extends Enemigo {
 	}
 	
 	public void destruir() {
+		System.out.println("destruir campo protector pos"+celdas.getX()+" y "+celdas.getY());
 		enemigo.getGrafico().getLabel().setBorder(null);
 		celdas.destruirEnemigo();
-		juego.eliminarEscudo(this);
+		//juego.eliminarEnemigo(this);
 		juego.reemplazarEnemigo(enemigo, celdas.getX(), celdas.getY());
+		juego.insertarEnemigo(enemigo);
 	}
 
 	public int getAncho() {

@@ -188,16 +188,16 @@ public class Mapa
 		juego.moverGrafico(objeto);
 	}
 
-	public void reemplazarEnemigo(Enemigo campo, int x, int y) {
+	public void reemplazarEnemigo(Enemigo enemigo, int x, int y) {
 		CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
-		for(int i = x; i < campo.getAncho()+x ; i++) {
-			for(int j = y; j < campo.getAlto()+ y ; j++) {
-				matrizEnemigo[i][j]= campo;
+		for(int i = x; i < enemigo.getAncho()+x ; i++) {
+			for(int j = y; j < enemigo.getAlto()+ y ; j++) {
+				matrizEnemigo[i][j]= enemigo;
 				celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
 			}
 		}
 		celdaCompuesta.setPos(x, y);
-		campo.setCelda(celdaCompuesta);
+		enemigo.setCelda(celdaCompuesta);
 	}
 
 	public void reemplazarDefensa(Defensa campo, int x, int y) {

@@ -72,7 +72,8 @@ public abstract class Enemigo extends ObjetoMovil{
 								Celda celdaNueva = celdasNuevas.get(i);
 								celdas.moverEnemigo(celdaNueva.getX(), celdaNueva.getY(), celdaActual.getX(), celdaActual.getY());
 							}
-							celdas.setPos(celdasActuales.get(0).getX(), celdasActuales.get(0).getY());
+							celdas.setPos(celdasNuevas.get(0).getX(), celdasNuevas.get(0).getY());
+							System.out.println("celdas pos x"+celdas.getX()+" y "+celdas.getY());
 							celdas.limpiar();
 							//Si ya se puede mover y no hay nada en la celda adyacente se mueve
 							for(Celda celdaNueva: celdasNuevas) {

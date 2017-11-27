@@ -276,14 +276,18 @@ public class Juego
 		return (d!=null);
 	}
 
-	public void eliminarEscudo(CampoProtectorEnemigo e) {
-		controlDeOleadas.eliminarEnemigo(e);
-		controlDeOleadas.insertarEnemigo(e.getEnemigo());
-	}
-
 	public void reemplazarDefensa(Defensa personaje, int x, int y) {
 
 		mapa.reemplazarDefensa(personaje,x,y);
 		
+	}
+
+	public void eliminarEnemigo(Enemigo enemigo) {
+		controlDeOleadas.eliminarEnemigo(enemigo);
+		
+	}
+	
+	public void insertarEnemigo(Enemigo enemigo) {
+		controlDeOleadas.insertarEnemigo(enemigo);
 	}
 }
