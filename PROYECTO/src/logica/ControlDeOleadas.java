@@ -2,7 +2,9 @@ package logica;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+import enemigos.CampoProtectorEnemigo;
 import enemigos.Enemigo;
 import objetos.ObjetoMovil;
 
@@ -49,10 +51,18 @@ public class ControlDeOleadas implements Runnable {
 					//Posicion de la columna donde se va a insertar
 					int rand = (int) Math.floor(Math.random() * (alto - 1));
 					//Devuelve si el enemigo fue agregado
-					Boolean agregue = juego.agregarEnemigo(enemigo, juego.getAncho(), rand);
-					if(agregue) {
-						listaEnemigos.add(enemigo);
-						aInsertar++;
+					Random aleatorio= new Random();
+					int r= aleatorio.nextInt(100);
+					if (r<=15) {
+						Enemigo p= new CampoProtectorEnemigo (enemigo, juego);
+						juego.agregarEnemigo(p, juego.getAncho(), rand);
+					}
+					else {
+						Boolean agregue = juego.agregarEnemigo(enemigo, juego.getAncho(), rand);
+						if(agregue) {
+							listaEnemigos.add(enemigo);
+							aInsertar++;
+						}
 					}
 				}
 				
@@ -88,6 +98,16 @@ public class ControlDeOleadas implements Runnable {
 			catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+		}
+	}
+
+	public void eliminarEscudo(CampoProtectorEnemigo c) {
+		
+		listaDescarte.add(c);
+		boolean agregue = juego.agregarEnemigo(c.getEnemigo(), c.getCelda().getX(),c.getCelda().getY() );
+		if(agregue) {
+			listaEnemigos.add(c.getEnemigo());
+			aInsertar++;
 		}
 	}
 }
