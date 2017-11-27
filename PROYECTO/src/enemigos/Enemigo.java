@@ -1,5 +1,7 @@
 package enemigos;
 
+import java.util.List;
+
 import celdas.Celda;
 import colisiones.Visitor;
 import colisiones.VisitorEnemigo;
@@ -18,8 +20,6 @@ public abstract class Enemigo extends ObjetoMovil{
 	protected int puntos; //puntos que devuelve al ser destruido
 	protected int oro;
 	protected boolean atacando=false;
-	
-	protected Celda celda2;
 	 
 	public Enemigo() {
 		visitor = new VisitorEnemigo(this);
@@ -34,7 +34,7 @@ public abstract class Enemigo extends ObjetoMovil{
 		//Los puntos de vida se ponen en cero para poder ser removida de la lista de control
 		puntosVida=0;
 		grafico.destruir();
-		celda.destruirEnemigo();	
+		celdas.destruirEnemigo();	
 	}
 	
 	public int getPuntos() {
@@ -47,46 +47,41 @@ public abstract class Enemigo extends ObjetoMovil{
 	
 	@Override
 	public void avanzar() {
-		if(!atacando)
+		if(!atacando) {
 			if(!grafico.Lock(true)){
-			//Si la celda es nula quiere decir que llego al borde izquierdo del mapa.
-			Celda celdaNueva = celda.celdaIzquierda();
-				if(celdaNueva != null) 	{
-					//Si ya se puede mover y no hay nada en la celda adyacente se mueve
-					if(celda2==null){
-						if(contVelocidad >= 0 && celdaNueva.getEnemigo() == null){
-							//Guarda la posicion acutal
-							int xAnterior = celda.getX();
-							int yAnterior = celda.getY();
-							celda = celdaNueva;
+				if(contVelocidad >= 0) {
+					//Si la celda es nula quiere decir que llego al borde izquierdo del mapa.
+					List<Celda> celdasNuevas = celdas.celdaIzquierda();
+					System.out.println(celdasNuevas.size());
+					if(!celdasNuevas.isEmpty()) {
+						Boolean puedeMover = true; 
+						for(Celda celda : celdasNuevas) {
+							if(celda.getEstatico() != null)
+								puedeMover = false;
+							if(celda.getEnemigo() != null)
+								puedeMover = false;
+						}
+						if(puedeMover) 	{
+							celdas.moverGrafico(this);
+							int xAnterior = celdas.getX();
+							int yAnterior = celdas.getY();
+							
+							contVelocidad = (int) Math.floor(velocidad*celdas.getMultiVelocidad());
 							grafico.setBloqueado(true);
-							celda.moverEnemigo(xAnterior, yAnterior);
-							contVelocidad = (int) Math.floor(velocidad*celda.getMultiVelocidad());
-						}
-						else
-							//descuenta de contador
-							contVelocidad += celda.getMultiVelocidad();
-						}
-					else{
-						Celda celdaNueva2 = celda2.celdaIzquierda();
-						if(contVelocidad >= 0 && celdaNueva.getEnemigo() == null && celdaNueva2.getEnemigo() == null){
-							//Guarda la posicion acutal
-							int xAnterior = celda.getX();
-							int yAnterior = celda.getY();
-							celda = celdaNueva;
-							celda2 = celdaNueva2;
-							grafico.setBloqueado(true);
-							celda.moverEnemigo(xAnterior, yAnterior);
-							contVelocidad = (int) Math.floor(velocidad*celda.getMultiVelocidad());
-						}
-						else
-							//descuenta de contador
-							contVelocidad += celda.getMultiVelocidad();
-						}
+							celdas.limpiar();
+							//Si ya se puede mover y no hay nada en la celda adyacente se mueve
+							for(Celda celdaNueva: celdasNuevas) {
+									celdas.agregarCeldas(celdaNueva);
+							}
+							celdas.moverEnemigo(xAnterior, yAnterior);
+							if(celdas.getX() == 0)
+								destruir();
+						}	
+					}
 				}
-				else 
-					destruir();
+				contVelocidad += celdas.getMultiVelocidad();
 			}
+		}
 	}
 	
 	public void setEstado(EstadoMultiplicador estado) {
@@ -107,7 +102,4 @@ public abstract class Enemigo extends ObjetoMovil{
 		return oro;
 	}
 
-	public void setCelda2(Celda c) {
-			 celda2 = c;
-	}
 }

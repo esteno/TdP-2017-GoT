@@ -5,13 +5,13 @@ import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 
 import colisiones.*;
-import celdas.Celda;
+import celdas.*;
 import logica.FabricaObjetoGrafico;
 
 public abstract class GameObject{
 	//atributos
 	protected GameObjectGrafico grafico;
-	protected Celda celda;
+	protected CeldaCompuesta celdas;
 	protected int puntosVida; // de vida de cada objeto
 	protected boolean isRunning = true;
 	protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
@@ -32,16 +32,16 @@ public abstract class GameObject{
 		return grafico;
 	}
 	
-	public void setCelda(Celda celdaNueva){
-		celda = celdaNueva;
+	public void setCelda(CeldaCompuesta celdasNuevas){
+		celdas = celdasNuevas;
 	}
 	
 	public abstract void aceptar(Visitor v);
 	
 	public abstract void atacar();
 	
-	public Celda getCelda(){ 
-		return celda;
+	public CeldaCompuesta getCelda(){ 
+		return celdas;
 	}
 	
 	public int getFuerzaImpacto(){

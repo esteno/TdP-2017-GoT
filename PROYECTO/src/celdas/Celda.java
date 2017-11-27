@@ -60,14 +60,18 @@ public class Celda
     	return objeto;
     }
     
-    public Celda celdaIzquierda() 
+    public List<Celda> celdaIzquierda() 
     {
-    	return mapa.celdaIzquierda(this);
+    	List<Celda> lista = new ArrayList<Celda>();
+    	lista.add(mapa.celdaIzquierda(this));
+    	return lista;
     }
     
-    public Celda celdaDerecha()
+    public List<Celda> celdaDerecha()
     {
-    	return mapa.celdaDerecha(this);
+    	List<Celda> lista = new ArrayList<Celda>();
+    	lista.add(mapa.celdaDerecha(this));
+    	return lista;
     }
     
     //Devuelve el objeto movil que est� sobre esta celda
@@ -128,14 +132,6 @@ public class Celda
 
 	public void destruirDefensa() {
 		mapa.eliminarDefensa(x, y);
-	}
-	
-	public void setDoble(Defensa d, int x, int y){
-		mapa.setDoble(d,x,y);
-	}
-
-	public void setDoble(Enemigo e, int x2, int y2) {
-		mapa.setDoble(e,x2,y2);
 	}
 	
 	

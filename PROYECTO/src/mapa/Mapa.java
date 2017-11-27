@@ -74,65 +74,52 @@ public class Mapa
 	
 	public boolean agregarDefensa(Defensa defensa, int x, int y){
 		Boolean pudeAgregar = false;
-		if(defensa.getAlto() == 1 && defensa.getAncho() == 1) {
-			if(matrizDefensa[x][y] == null) {
-				matrizDefensa[x][y]= defensa;
+		if((defensa.getAlto()+y <= matrizCeldas[0].length) && (defensa.getAncho()+x <= matrizCeldas.length)) {
+			CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
+			for(int i = x; i < defensa.getAncho()+x ; i++) {
+				for(int j = y; j < defensa.getAlto()+y ; j++) {
+					System.out.println("agregue celda en "+i+" "+j);
+					matrizDefensa[i][j] = defensa;
+					celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
+				}
 			}
-			defensa.setCelda(matrizCeldas[x][y]);
+			defensa.setCelda(celdaCompuesta);
 			pudeAgregar = true;
 		}
-		else {
-			if((defensa.getAlto()+y < matrizCeldas[0].length) && (defensa.getAncho()+x < matrizCeldas.length)) {
-				CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
-				for(int i = x; i < defensa.getAncho()+x ; i++) {
-					for(int j = y; j < defensa.getAlto()+y ; j++) {
-						System.out.println("agregue celda en "+i+" "+j);
-						celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
-					}
+		return pudeAgregar;
+	}
+	
+	
+	public boolean agregarEnemigo(Enemigo enemigo, int x, int y) {
+		Boolean pudeAgregar = false;
+		
+		if((enemigo.getAlto()+y <= matrizCeldas[0].length) && (enemigo.getAncho()+x <= matrizCeldas.length)) {
+			CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
+			for(int i = x; i < enemigo.getAncho()+x ; i++) {
+				for(int j = y; j < enemigo.getAlto()+ y ; j++) {
+					matrizEnemigo[i][j]= enemigo;
+					celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
 				}
-				defensa.setCelda(celdaCompuesta);
-				pudeAgregar = true;
 			}
-			
-			
-			
+			enemigo.setCelda(celdaCompuesta);
+			pudeAgregar = true;
 		}
 		
 		return pudeAgregar;
 	}
 	
-	public void setDoble(Defensa d, int x, int y){
-		if(matrizDefensa[x][y] == null) {
-			matrizDefensa[x][y]= d;
-		}
-		d.setCelda2(matrizCeldas[x][y]);
-	}
-	
-	public void setDoble(Enemigo e , int x, int y){
-		if (matrizEnemigo[x][y] == null)
-			matrizEnemigo[x][y] = e;
-		e.setCelda2(matrizCeldas[x][y]);
-	}
-	
-	public boolean agregarEnemigo(Enemigo obj, int x, int y) {
-		if(matrizEnemigo[x][y] == null) {
-			matrizEnemigo[x][y] = obj;
-			obj.setCelda(matrizCeldas[x][y]);
-			return true;
-		}
-		return false;
-	}
-	
 	public void agregarDisparo(Disparo disparo, int x, int y) {
-		disparo.setCelda(matrizCeldas[x][y]);
+		CeldaCompuesta celda = new CeldaCompuesta(this, x, y);
+		disparo.setCelda(celda);
+		celda.agregarCeldas(matrizCeldas[x][y]);
 		juego.agregarDisparo(disparo, x, y);
 	}
 	
 	//------MOVER
-	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) {	
+	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) {
+		System.out.println("moverEnemigo "+matrizEnemigo[x][y]+" "+matrizEnemigo[xAnterior][yAnterior]);
 		matrizEnemigo[x][y] = matrizEnemigo[xAnterior][yAnterior];
 		matrizEnemigo[xAnterior][yAnterior] = null;
-		moverGrafico(matrizEnemigo[x][y]);
 		if (x==0)
 			juego.gameOver();
 	}
@@ -144,10 +131,6 @@ public class Mapa
 	public Defensa eliminarDefensa(int x, int y){
 		Defensa defensa = matrizDefensa[x][y];
 		matrizDefensa[x][y]=null;
-		Celda aux=defensa.getDoble();
-		if(aux!=null){
-			matrizDefensa[aux.getX()][aux.getY()]=null;
-		}
 		return defensa;
 	}
 	

@@ -16,8 +16,9 @@ public class Gigante extends EnemigoCuerpo{
 		    puntos=100;
 		    oro=75;
 		    velocidadAtaque = 20;
+		    alto = 2;
 		}
-
+		/**
 		public void setCelda(Celda celdaNueva){
 			celda = celdaNueva;
 			int y = celda.getY();
@@ -32,6 +33,7 @@ public class Gigante extends EnemigoCuerpo{
 
 			}
 		}
+		**/
 	
 
 }

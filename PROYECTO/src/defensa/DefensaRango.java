@@ -15,7 +15,7 @@ public abstract class DefensaRango extends Personaje {
 	public void atacar() {
 		//Cuando la defensa de rango ataca crea un disparo en su posicion actual
 		if(proximoAtaque == 0) {
-			celda.agregarDisparo(new DisparoDefensa(getGraficoDisparo(),fuerzaImpacto*estado.multiplicadorAtaque()));
+			celdas.agregarDisparo(new DisparoDefensa(getGraficoDisparo(),fuerzaImpacto*estado.multiplicadorAtaque()));
 			proximoAtaque = velocidadAtaque;
 		}
 		//Si no decrementa el contador de proximo ataque.

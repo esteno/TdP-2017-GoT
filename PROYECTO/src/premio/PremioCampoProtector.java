@@ -1,6 +1,7 @@
 package premio;
 
 import celdas.Celda;
+import celdas.CeldaCompuesta;
 import defensa.*;
 import logica.Juego;
 import logica.Temporal;
@@ -14,7 +15,7 @@ public class PremioCampoProtector implements Temporal	{
 	
 	public PremioCampoProtector(Defensa d) {
 		campo = new CampoProtector(this, d);
-		Celda celda = d.getCelda();
+		CeldaCompuesta celda = d.getCelda();
 		campo.setCelda(celda);
 		juego.eliminarDefensa(celda.getX(), celda.getY());
 		juego.agregarDefensa(campo, celda.getX(), celda.getY());

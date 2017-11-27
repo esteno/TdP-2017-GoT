@@ -23,7 +23,6 @@ public abstract class Defensa extends GameObject
      
      protected EstadoMultiplicador estado = new EstadoDefensaDefecto();
      
-     protected Celda celda2;
      
      public void aceptar(Visitor v){
     	 v.visitarDefensa(this);
@@ -53,17 +52,9 @@ public abstract class Defensa extends GameObject
 	
 	public void destruir() {
 		grafico.destruir();
-		celda.destruirDefensa();
+		celdas.destruirDefensa();
 	}
 	
 	public void curacion() {
-	}
-	
-	public void setCelda2(Celda c){
-		celda2=c;
-	}
-	
-	public Celda getDoble(){
-		return celda2;
 	}
 }
