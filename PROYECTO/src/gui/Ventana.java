@@ -306,7 +306,7 @@ public class Ventana implements Runnable{
 		
 		
 		// ------------------- obstaculos
-		botonMuro = new JButton("muro");
+		botonMuro = new JButton("");
 		botonMuro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FabricaDeDefensa.getInstancia().construirMuro();
@@ -317,7 +317,7 @@ public class Ventana implements Runnable{
 		frame.getContentPane().add(botonMuro);
 		
 		
-		botonRoca = new JButton("roca");
+		botonRoca = new JButton("");
 		botonRoca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FabricaDeDefensa.getInstancia().construirRoca();
@@ -327,7 +327,7 @@ public class Ventana implements Runnable{
 		botonRoca.setIcon(new ImageIcon(imagenBotonRoca));
 		frame.getContentPane().add(botonRoca);
 		
-		botonTrinchera = new JButton("trinchera");
+		botonTrinchera = new JButton("");
 		botonTrinchera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FabricaDeDefensa.getInstancia().construirTrinchera();
@@ -355,7 +355,7 @@ public class Ventana implements Runnable{
 		consola.setBorder(new MatteBorder(2,2,2,2,Color.DARK_GRAY));
 		consola.setBounds(2, 564, 994, 135);
 		ConsolaMensajes.setContainer(consola);
-		ConsolaMensajes.mostrarMensaje("Â¡Bienvenido! Â¡Gracias por jugar!\n Aqui apareceran mensajes importantes");
+		ConsolaMensajes.mostrarMensaje("¡Bienvenido! ¡Gracias por jugar!\n Aqui apareceran mensajes importantes.");
 		frame.getContentPane().add(consola);
 		
 		///--- ACCIONES DE LOS BOTONES ----
