@@ -14,9 +14,9 @@ public class VisitorBomba extends Visitor {
 	}
 
 	@Override
-	public void visitarDefensa(Defensa d) {
-		d.destruir();
-
+	public void visitarDefensa(Defensa d) 
+	{
+		d.recibirAtaque(d.getPuntosVida()+1);
 	}
 
 	@Override
