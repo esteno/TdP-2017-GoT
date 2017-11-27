@@ -112,8 +112,8 @@ public class Ventana implements Runnable{
 	
 	public String imagenFuegoValyrio = "res/imagenes/juego/botonFuegoValyrio.png";
 	public final String imagenBotonMuro = "res/imagenes/juego/botonMuro.png" ;
-	public final String imagenBotonRoca = "res/imagenes/obstaculos/roca.png";
-	public final String imagenBotonTrinchera = "res/imagenes/obstaculos/trinchera.png";
+	public final String imagenBotonRoca = "res/imagenes/juego/botonRoca.png";
+	public final String imagenBotonTrinchera = "res/imagenes/juego/botonTrinchera.png";
 	 
 	
 	public final String imagenBotonBomba = "res/imagenes/premios/iconoBomba.png";
