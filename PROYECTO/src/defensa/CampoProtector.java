@@ -8,7 +8,7 @@ public class CampoProtector extends Defensa {
 	private PremioCampoProtector control;
 	
 	public CampoProtector(PremioCampoProtector ctrl, Defensa d) {
-		puntosVida = 1000;
+		puntosVida = 1;
 		control = ctrl;
 		personaje = d;
 		grafico = fabricaGrafica.construirGraficoCampoProtector();

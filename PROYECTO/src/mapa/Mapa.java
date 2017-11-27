@@ -192,4 +192,17 @@ public class Mapa
 		juego.moverGrafico(objeto);
 	}
 
+	public void reemplazarEnemigo(Enemigo campo, int x, int y) {
+
+		CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
+		for(int i = x; i < campo.getAncho()+x ; i++) {
+			for(int j = y; j < campo.getAlto()+ y ; j++) {
+				matrizEnemigo[i][j]= campo;
+				celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
+			}
+		}
+		campo.setCelda(celdaCompuesta);
+	}
+
+
 }

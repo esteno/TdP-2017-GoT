@@ -120,6 +120,11 @@ public class Juego
 		return puedoAgregar;
 	}
 	
+	public void reemplazarEnemigo(Enemigo p, int i, int rand) {
+	
+		mapa.reemplazarEnemigo(p, i, rand);
+	}
+	
 	public void agregarDisparo(Disparo disparo, int x, int y) {
 		controlDisparo.agregarDisparo(disparo);
 		gui.agregarObjetoMovil(x, y, disparo);
@@ -274,6 +279,7 @@ public class Juego
 	}
 
 	public void eliminarEscudo(CampoProtectorEnemigo e) {
-		controlDeOleadas.eliminarEscudo(e);
+		controlDeOleadas.eliminarEnemigo(e);
+		controlDeOleadas.insertarEnemigo(e.getEnemigo());
 	}
 }
