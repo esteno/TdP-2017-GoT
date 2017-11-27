@@ -52,7 +52,6 @@ public abstract class Enemigo extends ObjetoMovil{
 				if(contVelocidad >= 0) {
 					//Si la celda es nula quiere decir que llego al borde izquierdo del mapa.
 					List<Celda> celdasNuevas = celdas.celdaIzquierda();
-					System.out.println(celdasNuevas.size());
 					if(!celdasNuevas.isEmpty()) {
 						Boolean puedeMover = true; 
 						for(Celda celda : celdasNuevas) {
@@ -63,17 +62,23 @@ public abstract class Enemigo extends ObjetoMovil{
 						}
 						if(puedeMover) 	{
 							celdas.moverGrafico(this);
-							int xAnterior = celdas.getX();
-							int yAnterior = celdas.getY();
 							
 							contVelocidad = (int) Math.floor(velocidad*celdas.getMultiVelocidad());
 							grafico.setBloqueado(true);
+							//celdas.limpiar();
+							List<Celda> celdasActuales = celdas.getCeldas();
+							for(int i = 0; i< celdasActuales.size(); i++) {
+								Celda celdaActual = celdasActuales.get(i);
+								Celda celdaNueva = celdasNuevas.get(i);
+								celdas.moverEnemigo(celdaNueva.getX(), celdaNueva.getY(), celdaActual.getX(), celdaActual.getY());
+							}
+							celdas.setPos(celdasActuales.get(0).getX(), celdasActuales.get(0).getY());
 							celdas.limpiar();
 							//Si ya se puede mover y no hay nada en la celda adyacente se mueve
 							for(Celda celdaNueva: celdasNuevas) {
 									celdas.agregarCeldas(celdaNueva);
 							}
-							celdas.moverEnemigo(xAnterior, yAnterior);
+							
 							if(celdas.getX() == 0)
 								destruir();
 						}	

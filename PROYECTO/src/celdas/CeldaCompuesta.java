@@ -44,13 +44,9 @@ public class CeldaCompuesta extends Celda {
 	
 	
 	//Mueve un enemigo de la posicion (xAnterior, yAnterior) a su nueva posicion (x,y). ANTERIOR
-    public void moverEnemigo(int xAnterior, int yAnterior)
+    public void moverEnemigo(int x, int y, int xAnterior, int yAnterior)
     {
-    	for(Celda celda : listaCeldas) {
-    		mapa.moverEnemigo(celda.getX(), celda.getY(), xAnterior, yAnterior);
-    	}
-    	x = listaCeldas.get(0).getX();
-    	y = listaCeldas.get(0).getY();
+   		mapa.moverEnemigo(x, y, xAnterior, yAnterior);
     }
     
     public void moverEnemigoDoble(int xAnterior, int yAnterior)
@@ -89,6 +85,12 @@ public class CeldaCompuesta extends Celda {
 	public double getMultiVelocidad() {
     	return listaCeldas.get(0).getMultiVelocidad();
     }
+
+	public void setPos(int x, int y) {
+		this.x = x;
+		this.y = y;
+		
+	}
 
 
 }

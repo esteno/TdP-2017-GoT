@@ -74,17 +74,26 @@ public class Mapa
 	
 	public boolean agregarDefensa(Defensa defensa, int x, int y){
 		Boolean pudeAgregar = false;
+		Boolean hayEspacio = true;
 		if((defensa.getAlto()+y <= matrizCeldas[0].length) && (defensa.getAncho()+x <= matrizCeldas.length)) {
-			CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
-			for(int i = x; i < defensa.getAncho()+x ; i++) {
-				for(int j = y; j < defensa.getAlto()+y ; j++) {
-					System.out.println("agregue celda en "+i+" "+j);
-					matrizDefensa[i][j] = defensa;
-					celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
+			for(int iCheck = x; iCheck < defensa.getAncho()+x ; iCheck++) {
+				for(int jCheck = y; jCheck < defensa.getAlto()+ y ; jCheck++) {
+					if(matrizDefensa[iCheck][jCheck] != null)
+						hayEspacio = false;
 				}
 			}
-			defensa.setCelda(celdaCompuesta);
-			pudeAgregar = true;
+			if(hayEspacio) {
+				CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
+				for(int i = x; i < defensa.getAncho()+x ; i++) {
+					for(int j = y; j < defensa.getAlto()+y ; j++) {
+						System.out.println("agregue celda en "+i+" "+j);
+						matrizDefensa[i][j] = defensa;
+						celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
+					}
+				}
+				defensa.setCelda(celdaCompuesta);
+				pudeAgregar = true;
+			}
 		}
 		return pudeAgregar;
 	}
@@ -92,17 +101,26 @@ public class Mapa
 	
 	public boolean agregarEnemigo(Enemigo enemigo, int x, int y) {
 		Boolean pudeAgregar = false;
-		
+		Boolean hayEspacio = true;
 		if((enemigo.getAlto()+y <= matrizCeldas[0].length) && (enemigo.getAncho()+x <= matrizCeldas.length)) {
-			CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
-			for(int i = x; i < enemigo.getAncho()+x ; i++) {
-				for(int j = y; j < enemigo.getAlto()+ y ; j++) {
-					matrizEnemigo[i][j]= enemigo;
-					celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
+			for(int iCheck = x; iCheck < enemigo.getAncho()+x ; iCheck++) {
+				for(int jCheck = y; jCheck < enemigo.getAlto()+ y ; jCheck++) {
+					if(matrizEnemigo[iCheck][jCheck] != null)
+						hayEspacio = false;
 				}
 			}
-			enemigo.setCelda(celdaCompuesta);
-			pudeAgregar = true;
+			if(hayEspacio) {
+				CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
+				for(int i = x; i < enemigo.getAncho()+x ; i++) {
+					for(int j = y; j < enemigo.getAlto()+ y ; j++) {
+						System.out.println("agregue celda enemigo en "+i+" "+j);
+						matrizEnemigo[i][j]= enemigo;
+						celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
+					}
+				}
+				enemigo.setCelda(celdaCompuesta);
+				pudeAgregar = true;
+			}
 		}
 		
 		return pudeAgregar;
