@@ -135,7 +135,6 @@ public class Mapa
 	
 	//------MOVER
 	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) {
-		System.out.println("moverEnemigo "+matrizEnemigo[x][y]+" "+matrizEnemigo[xAnterior][yAnterior]);
 		matrizEnemigo[x][y] = matrizEnemigo[xAnterior][yAnterior];
 		matrizEnemigo[xAnterior][yAnterior] = null;
 		if (x==0)

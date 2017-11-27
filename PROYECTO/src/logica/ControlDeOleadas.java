@@ -92,7 +92,7 @@ public class ControlDeOleadas implements Runnable {
 				
 				//Si no hay mas enemigos y aun hay oleadas, se crea una nueva
 				if(listaEnemigos.size() == 0 && cantOleadas != 0) {
-					Thread.sleep(2000);
+					Thread.sleep(4000);
 					juego.sigOleada();
 				}
 				//Si no hay mas oleadas se cambia de nivel

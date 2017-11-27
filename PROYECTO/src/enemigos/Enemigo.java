@@ -52,7 +52,7 @@ public abstract class Enemigo extends ObjetoMovil{
 				if(contVelocidad >= 0) {
 					//Si la celda es nula quiere decir que llego al borde izquierdo del mapa.
 					List<Celda> celdasNuevas = celdas.celdaIzquierda();
-					if(!celdasNuevas.isEmpty()) {
+					if(!celdasNuevas.isEmpty()) {	
 						Boolean puedeMover = true; 
 						for(Celda celda : celdasNuevas) {
 							if(celda.getEstatico() != null)
