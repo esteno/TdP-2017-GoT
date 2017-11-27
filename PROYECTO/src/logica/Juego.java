@@ -14,7 +14,6 @@ import disparos.Disparo;
 import enemigos.CampoProtectorEnemigo;
 import enemigos.Enemigo;
 import gui.*;
-import premio.PremioDanioDoble;
 import estadoMultiplicador.*;
 
 import premio.*;

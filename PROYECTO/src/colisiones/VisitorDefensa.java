@@ -4,9 +4,9 @@ package colisiones;
 import defensa.Defensa;
 import disparos.*;
 import enemigos.Enemigo;
-import defensa.Bomba;
 import objetos.*;
 import obstaculo.FuegoValyrio;
+import premio.Bomba;
 
 public class VisitorDefensa extends Visitor
 {

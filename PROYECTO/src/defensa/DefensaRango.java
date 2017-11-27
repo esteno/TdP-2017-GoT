@@ -23,10 +23,6 @@ public abstract class DefensaRango extends Personaje {
 			proximoAtaque--;
 	}
 	
-	public int getAlcance(){
-		return alcance;
-	}
-	
 	protected abstract GameObjectGrafico getGraficoDisparo();
 
 }

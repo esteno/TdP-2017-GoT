@@ -1,4 +1,4 @@
-package defensa;
+package premio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.JLabel;
 
 import colisiones.VisitorBomba;
+import defensa.Defensa;
 import logica.Juego;
 import logica.Temporal;
 import logica.Timer;

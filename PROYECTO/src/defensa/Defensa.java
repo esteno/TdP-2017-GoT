@@ -26,10 +26,6 @@ public abstract class Defensa extends GameObject
      
      public void aceptar(Visitor v){
     	 v.visitarDefensa(this);
-    }
-  
-     public void setVida(int i) {
-    	 puntosVida=i;
      }
      
      public abstract void atacar();
@@ -39,10 +35,6 @@ public abstract class Defensa extends GameObject
     	 estado = nuevoEstado;
     	 System.out.println("cambio de estado nuevo "+estado.multiplicadorAtaque()+"\n-----");
      }
-     
- 	public int getPrecio(){
- 		return precio;
- 	}
  	
 	public void recibirAtaque(int i){
 		puntosVida -= i;

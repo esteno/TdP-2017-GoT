@@ -19,11 +19,8 @@ public abstract class Enemigo extends ObjetoMovil{
 	protected Visitor visitor;
 	protected int puntos; //puntos que devuelve al ser destruido
 	protected int oro;
-	protected boolean atacando=false;
-	 
-	public Enemigo() {
-		visitor = new VisitorEnemigo(this);
-	}
+	protected boolean atacando = false;
+
 	
 	//La fuerza de ataque es la fuerza de impacto por el estado de ataque, redondeado a un entero.
 	public int getFuerzaImpacto(){
@@ -92,16 +89,6 @@ public abstract class Enemigo extends ObjetoMovil{
 	
 	public void setEstado(EstadoMultiplicador estado) {
 		this.estado = estado;
-	}
-	
-	public void recibirAtaque(int i){
-		puntosVida -= i;
-		if(puntosVida < 0)
-			destruir();
-	}
-	
-	public Visitor getVisitor(){
-		return visitor;
 	}
 
 	public int getOro() {

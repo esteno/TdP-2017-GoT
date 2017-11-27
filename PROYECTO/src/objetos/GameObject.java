@@ -44,6 +44,14 @@ public abstract class GameObject{
 		return celdas;
 	}
 	
+	public void recibirAtaque(int i){
+		puntosVida -= i;
+		if(puntosVida < 0) 
+			destruir();
+	}
+	
+	public abstract void destruir();
+	
 	public int getFuerzaImpacto(){
 		return fuerzaImpacto;
 	}
