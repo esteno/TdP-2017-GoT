@@ -83,7 +83,7 @@ public class Ventana implements Runnable{
 	private JButton botonBronn;
 	private JButton botonGendry;
 	
-	
+	private JButton botonFuegoValyrio;
 	private JButton botonBarricada;
 	private JButton botonRoca;
 	private JButton botonTrinchera;
@@ -98,7 +98,8 @@ public class Ventana implements Runnable{
 	private JLabel lblPuntaje;
 	private JLabel lblMonedas_1;
 	
-
+	private JLabel muroJuego;
+	private String muroJ = "res/imagenes/juego/muroHieloJuego.png";
 
 
 	private final String imagenBotonYgritte = "res/imagenes/juego/botonYgritte.png";
@@ -109,7 +110,7 @@ public class Ventana implements Runnable{
 	private final String imagenBotonInmaculado = "res/imagenes/juego/botonInmaculado.png";
 	
 	
-
+	public String imagenFuegoValyrio = "res/imagenes/obstaculos/botonFuegoValyrio.png";
 	public final String imagenBotonMuro = "res/imagenes/obstaculos/muro.png" ;
 	public final String imagenBotonRoca = "res/imagenes/obstaculos/roca.png";
 	public final String imagenBotonTrinchera = "res/imagenes/obstaculos/trinchera.png";
@@ -163,6 +164,7 @@ public class Ventana implements Runnable{
 		frame.getContentPane().setBounds(new Rectangle(0, 0, 1000,600));
 		frame.setBounds(100, 100, 1000, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setLayout(null);
 		
 		moviles= new LinkedList<ObjetoMovil>();
@@ -170,7 +172,7 @@ public class Ventana implements Runnable{
 		aAgregar= new LinkedList<ObjetoMovil>();
 		
 		panelMapa = new JLayeredPane();
-		panelMapa.setBounds(149, 96, 800, 400);
+		panelMapa.setBounds(180, 120, 800, 400);
 		frame.getContentPane().add(panelMapa);
 				
 		panelDefensa = new JPanel();
@@ -204,32 +206,32 @@ public class Ventana implements Runnable{
 		frame.getContentPane().add(panelPersonajes);
 		panelPersonajes.setLayout(null);
 		
-		botonYgritte = new JButton("ygritte");
+		botonYgritte = new JButton("");
 		botonYgritte.setBounds(0, 0, 100, 93);
 		botonYgritte.setIcon(new ImageIcon(imagenBotonYgritte));
 		panelPersonajes.add(botonYgritte);
 		
-		botonMountain = new JButton("mount");
+		botonMountain = new JButton("");
 		botonMountain.setBounds(0, 93, 100, 93);
 		botonMountain.setIcon(new ImageIcon(imagenBotonMountain));
 		panelPersonajes.add(botonMountain);
 		
-		botonDragon = new JButton("dragon");
+		botonDragon = new JButton("");
 		botonDragon.setBounds(0, 186, 100, 96);
 		botonDragon.setIcon(new ImageIcon(imagenBotonDragon));
 		panelPersonajes.add(botonDragon);
 		
-		botonInmaculado = new JButton("inmac");
+		botonInmaculado = new JButton("");
 		botonInmaculado.setBounds(0, 279, 100, 94);
 		botonInmaculado.setIcon(new ImageIcon(imagenBotonInmaculado));
 		panelPersonajes.add(botonInmaculado);
 		
-		botonBronn = new JButton("bronn");
+		botonBronn = new JButton("");
 		botonBronn.setBounds(0, 373, 100, 94);
 		botonBronn.setIcon(new ImageIcon(imagenBotonBronn));
 		panelPersonajes.add(botonBronn);
 		
-		botonGendry = new JButton("gendry");
+		botonGendry = new JButton("");
 		botonGendry.setBounds(0, 468, 100, 94);
 		botonGendry.setIcon(new ImageIcon(imagenBotonGendry));
 		panelPersonajes.add(botonGendry);
@@ -305,6 +307,17 @@ public class Ventana implements Runnable{
 		
 		
 		// ------------------- obstaculos
+		
+		botonFuegoValyrio = new JButton("");
+		botonFuegoValyrio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		botonFuegoValyrio.setBounds(521, 4, 80, 80);
+		botonFuegoValyrio.setIcon(new ImageIcon(imagenFuegoValyrio));
+		frame.getContentPane().add(botonFuegoValyrio);
+		
+		
 		botonMuro = new JButton("");
 		botonMuro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -336,6 +349,13 @@ public class Ventana implements Runnable{
 		botonTrinchera.setIcon(new ImageIcon(imagenBotonTrinchera));
 		frame.getContentPane().add(botonTrinchera);
 		
+		// ----------------
+		muroJuego = new JLabel("");
+		muroJuego.setIcon(new ImageIcon(muroJ));
+		muroJuego.setBounds(136, 120, 45, 400);
+		frame.getContentPane().add(muroJuego);
+		
+		
 		
 		// -------------
 		
@@ -356,6 +376,9 @@ public class Ventana implements Runnable{
 		ConsolaMensajes.setContainer(consola);
 		ConsolaMensajes.mostrarMensaje("¡Bienvenido! ¡Gracias por jugar!\n Aqui apareceran mensajes importantes.");
 		frame.getContentPane().add(consola);
+		
+
+		
 		
 		///--- ACCIONES DE LOS BOTONES ----
 		botonYgritte.addActionListener(new ActionListener() {
@@ -409,7 +432,8 @@ public class Ventana implements Runnable{
 		botonPremioBarricada.setIcon(new ImageIcon(imagenBotonPremioBarricada));
  		botonPremioBarricada.addActionListener(new ActionListener() {
  			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent arg0) 
+ 			{
 				juego.agregarBarricada();
 				botonBarricada.setEnabled(true);
 				panelCeldaPremios.remove(botonPremioBarricada);
@@ -495,7 +519,11 @@ public class Ventana implements Runnable{
 				label.addMouseListener(getMouseListener());
 				panelCeldas.add(label);
 			}
-		}		
+		}
+		
+		
+		
+
 	}
 	
 	public void puntaje(int puntaje){

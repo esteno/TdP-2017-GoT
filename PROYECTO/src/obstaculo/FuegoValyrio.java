@@ -8,7 +8,6 @@ import defensa.Defensa;
 public class FuegoValyrio extends Obstaculo{
 	
 	public FuegoValyrio(){
-		precio = 100;
 		velocidadAtaque = 0;
 		proximoAtaque = 0;
 		puntosVida = 250;
