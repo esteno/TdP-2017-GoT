@@ -607,7 +607,7 @@ public class Ventana implements Runnable{
 					
 				}
 				else if (seCreoBomba) {
-					ImageIcon img=new ImageIcon();
+					ImageIcon img=new ImageIcon("res/imagenes/premios/iconoBomba.png");
 					JLabel nuevo=new JLabel(img);
 					nuevo.setBounds(labelCelda.getBounds().x,labelCelda.getBounds().y,img.getIconWidth(),img.getIconHeight());
 					panelCeldaPremios.add(nuevo);
