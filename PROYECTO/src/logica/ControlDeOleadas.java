@@ -60,7 +60,7 @@ public class ControlDeOleadas implements Runnable {
 					if(agregue) {
 						listaEnemigos.add(enemigo);
 						aInsertar++;
-						if (r<=15) {
+						if (r<=100) {
 							Enemigo p= new CampoProtectorEnemigo (enemigo, juego);
 							juego.reemplazarEnemigo(p, juego.getAncho(), rand);
 						}

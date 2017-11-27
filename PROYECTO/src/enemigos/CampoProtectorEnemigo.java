@@ -44,7 +44,7 @@ public class CampoProtectorEnemigo extends Enemigo {
 		enemigo.getGrafico().getLabel().setBorder(null);
 		celdas.destruirEnemigo();
 		juego.eliminarEscudo(this);
-		juego.reemplazarEnemigo(enemigo, getAncho(), getAlto());
+		juego.reemplazarEnemigo(enemigo, celdas.getX(), celdas.getY());
 	}
 
 	public int getAncho() {

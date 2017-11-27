@@ -135,14 +135,11 @@ public class Mapa
 	
 	//------MOVER
 	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) {
+		System.out.format("moverEnemigo de x %d y %d xAnterior %d yAnterior %d \n", x, y, xAnterior, yAnterior);
 		matrizEnemigo[x][y] = matrizEnemigo[xAnterior][yAnterior];
 		matrizEnemigo[xAnterior][yAnterior] = null;
 		if (x==0)
 			juego.gameOver();
-	}
-	public void moverEnemigoDoble(int x, int y, int xAnterior, int yAnterior) {	
-		matrizEnemigo[x][y] = matrizEnemigo[xAnterior][yAnterior];
-		matrizEnemigo[xAnterior][yAnterior] = null;
 	}
 	
 	public Defensa eliminarDefensa(int x, int y){
@@ -192,7 +189,6 @@ public class Mapa
 	}
 
 	public void reemplazarEnemigo(Enemigo campo, int x, int y) {
-
 		CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
 		for(int i = x; i < campo.getAncho()+x ; i++) {
 			for(int j = y; j < campo.getAlto()+ y ; j++) {
