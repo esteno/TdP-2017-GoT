@@ -9,14 +9,12 @@ import estadoMultiplicador.EstadoMultiplicador;
 //
 public class ControlDeDefensa implements Runnable {
 	
-	private Juego juego;
 	private List<Defensa> listaInsercion;
 	private List<Defensa> listaDefensa;
 	private List<Defensa> listaDescarte;
 	private boolean isRunning = true;
 	
 	public ControlDeDefensa(Juego juego) {
-		this.juego = juego;
 		//Lista donde se va a insertar defensa nueva
 		listaInsercion = new ArrayList<Defensa>();
 		//Lista donde se acciona la defensa
@@ -61,9 +59,6 @@ public class ControlDeDefensa implements Runnable {
 		}
 	}
 	
-	public List<Defensa> getListaDefensa(){
-		return listaDefensa;
-	}
 
 	public void modificarEstado(EstadoMultiplicador estado) {
 		for (Defensa d:listaDefensa) {

@@ -8,7 +8,6 @@ import disparos.*;
 
 public class ControlDisparo implements Runnable {
 	
-	private Juego juego;
 	//Lista de disparos nuevos
 	private List<Disparo> listaInsercion;
 	//Lista de disparos actuales
@@ -17,8 +16,7 @@ public class ControlDisparo implements Runnable {
 	private List<Disparo> listaDescarte;
 	private boolean isRunning = true;
 	
-	public ControlDisparo(Juego juego) {
-		this.juego = juego;
+	public ControlDisparo() {
 		listaInsercion = new ArrayList<Disparo>();
 		listaDisparos = new ArrayList<Disparo>();
 		listaDescarte = new ArrayList<Disparo>();

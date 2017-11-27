@@ -44,14 +44,12 @@ public class Juego
 	//Nivel actual
 	private Nivel nivelActual;
 	
-	private boolean bombaCreada;
 	
 	private Premios premios;
 	
 	//Objeto que transforma un archivo de texto en una matriz de celdas
 	private Parser parser;
-	
-	private PremioDanioDoble b;
+
 	
 	public Juego(Ventana ventana, int alto, int ancho) {
 		this.alto = alto;
@@ -65,7 +63,7 @@ public class Juego
 		premios = new Premios(this);
 		
 		controlDeOleadas = new ControlDeOleadas(this, alto);
-		controlDisparo = new ControlDisparo(this);
+		controlDisparo = new ControlDisparo();
 		controlDeDefensa = new ControlDeDefensa(this);
 		
 		numNivel = 1;
@@ -119,9 +117,9 @@ public class Juego
 		return puedoAgregar;
 	}
 	
-	public void reemplazarEnemigo(Enemigo p, int x, int y) {
+	public void reemplazarEnemigo(Enemigo enemigo, int x, int y) {
 	
-		mapa.reemplazarEnemigo(p, x, y);
+		mapa.reemplazarEnemigo(enemigo, x, y);
 	}
 	
 	public void agregarDisparo(Disparo disparo, int x, int y) {
@@ -175,17 +173,11 @@ public class Juego
 		return mapa.getGraficos();
 	}
 	
-	// modificacion para Premios de tipo Magia Temporal
-	public List<Defensa> getDefensas(){
-		return controlDeDefensa.getListaDefensa();
-	}
-	
 	public void agregarBomba() {
 		puntaje.agregarBomba();
 	}
 	
 	public void restarBomba() {
-		bombaCreada=true;
 		puntaje.restarBomba();
 	}
 	
@@ -220,11 +212,6 @@ public class Juego
 	
 	public void eliminarLabelPremio(JLabel label) {
 		gui.eliminarLabelPremio(label);
-	}
-	
-	public boolean seCreoBomba() {
-		return bombaCreada;
-		
 	}
 
 	public void agregarPremioBomba(int x, int y) {
