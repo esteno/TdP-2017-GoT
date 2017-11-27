@@ -110,7 +110,7 @@ public class Ventana implements Runnable{
 	private final String imagenBotonInmaculado = "res/imagenes/juego/botonInmaculado.png";
 	
 	
-	public String imagenFuegoValyrio = "res/imagenes/obstaculos/botonFuegoValyrio.png";
+	public String imagenFuegoValyrio = "res/imagenes/juego/botonFuegoValyrio.png";
 	public final String imagenBotonMuro = "res/imagenes/obstaculos/muro.png" ;
 	public final String imagenBotonRoca = "res/imagenes/obstaculos/roca.png";
 	public final String imagenBotonTrinchera = "res/imagenes/obstaculos/trinchera.png";
@@ -310,7 +310,9 @@ public class Ventana implements Runnable{
 		
 		botonFuegoValyrio = new JButton("");
 		botonFuegoValyrio.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				FabricaDeDefensa.getInstancia().construirFuegoValyrio();
 			}
 		});
 		botonFuegoValyrio.setBounds(521, 4, 80, 80);

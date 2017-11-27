@@ -61,6 +61,13 @@ public class FabricaDeDefensa {
 		defensaCreada = new Roca();
 	}
 	
+	
+	
+	public void construirFuegoValyrio() {
+		// TODO Auto-generated method stub
+		defensaCreada =  new FuegoValyrio();
+	}
+	
 	// -------------
 	public Defensa getDefensa() {
 		return defensaCreada;
@@ -70,4 +77,6 @@ public class FabricaDeDefensa {
 	public void reset() {
 		defensaCreada = null;
 	}
+
+
 }
