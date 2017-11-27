@@ -26,7 +26,7 @@ public class VisitorDisparoDefensa extends Visitor{
 	 
 	@Override
     public void visitarEnemigo(Enemigo e){
-	    e.recibirAtaque(miDisparo.getFuerzaImpacto()); //por ahora destruye el enemigo
+	    e.recibirDanio(miDisparo.getFuerzaImpacto()); //por ahora destruye el enemigo
 	    miDisparo.destruir();  //al visitar un enemigo el disparo de destruye poniendo el grafico en null
 	}
 }

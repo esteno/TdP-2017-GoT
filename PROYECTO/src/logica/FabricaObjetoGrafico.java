@@ -30,10 +30,6 @@ public class FabricaObjetoGrafico {
 	}
 	
 	//ENEMIGOS
-	public GameObjectGrafico construirGraficoEnemigoRojo() {
-		return new GameObjectGrafico("res/imagenes/enemigo/enemigo.png");
-	}
-	
 	public GameObjectGrafico construirGraficoZombi() {
 		return new GameObjectGrafico("res/imagenes/enemigo/zombicamina.gif");
 	}
@@ -60,50 +56,7 @@ public class FabricaObjetoGrafico {
 		return new GameObjectGrafico("res/imagenes/celda/proteector.png");
 	}
 	
-	///Enemigo ataca
-	public GameObjectGrafico getZombiAtaca() {
-		return new GameObjectGrafico("res/imagenes/enemigo/zombiataca.gif");
-	}
-	
-	public GameObjectGrafico getOsoSalvajeAtaca() {
-		return new GameObjectGrafico("res/imagenes/enemigo/osoataca.gif");
-	}
-	
-	public GameObjectGrafico getZombiFrioAtaca() {
-		return new GameObjectGrafico("res/imagenes/enemigo/zombipataca.gif");
-	}
-	
-	public GameObjectGrafico getSalvajeAtaca() {
-		return new GameObjectGrafico("res/imagenes/enemigo/e1ataca.gif");
-	}
-	
-	///muertos reviven
-	public GameObjectGrafico getZombiAparece() {
-		return new GameObjectGrafico("res/imagenes/enemigo/zombiaparece.gif");
-	}
-	
-	///Enemigo Muere
-	
-	public GameObjectGrafico getZombiMuere() {
-		return new GameObjectGrafico("res/imagenes/enemigo/zombimuere.gif");
-	}
-	
-	public GameObjectGrafico getOsoSalvajeMuere() {
-		return new GameObjectGrafico("res/imagenes/enemigo/osomuere.gif");
-	}
-	
-	public GameObjectGrafico getZombiFrioMuere() {
-		return new GameObjectGrafico("res/imagenes/enemigo/zombipmuere.gif");
-	}
-	
-	public GameObjectGrafico getSalvajeMuere() {
-		return new GameObjectGrafico("res/imagenes/enemigo/e1muere.gif");
-	}
-	
 	// PERSONAJES
-	public GameObjectGrafico construirGraficoJorgito() {
-		return new GameObjectGrafico("res/imagenes/defensa/test.png");
-	}
 	
 	public GameObjectGrafico construirGraficoInmaculado(){
 		return new GameObjectGrafico("res/imagenes/defensa/soldadoataca.gif");
@@ -132,10 +85,6 @@ public class FabricaObjetoGrafico {
 	//DEFENSA
 	public GameObjectGrafico construirGraficoMuro() {
 		return new GameObjectGrafico("res/imagenes/obstaculos/muro.png");
-	}
-	
-	public GameObjectGrafico construirGraficoCampoProtector() {
-		return new GameObjectGrafico("res/imagenes/defensa/campoProtector.png");
 	}
 
 	//DISPARO

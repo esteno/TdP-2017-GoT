@@ -11,7 +11,6 @@ public class CampoProtector extends Defensa {
 		puntosVida = 1;
 		control = ctrl;
 		personaje = d;
-		grafico = fabricaGrafica.construirGraficoCampoProtector();
 	}
 	
 	public Defensa getPersonaje() {

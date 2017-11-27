@@ -23,8 +23,6 @@ public class ControlDeOleadas implements Runnable {
 	private List<Enemigo> listaDescarte;
 	//Variable de control del hilo
 	private boolean isRunning = true;
-	//Numero de oleadas restantes
-	private int cantOleadas = 3;
 	//Variable de control de insercion.
 	private int aInsertar;
 	
@@ -91,12 +89,12 @@ public class ControlDeOleadas implements Runnable {
 				}
 				
 				//Si no hay mas enemigos y aun hay oleadas, se crea una nueva
-				if(listaEnemigos.size() == 0 && cantOleadas != 0) {
+				if(listaEnemigos.size() == 0) {
 					Thread.sleep(4000);
 					juego.sigOleada();
 				}
 				//Si no hay mas oleadas se cambia de nivel
-				if(cantOleadas == 0) {
+				if(listaInsercion.isEmpty()) {
 					juego.sigNivel();
 				}
 			}
@@ -106,13 +104,13 @@ public class ControlDeOleadas implements Runnable {
 		}
 	}
 
-	public void eliminarEnemigo(Enemigo c) {
+	public void eliminarEnemigo(Enemigo enemigo) {
 		
-		listaDescarte.add(c);
+		listaDescarte.add(enemigo);
 	}
 	
-	public void insertarEnemigo(Enemigo c) {
+	public void insertarEnemigo(Enemigo enemigo) {
 		
-		listaInmediata.add(c);
+		listaInmediata.add(enemigo);
 	}
 }
