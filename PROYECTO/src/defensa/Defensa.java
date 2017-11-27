@@ -18,8 +18,8 @@ public abstract class Defensa extends GameObject
      //Contador que se va decrementando, cuando llega a 0 la defensa ataca.
      protected int proximoAtaque;
 
-     //precio de costo
-     protected int precio;
+
+     
      
      protected EstadoMultiplicador estado = new EstadoDefensaDefecto();
      
@@ -40,9 +40,7 @@ public abstract class Defensa extends GameObject
     	 System.out.println("cambio de estado nuevo "+estado.multiplicadorAtaque()+"\n-----");
      }
      
- 	public int getPrecio(){
- 		return precio;
- 	}
+
  	
 	public void recibirAtaque(int i){
 		puntosVida -= i;
