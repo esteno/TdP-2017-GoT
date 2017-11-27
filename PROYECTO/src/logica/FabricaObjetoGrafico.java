@@ -130,7 +130,7 @@ public class FabricaObjetoGrafico {
 	}
 
 	public GameObjectGrafico construirGraficoFuegoValyrio() {
-		return new GameObjectGrafico("res/imagenes/obstaculos/fuegoValyrio.gif");
+		return new GameObjectGrafico("res/imagenes/obstaculos/botonFuegoValyrio.png");
 	}
 
 	public GameObjectGrafico construirGraficoRoca() {
@@ -139,6 +139,16 @@ public class FabricaObjetoGrafico {
 
 	public GameObjectGrafico construirGraficoTrinchera() {
 		return new GameObjectGrafico("res/imagenes/obstaculos/trinchera.png");
+	}
+
+	public GameObjectGrafico construirGraficoLagoTemporal() {
+		// TODO Auto-generated method stub
+		return new GameObjectGrafico("res/imagenes/obstaculos/lagoTemporal.png");
+	}
+
+	public GameObjectGrafico construirGraficoRocaTemporal() {
+		// TODO Auto-generated method stub
+		return new GameObjectGrafico("res/imagenes/obstaculos/rocaTemporal.png");
 	}
  
 }
