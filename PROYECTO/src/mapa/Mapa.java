@@ -200,6 +200,7 @@ public class Mapa
 				celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
 			}
 		}
+		celdaCompuesta.setPos(x, y);
 		campo.setCelda(celdaCompuesta);
 	}
 
@@ -212,6 +213,7 @@ public class Mapa
 				celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
 			}
 		}
+		celdaCompuesta.setPos(x, y);
 		campo.setCelda(celdaCompuesta);
 	}
 
