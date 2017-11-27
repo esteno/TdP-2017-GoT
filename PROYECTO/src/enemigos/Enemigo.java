@@ -16,7 +16,7 @@ public abstract class Enemigo extends ObjetoMovil{
 	protected EstadoMultiplicador estado;
 	
 	//Visitor que usa la clase
-	protected Visitor visitor;
+	protected Visitor visitor = new VisitorEnemigo(this);
 	protected int puntos; //puntos que devuelve al ser destruido
 	protected int oro;
 	protected boolean atacando = false;

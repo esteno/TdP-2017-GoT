@@ -14,7 +14,7 @@ public class Gigante extends EnemigoCuerpo{
 			fuerzaImpacto = 1000;
 		    velocidad = contVelocidad = -30;
 		    puntos=100;
-		    oro=75;
+		    oro=300;
 		    velocidadAtaque = 20;
 		    alto = 2;
 		}

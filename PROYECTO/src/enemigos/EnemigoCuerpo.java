@@ -5,13 +5,18 @@ import defensa.Defensa;
 import objetos.GameObject;
 
 public abstract class EnemigoCuerpo extends Enemigo {
-	
+
+
+
 	public void atacar() {
-		if(proximoAtaque == 0 ) {
-			for(Celda celdaIzquierda : celdas.celdaIzquierda()) {
+		if(proximoAtaque == 0 ) 
+		{
+			for(Celda celdaIzquierda : celdas.celdaIzquierda()) 
+			{
 				Defensa defensa = celdaIzquierda.getEstatico();
-				if(defensa != null) {
-					visitor.visitarDefensa(defensa);
+				if(defensa != null) 
+				{
+					defensa.aceptar(visitor);
 					atacando=true;
 				}
 				else
@@ -19,7 +24,8 @@ public abstract class EnemigoCuerpo extends Enemigo {
 			}
 			proximoAtaque = velocidadAtaque;
 		}
-		else {
+		else 
+		{
 			proximoAtaque--;
 		}
 	}
