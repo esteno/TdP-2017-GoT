@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 
 import defensa.*;
 import disparos.Disparo;
+import enemigos.CampoProtectorEnemigo;
 import enemigos.Enemigo;
 import gui.*;
 import premio.PremioDanioDoble;
@@ -115,7 +116,7 @@ public class Juego
 	public boolean agregarEnemigo(Enemigo obj, int x, int y){
 		boolean puedoAgregar = mapa.agregarEnemigo(obj, x, y);
 		if(puedoAgregar)
-			gui.agregarObjetoMovil(x, y, obj);
+			gui.agregarObjetoMovil(x, y, obj);	
 		return puedoAgregar;
 	}
 	
@@ -263,12 +264,16 @@ public class Juego
 		controlDeDefensa.curar();
 	}
 
-	public boolean crearCampo(int x, int y) {
+	public boolean crearCampo(int x, int y, JLabel label) {
 		Defensa d=mapa.getEstatico(x, y);
-		if(d!=null)
-			new PremioCampoProtector(d);
+		if(d!=null) {
+			gui.setCampoGrafico(label,x,y);
+			new PremioCampoProtector(d,this,label);
+		}
 		return (d!=null);
 	}
 
-
+	public void eliminarEscudo(CampoProtectorEnemigo e) {
+		controlDeOleadas.eliminarEscudo(e);
+	}
 }

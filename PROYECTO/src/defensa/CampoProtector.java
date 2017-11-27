@@ -25,6 +25,7 @@ public class CampoProtector extends Defensa {
 	}
 	
 	public void destruir() {
+		System.out.println("la vida del escudo esta en cero");
 		control.destruir();
 	}
 	

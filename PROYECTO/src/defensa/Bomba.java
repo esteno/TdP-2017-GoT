@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.swing.JLabel;
 
-import celdas.Celda;
 import colisiones.VisitorBomba;
 import logica.Juego;
 import logica.Temporal;

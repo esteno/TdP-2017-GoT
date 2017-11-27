@@ -56,6 +56,10 @@ public class FabricaObjetoGrafico {
 		return new GameObjectGrafico("res/imagenes/enemigo/thenncamina.gif");
 	}
 	
+	public GameObjectGrafico construirGraficoProtector(){
+		return new GameObjectGrafico("res/imagenes/celda/proteector.png");
+	}
+	
 	///Enemigo ataca
 	public GameObjectGrafico getZombiAtaca() {
 		return new GameObjectGrafico("res/imagenes/enemigo/zombiataca.gif");
