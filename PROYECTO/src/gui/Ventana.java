@@ -290,6 +290,7 @@ public class Ventana implements Runnable{
 		
 		
 		botonCampo = new JButton("");
+		botonCampo.setIcon(new ImageIcon(imagenBotonCampo));
 		botonCampo.setHorizontalAlignment(SwingConstants.LEADING);
 		botonCampo.setEnabled(false);
 		botonCampo.setBounds(903, 4, 60, 60);
@@ -298,10 +299,8 @@ public class Ventana implements Runnable{
 			public void actionPerformed(ActionEvent arg0) {
 				campoProtector = true;
 				botonCampo.setEnabled(false);
-				
 			}
 		});
-		botonCampo.setIcon(new ImageIcon(imagenBotonCampo));
 		frame.getContentPane().add(botonCampo);
 		
 		
@@ -452,6 +451,7 @@ public class Ventana implements Runnable{
  			public void actionPerformed(ActionEvent arg0) {
  				juego.curarDefensas();
  				panelCeldaPremios.remove(botonPremioCuracion);
+ 				ConsolaMensajes.mostrarMensaje("Gema ROJA: Las defensas recuperaron sus vidas iniciales.");
  			}
  		});
  		
@@ -463,6 +463,7 @@ public class Ventana implements Runnable{
  				System.out.println("GUI DD");
  				juego.danioDoble();
  				panelCeldaPremios.remove(botonPremioDanioDoble);
+ 				ConsolaMensajes.mostrarMensaje("Gema VERDE: Las defensas tienen daño doble.");
  			}
  		});
  		
