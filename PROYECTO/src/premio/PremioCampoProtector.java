@@ -1,6 +1,9 @@
 package premio;
 
+import java.awt.Color;
+
 import javax.swing.JLabel;
+import javax.swing.border.MatteBorder;
 
 import celdas.Celda;
 import celdas.CeldaCompuesta;
@@ -29,8 +32,8 @@ public class PremioCampoProtector implements Temporal	{
 			int y=celda.getY();
 			juego.eliminarDefensa(x,y);
 			campo.setCelda(celda);
-			juego.eliminarDefensa(celda.getX(), celda.getY());
-			juego.agregarDefensa(campo, celda.getX(), celda.getY());
+			personaje.getGrafico().getLabel().setBorder(new MatteBorder(2, 2, 2, 2, Color.BLUE));
+			juego.reemplazarDefensa(campo, x, y);
 			System.out.println("cambie la defensa por el campo");
 			new Timer(this, 5000);
 		}
@@ -42,13 +45,12 @@ public class PremioCampoProtector implements Temporal	{
 	
 	public void destruir() {
 		CeldaCompuesta celda = campo.getCelda();
+		personaje.getGrafico().getLabel().setBorder(null);
+		celda.destruirDefensa();
 		System.out.println("cambie el campo por la defensa");
-		juego.eliminarDefensa(celda.getX(), celda.getY());
-		juego.agregarDefensa(personaje, celda.getX(), celda.getY());
+		juego.reemplazarDefensa(personaje, celda.getX(), celda.getY());
 		System.out.println("voy a eliminar el escudito");
-		juego.eliminarLabelPremio(l);
 
-		System.out.println("elimine el escudito");
 	}
 
 }

@@ -69,7 +69,7 @@ public class ControlDeOleadas implements Runnable {
 				
 				for (Enemigo en: listaInmediata)
 					listaEnemigos.add(en);
-				listaEnemigos.clear();
+				listaInmediata.clear();
 				
 				//Enemigos a borrar
 				for(Enemigo descarte : listaDescarte) {

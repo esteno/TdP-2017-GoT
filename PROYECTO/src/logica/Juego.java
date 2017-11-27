@@ -120,9 +120,9 @@ public class Juego
 		return puedoAgregar;
 	}
 	
-	public void reemplazarEnemigo(Enemigo p, int i, int rand) {
+	public void reemplazarEnemigo(Enemigo p, int x, int y) {
 	
-		mapa.reemplazarEnemigo(p, i, rand);
+		mapa.reemplazarEnemigo(p, x, y);
 	}
 	
 	public void agregarDisparo(Disparo disparo, int x, int y) {
@@ -271,15 +271,19 @@ public class Juego
 
 	public boolean crearCampo(int x, int y, JLabel label) {
 		Defensa d=mapa.getEstatico(x, y);
-		if(d!=null) {
-			gui.setCampoGrafico(label,x,y);
+		if(d!=null) 
 			new PremioCampoProtector(d,this,label);
-		}
 		return (d!=null);
 	}
 
 	public void eliminarEscudo(CampoProtectorEnemigo e) {
 		controlDeOleadas.eliminarEnemigo(e);
 		controlDeOleadas.insertarEnemigo(e.getEnemigo());
+	}
+
+	public void reemplazarDefensa(Defensa personaje, int x, int y) {
+
+		mapa.reemplazarDefensa(personaje,x,y);
+		
 	}
 }

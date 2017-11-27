@@ -204,5 +204,16 @@ public class Mapa
 		campo.setCelda(celdaCompuesta);
 	}
 
+	public void reemplazarDefensa(Defensa campo, int x, int y) {
+
+		CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
+		for(int i = x; i < campo.getAncho()+x ; i++) {
+			for(int j = y; j < campo.getAlto()+ y ; j++) {
+				matrizDefensa[i][j]= campo;
+				celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
+			}
+		}
+		campo.setCelda(celdaCompuesta);
+	}
 
 }
