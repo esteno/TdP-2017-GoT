@@ -1,6 +1,11 @@
 package enemigos;
 
+import java.awt.Color;
+
+import javax.swing.border.MatteBorder;
+
 import logica.Juego;
+import objetos.*;
 
 public class CampoProtectorEnemigo extends Enemigo {
 
@@ -10,7 +15,6 @@ public class CampoProtectorEnemigo extends Enemigo {
 	public CampoProtectorEnemigo(Enemigo e, Juego j) {
 
 	    enemigo=e;
-	    grafico = fabricaGrafica.construirGraficoProtector();
 		fuerzaImpacto = 0;
 	    velocidad = contVelocidad =e.getVelocidad();
 	    puntos=0;
@@ -19,6 +23,8 @@ public class CampoProtectorEnemigo extends Enemigo {
 	    velocidadAtaque = 10;
 	    proximoAtaque = 0;
 	    juego=j;
+	    System.out.println(enemigo.getGrafico().getLabel()==null);
+	    enemigo.getGrafico().getLabel().setBorder(new MatteBorder(2, 2, 2, 2, Color.BLUE));
 	}
 	@Override
 	public void atacar() {
@@ -26,14 +32,28 @@ public class CampoProtectorEnemigo extends Enemigo {
 		
 	}
 	
+	public GameObjectGrafico getGrafico() {
+		return enemigo.getGrafico();
+	}
+	
 	public Enemigo getEnemigo() {
 		return enemigo;
 	}
 	
 	public void destruir() {
-		grafico.destruir();
+		enemigo.getGrafico().getLabel().setBorder(null);
 		celdas.destruirEnemigo();
 		juego.eliminarEscudo(this);
+		juego.reemplazarEnemigo(enemigo, getAncho(), getAlto());
 	}
 
+	public int getAncho() {
+		
+		return enemigo.getAncho();
+	}
+	
+	public int getAlto() {
+		
+		return enemigo.getAlto();
+	}
 }

@@ -17,6 +17,8 @@ public class ControlDeOleadas implements Runnable {
 	private List<Enemigo> listaInsercion;
 	//Lista de enemigos actuales
 	private List<Enemigo> listaEnemigos;
+	private List<Enemigo> listaInmediata;
+	
 	//Lista de enemigos a eliminar
 	private List<Enemigo> listaDescarte;
 	//Variable de control del hilo
@@ -32,6 +34,7 @@ public class ControlDeOleadas implements Runnable {
 		listaInsercion = new ArrayList<Enemigo>();
 		listaEnemigos = new ArrayList<Enemigo>();
 		listaDescarte = new ArrayList<Enemigo>();
+		listaInmediata = new ArrayList<Enemigo>();
 	}
 	
 	//Oleada Nueva
@@ -53,18 +56,20 @@ public class ControlDeOleadas implements Runnable {
 					//Devuelve si el enemigo fue agregado
 					Random aleatorio= new Random();
 					int r= aleatorio.nextInt(100);
-					if (r<=15) {
-						Enemigo p= new CampoProtectorEnemigo (enemigo, juego);
-						juego.agregarEnemigo(p, juego.getAncho(), rand);
-					}
-					else {
-						Boolean agregue = juego.agregarEnemigo(enemigo, juego.getAncho(), rand);
-						if(agregue) {
-							listaEnemigos.add(enemigo);
-							aInsertar++;
+					boolean agregue = juego.agregarEnemigo(enemigo, juego.getAncho(), rand);
+					if(agregue) {
+						listaEnemigos.add(enemigo);
+						aInsertar++;
+						if (r<=15) {
+							Enemigo p= new CampoProtectorEnemigo (enemigo, juego);
+							juego.reemplazarEnemigo(p, juego.getAncho(), rand);
 						}
 					}
 				}
+				
+				for (Enemigo en: listaInmediata)
+					listaEnemigos.add(en);
+				listaEnemigos.clear();
 				
 				//Enemigos a borrar
 				for(Enemigo descarte : listaDescarte) {
@@ -101,13 +106,13 @@ public class ControlDeOleadas implements Runnable {
 		}
 	}
 
-	public void eliminarEscudo(CampoProtectorEnemigo c) {
+	public void eliminarEnemigo(Enemigo c) {
 		
 		listaDescarte.add(c);
-		boolean agregue = juego.agregarEnemigo(c.getEnemigo(), c.getCelda().getX(),c.getCelda().getY() );
-		if(agregue) {
-			listaEnemigos.add(c.getEnemigo());
-			aInsertar++;
-		}
+	}
+	
+	public void insertarEnemigo(Enemigo c) {
+		
+		listaInmediata.add(c);
 	}
 }

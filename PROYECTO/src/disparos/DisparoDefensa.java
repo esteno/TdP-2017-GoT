@@ -49,9 +49,8 @@ public class DisparoDefensa extends Disparo {
 	public void atacar() {
 		//Si hay otro objeto movil en esa celda
 		for(Celda celda: celdas.getCeldas()) {
-			System.out.println(celda+" "+celda.getEnemigo());
 			Enemigo enemigo = celda.getEnemigo();
-		if(enemigo!=null)
+			if(enemigo!=null)
 			//Le pasa el visitor, si es enemigo lo ataca, si es otro disparo no hace nada.
 			enemigo.aceptar(visitor);
 		}
