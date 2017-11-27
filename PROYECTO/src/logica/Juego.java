@@ -197,10 +197,6 @@ public class Juego
 		puntaje.restarBarricada();
 	}
 	
-	public boolean hayBarricadas() {
-		return puntaje.hayBarricadas();
-	}
-	
 	public void crearPremio(int x, int y) {
 		premios.crearPremio(x, y);
 	}

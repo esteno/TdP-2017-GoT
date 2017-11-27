@@ -18,10 +18,9 @@ public class Premios {
 			case 0: 
 				juego.agregarPremioBomba(x, y);
 				break;
-			/*case 1:
+			case 1:
 				juego.agregarPremioBarricada(x, y);
 				break;
-				*/
 			case 2:
 				juego.agregarPremioOro(x, y);
 				break;

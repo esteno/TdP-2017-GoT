@@ -24,8 +24,7 @@ public class Mapa
 	
 	private Enemigo [][] matrizEnemigo;
 	
-	private Juego juego;
-	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
+	private Juego juego;	
 	
 	public Mapa(Juego juego, int alto, int ancho){
 		matrizCeldas = new Celda[ancho][alto];
@@ -150,10 +149,6 @@ public class Mapa
 	
 	public  void eliminarEnemigo(int x, int y){
 		matrizEnemigo[x][y] = null;
-	}
-
-	public Juego getJuego(){
-		return juego;
 	}
 	
 	public Enemigo getEnemigo(Celda c){
