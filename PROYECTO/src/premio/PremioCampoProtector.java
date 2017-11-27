@@ -29,6 +29,7 @@ public class PremioCampoProtector implements Temporal	{
 			int y=celda.getY();
 			juego.eliminarDefensa(x,y);
 			campo.setCelda(celda);
+			juego.eliminarDefensa(celda.getX(), celda.getY());
 			juego.agregarDefensa(campo, celda.getX(), celda.getY());
 			System.out.println("cambie la defensa por el campo");
 			new Timer(this, 5000);

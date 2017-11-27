@@ -32,7 +32,7 @@ public class CampoProtectorEnemigo extends Enemigo {
 	
 	public void destruir() {
 		grafico.destruir();
-		celda.destruirEnemigo();
+		celdas.destruirEnemigo();
 		juego.eliminarEscudo(this);
 	}
 
