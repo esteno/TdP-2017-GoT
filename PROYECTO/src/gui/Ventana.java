@@ -33,6 +33,10 @@ import objetos.*;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.SwingConstants;
+import javax.swing.border.MatteBorder;
+import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 public class Ventana implements Runnable{
 
@@ -155,9 +159,9 @@ public class Ventana implements Runnable{
 	 */
 	private void initialize() {
 		frame = new JFrame("NIGHT KING DEFENSE");
-		frame.setBounds(new Rectangle(0, 0, 1000, 600));
+		frame.setBounds(new Rectangle(0, 0, 1000, 800));
 		frame.getContentPane().setBounds(new Rectangle(0, 0, 1000,600));
-		frame.setBounds(100, 100, 1000, 600);
+		frame.setBounds(100, 100, 1000, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -166,7 +170,7 @@ public class Ventana implements Runnable{
 		aAgregar= new LinkedList<ObjetoMovil>();
 		
 		panelMapa = new JLayeredPane();
-		panelMapa.setBounds(180, 150, 800, 400);
+		panelMapa.setBounds(149, 96, 800, 400);
 		frame.getContentPane().add(panelMapa);
 				
 		panelDefensa = new JPanel();
@@ -288,7 +292,7 @@ public class Ventana implements Runnable{
 		botonCampo = new JButton("");
 		botonCampo.setHorizontalAlignment(SwingConstants.LEADING);
 		botonCampo.setEnabled(false);
-		botonCampo.setBounds(824, 75, 60, 60);
+		botonCampo.setBounds(903, 4, 60, 60);
 		botonCampo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -342,6 +346,17 @@ public class Ventana implements Runnable{
 		labelFondo.setIcon(new ImageIcon("res/imagenes/juego/fondo.jpg"));
 		labelFondo.setBounds(0, 0, 1000, 562);
 		frame.getContentPane().add(labelFondo);
+		
+		JTextArea consola = new JTextArea();
+		consola.setLineWrap(true);
+		consola.setEditable(false);
+		consola.setForeground(Color.white);
+		consola.setBackground(Color.DARK_GRAY);
+		consola.setBorder(new MatteBorder(2,2,2,2,Color.DARK_GRAY));
+		consola.setBounds(2, 564, 994, 135);
+		ConsolaMensajes.setContainer(consola);
+		ConsolaMensajes.mostrarMensaje("¡Bienvenido! ¡Gracias por jugar!\n Aqui apareceran mensajes importantes");
+		frame.getContentPane().add(consola);
 		
 		///--- ACCIONES DE LOS BOTONES ----
 		botonYgritte.addActionListener(new ActionListener() {
