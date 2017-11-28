@@ -379,9 +379,10 @@ public class Ventana implements Runnable{
 		consola.setBorder(new MatteBorder(2,2,2,2,Color.DARK_GRAY));
 		consola.setBounds(2, 564, 994, 135);
 		ConsolaMensajes.setContainer(consola);
-		ConsolaMensajes.mostrarMensaje("Â¡Bienvenido! Â¡Gracias por jugar!\n Aqui apareceran mensajes importantes.");
+		ConsolaMensajes.mostrarMensaje("¡Bienvenido! ¡Gracias por jugar!\n Aqui apareceran mensajes importantes.");
 		
 		JScrollPane sp = new JScrollPane(consola);
+		sp.setAutoscrolls(true);
 		sp.setBounds(consola.getBounds());
 		frame.getContentPane().add(sp);
 		

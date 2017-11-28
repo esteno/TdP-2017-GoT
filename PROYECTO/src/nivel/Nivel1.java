@@ -17,8 +17,7 @@ public class Nivel1 extends Nivel{
 	protected List<Enemigo> oleada1() 
 	{
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-	//	toReturn.addAll(builder.generarZombie(3, estado));
-		toReturn.addAll(builder.generarZombie(1, estado));
+		toReturn.addAll(builder.generarZombie(3, estado));
 		return toReturn;
 	}
 
@@ -27,9 +26,8 @@ public class Nivel1 extends Nivel{
 	@Override
 	protected List<Enemigo> oleada2() {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-		//toReturn.addAll(builder.generarZombie(2, estado));
-		//toReturn.addAll(builder.generarZombieFrio(2, estado));
-		toReturn.addAll(builder.generarZombie(1, estado));
+		toReturn.addAll(builder.generarZombie(2, estado));
+		toReturn.addAll(builder.generarZombieFrio(2, estado));
 		return toReturn;
 	}
 
@@ -38,16 +36,10 @@ public class Nivel1 extends Nivel{
 	@Override
 	protected List<Enemigo> oleada3() {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-<<<<<<< HEAD
-		//toReturn.addAll(builder.generarZombieFrio(2, estado));
-		//toReturn.addAll(builder.generarZombie(2, estado));
-		//toReturn.addAll(builder.generarSalvaje(1, estado));
-		toReturn.addAll(builder.generarZombie(1, estado));
-=======
+
 		toReturn.addAll(builder.generarZombieFrio(2, estado));
-		toReturn.addAll(builder.generarOsoSalvaje(2, estado));
+		toReturn.addAll(builder.generarZombie(2, estado));
 		toReturn.addAll(builder.generarSalvaje(1, estado));
->>>>>>> c8437237736f82772a5c5022ea0222e9b71c76db
 		return toReturn;
 	}
 }

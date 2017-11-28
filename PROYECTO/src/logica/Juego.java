@@ -67,7 +67,6 @@ public class Juego
 		controlDeDefensa = new ControlDeDefensa(this);
 		
 		numNivel = 1;
-		ConsolaMensajes.mostrarMensaje(" NIVEL: "+numNivel);
 		sigNivel();
 		
 		new Thread(controlDeOleadas).start();
@@ -79,7 +78,7 @@ public class Juego
 	//Siguiente nivel basado en numNivel
 	public void sigNivel() {
 		nivelActual = niveles.getNivel(numNivel);
-		
+		ConsolaMensajes.mostrarMensaje(" NIVEL: "+numNivel);
 		if (nivelActual == null)
 			gui.ganar();
 		else 
