@@ -9,8 +9,8 @@ import estadoMultiplicador.EstadoEnemigoNivel3;
 public class Nivel3 extends Nivel{
 	
 	public Nivel3() {
+		path = "res/niveles/nivel3.txt";
 		estado = new EstadoEnemigoNivel3();
-		path = "";
 	}
 
 	@Override
