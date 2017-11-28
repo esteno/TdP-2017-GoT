@@ -72,9 +72,11 @@ public class ControlDeOleadas implements Runnable {
 				//Enemigos a borrar
 				for(Enemigo descarte : listaDescarte) {
 					listaEnemigos.remove(descarte);
-					juego.sumarPuntaje(descarte.getPuntos());
-					juego.sumarOro(descarte.getOro());
-					juego.crearPremio(descarte.getCelda().getX(),descarte.getCelda().getY());
+					if(descarte.getPuntosVida() <= 0) {
+						juego.sumarPuntaje(descarte.getPuntos());
+						juego.sumarOro(descarte.getOro());
+						juego.crearPremio(descarte.getCelda().getX(),descarte.getCelda().getY());
+					}
 				}
 				listaDescarte.clear();
 				
