@@ -18,6 +18,7 @@ public class PremioCampoProtector implements Temporal	{
 	private Defensa personaje;
 	private CampoProtector campo;
 	
+	// Construye un campo protector que se coloca sobre la defensa pasada por parametro para proegerla por un tiempo determinado o hasta que se rompa 
 	public PremioCampoProtector(Defensa d, Juego j) {
 
 		juego=j;
