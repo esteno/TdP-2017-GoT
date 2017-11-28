@@ -7,7 +7,7 @@ public class Dragon extends EnemigoRango {
 	// Crea un dragon con un grafico, daño, vida, velocidad, puntos, puntos de vida, oro y velocidad de ataque determinados
 	public Dragon() {
 		grafico = fabricaGrafica.construirDragon();
-		fuerzaImpacto = 100;
+		fuerzaImpacto = 150;
 	    velocidad = contVelocidad = -4;
 	    puntos=100;
 	    puntosVida=250;
