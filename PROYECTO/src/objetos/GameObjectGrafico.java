@@ -32,10 +32,6 @@ public class GameObjectGrafico {
 		return label;
 	}
 	
-	public ImageIcon getImagen() {
-		return imagen;
-	}
-	
 	public synchronized boolean Lock(Boolean b){
 		if(b!=true) bloqueado=false;
 		return bloqueado;
