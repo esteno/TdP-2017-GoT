@@ -374,12 +374,8 @@ public class Ventana implements Runnable{
 		consola.setBorder(new MatteBorder(2,2,2,2,Color.DARK_GRAY));
 		consola.setBounds(2, 564, 994, 135);
 		ConsolaMensajes.setContainer(consola);
-<<<<<<< HEAD
 		ConsolaMensajes.mostrarMensaje("¡Bienvenido! ¡Gracias por jugar!\n Aqui apareceran mensajes importantes.");
 		ConsolaMensajes.mostrarMensaje(" ===  Nivel 1  ===");
-=======
-		ConsolaMensajes.mostrarMensaje("ï¿½Bienvenido! ï¿½Gracias por jugar!\n Aqui apareceran mensajes importantes.");
->>>>>>> 5f12e133af688c945825eed07c05c375c1a110e9
 		frame.getContentPane().add(consola);
 		
 
