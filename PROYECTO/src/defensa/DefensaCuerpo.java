@@ -2,7 +2,6 @@ package defensa;
 
 import celdas.Celda;
 import enemigos.Enemigo;
-import objetos.ObjetoMovil;
 
 /**
  * Clase que modela el comportamiento de una defensa cuerpo a cuerpo.

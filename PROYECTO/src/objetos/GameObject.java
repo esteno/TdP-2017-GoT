@@ -1,8 +1,6 @@
 package objetos;
 
-import java.awt.image.BufferedImage;
 
-import javax.swing.ImageIcon;
 
 import colisiones.*;
 import celdas.*;

@@ -7,7 +7,6 @@ import colisiones.Visitor;
 import colisiones.VisitorDisparoDefensa;
 import enemigos.Enemigo;
 import objetos.GameObjectGrafico;
-import objetos.ObjetoMovil;
 
 public class DisparoDefensa extends Disparo {
 

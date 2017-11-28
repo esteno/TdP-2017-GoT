@@ -2,7 +2,6 @@ package logica;
 
 import java.util.Random;
 
-import defensa.Defensa;
 import gui.ConsolaMensajes;
 
 public class Premios {

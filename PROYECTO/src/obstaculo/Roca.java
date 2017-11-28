@@ -1,6 +1,6 @@
 package obstaculo;
 
-import colisiones.Visitor;
+
 
 public class Roca extends Obstaculo {
 

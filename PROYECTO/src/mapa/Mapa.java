@@ -8,7 +8,6 @@ import celdas.*;
 import defensa.*;
 import disparos.Disparo;
 import enemigos.Enemigo;
-import logica.FabricaDeDefensa;
 import logica.Juego;
 import objetos.*;
 

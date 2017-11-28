@@ -2,10 +2,10 @@ package premio;
 
 import java.awt.Color;
 
-import javax.swing.JLabel;
+
 import javax.swing.border.MatteBorder;
 
-import celdas.Celda;
+
 import celdas.CeldaCompuesta;
 import defensa.*;
 import logica.Juego;

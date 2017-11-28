@@ -1,8 +1,6 @@
 package defensa;
 
-import javax.swing.JLabel;
 
-import celdas.Celda;
 import objetos.GameObjectGrafico;
 
 public class Dragon extends DefensaRango{

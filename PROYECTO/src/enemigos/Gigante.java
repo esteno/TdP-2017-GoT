@@ -1,9 +1,5 @@
 package enemigos;
 
-import javax.swing.JLabel;
-
-import celdas.Celda;
-
 public class Gigante extends EnemigoCuerpo{
 
 	// Crea un gigante con un grafico, daño, vida, velocidad, puntos, puntos de vida, oro, velocidad de ataque y tamaño determinados.

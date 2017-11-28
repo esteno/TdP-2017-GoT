@@ -1,10 +1,7 @@
 package colisiones;
 
 import enemigos.Enemigo;
-import objetos.*;
 import defensa.Defensa;
-import disparos.*;
-import obstaculo.*;
 
 public class VisitorEnemigo extends Visitor
 {

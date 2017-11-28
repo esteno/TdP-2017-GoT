@@ -1,8 +1,6 @@
 package defensa;
 
 import objetos.GameObject;
-import nivel.*;
-import celdas.Celda;
 import colisiones.*;
 import estadoMultiplicador.EstadoDefensaDefecto;
 import estadoMultiplicador.EstadoMultiplicador;

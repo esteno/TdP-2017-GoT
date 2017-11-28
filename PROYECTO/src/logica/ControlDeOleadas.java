@@ -6,8 +6,6 @@ import java.util.Random;
 
 import enemigos.CampoProtectorEnemigo;
 import enemigos.Enemigo;
-import objetos.ObjetoMovil;
-
 public class ControlDeOleadas implements Runnable {
 	
 	private Juego juego;

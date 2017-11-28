@@ -6,7 +6,6 @@ import java.util.List;
 
 import enemigos.*;
 import estadoMultiplicador.EstadoMultiplicador;
-import objetos.ObjetoMovil;
 
 /**
  * Fabrica de oleadas de enemigos
