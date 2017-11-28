@@ -2,9 +2,10 @@ package enemigos;
 
 public class OsoSalvaje extends EnemigoCuerpo {
 
+	// Crea un oso con un grafico, daño, vida, velocidad,, puntos de vida, oro y velocidad de ataque determinados
 	public OsoSalvaje(){
 		grafico = fabricaGrafica.construirOsoSalvaje();
-		fuerzaImpacto = 1000;
+		fuerzaImpacto = 150;
 	    velocidad = contVelocidad = -30;
 	    puntos=100;
 	    puntosVida=150;

@@ -4,6 +4,7 @@ import objetos.GameObjectGrafico;
 
 public class ZombieFrio extends EnemigoRango {
 	
+	// Crea un zombie especial con un grafico, daño, vida, velocidad, puntos, puntos de vida, oro y velocidad de ataque determinados
 	public ZombieFrio(){
 		grafico = fabricaGrafica.construirZombiFrio();
 		fuerzaImpacto = 60;

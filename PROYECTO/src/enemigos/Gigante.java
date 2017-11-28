@@ -6,12 +6,13 @@ import celdas.Celda;
 
 public class Gigante extends EnemigoCuerpo{
 
-		public Gigante() {
+		
+	// Crea un gigante con un grafico, daño, vida, velocidad, puntos, puntos de vida, oro, velocidad de ataque y tamaño determinados.
+	public Gigante() {
 			proximoAtaque = 0;
 			puntosVida = 200;
-			fuerzaImpacto = 70;
+			fuerzaImpacto = 100;
 			grafico = fabricaGrafica.construirGigante();
-			fuerzaImpacto = 1000;
 		    velocidad = contVelocidad = -30;
 		    puntos=100;
 		    oro=300;

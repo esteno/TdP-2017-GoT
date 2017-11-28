@@ -3,6 +3,8 @@ package enemigos;
 import objetos.GameObjectGrafico;
 
 public class Dragon extends EnemigoRango {
+	
+	// Crea un dragon con un grafico, daño, vida, velocidad, puntos, puntos de vida, oro y velocidad de ataque determinados
 	public Dragon() {
 		grafico = fabricaGrafica.construirDragon();
 		fuerzaImpacto = 100;
