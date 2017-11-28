@@ -84,7 +84,7 @@ public class Juego
 		else 
 		{
 			numNivel++;
-			ConsolaMensajes.mostrarMensaje(" NIVEL: "+numNivel);
+			ConsolaMensajes.mostrarMensaje("Nuevo nivel: "+numNivel);
 			mapa.cambiarMapa(parser.parsearNivel(nivelActual.getPath()));
 			gui.dibujarMapa(mapa.getGraficos());
 			sigOleada();
@@ -93,6 +93,7 @@ public class Juego
 	
 	//Genera la oleada para el control
 	public void sigOleada() {
+		ConsolaMensajes.mostrarMensaje("Nueva Oleada!");
 		controlDeOleadas.setOleada(nivelActual.getOleada());
 	}
 	
@@ -169,6 +170,7 @@ public class Juego
 	}
 
 	public void gameOver() {
+		ConsolaMensajes.mostrarMensaje("GAME OVER");
 		gui.gameOver();
 	}
 	
@@ -206,6 +208,7 @@ public class Juego
 	}
 	
 	public void crearBomba(int x, int y, JLabel nuevo) {
+		ConsolaMensajes.mostrarMensaje("TIC TOC");
 		new Bomba(x,y,mapa,this,nuevo);
 		
 	}
@@ -242,12 +245,11 @@ public class Juego
 	}
 
 	public void danioDoble() {
-		System.out.println("Juego DD");
+		ConsolaMensajes.mostrarMensaje("Daño doble!");
 		new PremioDanioDoble(this);
 	}
 
 	public void modificarDefensa(EstadoMultiplicador estado) {
-		System.out.println("juego modificarDefensa");
 		controlDeDefensa.modificarEstado(estado);
 	}
 	
@@ -256,6 +258,7 @@ public class Juego
 	}
 
 	public boolean crearCampo(int x, int y) {
+		ConsolaMensajes.mostrarMensaje("Campo protector!");
 		Defensa d=mapa.getEstatico(x, y);
 		if(d!=null) 
 			new PremioCampoProtector(d,this);
