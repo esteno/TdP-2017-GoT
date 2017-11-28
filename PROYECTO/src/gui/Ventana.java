@@ -374,8 +374,12 @@ public class Ventana implements Runnable{
 		consola.setBorder(new MatteBorder(2,2,2,2,Color.DARK_GRAY));
 		consola.setBounds(2, 564, 994, 135);
 		ConsolaMensajes.setContainer(consola);
+<<<<<<< HEAD
 		ConsolaMensajes.mostrarMensaje("¡Bienvenido! ¡Gracias por jugar!\n Aqui apareceran mensajes importantes.");
 		ConsolaMensajes.mostrarMensaje(" ===  Nivel 1  ===");
+=======
+		ConsolaMensajes.mostrarMensaje("ï¿½Bienvenido! ï¿½Gracias por jugar!\n Aqui apareceran mensajes importantes.");
+>>>>>>> 5f12e133af688c945825eed07c05c375c1a110e9
 		frame.getContentPane().add(consola);
 		
 
@@ -464,7 +468,7 @@ public class Ventana implements Runnable{
  		botonPremioOro.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				juego.sumarOro(1000);
- 				ConsolaMensajes.mostrarMensaje("¡Ganaste 1000 monedas!");
+ 				ConsolaMensajes.mostrarMensaje("ï¿½Ganaste 1000 monedas!");
  				panelCeldaPremios.remove(botonPremioOro);
  			}
  		});
@@ -489,7 +493,7 @@ public class Ventana implements Runnable{
  				System.out.println("GUI DD");
  				juego.danioDoble();
  				panelCeldaPremios.remove(botonPremioDanioDoble);
- 				ConsolaMensajes.mostrarMensaje("Gema VERDE: Las defensas tienen daño doble.");
+ 				ConsolaMensajes.mostrarMensaje("Gema VERDE: Las defensas tienen daï¿½o doble.");
  			}
  		});
  		
@@ -654,8 +658,7 @@ public class Ventana implements Runnable{
 				int y= labelCelda.getBounds().y / ALTO_IMG;
 				if(campoProtector){
 					
-					JLabel nuevo=new JLabel();
-					juego.crearCampo(x, y,nuevo);
+					juego.crearCampo(x, y);
 					campoProtector = false;
 					
 				}
