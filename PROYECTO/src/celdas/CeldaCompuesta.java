@@ -16,10 +16,12 @@ public class CeldaCompuesta extends Celda {
 		// TODO Auto-generated constructor stub
 	}
 	
+	// Agrega esta celda a la lista de celdas de la celda compuesta
 	public void agregarCeldas(Celda celda) {
 		listaCeldas.add(celda);
 	}
 	
+	 // Retorna la cantidad de celdas izquierdas de acuerdo al tamaño de la celda compuesta
 	public List<Celda> celdaIzquierda()
     {
     	List<Celda> lista = new ArrayList<Celda>();
@@ -31,6 +33,7 @@ public class CeldaCompuesta extends Celda {
     	return lista;
     }
 	
+	 // Retorna la cantidad de celdas derechas de acuerdo al tamaño de la celda compuesta
 	public List<Celda> celdaDerecha()
     {
     	List<Celda> lista = new ArrayList<Celda>();
@@ -58,17 +61,20 @@ public class CeldaCompuesta extends Celda {
     	}
     }
     
+    // Destruye la defensa que se encuentra en cada celda de la celda compuesta
     public void destruirDefensa() {
     	for(Celda celda : listaCeldas) {
     		mapa.eliminarDefensa(celda.getX(), celda.getY());
     	}
 	}
 
+    // Limpia la lista de celdas pertenecientes a la celda compuesta
 	public void limpiar() {
 		listaCeldas.clear();
 		
 	}
 
+	// Retorna la lista de celdas perteneciente a la lista compuesta
 	public List<Celda> getCeldas() {
 		List<Celda> toReturn = new ArrayList<Celda>();
 		for(Celda celda : listaCeldas) {
@@ -77,10 +83,12 @@ public class CeldaCompuesta extends Celda {
 		return toReturn;
 	}
 	
+	// Retorna la velocidad del objeto que se encuentra en la celda compuesta
 	public double getMultiVelocidad() {
     	return listaCeldas.get(0).getMultiVelocidad();
     }
 
+	// Setea la posicion de la celda
 	public void setPos(int x, int y) {
 		this.x = x;
 		this.y = y;

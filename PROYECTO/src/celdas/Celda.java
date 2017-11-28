@@ -126,11 +126,12 @@ public class Celda
 		return l;
 	}
 
-
+	// Mueve logicamente el objeto en el mapa a la siguiente celda
 	public void moverGrafico(ObjetoMovil objeto) {
 		mapa.moverGrafico(objeto);
 	}
 
+	// Destruye logicamente la defensa de esta celda
 	public void destruirDefensa() {
 		mapa.eliminarDefensa(x, y);
 	}
