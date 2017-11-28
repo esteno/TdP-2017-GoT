@@ -356,9 +356,7 @@ public class Ventana implements Runnable{
 		muroJuego.setIcon(new ImageIcon(muroJ));
 		muroJuego.setBounds(136, 120, 45, 400);
 		frame.getContentPane().add(muroJuego);
-		
-		
-		
+
 		// -------------
 		
 		JLabel labelFondo = new JLabel("");
