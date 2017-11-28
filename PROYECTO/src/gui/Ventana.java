@@ -312,6 +312,7 @@ public class Ventana implements Runnable{
 		botonFuegoValyrio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
+				juego.restarOro(costosDeDefensa.costoFuegoValyrio());
 				FabricaDeDefensa.getInstancia().construirFuegoValyrio();
 			}
 		});
@@ -323,6 +324,7 @@ public class Ventana implements Runnable{
 		botonMuro = new JButton("");
 		botonMuro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				juego.restarOro(costosDeDefensa.costoMuro());
 				FabricaDeDefensa.getInstancia().construirMuro();
 			}
 		});
@@ -334,6 +336,7 @@ public class Ventana implements Runnable{
 		botonRoca = new JButton("");
 		botonRoca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				juego.restarOro(costosDeDefensa.costoRoca());
 				FabricaDeDefensa.getInstancia().construirRoca();
 			}
 		});
@@ -344,6 +347,7 @@ public class Ventana implements Runnable{
 		botonTrinchera = new JButton("");
 		botonTrinchera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				juego.restarOro(costosDeDefensa.costoTrinchera());
 				FabricaDeDefensa.getInstancia().construirTrinchera();
 			}
 		});
@@ -374,7 +378,7 @@ public class Ventana implements Runnable{
 		consola.setBorder(new MatteBorder(2,2,2,2,Color.DARK_GRAY));
 		consola.setBounds(2, 564, 994, 135);
 		ConsolaMensajes.setContainer(consola);
-		ConsolaMensajes.mostrarMensaje("¡Bienvenido! ¡Gracias por jugar!\n Aqui apareceran mensajes importantes.");
+		ConsolaMensajes.mostrarMensaje("Â¡Bienvenido! Â¡Gracias por jugar!\n Aqui apareceran mensajes importantes.");
 
 		frame.getContentPane().add(consola);
 		
@@ -625,6 +629,10 @@ public class Ventana implements Runnable{
 		botonInmaculado.setEnabled((oro < costosDeDefensa.costoInmaculado()) ? false : true);
 		botonGendry.setEnabled((oro < costosDeDefensa.costoGendry()) ? false : true);
 		botonBronn.setEnabled((oro < costosDeDefensa.costoBronn()) ? false : true);
+		botonMuro.setEnabled((oro < costosDeDefensa.costoMuro()) ? false : true);
+		botonRoca.setEnabled((oro < costosDeDefensa.costoRoca()) ? false : true);
+		botonTrinchera.setEnabled((oro < costosDeDefensa.costoTrinchera()) ? false : true);
+		botonFuegoValyrio.setEnabled((oro < costosDeDefensa.costoFuegoValyrio()) ? false : true);
 	}
 	
 	

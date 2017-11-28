@@ -79,12 +79,13 @@ public class Juego
 	//Siguiente nivel basado en numNivel
 	public void sigNivel() {
 		nivelActual = niveles.getNivel(numNivel);
+		
 		if (nivelActual == null)
 			gui.ganar();
 		else 
 		{
 			numNivel++;
-			ConsolaMensajes.mostrarMensaje("Nuevo nivel: "+numNivel);
+
 			mapa.cambiarMapa(parser.parsearNivel(nivelActual.getPath()));
 			gui.dibujarMapa(mapa.getGraficos());
 			sigOleada();
