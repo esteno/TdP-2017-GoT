@@ -8,6 +8,7 @@ public abstract class Disparo extends ObjetoMovil {
 	protected int alcance;
 	protected Visitor visitor;
 	
+	// Genera un disparo con una velocidad, alcance, daño y grafico determinados
 	public Disparo(GameObjectGrafico graf,double danio) {
 		velocidad= 10;
 		alcance = 30;
@@ -17,12 +18,14 @@ public abstract class Disparo extends ObjetoMovil {
 
 	public abstract void avanzar();
 	
+	
+	//Destruye el disparo
 	public void destruir() {
-		//Para poder ser removido 
 		alcance=0;
 		grafico.destruir();
 	}
 
+	// Retorna el alcance del proyectil
 	public int getAlcance() {
 		return alcance;
 	}

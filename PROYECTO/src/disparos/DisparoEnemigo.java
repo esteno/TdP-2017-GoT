@@ -1,4 +1,4 @@
-	package disparos;
+package disparos;
 
 import java.util.List;
 
@@ -11,13 +11,13 @@ import objetos.GameObjectGrafico;
 
 public class DisparoEnemigo extends Disparo {
 
+	
+	// Genera un disparo del enemigo con un grafico y daño pasados por parametro
 	public DisparoEnemigo(GameObjectGrafico graf,double danio) {
 		super(graf,danio);
 		velocidad = -8;
 		visitor = new VisitorDisparoEnemigo(this);
 	}
-
-
 
 	@Override
 	public void avanzar() {
@@ -49,6 +49,7 @@ public class DisparoEnemigo extends Disparo {
 			}
 	}
 
+	
 	public void atacar() {
 		for(Celda celda : celdas.getCeldas()) {
 			Defensa defensa = celda.getEstatico();

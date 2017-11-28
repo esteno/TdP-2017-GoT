@@ -11,6 +11,7 @@ import objetos.ObjetoMovil;
 
 public class DisparoDefensa extends Disparo {
 
+	// Genera un disparo del enemigo con un grafico y daño pasados por parametro
 	public DisparoDefensa(GameObjectGrafico graf, double danio) {
 		super(graf,danio);
 		velocidad = 4;
@@ -45,7 +46,6 @@ public class DisparoDefensa extends Disparo {
 		}
 	}
 
-	@Override
 	public void atacar() {
 		//Si hay otro objeto movil en esa celda
 		for(Celda celda: celdas.getCeldas()) {
