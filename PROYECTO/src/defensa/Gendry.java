@@ -2,6 +2,7 @@ package defensa;
 
 public class Gendry extends DefensaCuerpo {
 	
+	// Crea un objeto con velocidad de ataque, vida, daño y un grafico determinados
 	public Gendry(){
 		velocidadAtaque = 3;
 		proximoAtaque = 0;

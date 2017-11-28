@@ -4,6 +4,7 @@ import objetos.GameObjectGrafico;
 
 public class Ygritte extends DefensaRango {
 	
+	// Crea un objeto con velocidad de ataque, vida, daño y un grafico determinados
 	public Ygritte() {
 		velocidadAtaque = 5;
 		proximoAtaque = 0;
@@ -12,6 +13,7 @@ public class Ygritte extends DefensaRango {
 		grafico = fabricaGrafica.construirGraficoYgritte();
 	}
 	
+	// Construye el grafico del disparo de este personaje
 	protected GameObjectGrafico getGraficoDisparo() {
 		return fabricaGrafica.construirGraficoDisparoYgritte();
 	}

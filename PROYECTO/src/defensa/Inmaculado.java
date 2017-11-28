@@ -2,6 +2,7 @@ package defensa;
 
 public class Inmaculado extends DefensaCuerpo {
 
+	// Crea un objeto con velocidad de ataque, vida, daño y un grafico determinados
 	public Inmaculado() {
 		velocidadAtaque = 7;
 		proximoAtaque = 0;
