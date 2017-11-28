@@ -6,7 +6,7 @@ public class ZombieFrio extends EnemigoRango {
 	
 	public ZombieFrio(){
 		grafico = fabricaGrafica.construirZombiFrio();
-		fuerzaImpacto = 1000;
+		fuerzaImpacto = 60;
 	    velocidad = contVelocidad = -25;
 	    puntos=100;
 	    puntosVida=50;

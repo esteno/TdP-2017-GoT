@@ -44,22 +44,27 @@ public class Celda
     public int getY()
     {return y; }
     
+    // Retorna el Objeto Grafico asociado a la celda
     public GameObjectGrafico getGrafico() {
     	return objeto.getGrafico();
     }
     
+    // Asocia un objeto del mapa a la celda
     public void setObjetoDeMapa(ObjetoDeMapa obj) {
     	objeto = obj;
     }
     
+    // Retorna la velocidad del objeto de la celda
     public double getMultiVelocidad() {
     	return objeto.getMultiVelocidad();
     }
     
+    // Retorna el objeto que se encuentra en la celda
     public ObjetoDeMapa getObjetoDeMapa() {
     	return objeto;
     }
     
+    // Retorna la cantidad de celdas izquierdas de acuerdo al tamaño de la celda compuesta
     public List<Celda> celdaIzquierda() 
     {
     	List<Celda> lista = new ArrayList<Celda>();
@@ -67,6 +72,7 @@ public class Celda
     	return lista;
     }
     
+    // Retorna la cantidad de celdas derechas de acuerdo al tamaño de la celda compuesta
     public List<Celda> celdaDerecha()
     {
     	List<Celda> lista = new ArrayList<Celda>();
@@ -74,7 +80,7 @@ public class Celda
     	return lista;
     }
     
-    //Devuelve el objeto movil que estï¿½ sobre esta celda
+    //Devuelve el objeto movil que esta sobre esta celda
     public Enemigo getEnemigo() 
     {
     	return mapa.getEnemigo(this);
@@ -89,13 +95,13 @@ public class Celda
     }
     
     //------ELIMINAR
-    //Elemina un objeto movil del juego
+    //Elimina un objeto movil del juego
     public void destruirEnemigo() 
     {
     	mapa.eliminarEnemigo(x, y);
     }
 
-    
+    // Agrega en el mapa un disparo en esta celda
 	public void agregarDisparo(Disparo disparo) {
 		mapa.agregarDisparo(disparo, x, y);
 		
@@ -106,12 +112,14 @@ public class Celda
 		return mapa.getEstatico(x, y);
 	}
 
+	// Devuelve la lista de enemigos adyacentes a esta celda
 	public List<ObjetoMovil> adyEnemigos() {
 		List<ObjetoMovil> l=new ArrayList<ObjetoMovil>();
 		l=mapa.adyEnemigos(this.getX(), this.getY());
 		return l;
 	}
 	
+	// Devuelve la lista de defensas adyacentes a esta celda
 	public List<Defensa> adyDefensa() {
 		List<Defensa> l=new ArrayList<Defensa>();
 		l=mapa.adyDefensa(this.getX(), this.getY());

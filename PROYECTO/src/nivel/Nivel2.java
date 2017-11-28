@@ -17,7 +17,7 @@ public class Nivel2 extends Nivel{
 	protected List<Enemigo> oleada1() {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		toReturn.addAll(builder.generarSalvaje(1, estado));
-		toReturn.addAll(builder.generarGigante(2, estado));
+		toReturn.addAll(builder.generarGigante(1, estado));
 		toReturn.addAll(builder.generarDragon(1, estado));
 		return toReturn;
 	}
@@ -25,7 +25,6 @@ public class Nivel2 extends Nivel{
 	@Override
 	protected List<Enemigo> oleada2() {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-		toReturn.addAll(builder.generarOsoSalvaje(2, estado));
 		toReturn.addAll(builder.generarSalvaje(1, estado));
 		toReturn.addAll(builder.generarGigante(2, estado));
 		toReturn.addAll(builder.generarDragon(2, estado));
@@ -35,7 +34,7 @@ public class Nivel2 extends Nivel{
 	@Override
 	protected List<Enemigo> oleada3() {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-		toReturn.addAll(builder.generarOsoSalvaje(3, estado));
+		toReturn.addAll(builder.generarOsoSalvaje(2, estado));
 		toReturn.addAll(builder.generarSalvaje(1, estado));
 		toReturn.addAll(builder.generarGigante(2, estado));
 		toReturn.addAll(builder.generarDragon(2, estado));
