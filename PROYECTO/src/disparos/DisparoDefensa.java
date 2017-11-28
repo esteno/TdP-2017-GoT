@@ -29,7 +29,6 @@ public class DisparoDefensa extends Disparo {
 						//Cambia de celda
 						celdas.agregarCeldas(celdaNueva);
 						//Decrementa el alcance
-						
 					}
 					alcance--;
 					contVelocidad = velocidad;
@@ -38,7 +37,6 @@ public class DisparoDefensa extends Disparo {
 				else
 					destruir();
 			}
-			
 		}
 		else {
 			contVelocidad--;

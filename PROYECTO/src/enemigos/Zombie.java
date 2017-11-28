@@ -13,5 +13,4 @@ public class Zombie extends EnemigoCuerpo {
 	    velocidadAtaque = 10;
 	    proximoAtaque = 0;
 	}
-
 }

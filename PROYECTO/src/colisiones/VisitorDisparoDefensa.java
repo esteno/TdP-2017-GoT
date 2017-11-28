@@ -4,7 +4,6 @@ import defensa.Defensa;
 import disparos.*;
 import enemigos.Enemigo;
 
-
 public class VisitorDisparoDefensa extends Visitor{
 	
 	//atributos
@@ -12,7 +11,6 @@ public class VisitorDisparoDefensa extends Visitor{
 	
 	//constructor
 	public VisitorDisparoDefensa(Disparo g){
-		
 		miDisparo=g;
 	}
 	

@@ -6,7 +6,6 @@ import objetos.GameObjectGrafico;
 /**
  * Clase que modela el comportamiento de una defensa de rango.
  * @author Comision 15
- *
  */
 public abstract class DefensaRango extends Personaje {
 	
@@ -24,5 +23,4 @@ public abstract class DefensaRango extends Personaje {
 	}
 	
 	protected abstract GameObjectGrafico getGraficoDisparo();
-
 }

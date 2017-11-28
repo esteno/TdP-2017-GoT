@@ -13,15 +13,12 @@ public class VisitorBomba extends Visitor {
 	}
 
 	@Override
-	public void visitarDefensa(Defensa d) 
-	{
+	public void visitarDefensa(Defensa d) {
 		d.recibirAtaque(d.getPuntosVida()+1);
 	}
 
 	@Override
-	public void visitarEnemigo(Enemigo e) 
-	{
+	public void visitarEnemigo(Enemigo e) {
 		e.recibirAtaque(e.getPuntosVida()+1);
 	}
-
 }

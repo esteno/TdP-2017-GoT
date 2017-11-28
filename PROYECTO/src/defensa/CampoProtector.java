@@ -20,15 +20,12 @@ public class CampoProtector extends Defensa {
 		return personaje;
 	}
 	
-	
 	@Override
 	public void atacar() {
 		personaje.atacar();
 	}
 	
 	public void destruir() {
-		System.out.println("la vida del escudo esta en cero");
 		control.destruir();
 	}
-	
 }

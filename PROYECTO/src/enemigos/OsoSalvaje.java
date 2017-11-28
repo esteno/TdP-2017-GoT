@@ -13,5 +13,4 @@ public class OsoSalvaje extends EnemigoCuerpo {
 	    velocidadAtaque = 20;
 	    proximoAtaque = 0;
 	}
-
 }
