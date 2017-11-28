@@ -5,8 +5,9 @@ import javax.swing.JLabel;
 import celdas.Celda;
 import objetos.GameObjectGrafico;
 
-public class Dragon extends DefensaRango
-{
+public class Dragon extends DefensaRango{
+	
+	// Crea un objeto con velocidad de ataque, vida, daño y un grafico determinados
 	public Dragon() {
 		velocidadAtaque = 8;
 		proximoAtaque = 0;
@@ -15,7 +16,7 @@ public class Dragon extends DefensaRango
 		grafico = fabricaGrafica.construirGraficoDragon();
 	}
 
-
+	// Construye el grafico del disparo de este personaje
 	protected GameObjectGrafico getGraficoDisparo() {
 		return fabricaGrafica.construirDisparoDragonDef();
 	}

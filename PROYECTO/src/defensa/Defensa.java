@@ -23,25 +23,28 @@ public abstract class Defensa extends GameObject
      
      protected EstadoMultiplicador estado = new EstadoDefensaDefecto();
      
-     
+     // Acepta un visitor recibido por parametro
      public void aceptar(Visitor v){
     	 v.visitarDefensa(this);
      }
      
      public abstract void atacar();
      
+     // Modifica el daño que raliza la defensa
      public void cambiarEstado(EstadoMultiplicador nuevoEstado) {
     	 System.out.println("cambio de estado anterior "+estado.multiplicadorAtaque());
     	 estado = nuevoEstado;
     	 System.out.println("cambio de estado nuevo "+estado.multiplicadorAtaque()+"\n-----");
      }
  	
+    // Recibe una cantidad de daño pasada por parametro
 	public void recibirAtaque(int i){
 		puntosVida -= i;
 		if(puntosVida < 0) 
 			destruir();
 	}
 	
+	// Destruye una defensa grafica y logicamente
 	public void destruir() {
 		grafico.destruir();
 		celdas.destruirDefensa();
