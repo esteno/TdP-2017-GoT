@@ -9,6 +9,7 @@ public abstract class EnemigoCuerpo extends Enemigo {
 
 
 	public void atacar() {
+		// Si debe atacar, por cada celda izquierda de la celda compuesta, les pide a sus objetos que lo acepten
 		if(proximoAtaque == 0 ) 
 		{
 			for(Celda celdaIzquierda : celdas.celdaIzquierda()) 
