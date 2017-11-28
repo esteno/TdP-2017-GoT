@@ -20,5 +20,4 @@ public class ZombieFrio extends EnemigoRango {
 	protected GameObjectGrafico getGraficoDisparo() {
 		return fabricaGrafica.construirGraficoDisparoZombieFrio();
 	}
-
 }

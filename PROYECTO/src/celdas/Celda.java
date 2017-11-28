@@ -136,5 +136,4 @@ public class Celda
 		mapa.eliminarDefensa(x, y);
 	}
 	
-	
 }

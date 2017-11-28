@@ -32,9 +32,7 @@ public abstract class Defensa extends GameObject
      
      // Modifica el daño que raliza la defensa
      public void cambiarEstado(EstadoMultiplicador nuevoEstado) {
-    	 System.out.println("cambio de estado anterior "+estado.multiplicadorAtaque());
     	 estado = nuevoEstado;
-    	 System.out.println("cambio de estado nuevo "+estado.multiplicadorAtaque()+"\n-----");
      }
  	
     // Recibe una cantidad de daño pasada por parametro

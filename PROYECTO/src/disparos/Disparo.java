@@ -18,7 +18,6 @@ public abstract class Disparo extends ObjetoMovil {
 
 	public abstract void avanzar();
 	
-	
 	//Destruye el disparo
 	public void destruir() {
 		alcance=0;

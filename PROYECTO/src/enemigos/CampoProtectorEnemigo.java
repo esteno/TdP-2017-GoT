@@ -13,7 +13,6 @@ public class CampoProtectorEnemigo extends Enemigo {
 	Enemigo enemigo;
 	
 	public CampoProtectorEnemigo(Enemigo e, Juego j) {
-
 	    enemigo=e;
 		fuerzaImpacto = 0;
 	    velocidad = contVelocidad =e.getVelocidad();
@@ -26,7 +25,6 @@ public class CampoProtectorEnemigo extends Enemigo {
 	    juego=j;
 	    juego.eliminarEnemigo(e);
 	    juego.insertarEnemigo(this);
-	    System.out.println(enemigo.getGrafico().getLabel()==null);
 	    enemigo.getGrafico().getLabel().setBorder(new MatteBorder(2, 2, 2, 2, Color.BLUE));
 	}
 	@Override
@@ -43,21 +41,17 @@ public class CampoProtectorEnemigo extends Enemigo {
 	}
 	
 	public void destruir() {
-		System.out.println("destruir campo protector pos"+celdas.getX()+" y "+celdas.getY());
 		enemigo.getGrafico().getLabel().setBorder(null);
 		celdas.destruirEnemigo();
-		//juego.eliminarEnemigo(this);
 		juego.reemplazarEnemigo(enemigo, celdas.getX(), celdas.getY());
 		juego.insertarEnemigo(enemigo);
 	}
 
 	public int getAncho() {
-		
 		return enemigo.getAncho();
 	}
 	
 	public int getAlto() {
-		
 		return enemigo.getAlto();
 	}
 }

@@ -20,6 +20,5 @@ public class Dragon extends EnemigoRango {
 	protected GameObjectGrafico getGraficoDisparo() {
 		return fabricaGrafica.construirGraficoDisparoDragon();
 	}
-	
 
 }

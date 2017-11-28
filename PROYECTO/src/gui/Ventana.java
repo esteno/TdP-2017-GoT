@@ -56,7 +56,6 @@ public class Ventana implements Runnable{
 	private boolean campoProtector = false;
 	private boolean seCreoBomba = false;
 	
-	
 	private JButton botonPremioBomba;
 	private JButton botonPremioOro;
 	private JButton botonPremioCuracion;
@@ -75,7 +74,6 @@ public class Ventana implements Runnable{
 	private JPanel panelPersonajes;
 	private JPanel panelObstaculos;
 	
-	
 	private JButton botonYgritte;
 	private JButton botonMountain;
 	private JButton botonDragon;
@@ -89,9 +87,6 @@ public class Ventana implements Runnable{
 	private JButton botonTrinchera;
 	private JButton botonMuro;
 	
-	
-	
-	
 	private JButton botonBomba;
 	private JButton botonCampo;
 	
@@ -101,7 +96,6 @@ public class Ventana implements Runnable{
 	private JLabel muroJuego;
 	private String muroJ = "res/imagenes/juego/muroHieloJuego.png";
 
-
 	private final String imagenBotonYgritte = "res/imagenes/juego/botonYgritte.png";
 	private final String imagenBotonBronn = "res/imagenes/juego/botonBronn.png";
 	private final String imagenBotonMountain = "res/imagenes/juego/botonMountain.png" ;
@@ -109,13 +103,11 @@ public class Ventana implements Runnable{
 	private final String imagenBotonGendry = "res/imagenes/juego/botonGendry.png";
 	private final String imagenBotonInmaculado = "res/imagenes/juego/botonInmaculado.png";
 	
-	
 	public String imagenFuegoValyrio = "res/imagenes/juego/botonFuegoValyrio.png";
 	public final String imagenBotonMuro = "res/imagenes/juego/botonMuro.png" ;
 	public final String imagenBotonRoca = "res/imagenes/juego/botonRoca.png";
 	public final String imagenBotonTrinchera = "res/imagenes/juego/botonTrinchera.png";
 	 
-	
 	public final String imagenBotonBomba = "res/imagenes/premios/iconoBomba.png";
 	public final String imagenBotonCampo = "res/imagenes/premios/campoProtectorR.gif";
 	public final String imagenBotonBarricada = "res/imagenes/premios/botonBarricada.png";
@@ -128,10 +120,6 @@ public class Ventana implements Runnable{
 	private final String imagenDanioDoble = "res/imagenes/premios/danioDoble.png" ;
 	private final String imagenBotonCampoBis = "res/imagenes/premios/campoProtector.gif";
 
-
-	
-	
-	
 	/**
 	 * Launch the application.
 	 */
@@ -200,6 +188,7 @@ public class Ventana implements Runnable{
 		panelMapa.add(panelCeldas);
 		
 		//-----------------
+		
 		panelPersonajes = new JPanel();
 		panelPersonajes.setOpaque(false);
 		panelPersonajes.setBounds(0, 0, 100, 562);
@@ -252,7 +241,6 @@ public class Ventana implements Runnable{
 		lblPuntaje.setOpaque(true);
 		lblPuntaje.setFont(new Font("Century", Font.PLAIN, 17));
 		
-	
 		// --------------------- premios
 		
 		botonBarricada = new JButton();
@@ -271,8 +259,6 @@ public class Ventana implements Runnable{
 		botonBarricada.setIcon(new ImageIcon(imagenBotonBarricada));
 		frame.getContentPane().add(botonBarricada);
 		
-		
-		
 		botonBomba = new JButton();
 		botonBomba.setEnabled(false);
 		botonBomba.setBounds(824, 4, 60, 60);
@@ -290,7 +276,6 @@ public class Ventana implements Runnable{
 	    botonBomba.setIcon(new ImageIcon(imagenBotonBomba));
 		frame.getContentPane().add(botonBomba);
 		
-		
 		botonCampo = new JButton("");
 		botonCampo.setIcon(new ImageIcon(imagenBotonCampo));
 		botonCampo.setHorizontalAlignment(SwingConstants.LEADING);
@@ -304,7 +289,6 @@ public class Ventana implements Runnable{
 			}
 		});
 		frame.getContentPane().add(botonCampo);
-		
 		
 		// ------------------- obstaculos
 		
@@ -320,7 +304,6 @@ public class Ventana implements Runnable{
 		botonFuegoValyrio.setIcon(new ImageIcon(imagenFuegoValyrio));
 		frame.getContentPane().add(botonFuegoValyrio);
 		
-		
 		botonMuro = new JButton("");
 		botonMuro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -331,7 +314,6 @@ public class Ventana implements Runnable{
 		botonMuro.setBounds(256, 4, 80, 80);
 		botonMuro.setIcon(new ImageIcon(imagenBotonMuro));
 		frame.getContentPane().add(botonMuro);
-		
 		
 		botonRoca = new JButton("");
 		botonRoca.addActionListener(new ActionListener() {
@@ -356,6 +338,7 @@ public class Ventana implements Runnable{
 		frame.getContentPane().add(botonTrinchera);
 		
 		// ----------------
+		
 		muroJuego = new JLabel("");
 		muroJuego.setIcon(new ImageIcon(muroJ));
 		muroJuego.setBounds(136, 120, 45, 400);
@@ -369,7 +352,6 @@ public class Ventana implements Runnable{
 		labelFondo.setIcon(new ImageIcon("res/imagenes/juego/fondo.jpg"));
 		labelFondo.setBounds(0, 0, 1000, 562);
 		frame.getContentPane().add(labelFondo);
-		
 		
 		JTextArea consola = new JTextArea();
 		consola.setLineWrap(true);
@@ -385,10 +367,7 @@ public class Ventana implements Runnable{
 		sp.setAutoscrolls(true);
 		sp.setBounds(consola.getBounds());
 		frame.getContentPane().add(sp);
-		
 
-		
-		
 		///--- ACCIONES DE LOS BOTONES ----
 		botonYgritte.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
@@ -431,8 +410,6 @@ public class Ventana implements Runnable{
  				juego.restarOro(costosDeDefensa.costoBronn());
  			}
  		});
-		
- 		
  		
 		// ----------- BOTONES PREMIOS - aparecen en el mapa
  		
@@ -448,10 +425,7 @@ public class Ventana implements Runnable{
 				panelCeldaPremios.remove(botonPremioBarricada);
 			}
  		});
- 
- 		
- 		
- 		
+
 		botonPremioBomba = new JButton();
 		botonPremioBomba.setIcon(new ImageIcon(imagenBombita));
 		botonPremioBomba.setMargin(new Insets(0, 0, 0, 0));
@@ -463,8 +437,7 @@ public class Ventana implements Runnable{
 				panelCeldaPremios.remove(botonPremioBomba);
 			}
  		});
- 		
- 		
+
  		botonPremioOro = new JButton();
  		botonPremioOro.setMargin(new Insets(0, 0, 0, 0));
 		botonPremioOro.setIcon(new ImageIcon(imagenBotonPremioOro));
@@ -494,7 +467,6 @@ public class Ventana implements Runnable{
  		botonPremioDanioDoble.setIcon(new ImageIcon(imagenDanioDoble));
  		botonPremioDanioDoble.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
- 				System.out.println("GUI DD");
  				juego.danioDoble();
  				panelCeldaPremios.remove(botonPremioDanioDoble);
  				ConsolaMensajes.mostrarMensaje("Gema VERDE: Las defensas tienen da�o doble.");
@@ -513,10 +485,10 @@ public class Ventana implements Runnable{
  		});
 		
 		///---------------
+ 		
 		juego = new Juego(this, ALTO, ANCHO);
 		dibujarMapa(juego.getCeldasGraficas());
 		
-
 	}
 	
 	public void puntaje(int puntaje){
@@ -610,8 +582,7 @@ public class Ventana implements Runnable{
 			System.exit(0);
 		}
 	}
-	
-	
+
 	public void ganar(){
 		int reply = JOptionPane.showConfirmDialog(frame, "Has ganado!\nQuieres jugar de nuevo?", "Ganaste el juego!", JOptionPane.YES_NO_OPTION);
 		if (reply == JOptionPane.YES_OPTION) {
@@ -639,7 +610,6 @@ public class Ventana implements Runnable{
 		botonFuegoValyrio.setEnabled((oro < costosDeDefensa.costoFuegoValyrio()) ? false : true);
 	}
 	
-	
 	public MouseListener getMouseListener() {
 		return new MouseListener() {
 			@Override
@@ -648,10 +618,8 @@ public class Ventana implements Runnable{
 				int x= labelCelda.getBounds().x / ANCHO_IMG;
 				int y= labelCelda.getBounds().y / ALTO_IMG;
 				if(campoProtector){
-					
 					juego.crearCampo(x, y);
 					campoProtector = false;
-					
 				}
 				else if (seCreoBomba) {
 					ImageIcon img=new ImageIcon("res/imagenes/premios/iconoBomba.png");
@@ -661,7 +629,6 @@ public class Ventana implements Runnable{
 					juego.crearBomba(x,y,nuevo);
 					if (!juego.hayBombas())
 						seCreoBomba=false;
-
 				}
 				else{
 					Defensa defensa = fabricaDeDefensa.getDefensa();
@@ -690,17 +657,13 @@ public class Ventana implements Runnable{
 	}
 	
 	public void setCampoGrafico (JLabel label, int x, int y) {
-		System.out.println("se ejecuto el setear grafico de campo");
 		ImageIcon img=new ImageIcon ("res/imagenes/premios/escudoUp.gif");
 		label=new JLabel(img);
 		label.setBounds(ANCHO_IMG*x,ALTO_IMG*y,img.getIconWidth(),img.getIconHeight());
 		panelCeldaPremios.add(label);
-		
 	}
 	
 	public void eliminarLabelPremio(JLabel label) {
-		System.out.println("entre a eliminar del panel");
-		System.out.println(label==null);
 		panelCeldaPremios.remove(label);
 	}
 	
@@ -710,18 +673,15 @@ public class Ventana implements Runnable{
 		botonPremioBomba.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
 		panelCeldaPremios.add(botonPremioBomba);
 	}
-
 	
 	public void agregarPremioCuracion(int x, int y) {
 		botonPremioCuracion.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
 		panelCeldaPremios.add(botonPremioCuracion);
 	}
 
-	
 	public void agregarPremioOro(int x, int y) {
 		botonPremioOro.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
 		panelCeldaPremios.add(botonPremioOro);
-		
 	}
 
 	public void agregarPremioDanioDoble(int x, int y) {
@@ -734,14 +694,12 @@ public class Ventana implements Runnable{
 		panelCeldaPremios.add(botonPremioCampoProtector);
 	}
 
-	public void agregarPremioBarricada(int x, int y) 
-	{
+	public void agregarPremioBarricada(int x, int y) {
 		botonPremioBarricada.setBounds(x*ANCHO_IMG, y*ALTO_IMG, ANCHO_IMG, ALTO_IMG);
 		panelCeldaPremios.add(botonPremioBarricada);
 	}
 
-	public void dibujarMapa(GameObjectGrafico[][] graficos) 
-	{
+	public void dibujarMapa(GameObjectGrafico[][] graficos) {
 		// TODO Auto-generated method stub
 		panelCeldas.removeAll();
 		
