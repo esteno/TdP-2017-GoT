@@ -80,9 +80,11 @@ public class Juego
 		nivelActual = niveles.getNivel(numNivel);
 		if (nivelActual == null)
 			gui.ganar();
-		else {
+		else 
+		{
 			numNivel++;
 			mapa.cambiarMapa(parser.parsearNivel(nivelActual.getPath()));
+			gui.dibujarMapa();
 			sigOleada();
 		}
 	}

@@ -44,6 +44,7 @@ public class Mapa
 				}
 			}
 		}	
+		
 	}
 
 	public Celda celdaIzquierda(Celda celdaActual){	

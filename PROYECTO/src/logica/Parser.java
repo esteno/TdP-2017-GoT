@@ -23,7 +23,8 @@ public class Parser
 		this.ancho = ancho;
 	}
 	
-	public Celda[][] parsearNivel(String path) {
+	public Celda[][] parsearNivel(String path) 
+	{
 		Celda[][] arregloCeldas = new Celda[ancho][alto];
 		Celda celda = null;
 		try {

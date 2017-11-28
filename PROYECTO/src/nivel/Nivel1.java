@@ -13,31 +13,31 @@ public class Nivel1 extends Nivel{
 		estado = new EstadoEnemigoNivel1();
 	}
 	
+	 // primer oleada
 	protected List<Enemigo> oleada1() {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-		 // primer oleada
 		toReturn.addAll(builder.generarZombie(3, estado));
 		return toReturn;
 	}
 
 	
-	
+	// segunda oleada
 	@Override
 	protected List<Enemigo> oleada2() {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
-		toReturn.addAll(builder.generarZombie(3, estado));
+		toReturn.addAll(builder.generarZombie(2, estado));
 		toReturn.addAll(builder.generarZombieFrio(1, estado));
 		toReturn.addAll(builder.generarOsoSalvaje(1, estado));
 		return toReturn;
 	}
 
 	
-	
+	// tercer oleada
 	@Override
 	protected List<Enemigo> oleada3() {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		toReturn.addAll(builder.generarZombieFrio(2, estado));
-		toReturn.addAll(builder.generarOsoSalvaje(2, estado));
+		toReturn.addAll(builder.generarOsoSalvaje(1, estado));
 		toReturn.addAll(builder.generarSalvaje(1, estado));
 		toReturn.addAll(builder.generarGigante(1, estado));
 		return toReturn;
