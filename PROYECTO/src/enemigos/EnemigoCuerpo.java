@@ -2,7 +2,6 @@ package enemigos;
 
 import celdas.Celda;
 import defensa.Defensa;
-import objetos.GameObject;
 
 public abstract class EnemigoCuerpo extends Enemigo {
 

@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 import logica.CostosDeDefensa;
 import logica.FabricaDeDefensa;
 import logica.Juego;
-import logica.Puntaje;
 
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -34,7 +33,6 @@ import java.awt.Color;
 import java.awt.Component;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
-import javax.swing.JTextPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
@@ -47,12 +45,10 @@ public class Ventana implements Runnable{
 	private final int ANCHO = 16;
 	private final int ALTO_IMG = 50; // antes 32
 	private final int ANCHO_IMG = 50; // antes 32
-	private boolean clickCampo = false;
 	
 	private FabricaDeDefensa fabricaDeDefensa = FabricaDeDefensa.getInstancia();
 	private CostosDeDefensa costosDeDefensa = CostosDeDefensa.getInstancia();
 	
-	private boolean aEliminar = false;
 	private boolean campoProtector = false;
 	private boolean seCreoBomba = false;
 	
@@ -73,7 +69,6 @@ public class Ventana implements Runnable{
 	private JPanel panelDefensa;
 	private JPanel panelCeldaPremios;
 	private JPanel panelPersonajes;
-	private JPanel panelObstaculos;
 	
 	
 	private JButton botonYgritte;
@@ -122,7 +117,6 @@ public class Ventana implements Runnable{
 	
 	private final String imagenBotonPremioBarricada = "res/imagenes/obstaculos/barricada.png";
 	private final String imagenBotonPremioOro = "res/imagenes/premios/monedas.gif";
-	private final String imagenBomba = "res/imagenes/premios/iconoBomba.png";
 	private final String imagenBombita = "res/imagenes/premios/bombita.png";
 	private final String imagenCuracion = "res/imagenes/premios/curacion.png";
 	private final String imagenDanioDoble = "res/imagenes/premios/danioDoble.png" ;

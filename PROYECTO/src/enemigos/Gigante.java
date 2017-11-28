@@ -1,9 +1,5 @@
 package enemigos;
 
-import javax.swing.JLabel;
-
-import celdas.Celda;
-
 public class Gigante extends EnemigoCuerpo{
 
 		

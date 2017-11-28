@@ -7,10 +7,7 @@ import ObjetoDeMapa.ObjetoDeMapa;
 import defensa.Defensa;
 import disparos.*;
 import enemigos.Enemigo;
-import enemigos.Gigante;
-import logica.FabricaObjetoGrafico;
 import mapa.Mapa;
-import objetos.GameObject;
 import objetos.GameObjectGrafico;
 import objetos.ObjetoMovil;
 

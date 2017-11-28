@@ -1,6 +1,5 @@
 package defensa;
 
-import estadoMultiplicador.*;
 
 public abstract class Personaje extends Defensa {
 	

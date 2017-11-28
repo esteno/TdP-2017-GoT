@@ -1,9 +1,6 @@
 package colisiones;
-import objetos.*;
 import enemigos.*;
 import defensa.Defensa;
-import disparos.*;
-import obstaculo.*;
 
 public abstract class Visitor 
 {	 

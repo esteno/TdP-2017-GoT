@@ -5,7 +5,6 @@ import java.util.List;
 
 import enemigos.Enemigo;
 import estadoMultiplicador.EstadoMultiplicador;
-import gui.ConsolaMensajes;
 import logica.BuilderDeOleadas;
 
 public abstract class Nivel {

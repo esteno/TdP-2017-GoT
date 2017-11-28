@@ -2,7 +2,6 @@ package colisiones;
 
 import defensa.Defensa;
 import enemigos.Enemigo;
-import objetos.GameObject;
 import premio.Bomba;
 
 public class VisitorBomba extends Visitor {

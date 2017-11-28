@@ -3,7 +3,6 @@ package celdas;
 import java.util.ArrayList;
 import java.util.List;
 
-import disparos.Disparo;
 import mapa.Mapa;
 
 public class CeldaCompuesta extends Celda {

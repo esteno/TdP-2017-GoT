@@ -1,8 +1,6 @@
 package defensa;
 
-import javax.swing.JLabel;
 
-import celdas.Celda;
 
 public class Mountain extends DefensaCuerpo {
 	

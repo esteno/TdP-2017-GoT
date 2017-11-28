@@ -5,13 +5,10 @@ import nivel.Nivel;
 import nivel.Niveles;
 import objetos.*;
 
-import java.util.List;
-
 import javax.swing.JLabel;
 
 import defensa.*;
 import disparos.Disparo;
-import enemigos.CampoProtectorEnemigo;
 import enemigos.Enemigo;
 import gui.*;
 import estadoMultiplicador.*;

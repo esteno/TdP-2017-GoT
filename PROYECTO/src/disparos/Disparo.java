@@ -1,6 +1,6 @@
 package disparos;
+
 import objetos.*;
-import celdas.Celda;
 import colisiones.Visitor;
 
 public abstract class Disparo extends ObjetoMovil {

@@ -3,7 +3,6 @@ package colisiones;
 import defensa.Defensa;
 import disparos.DisparoEnemigo;
 import enemigos.Enemigo;
-import objetos.GameObject;
 
 public class VisitorDisparoEnemigo extends Visitor {
 	

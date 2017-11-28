@@ -6,7 +6,6 @@ import celdas.Celda;
 import colisiones.Visitor;
 import colisiones.VisitorEnemigo;
 import estadoMultiplicador.EstadoMultiplicador;
-import objetos.GameObject;
 import objetos.ObjetoMovil;
 
 public abstract class Enemigo extends ObjetoMovil{
