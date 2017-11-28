@@ -34,6 +34,7 @@ public class Mapa
 		this.juego = juego;	
 	}
 	
+	// Modifica toda la matriz de celdas con la nueva matriz de celdas del nuevo nivel
 	public void cambiarMapa(Celda[][] celdas) {
 		matrizCeldas = celdas;
 		for(int i = 0; i < matrizCeldas.length; i++) {
@@ -47,6 +48,7 @@ public class Mapa
 		
 	}
 
+	// Retorna la celda izquierda perteneciente a la celda pasada por parametro
 	public Celda celdaIzquierda(Celda celdaActual){	
 		Celda celdaIzquierda = null;
 		if(celdaActual.getX() != 0)
@@ -54,6 +56,7 @@ public class Mapa
 		return celdaIzquierda;
 	}
 	
+	// Retorna la celda derecha perteneciente a la celda pasada por parametro
 	public Celda celdaDerecha(Celda celdaActual) {
 		Celda celdaDerecha = null;
 		if(celdaActual.getX() < matrizCeldas.length-1){
@@ -62,6 +65,7 @@ public class Mapa
 		return celdaDerecha;
 	}
 	
+	// Retorno la matriz de graficos perteneciente al mapa
 	public GameObjectGrafico[][] getGraficos() {
 		GameObjectGrafico[][] toReturn = new GameObjectGrafico[matrizCeldas.length][matrizCeldas[0].length];
 		for(int i = 0; i < matrizCeldas.length; i++) {
@@ -72,6 +76,7 @@ public class Mapa
 		return toReturn;
 	}
 	
+	// Agrego una defensa pasada por parametro al mapa en una posicion determinada
 	public boolean agregarDefensa(Defensa defensa, int x, int y){
 		Boolean pudeAgregar = false;
 		Boolean hayEspacio = true;
@@ -86,7 +91,6 @@ public class Mapa
 				CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
 				for(int i = x; i < defensa.getAncho()+x ; i++) {
 					for(int j = y; j < defensa.getAlto()+y ; j++) {
-						System.out.println("agregue celda en "+i+" "+j);
 						matrizDefensa[i][j] = defensa;
 						celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
 					}
@@ -98,7 +102,7 @@ public class Mapa
 		return pudeAgregar;
 	}
 	
-	
+	// Agrego un enemigo pasada por parametro al mapa en una posicion determinada
 	public boolean agregarEnemigo(Enemigo enemigo, int x, int y) {
 		Boolean pudeAgregar = false;
 		Boolean hayEspacio = true;
@@ -113,7 +117,6 @@ public class Mapa
 				CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
 				for(int i = x; i < enemigo.getAncho()+x ; i++) {
 					for(int j = y; j < enemigo.getAlto()+ y ; j++) {
-						System.out.println("agregue celda enemigo en "+i+" "+j);
 						matrizEnemigo[i][j]= enemigo;
 						celdaCompuesta.agregarCeldas(matrizCeldas[i][j]);
 					}
@@ -126,6 +129,7 @@ public class Mapa
 		return pudeAgregar;
 	}
 	
+	// Agrego una disparo pasado por parametro al mapa en una posicion determinada
 	public void agregarDisparo(Disparo disparo, int x, int y) {
 		CeldaCompuesta celda = new CeldaCompuesta(this, x, y);
 		disparo.setCelda(celda);
@@ -135,12 +139,12 @@ public class Mapa
 	
 	//------MOVER
 	public void moverEnemigo(int x, int y, int xAnterior, int yAnterior) {
-		System.out.format("moverEnemigo de x %d y %d xAnterior %d yAnterior %d \n", x, y, xAnterior, yAnterior);
 		matrizEnemigo[x][y] = matrizEnemigo[xAnterior][yAnterior];
 		matrizEnemigo[xAnterior][yAnterior] = null;
 		if (x==0)
 			juego.gameOver();
 	}
+	
 	
 	public Defensa eliminarDefensa(int x, int y){
 		Defensa defensa = matrizDefensa[x][y];

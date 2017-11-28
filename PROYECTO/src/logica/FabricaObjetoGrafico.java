@@ -141,14 +141,4 @@ public class FabricaObjetoGrafico {
 		return new GameObjectGrafico("res/imagenes/obstaculos/trinchera.png");
 	}
 
-	public GameObjectGrafico construirGraficoLagoTemporal() {
-		// TODO Auto-generated method stub
-		return new GameObjectGrafico("res/imagenes/obstaculos/lagoTemporal.png");
-	}
-
-	public GameObjectGrafico construirGraficoArenaTemporal() {
-		// TODO Auto-generated method stub
-		return new GameObjectGrafico("res/imagenes/obstaculos/arenaTemporal.png");
-	}
- 
 }

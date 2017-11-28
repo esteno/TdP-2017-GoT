@@ -7,6 +7,7 @@ public abstract class ObjetoDeMapa {
 	protected GameObjectGrafico grafico;
 	protected double multiplicadorVelocidad;
 	
+	// Objetos que colocamos en el mapa
 	public double getMultiVelocidad() {
 		return multiplicadorVelocidad;
 	}
