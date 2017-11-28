@@ -13,6 +13,7 @@ public class Premios {
 		juego = j;
 	}
 	
+	// Crea un premio en base a un numero aleatorio
 	public void crearPremio(int x, int y) {
 		int chance = new Random().nextInt(99);
 		switch(chance) { 

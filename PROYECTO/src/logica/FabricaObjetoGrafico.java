@@ -15,6 +15,7 @@ public class FabricaObjetoGrafico {
 		return instancia;
 	}
 	
+	//Cada uno construye los graficos de cada uno de los elementos del juego
 	//CELDAS GRAFICAS 
 	
 	public GameObjectGrafico construirGraficoObjetoComun(){

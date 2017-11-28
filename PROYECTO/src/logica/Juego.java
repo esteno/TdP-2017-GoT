@@ -110,11 +110,13 @@ public class Juego
 		}
 	}
 	
+	// Agrega una defensa determinada en una posicion pasada por parametro en el mapa y en el control de la defensa
 	public void agregarDefensa(Defensa def, int x, int y){
 		mapa.agregarDefensa(def, x, y);
 		controlDeDefensa.agregarDefensa(def);
 	}
 
+	// Agrega un enemigo en una posicion pasada por parametro en el mapa y graficamente
 	public boolean agregarEnemigo(Enemigo obj, int x, int y){
 		boolean puedoAgregar = mapa.agregarEnemigo(obj, x, y);
 		if(puedoAgregar)
@@ -122,11 +124,13 @@ public class Juego
 		return puedoAgregar;
 	}
 	
+	// Reemplaza un enemigo en una posicion determinada por otro pasado por parametro
 	public void reemplazarEnemigo(Enemigo enemigo, int x, int y) {
 	
 		mapa.reemplazarEnemigo(enemigo, x, y);
 	}
 	
+	// Agrega un disparo pasado por parametro en una posicion especifica
 	public void agregarDisparo(Disparo disparo, int x, int y) {
 		controlDisparo.agregarDisparo(disparo);
 		gui.agregarObjetoMovil(x, y, disparo);
@@ -257,6 +261,7 @@ public class Juego
 		controlDeDefensa.curar();
 	}
 
+	// Crea un campo protector sobre una defensa en una posicion pasada por parametro
 	public boolean crearCampo(int x, int y) {
 		ConsolaMensajes.mostrarMensaje("Campo protector!");
 		Defensa d=mapa.getEstatico(x, y);

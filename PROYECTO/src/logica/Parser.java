@@ -23,6 +23,7 @@ public class Parser
 		this.ancho = ancho;
 	}
 	
+	// Recibo la direccion de un archivo de texto, lo abro y transforma cada caracter en una celda con un objeto de mapa 
 	public Celda[][] parsearNivel(String path) 
 	{
 		Celda[][] arregloCeldas = new Celda[ancho][alto];

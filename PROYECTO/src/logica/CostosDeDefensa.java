@@ -2,6 +2,8 @@ package logica;
 
 public class CostosDeDefensa {
 	
+	
+	//Matiene el costo de todas las cosas que se pueden comprar en el juego
 	private final int COSTO_DRAGON = 1000;
 	private final int COSTO_GENDRY = 400;
 	private final int COSTO_INMACULADO = 200;
