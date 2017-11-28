@@ -375,7 +375,7 @@ public class Ventana implements Runnable{
 		consola.setBounds(2, 564, 994, 135);
 		ConsolaMensajes.setContainer(consola);
 		ConsolaMensajes.mostrarMensaje("¡Bienvenido! ¡Gracias por jugar!\n Aqui apareceran mensajes importantes.");
-		ConsolaMensajes.mostrarMensaje(" ===  Nivel 1  ===");
+
 		frame.getContentPane().add(consola);
 		
 
@@ -506,24 +506,7 @@ public class Ventana implements Runnable{
 		
 		///---------------
 		juego = new Juego(this, ALTO, ANCHO);
-		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
-		
-		for(int i = 0; i < ANCHO; i++) {
-			for (int j = 0; j < ALTO; j++) {
-				ImageIcon imagen = graficos[i][j].getImagen();
-				int ancho = imagen.getIconWidth();
-				int alto = imagen.getIconHeight();
-				int x = i*ancho;
-				int y = j*alto;
-				JLabel label = new JLabel();
-				label.setBounds(x ,y,alto,ancho);
-				label.setIcon(imagen);
-				label.addMouseListener(getMouseListener());
-				panelCeldas.add(label);
-			}
-		}
-		
-		
+		dibujarMapa(juego.getCeldasGraficas());
 		
 
 	}
@@ -745,11 +728,10 @@ public class Ventana implements Runnable{
 		panelCeldaPremios.add(botonPremioBarricada);
 	}
 
-	public void dibujarMapa() 
+	public void dibujarMapa(GameObjectGrafico[][] graficos) 
 	{
 		// TODO Auto-generated method stub
 		panelCeldas.removeAll();
-		GameObjectGrafico[][] graficos = juego.getCeldasGraficas();
 		
 		for(int i = 0; i < ANCHO; i++) 
 		{

@@ -37,9 +37,8 @@ public class Nivel1 extends Nivel{
 	protected List<Enemigo> oleada3() {
 		List<Enemigo> toReturn = new ArrayList<Enemigo>();
 		toReturn.addAll(builder.generarZombieFrio(2, estado));
-		toReturn.addAll(builder.generarOsoSalvaje(1, estado));
+		toReturn.addAll(builder.generarOsoSalvaje(2, estado));
 		toReturn.addAll(builder.generarSalvaje(1, estado));
-		toReturn.addAll(builder.generarGigante(1, estado));
 		return toReturn;
 	}
 }

@@ -67,6 +67,7 @@ public class Juego
 		controlDeDefensa = new ControlDeDefensa(this);
 		
 		numNivel = 1;
+		ConsolaMensajes.mostrarMensaje(" NIVEL: "+numNivel);
 		sigNivel();
 		
 		new Thread(controlDeOleadas).start();
@@ -83,8 +84,9 @@ public class Juego
 		else 
 		{
 			numNivel++;
+			ConsolaMensajes.mostrarMensaje(" NIVEL: "+numNivel);
 			mapa.cambiarMapa(parser.parsearNivel(nivelActual.getPath()));
-			gui.dibujarMapa();
+			gui.dibujarMapa(mapa.getGraficos());
 			sigOleada();
 		}
 	}
