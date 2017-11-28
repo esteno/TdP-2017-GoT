@@ -370,6 +370,7 @@ public class Ventana implements Runnable{
 		labelFondo.setBounds(0, 0, 1000, 562);
 		frame.getContentPane().add(labelFondo);
 		
+		
 		JTextArea consola = new JTextArea();
 		consola.setLineWrap(true);
 		consola.setEditable(false);
@@ -379,8 +380,10 @@ public class Ventana implements Runnable{
 		consola.setBounds(2, 564, 994, 135);
 		ConsolaMensajes.setContainer(consola);
 		ConsolaMensajes.mostrarMensaje("¡Bienvenido! ¡Gracias por jugar!\n Aqui apareceran mensajes importantes.");
-
-		frame.getContentPane().add(consola);
+		
+		JScrollPane sp = new JScrollPane(consola);
+		sp.setBounds(consola.getBounds());
+		frame.getContentPane().add(sp);
 		
 
 		
