@@ -18,7 +18,8 @@ public class VisitorEnemigo extends Visitor
 
 	//metodos
 	@Override
-	public void visitarDefensa(Defensa d){
+	public void visitarDefensa(Defensa d)
+	{
 		d.recibirAtaque(miEnemigo.getFuerzaImpacto());
 	}
 	

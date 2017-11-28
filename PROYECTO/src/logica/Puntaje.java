@@ -3,7 +3,7 @@ package logica;
 public class Puntaje {
 	
 	private int puntos = 0;
-	private int oro = 10000;
+	private int oro = 2000;
 	private int bombasDisponibles = 0;
 	private int barricadasDisponibles = 0;
 	

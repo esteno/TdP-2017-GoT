@@ -9,7 +9,7 @@ public class Dragon extends EnemigoRango {
 	    velocidad = contVelocidad = -4;
 	    puntos=100;
 	    puntosVida=25;
-	    oro=20;
+	    oro=200;
 	    velocidadAtaque = 10;
 	    proximoAtaque = 0;
 	}

@@ -264,7 +264,7 @@ public class Ventana implements Runnable{
 			{
 				FabricaDeDefensa.getInstancia().construirBarricada();
 				juego.restarBarricada();	
-				if (!juego.hayBarricadas())
+				if (!juego.hayBarricada())
 					botonBarricada.setEnabled(false);
 			}
 		});
@@ -356,9 +356,7 @@ public class Ventana implements Runnable{
 		muroJuego.setIcon(new ImageIcon(muroJ));
 		muroJuego.setBounds(136, 120, 45, 400);
 		frame.getContentPane().add(muroJuego);
-		
-		
-		
+
 		// -------------
 		
 		JLabel labelFondo = new JLabel("");
@@ -465,6 +463,7 @@ public class Ventana implements Runnable{
  		botonPremioOro.addActionListener(new ActionListener() {
  			public void actionPerformed(ActionEvent arg0) {
  				juego.sumarOro(1000);
+ 				ConsolaMensajes.mostrarMensaje("¡Ganaste 1000 monedas!");
  				panelCeldaPremios.remove(botonPremioOro);
  			}
  		});

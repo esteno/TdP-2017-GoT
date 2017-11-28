@@ -8,7 +8,7 @@ public class OsoSalvaje extends EnemigoCuerpo {
 	    velocidad = contVelocidad = -30;
 	    puntos=100;
 	    puntosVida=150;
-	    oro=75;
+	    oro=100;
 	    velocidadAtaque = 20;
 	    proximoAtaque = 0;
 	}

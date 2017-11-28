@@ -4,15 +4,16 @@ import defensa.Defensa;
 import logica.FabricaObjetoGrafico;
 import logica.Temporal;
 
-public class LagoTemporal extends Defensa implements Temporal
+
+public class ArenaTemporal extends Defensa implements Temporal
 {
 
-	
-	public LagoTemporal()
+	public ArenaTemporal()
 	{
-		grafico = FabricaObjetoGrafico.getInstancia().construirGraficoLagoTemporal();
+		grafico = FabricaObjetoGrafico.getInstancia().construirGraficoArenaTemporal();
 
 	}
+	
 	
 	@Override
 	public void accionarPorTiempo() 
@@ -20,6 +21,7 @@ public class LagoTemporal extends Defensa implements Temporal
 		// TODO Auto-generated method stub
 		
 	}
+
 
 	@Override
 	public void atacar() {
