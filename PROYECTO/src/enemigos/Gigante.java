@@ -11,7 +11,6 @@ public class Gigante extends EnemigoCuerpo{
 			puntosVida = 200;
 			fuerzaImpacto = 70;
 			grafico = fabricaGrafica.construirGigante();
-			fuerzaImpacto = 1000;
 		    velocidad = contVelocidad = -30;
 		    puntos=100;
 		    oro=300;

@@ -4,7 +4,7 @@ public class OsoSalvaje extends EnemigoCuerpo {
 
 	public OsoSalvaje(){
 		grafico = fabricaGrafica.construirOsoSalvaje();
-		fuerzaImpacto = 1000;
+		fuerzaImpacto = 100;
 	    velocidad = contVelocidad = -30;
 	    puntos=100;
 	    puntosVida=150;
