@@ -15,7 +15,6 @@ import mapa.Mapa;
 
 public class Bomba implements Temporal{
 
-	Timer timer;
 	private int x;
 	private int y;
 	private Mapa mapa;
@@ -28,7 +27,7 @@ public class Bomba implements Temporal{
 		label=nuevo;
 		this.mapa = mapa;
 		j=juego;
-		timer  = new Timer(this, 3000);
+		new Timer(this, 3000);
 	}
 	
 	public void accionarPorTiempo() {

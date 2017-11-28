@@ -7,7 +7,7 @@ import estadoMultiplicador.*;
 
 public class PremioDanioDoble implements Temporal {
 	
-	Juego juego;
+	private Juego juego;
 	
 	public PremioDanioDoble(Juego j) {
 		juego = j;

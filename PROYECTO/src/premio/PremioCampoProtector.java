@@ -17,16 +17,14 @@ public class PremioCampoProtector implements Temporal	{
 	private Juego juego;
 	private Defensa personaje;
 	private CampoProtector campo;
-	private JLabel label;
 	
-	public PremioCampoProtector(Defensa d, Juego j, JLabel nuevo) {
+	public PremioCampoProtector(Defensa d, Juego j) {
 
 		System.out.println("voy a colocar un campo protector");
 		juego=j;
 		campo = new CampoProtector(this, d);
 		CeldaCompuesta celda = d.getCelda();
 		personaje=d;
-		label=nuevo;
 		if (d!=null) {
 			int x=celda.getX();
 			int y=celda.getY();
