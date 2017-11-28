@@ -13,7 +13,7 @@ public class Premios {
 	}
 	
 	public void crearPremio(int x, int y) {
-		int chance = new Random().nextInt(6);
+		int chance = new Random().nextInt(99);
 		switch(chance) { 
 			case 0: 
 				juego.agregarPremioBomba(x, y);

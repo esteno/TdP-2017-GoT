@@ -8,7 +8,7 @@ public class Gigante extends EnemigoCuerpo{
 
 		public Gigante() {
 			proximoAtaque = 0;
-			puntosVida = 400;
+			puntosVida = 200;
 			fuerzaImpacto = 70;
 			grafico = fabricaGrafica.construirGigante();
 			fuerzaImpacto = 1000;
