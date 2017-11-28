@@ -164,6 +164,7 @@ public class Mapa
 		return matrizDefensa[x][y];
 	}
 	
+	// Retorno la lista de enemigos adyacentes a una celda pasada por parametro
 	public List<ObjetoMovil> adyEnemigos(int x, int y) {
 		List<ObjetoMovil> lista = new ArrayList<ObjetoMovil>();
 		for (int xBuscar = x-1; xBuscar < x+2; xBuscar++)
@@ -174,6 +175,7 @@ public class Mapa
 		return lista;		
 	}
 
+	// Retorno la lista de defensa adyacentes a una celda pasada por parametro
 	public List<Defensa> adyDefensa(int x, int y) {
 		List<Defensa> lista = new ArrayList<Defensa>();
 		for (int xBuscar = x-1; xBuscar < x+2; xBuscar++)
@@ -184,10 +186,12 @@ public class Mapa
 		return lista;		
 	}
 
+	// Muevo graficamente un objeto movil pasado por parametro
 	public void moverGrafico(ObjetoMovil objeto) {
 		juego.moverGrafico(objeto);
 	}
 
+	// Reemplazo un enemigo en una posicion determinada por otro pasado por parametro
 	public void reemplazarEnemigo(Enemigo enemigo, int x, int y) {
 		CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
 		for(int i = x; i < enemigo.getAncho()+x ; i++) {
@@ -200,6 +204,7 @@ public class Mapa
 		enemigo.setCelda(celdaCompuesta);
 	}
 
+	// Reemplazo una defensa en una posicion determinada por otra pasado por parametro
 	public void reemplazarDefensa(Defensa campo, int x, int y) {
 
 		CeldaCompuesta celdaCompuesta = new CeldaCompuesta(this, x, y);
