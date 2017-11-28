@@ -21,8 +21,7 @@ public class CeldaCompuesta extends Celda {
 	}
 	
 	 // Retorna la cantidad de celdas izquierdas de acuerdo al tamaño de la celda compuesta
-	public List<Celda> celdaIzquierda()
-    {
+	public List<Celda> celdaIzquierda(){
     	List<Celda> lista = new ArrayList<Celda>();
     	for(Celda celda : listaCeldas) {
     		Celda celdaIzquierda = mapa.celdaIzquierda(celda);
@@ -33,8 +32,7 @@ public class CeldaCompuesta extends Celda {
     }
 	
 	 // Retorna la cantidad de celdas derechas de acuerdo al tamaño de la celda compuesta
-	public List<Celda> celdaDerecha()
-    {
+	public List<Celda> celdaDerecha(){
     	List<Celda> lista = new ArrayList<Celda>();
     	for(Celda celda : listaCeldas) {
     		Celda celdaDerecha = mapa.celdaDerecha(celda);
@@ -43,7 +41,6 @@ public class CeldaCompuesta extends Celda {
     	}
     	return lista;
     }
-	
 	
 	//Mueve un enemigo de la posicion (xAnterior, yAnterior) a su nueva posicion (x,y). ANTERIOR
     public void moverEnemigo(int x, int y, int xAnterior, int yAnterior)
@@ -70,7 +67,6 @@ public class CeldaCompuesta extends Celda {
     // Limpia la lista de celdas pertenecientes a la celda compuesta
 	public void limpiar() {
 		listaCeldas.clear();
-		
 	}
 
 	// Retorna la lista de celdas perteneciente a la lista compuesta
@@ -91,8 +87,6 @@ public class CeldaCompuesta extends Celda {
 	public void setPos(int x, int y) {
 		this.x = x;
 		this.y = y;
-		
 	}
-
 
 }

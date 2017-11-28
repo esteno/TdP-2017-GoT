@@ -6,6 +6,8 @@ public class Timer implements Runnable{
 	Temporal temporal; 
 	private int sleep;
 	
+	
+	// Se crea un timer y cuando este termina, llama a un metodo implementado por todas las clases que usan la interfaz temporal
 	public Timer(Temporal temp, int tiempo){
 		temporal = temp;
 		sleep = tiempo;

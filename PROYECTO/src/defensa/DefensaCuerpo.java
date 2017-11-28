@@ -9,7 +9,6 @@ import enemigos.Enemigo;
  */
 public abstract class DefensaCuerpo extends Personaje {
 	
-	
 	public void atacar() {
 		// Pide la siguiente Celda, y a esa celda le solicita el objeto movil si es que tiene.
 		for(Celda celdaDerecha : celdas.celdaDerecha()) {

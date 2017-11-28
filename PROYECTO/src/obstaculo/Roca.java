@@ -5,6 +5,7 @@ package obstaculo;
 public class Roca extends Obstaculo {
 
 	public Roca() {
+		
 		velocidadAtaque = 0;
 		proximoAtaque = 0;
 		puntosVida = 150;

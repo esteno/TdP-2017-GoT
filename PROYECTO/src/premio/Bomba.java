@@ -22,6 +22,7 @@ public class Bomba implements Temporal{
 	private Juego j;
 	
 	public Bomba(int a, int b,Mapa mapa, Juego juego, JLabel nuevo){
+		
 		x=a;
 		y=b;
 		label=nuevo;
@@ -30,6 +31,7 @@ public class Bomba implements Temporal{
 		new Timer(this, 3000);
 	}
 	
+	//Al terminar el timer, le hace daño a todas las defensas y enemigos cercanos
 	public void accionarPorTiempo() {
 		List<ObjetoMovil> listaEnemigos = new ArrayList<ObjetoMovil>();
 		List<Defensa> listaDefensa = new ArrayList<Defensa>();

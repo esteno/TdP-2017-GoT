@@ -20,7 +20,6 @@ public abstract class Enemigo extends ObjetoMovil{
 	protected int oro;
 	protected boolean atacando = false;
 
-	
 	//La fuerza de ataque es la fuerza de impacto por el estado de ataque, redondeado a un entero.
 	public int getFuerzaImpacto(){
 		return (int) Math.floor(fuerzaImpacto*estado.multiplicadorAtaque());
@@ -58,10 +57,8 @@ public abstract class Enemigo extends ObjetoMovil{
 						}
 						if(puedeMover) 	{
 							celdas.moverGrafico(this);
-							
 							contVelocidad = (int) Math.floor(velocidad*celdas.getMultiVelocidad());
 							grafico.setBloqueado(true);
-							//celdas.limpiar();
 							List<Celda> celdasActuales = celdas.getCeldas();
 							for(int i = 0; i< celdasActuales.size(); i++) {
 								Celda celdaActual = celdasActuales.get(i);
@@ -69,13 +66,11 @@ public abstract class Enemigo extends ObjetoMovil{
 								celdas.moverEnemigo(celdaNueva.getX(), celdaNueva.getY(), celdaActual.getX(), celdaActual.getY());
 							}
 							celdas.setPos(celdasNuevas.get(0).getX(), celdasNuevas.get(0).getY());
-							System.out.println("celdas pos x"+celdas.getX()+" y "+celdas.getY());
 							celdas.limpiar();
 							//Si ya se puede mover y no hay nada en la celda adyacente se mueve
 							for(Celda celdaNueva: celdasNuevas) {
 									celdas.agregarCeldas(celdaNueva);
 							}
-							
 							if(celdas.getX() == 0)
 								destruir();
 						}	
@@ -93,5 +88,4 @@ public abstract class Enemigo extends ObjetoMovil{
 	public int getOro() {
 		return oro;
 	}
-
 }

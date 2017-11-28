@@ -8,10 +8,8 @@ import colisiones.VisitorDisparoEnemigo;
 import defensa.Defensa;
 import objetos.GameObjectGrafico;
 
-
 public class DisparoEnemigo extends Disparo {
 
-	
 	// Genera un disparo del enemigo con un grafico y daño pasados por parametro
 	public DisparoEnemigo(GameObjectGrafico graf,double danio) {
 		super(graf,danio);
@@ -21,7 +19,6 @@ public class DisparoEnemigo extends Disparo {
 
 	@Override
 	public void avanzar() {
-		
 	//Pide la celda a la que se va a mover
 		if(contVelocidad == 0) {
 			if(alcance > 0) {
@@ -33,7 +30,6 @@ public class DisparoEnemigo extends Disparo {
 						//Cambia de celda
 						celdas.agregarCeldas(celdaNueva);
 						//Decrementa el alcance
-						
 					}
 					alcance--;
 					contVelocidad = velocidad;
@@ -42,13 +38,11 @@ public class DisparoEnemigo extends Disparo {
 				else
 					destruir();
 			}
-			
 		}
 		else {
 			contVelocidad++;
 			}
 	}
-
 	
 	public void atacar() {
 		for(Celda celda : celdas.getCeldas()) {
