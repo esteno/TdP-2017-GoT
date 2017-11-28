@@ -356,6 +356,7 @@ public class Ventana implements Runnable{
 		consola.setBounds(2, 564, 994, 135);
 		ConsolaMensajes.setContainer(consola);
 		ConsolaMensajes.mostrarMensaje("¡Bienvenido! ¡Gracias por jugar!\n Aqui apareceran mensajes importantes.");
+		ConsolaMensajes.mostrarMensaje("Mensaje: a veces hay un bug que hace que tire nullPointer. Se soluciona volviendo a ejecutar el juego.");
 		
 		JScrollPane sp = new JScrollPane(consola);
 		sp.setAutoscrolls(true);
