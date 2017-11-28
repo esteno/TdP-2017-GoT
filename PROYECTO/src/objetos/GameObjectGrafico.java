@@ -53,6 +53,10 @@ public class GameObjectGrafico {
 		return toret;
 	}
 	
+	public ImageIcon getImagen() {
+		return imagen;
+	}
+	
 	public void destruir() {
 		Container padre = label.getParent();
 		if(padre!=null){
