@@ -13,7 +13,6 @@ public abstract class GameObject{
 	protected GameObjectGrafico grafico;
 	protected CeldaCompuesta celdas;
 	protected int puntosVida; // de vida de cada objeto
-	protected boolean isRunning = true;
 	protected FabricaObjetoGrafico fabricaGrafica = FabricaObjetoGrafico.getInstancia();
 	protected int fuerzaImpacto; // cuanta vida consume al atacar
 	
