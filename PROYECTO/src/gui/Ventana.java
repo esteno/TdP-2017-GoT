@@ -355,7 +355,7 @@ public class Ventana implements Runnable{
 		consola.setBorder(new MatteBorder(2,2,2,2,Color.DARK_GRAY));
 		consola.setBounds(2, 564, 994, 135);
 		ConsolaMensajes.setContainer(consola);
-		ConsolaMensajes.mostrarMensaje("¡Bienvenido! ¡Gracias por jugar!\n Aqui apareceran mensajes importantes.");
+		ConsolaMensajes.mostrarMensaje("ï¿½Bienvenido! ï¿½Gracias por jugar!\n Aqui apareceran mensajes importantes.");
 		
 		JScrollPane sp = new JScrollPane(consola);
 		sp.setAutoscrolls(true);
@@ -565,29 +565,13 @@ public class Ventana implements Runnable{
 	}
 	
 	public void gameOver() {
-		int reply = JOptionPane.showConfirmDialog(frame, "Has perdido!\nQuieres jugar de nuevo?", "Game Over", JOptionPane.YES_NO_OPTION);
-		if (reply == JOptionPane.YES_OPTION) {
-			frame.getContentPane().removeAll();
-			frame.getContentPane().repaint();
-			initialize();
-		}
-		else {
-			JOptionPane.showMessageDialog(null, "Gracias por jugar!");
-			System.exit(0);
-		}
+		JOptionPane.showMessageDialog(frame, "Has perdido! Gracias por jugar", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
 	}
 
 	public void ganar(){
-		int reply = JOptionPane.showConfirmDialog(frame, "Has ganado!\nQuieres jugar de nuevo?", "Ganaste el juego!", JOptionPane.YES_NO_OPTION);
-		if (reply == JOptionPane.YES_OPTION) {
-			frame.getContentPane().removeAll();
-			frame.getContentPane().repaint();
-			initialize();
-		}
-		else {
-			JOptionPane.showMessageDialog(null, "Gracias por jugar!");
-			System.exit(0);
-		}
+		JOptionPane.showMessageDialog(frame, "Has ganado!Gracias por jugar", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
 	}
 	
 	public void oroActual(int oro) {
