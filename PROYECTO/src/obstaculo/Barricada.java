@@ -8,7 +8,7 @@ public class Barricada extends Obstaculo{
 		// este obstaculo es un premio, por lo cual es el unico que no se puede comprar
 		velocidadAtaque = 0;
 		proximoAtaque = 0;
-		puntosVida = 150;
+		puntosVida = 180;
 		fuerzaImpacto = 0;
 		grafico = fabricaGrafica.construirGraficoBarricada();
 	}

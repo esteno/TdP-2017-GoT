@@ -29,6 +29,7 @@ public class CampoProtectorEnemigo extends Enemigo {
 	}
 	@Override
 	public void atacar() {
+		enemigo.setCelda(celdas);
 		enemigo.atacar();
 	}
 	

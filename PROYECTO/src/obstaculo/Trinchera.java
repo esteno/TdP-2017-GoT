@@ -6,7 +6,7 @@ public class Trinchera extends Obstaculo {
 		
 		velocidadAtaque = 0;
 		proximoAtaque = 0;
-		puntosVida = 220;
+		puntosVida = 160;
 		fuerzaImpacto = 0;
 		grafico = fabricaGrafica.construirGraficoTrinchera();
 	}
